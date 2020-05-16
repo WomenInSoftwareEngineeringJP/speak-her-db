@@ -1,7 +1,7 @@
 <template>
   <v-app>
+    <Nav/>
     <v-content>
-      <Nav/>
       <HelloWorld/>
       <HelloI18n/>
     </v-content>
@@ -11,7 +11,7 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue';
 import HelloI18n from './components/HelloI18n.vue';
-import Nav from './components/Nav.vue';
+import Nav from './views/Nav.vue';
 
 export default {
   name: 'App',
