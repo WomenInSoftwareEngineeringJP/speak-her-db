@@ -1,17 +1,24 @@
 <template>
-  <v-app-bar id="nav">
-    <img alt='Vue logo' src='../assets/logo.png' />
-    <LocaleSwitcher />
+  <v-app-bar>
+    <v-container fluid>
+      <v-row align-content='start'>
+        <v-col>
+          <v-avatar>
+            <img alt='Vue logo' src='../assets/logo.png' />
+          </v-avatar>
+        </v-col>
+        <v-col>
+          <LocaleSwitcher />
+        </v-col>
+      </v-row>
+    </v-container>
   </v-app-bar>
 
 </template>
 
 <style>
 #nav {
-  /* display: flex; */
-  /* align-items: center; */
   text-align: left;
-  /* padding: 1rem; */
   color: #42b983;
   background-color: #3d536a;
 }

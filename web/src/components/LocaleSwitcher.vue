@@ -1,11 +1,10 @@
 <template>
-  <v-container fluid>
-    <v-row justify="space-around" class="mb-2">
-      <span class="locale-switcher">
-        <v-icon>fas fa-globe</v-icon>
-         {{$i18n.locale}}
-      </span>
-    </v-row>
-  </v-container>
-  <!-- <div class="locale-switcher">🌐 {{$i18n.locale}}</div> -->
+  <v-select
+    v-model='$i18n.locale'
+    prepend-icon='fa-globe'
+    class='locale-switcher'
+  >
+    <option value="en">English</option>
+    <option value="ja">Japanese</option>
+  </v-select>
 </template>
