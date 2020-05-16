@@ -8,6 +8,9 @@
           </v-avatar>
         </v-col>
         <v-col>
+          {{ $t('nav.title')}}
+        </v-col>
+        <v-col>
           <LocaleSwitcher />
         </v-col>
       </v-row>
@@ -15,24 +18,6 @@
   </v-app-bar>
 
 </template>
-
-<style>
-#nav {
-  text-align: left;
-  color: #42b983;
-  background-color: #3d536a;
-}
-#nav img {
-  margin-right: 1rem;
-  max-height: 1rem;
-}
-#nav a {
-  margin-right: 1.5rem;
-  font-weight: bold;
-  color: #fff;
-  text-decoration: none;
-}
-</style>
 
 <script>
 
