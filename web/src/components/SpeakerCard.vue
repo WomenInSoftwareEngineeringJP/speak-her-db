@@ -1,5 +1,22 @@
 <template>
   <v-card>
-    todo
+    <v-container>
+      <v-row>
+        <v-col
+          cols="12"
+          sm="2"
+        >
+          <v-img
+            src="http://placekitten.com/200/300"
+          />
+        </v-col>
+        <v-col
+          cols="12"
+          sm="4"
+        >
+          Kimiko Shibuya
+        </v-col>
+      </v-row>
+    </v-container>
   </v-card>
 </template>

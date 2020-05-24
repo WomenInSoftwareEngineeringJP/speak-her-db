@@ -12,6 +12,7 @@
     "@mdi/font": "^3.6.95",
     "airtable": "0.8.1",
     "core-js": "^3.6.4",
+    "material-design-icons-iconfont": "^5.0.1",
     "roboto-fontface": "*",
     "vue": "^2.6.11",
     "vue-router": "^3.1.6",

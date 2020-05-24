@@ -1,17 +1,19 @@
 <template>
   <v-container>
-    <h1>Find a speaker</h1>
-    <speaker-list />
+    <search />
+    <speaker-card />
   </v-container>
 </template>
 
 <script>
 // @ is an alias to /src
-import SpeakerList from '@/components/SpeakerList.vue';
+import SpeakerCard from '@/components/SpeakerCard.vue';
+import Search from '@/components/Search.vue';
 
 export default {
   components: {
-    SpeakerList,
+    Search,
+    SpeakerCard,
   },
   data() {
     return {
