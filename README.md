@@ -9,8 +9,8 @@ This project uses Airtable as a data source. Follow these steps to configure a d
 
 `.env`
 ```
-AIRTABLE_API_KEY=[your api key here]
-AIRTABLE_DB_ID=[your database ID here]
+VUE_APP_AIRTABLE_API_KEY=[your api key here]
+VUE_APP_AIRTABLE_DB_ID=[your database ID here]
 ```
 
 You can change the DB configs on `/plugins/airtable.js`.
