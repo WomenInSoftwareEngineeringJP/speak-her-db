@@ -1,24 +1,30 @@
 <template>
-<v-app-bar
-      app
-      color="primary"
-      dark
+  <v-app-bar
+    app
+    color="primary"
+    dark
+  >
+    <v-btn
+      href="/"
+      text
     >
-    <v-toolbar-title>
-      SpeakHer
-    </v-toolbar-title>
+      <v-toolbar-title>
+        SpeakHer
+      </v-toolbar-title>
+    </v-btn>
 
-    <v-spacer></v-spacer>
+    <v-spacer />
 
     <v-toolbar-items class="d-flex align-center">
-        <v-btn
-          text
-          href="/about"
-        >About
-        </v-btn>
-        <language-switcher />
-      </v-toolbar-items>
-    </v-app-bar>
+      <v-btn
+        text
+        href="/about"
+      >
+        About
+      </v-btn>
+      <language-switcher />
+    </v-toolbar-items>
+  </v-app-bar>
 </template>
 
 <script>
