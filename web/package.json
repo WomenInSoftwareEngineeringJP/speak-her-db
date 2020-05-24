@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@mdi/font": "^3.6.95",
+    "airtable": "0.8.1",
     "core-js": "^3.6.4",
     "roboto-fontface": "*",
     "vue": "^2.6.11",
