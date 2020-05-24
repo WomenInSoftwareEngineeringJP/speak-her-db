@@ -7,6 +7,9 @@ import '@mdi/font/css/materialdesignicons.css';
 
 Vue.config.productionTip = false;
 
+// Creation of the bus for emitting events from children to non-parent components
+window.bus = new Vue();
+
 new Vue({
   router,
   vuetify,

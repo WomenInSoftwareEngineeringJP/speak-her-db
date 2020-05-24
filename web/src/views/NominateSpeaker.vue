@@ -1,16 +1,11 @@
 <template>
-  <div class="home">
-    Home page
-  </div>
+  <v-container>
+    <h1>Nominate a speaker</h1>
+  </v-container>
 </template>
 
 <script>
-
-
 export default {
-  name: 'Home',
-  components: {
-  },
   data() {
     return {
 
