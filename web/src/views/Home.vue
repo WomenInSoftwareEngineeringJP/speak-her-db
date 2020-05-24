@@ -5,20 +5,12 @@
       src="../assets/background.png"
       height="600"
     >
-      <v-row
-        align="center"
-        justify="center"
-      >
-        <v-col
-          class="text-center"
-          cols="12"
-        >
-          <h1>
-            SpeakHer
-          </h1>
-          <h4>
-            Your online resource for finding female speakers in Japan
-          </h4>
+      <v-row no-gutters>
+        <v-col>
+          <illustration />
+        </v-col>
+        <v-col>
+          <call-to-action />
         </v-col>
       </v-row>
     </v-parallax>
@@ -26,11 +18,14 @@
 </template>
 
 <script>
-
+import Illustration from '@/components/hero/Illustration.vue';
+import CallToAction from '@/components/hero/CallToAction.vue';
 
 export default {
   name: 'Home',
   components: {
+    Illustration,
+    CallToAction,
   },
   data() {
     return {
