@@ -3,6 +3,7 @@
     app
     color="primary"
     dark
+    src="../assets/background.png"
   >
     <v-btn
       href="/"
