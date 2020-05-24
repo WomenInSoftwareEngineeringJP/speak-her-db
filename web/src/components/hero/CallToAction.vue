@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-container>
     <v-row
       align="center"
       justify="center"
@@ -23,6 +23,8 @@
       <v-btn
         outlined
         dark
+        class="ma-2"
+        href="/find-speaker"
       >
         Find a speaker
       </v-btn>
@@ -34,11 +36,13 @@
       <v-btn
         outlined
         dark
+        class="ma-4"
+        href="/nominate-speaker"
       >
         Nominate a speaker
       </v-btn>
     </v-row>
-  </div>
+  </v-container>
 </template>
 
 <script>

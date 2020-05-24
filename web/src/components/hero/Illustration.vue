@@ -2,6 +2,8 @@
   <div>
     <v-img
       src="@/assets/hero.svg"
+      max-height="500"
+      contain
     />
   </div>
 </template>
