@@ -3,9 +3,12 @@
     <v-parallax
       dark
       src="../assets/background.png"
-      height="600"
+      height="700"
     >
-      <v-row no-gutters>
+      <v-row
+        no-gutters
+        align="stretch"
+      >
         <v-col>
           <illustration />
         </v-col>
