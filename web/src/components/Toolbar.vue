@@ -21,7 +21,7 @@
     <v-toolbar-items class="d-flex align-center">
       <v-btn
         text
-        href="/about"
+        href="about"
       >
         About
       </v-btn>
