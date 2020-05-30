@@ -21,15 +21,16 @@
           />
           <v-row><span>{{ speaker.title }}</span></v-row>
           <v-row>
-            {{ speaker.city }}, {{ speaker.prefecture }}
-          </v-row>
-          <v-row>
             {{ speaker.bio }}
           </v-row>
 
-          <tag-box
-            :tags="speaker.tags"
-          />
+          <v-row>
+            <tag-box
+              :tags="speaker.tags"
+            />
+            <v-spacer />
+            <span class="mr-5">{{ speaker.city }}, {{ speaker.prefecture }}</span>
+          </v-row>
         </v-col>
       </v-row>
     </v-container>
