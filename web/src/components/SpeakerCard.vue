@@ -7,7 +7,7 @@
           sm="2"
         >
           <v-img
-            src="http://placekitten.com/200/300"
+            src="http://placekitten.com/100/150"
           />
         </v-col>
         <v-col
@@ -19,18 +19,25 @@
           <v-row>
             {{ speaker.city }}, {{ speaker.prefecture }}
           </v-row>
-          <div
-            v-for="tag in speaker.tags"
-            :key="tag"
-          >
-            <v-chip
-              :color="generateColor(tag)"
-              label
-              small
+          <v-row>
+            {{ speaker.bio }}
+          </v-row>
+          <v-row>
+            <div
+              v-for="tag in speaker.tags"
+              :key="tag"
+              fluid
+              class="mr-2"
             >
-              {{ tag }}
-            </v-chip>
-          </div>
+              <v-chip
+                :color="generateColor(tag)"
+                label
+                small
+              >
+                {{ tag }}
+              </v-chip>
+            </div>
+          </v-row>
         </v-col>
       </v-row>
     </v-container>

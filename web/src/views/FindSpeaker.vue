@@ -31,6 +31,7 @@ export default {
           title: 'Lead Researcher at Tokyu Railways',
           city: 'Yokohama',
           prefecture: 'Kanagawa',
+          bio: 'lorum ipsum dolor sit amet',
           tags: ['STEM', 'Railway'],
         },
         {
@@ -38,6 +39,7 @@ export default {
           title: 'Director, Federal Bureau of Control',
           city: 'Hachioji',
           prefecture: 'Tokyo',
+          bio: 'Prime Candidate Seven',
           tags: ['STEM', 'Mentor'],
         },
         {
@@ -45,6 +47,7 @@ export default {
           title: 'Professor at UNU Tokyo',
           city: 'Shibuya',
           prefecture: 'Tokyo',
+          bio: 'Tenured professor in Environmental Studies',
           tags: ['STEM', 'Research'],
         },
       ],
