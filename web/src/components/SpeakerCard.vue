@@ -14,9 +14,20 @@
           cols="12"
           sm="4"
         >
-          Kimiko Shibuya
+          {{ speaker.name }}
         </v-col>
       </v-row>
     </v-container>
   </v-card>
 </template>
+
+<script>
+export default {
+  props: {
+    speaker: {
+      type: Object,
+      required: true,
+    },
+  },
+};
+</script>

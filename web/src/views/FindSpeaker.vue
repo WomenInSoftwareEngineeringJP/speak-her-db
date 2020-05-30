@@ -1,7 +1,15 @@
 <template>
   <v-container>
     <search />
-    <speaker-card />
+    <div
+      v-for="speaker in speakers"
+      :key="speaker"
+    >
+      <speaker-card
+        :speaker="speaker"
+        class="mb-5"
+      />
+    </div>
   </v-container>
 </template>
 
@@ -17,7 +25,20 @@ export default {
   },
   data() {
     return {
-
+      speakers: [
+        {
+          name: 'Kimiko Shibuya',
+          city: 'Yokohama',
+        },
+        {
+          name: 'Jesse Faden',
+          city: 'Hachioji',
+        },
+        {
+          name: 'Nasha Agumanu',
+          city: 'Tokyo',
+        },
+      ],
     };
   },
 };
