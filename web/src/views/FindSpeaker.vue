@@ -3,7 +3,7 @@
     <search />
     <div
       v-for="speaker in speakers"
-      :key="speaker"
+      :key="speaker.name"
     >
       <speaker-card
         :speaker="speaker"

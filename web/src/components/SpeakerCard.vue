@@ -7,14 +7,18 @@
           sm="2"
         >
           <v-img
-            src="http://placekitten.com/100/150"
+            src="http://placekitten.com/150/150"
+            max-height="150"
+            contain
           />
         </v-col>
         <v-col
           cols="12"
-          sm="4"
+          sm="10"
         >
-          <v-row><h2>{{ speaker.name }}</h2></v-row>
+          <card-header
+            :title="speaker.name"
+          />
           <v-row><span>{{ speaker.title }}</span></v-row>
           <v-row>
             {{ speaker.city }}, {{ speaker.prefecture }}
@@ -22,22 +26,10 @@
           <v-row>
             {{ speaker.bio }}
           </v-row>
-          <v-row>
-            <div
-              v-for="tag in speaker.tags"
-              :key="tag"
-              fluid
-              class="mr-2"
-            >
-              <v-chip
-                :color="generateColor(tag)"
-                label
-                small
-              >
-                {{ tag }}
-              </v-chip>
-            </div>
-          </v-row>
+
+          <tag-box
+            :tags="speaker.tags"
+          />
         </v-col>
       </v-row>
     </v-container>
@@ -45,23 +37,24 @@
 </template>
 
 <script>
-
-// Thank you https://coolors.co/ffadad-ffd6a5-fdffb6-caffbf-9bf6ff-a0c4ff-bdb2ff-ffc6ff
-const softColors = ['#ffadad', '#ffd6a5', '#fdffb6', '#caffbf', '#9bf6ff',
-  '#a0c4ff', '#bdb2ff', '#ffc6ff'];
+import CardHeader from './CardHeader.vue';
+import TagBox from './TagBox.vue';
 
 export default {
+  components: {
+    CardHeader,
+    TagBox,
+  },
   props: {
     speaker: {
       type: Object,
       required: true,
     },
   },
-  methods: {
-    generateColor(tag) {
-      const i = tag.charCodeAt(0) % softColors.length;
-      return softColors[i];
-    },
+  data() {
+    return {
+
+    };
   },
 };
 </script>
