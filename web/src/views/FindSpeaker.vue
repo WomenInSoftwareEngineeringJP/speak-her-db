@@ -28,15 +28,24 @@ export default {
       speakers: [
         {
           name: 'Kimiko Shibuya',
+          title: 'Lead Researcher at Tokyu Railways',
           city: 'Yokohama',
+          prefecture: 'Kanagawa',
+          tags: ['STEM', 'Railway'],
         },
         {
           name: 'Jesse Faden',
+          title: 'Director, Federal Bureau of Control',
           city: 'Hachioji',
+          prefecture: 'Tokyo',
+          tags: ['STEM', 'Mentor'],
         },
         {
           name: 'Nasha Agumanu',
-          city: 'Tokyo',
+          title: 'Professor at UNU Tokyo',
+          city: 'Shibuya',
+          prefecture: 'Tokyo',
+          tags: ['STEM', 'Research'],
         },
       ],
     };
