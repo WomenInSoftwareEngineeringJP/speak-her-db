@@ -24,7 +24,7 @@
         outlined
         dark
         class="ma-2"
-        href="/find-speaker"
+        href="find-speaker"
       >
         Find a speaker
       </v-btn>
@@ -37,7 +37,7 @@
         outlined
         dark
         class="ma-4"
-        href="/nominate-speaker"
+        href="nominate-speaker"
       >
         Nominate a speaker
       </v-btn>
