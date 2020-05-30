@@ -25,6 +25,11 @@
       >
         About
       </v-btn>
+      <v-divider
+        class="mx-4"
+        inset
+        vertical
+      />
       <language-switcher />
     </v-toolbar-items>
   </v-app-bar>
