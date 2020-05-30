@@ -24,7 +24,9 @@
             :key="tag"
           >
             <v-chip
-              :color="tagColor(tag)"
+              :color="generateColor(tag)"
+              label
+              small
             >
               {{ tag }}
             </v-chip>
@@ -36,6 +38,11 @@
 </template>
 
 <script>
+
+// Thank you https://coolors.co/ffadad-ffd6a5-fdffb6-caffbf-9bf6ff-a0c4ff-bdb2ff-ffc6ff
+const softColors = ['#ffadad', '#ffd6a5', '#fdffb6', '#caffbf', '#9bf6ff',
+  '#a0c4ff', '#bdb2ff', '#ffc6ff'];
+
 export default {
   props: {
     speaker: {
@@ -44,13 +51,9 @@ export default {
     },
   },
   methods: {
-    tagColor(tag) {
-      switch (tag[0]) {
-        case 'S':
-          return '#ffadad';
-        default:
-          return '#a0c4ff';
-      }
+    generateColor(tag) {
+      const i = tag.charCodeAt(0) % softColors.length;
+      return softColors[i];
     },
   },
 };
