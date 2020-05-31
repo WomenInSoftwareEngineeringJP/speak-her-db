@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    About
+    <h1>Nominate a speaker</h1>
   </v-container>
 </template>
 
