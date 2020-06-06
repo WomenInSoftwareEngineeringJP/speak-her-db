@@ -49,17 +49,17 @@ export default {
   },
   data() {
     return {
+      nameFields: ['title', 'first', 'middle', 'last'],
     };
   },
   methods: {
-    updateName(field, updated) {
-      console.log(updated);
-      this.$emit('input', {
-        title: field === 'title' ? updated : this.$refs.title.value,
-        first: field === 'first' ? updated : this.$refs.first.value,
-        middle: field === 'middle' ? updated : this.$refs.middle.value,
-        last: field === 'last' ? updated : this.$refs.last.value,
+    // Build the Name object by populating all the nameFields and latest values
+    updateName(updatedField, updatedValue) {
+      const name = {};
+      this.nameFields.forEach((field) => {
+        name[field] = updatedField === field ? updatedValue : this.$refs[field].value;
       });
+      this.$emit('input', name);
     },
   },
 };
