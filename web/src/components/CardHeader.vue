@@ -1,5 +1,5 @@
 <template>
-  <v-row class="mr-5">
+  <v-row>
     <h2>{{ title }}</h2>
     <v-spacer />
     <v-btn

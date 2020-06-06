@@ -1,41 +1,32 @@
 <template>
   <v-card>
-    <v-container>
-      <v-row>
-        <v-col
-          cols="12"
-          sm="2"
+    <v-row
+      class="px-8 py-2"
+      align="stretch"
+    >
+      <v-col>
+        <card-header
+          :title="speaker.name"
+        />
+        <v-row
+          class="my-1"
         >
-          <v-img
-            src="http://placekitten.com/150/150"
-            max-height="150"
-            contain
-          />
-        </v-col>
-        <v-col
-          cols="12"
-          sm="10"
-        >
-          <card-header
-            :title="speaker.name"
-          />
-          <v-row>
-            <span class="speaker-title">{{ speaker.title }}</span>
-            <v-spacer />
-            <span class="mr-5 location">{{ speaker.city }}, {{ speaker.prefecture }}</span>
-          </v-row>
-          <v-row>
-            {{ speaker.bio }}
-          </v-row>
+          <span class="speaker-title">{{ speaker.title }}</span>
+          <v-spacer />
+          <span class="location">{{ speaker.city }}, {{ speaker.prefecture }}</span>
+        </v-row>
+        <v-row>
+          {{ speaker.bio }}
+        </v-row>
 
-          <v-row>
-            <tag-box
-              :tags="speaker.tags"
-            />
-          </v-row>
-        </v-col>
-      </v-row>
-    </v-container>
+        <v-row>
+          <tag-box
+            :tags="speaker.tags"
+            class="mt-3"
+          />
+        </v-row>
+      </v-col>
+    </v-row>
   </v-card>
 </template>
 
