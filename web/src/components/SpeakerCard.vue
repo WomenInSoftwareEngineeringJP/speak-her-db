@@ -19,7 +19,11 @@
           <card-header
             :title="speaker.name"
           />
-          <v-row><span>{{ speaker.title }}</span></v-row>
+          <v-row>
+            <span class="speaker-title">{{ speaker.title }}</span>
+            <v-spacer />
+            <span class="mr-5 location">{{ speaker.city }}, {{ speaker.prefecture }}</span>
+          </v-row>
           <v-row>
             {{ speaker.bio }}
           </v-row>
@@ -28,8 +32,6 @@
             <tag-box
               :tags="speaker.tags"
             />
-            <v-spacer />
-            <span class="mr-5 location">{{ speaker.city }}, {{ speaker.prefecture }}</span>
           </v-row>
         </v-col>
       </v-row>
