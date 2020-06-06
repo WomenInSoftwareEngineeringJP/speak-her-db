@@ -4,13 +4,19 @@
     <v-spacer />
     <v-btn
       icon
+      large
       class="ml-1"
+      @click="toggleFavorite"
     >
-      <v-icon>star</v-icon>
+      <v-icon>
+        {{ star }}
+      </v-icon>
     </v-btn>
     <v-btn
       icon
+      large
       class="ml-1"
+      @click="contact"
     >
       <v-icon>email</v-icon>
     </v-btn>
@@ -23,6 +29,25 @@ export default {
     title: {
       type: String,
       required: true,
+    },
+  },
+  data() {
+    return {
+      favorited: false,
+    };
+  },
+  computed: {
+    star() {
+      return this.favorited ? 'star' : 'star_border';
+    },
+  },
+  methods: {
+    toggleFavorite() {
+      this.favorited = !this.favorited;
+      // TODO: find a way to save this
+    },
+    contact() {
+      // TODO
     },
   },
 };
