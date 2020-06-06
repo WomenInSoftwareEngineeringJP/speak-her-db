@@ -29,7 +29,7 @@
               :tags="speaker.tags"
             />
             <v-spacer />
-            <span class="mr-5">{{ speaker.city }}, {{ speaker.prefecture }}</span>
+            <span class="mr-5 location">{{ speaker.city }}, {{ speaker.prefecture }}</span>
           </v-row>
         </v-col>
       </v-row>
