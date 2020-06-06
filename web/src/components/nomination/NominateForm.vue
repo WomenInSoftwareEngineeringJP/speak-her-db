@@ -1,13 +1,17 @@
 <template>
   <v-form class="my-3">
-    <name-input />
+    <name-input
+      v-model="speakerName"
+    />
     <v-text-field
+      v-model="speakerEmail"
       label="Email"
       outlined
     />
     <job-input />
     <location-input />
     <v-textarea
+      v-model="speakerBio"
       label="Speaker Bio"
       hint="A brief description of the nominee"
       outlined
@@ -31,6 +35,19 @@ export default {
     JobInput,
     LocationInput,
     SubmitterInput,
+  },
+  data() {
+    return {
+      speakerName: {
+        title: '',
+        first: '',
+        middle: '',
+        last: '',
+      },
+      speakerEmail: '',
+      speakerBio: '',
+      location: {},
+    };
   },
 };
 </script>
