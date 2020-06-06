@@ -8,8 +8,12 @@
       label="Email"
       outlined
     />
-    <job-input />
-    <location-input />
+    <job-input
+      v-model="firstJob"
+    />
+    <location-input
+      v-model="location"
+    />
     <v-textarea
       v-model="speakerBio"
       label="Speaker Bio"
@@ -45,8 +49,15 @@ export default {
         last: '',
       },
       speakerEmail: '',
+      firstJob: {
+        title: '',
+        company: '',
+      },
       speakerBio: '',
-      location: {},
+      location: {
+        city: '',
+        prefecture: '',
+      },
     };
   },
 };
