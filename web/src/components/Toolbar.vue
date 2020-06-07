@@ -4,8 +4,9 @@
     color="primary"
     dark
     src="../assets/background.png"
-    elevation="0"
-    hide-on-scroll
+    flat
+
+    absolute
   >
     <v-btn
       href="/"
