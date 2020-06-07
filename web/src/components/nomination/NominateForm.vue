@@ -20,6 +20,8 @@
       hint="A brief description of the nominee"
       outlined
     />
+    <topics-input v-model="form.topics" />
+
     <submitter-input
       v-model="form.submitterInput"
     />
@@ -39,6 +41,7 @@ import NameInput from '@/components/nomination/NameInput.vue';
 import JobInput from '@/components/nomination/JobInput.vue';
 import LocationInput from '@/components/nomination/LocationInput.vue';
 import SubmitterInput from '@/components/nomination/SubmitterInput.vue';
+import TopicsInput from '@/components/nomination/TopicsInput.vue';
 
 export default {
   components: {
@@ -46,6 +49,7 @@ export default {
     JobInput,
     LocationInput,
     SubmitterInput,
+    TopicsInput,
   },
   data() {
     return {
@@ -70,6 +74,7 @@ export default {
           name: '',
           email: '',
         },
+        topics: [],
         permisssion: false,
       },
     };
