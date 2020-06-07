@@ -1,6 +1,10 @@
 <template>
   <v-row dense>
-    <v-col>
+    <v-col
+      cols="12"
+      md="6"
+      xs="12"
+    >
       <v-text-field
         ref="city"
         label="City"
@@ -9,7 +13,11 @@
         @input="updateLocation('city', $event)"
       />
     </v-col>
-    <v-col>
+    <v-col
+      cols="12"
+      md="6"
+      xs="12"
+    >
       <v-text-field
         ref="prefecture"
         label="Prefecture"

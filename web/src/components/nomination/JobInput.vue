@@ -1,6 +1,10 @@
 <template>
   <v-row dense>
-    <v-col>
+    <v-col
+      cols="12"
+      md="6"
+      xs="12"
+    >
       <v-text-field
         ref="title"
         label="Job Title"
@@ -9,7 +13,11 @@
         @input="updateJob('title', $event)"
       />
     </v-col>
-    <v-col>
+    <v-col
+      cols="12"
+      md="6"
+      xs="12"
+    >
       <v-text-field
         ref="company"
         :value="value.company"

@@ -1,6 +1,10 @@
 <template>
   <v-row dense>
-    <v-col dense>
+    <v-col
+      cols="12"
+      md="6"
+      xs="12"
+    >
       <v-text-field
         ref="name"
         label="Submitter Name"
@@ -9,7 +13,11 @@
         @input="updateSubmitter('name', $event)"
       />
     </v-col>
-    <v-col>
+    <v-col
+      cols="12"
+      md="6"
+      xs="12"
+    >
       <v-text-field
         ref="email"
         label="Submitter Email"
