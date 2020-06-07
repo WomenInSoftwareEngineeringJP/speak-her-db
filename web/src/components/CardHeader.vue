@@ -8,7 +8,7 @@
       class="ml-1"
       @click="toggleFavorite"
     >
-      <v-icon>
+      <v-icon v-if="false">
         {{ star }}
       </v-icon>
     </v-btn>
