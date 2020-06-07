@@ -1,30 +1,30 @@
 <template>
   <v-form class="my-3">
     <name-input
-      v-model="speakerName"
+      v-model="form.speakerName"
     />
     <v-text-field
-      v-model="speakerEmail"
+      v-model="form.speakerEmail"
       label="Email"
       outlined
     />
     <job-input
-      v-model="firstJob"
+      v-model="form.firstJob"
     />
     <location-input
-      v-model="location"
+      v-model="form.location"
     />
     <v-textarea
-      v-model="speakerBio"
+      v-model="form.speakerBio"
       label="Speaker Bio"
       hint="A brief description of the nominee"
       outlined
     />
     <submitter-input
-      v-model="submitterInput"
+      v-model="form.submitterInput"
     />
     <v-checkbox
-      v-model="permission"
+      v-model="form.permission"
       class="mt-0"
       label="I have the speaker's permission to submit her information to the SpeakHer database."
     />
@@ -49,28 +49,35 @@ export default {
   },
   data() {
     return {
-      speakerName: {
-        title: '',
-        first: '',
-        middle: '',
-        last: '',
+      form: {
+        speakerName: {
+          title: '',
+          first: '',
+          middle: '',
+          last: '',
+        },
+        speakerEmail: '',
+        firstJob: {
+          title: '',
+          company: '',
+        },
+        speakerBio: '',
+        location: {
+          city: '',
+          prefecture: '',
+        },
+        submitterInput: {
+          name: '',
+          email: '',
+        },
+        permisssion: false,
       },
-      speakerEmail: '',
-      firstJob: {
-        title: '',
-        company: '',
-      },
-      speakerBio: '',
-      location: {
-        city: '',
-        prefecture: '',
-      },
-      submitterInput: {
-        name: '',
-        email: '',
-      },
-      permisssion: false,
     };
+  },
+  methods: {
+    submit() {
+      // TODO
+    },
   },
 };
 </script>
