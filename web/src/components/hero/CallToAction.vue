@@ -8,7 +8,7 @@
         class="text-center"
         cols="12"
       >
-        <h1 class="display-1 font-weight-thin mb-4">
+        <h1 class="display-1 font-weight-thin homepage-title mb-4">
           SpeakHer
         </h1>
         <h4 class="subheading">
