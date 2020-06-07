@@ -3,7 +3,7 @@
     <v-parallax
       dark
       src="../assets/background.png"
-      height="700"
+      height="800"
     >
       <v-row
         no-gutters
@@ -20,6 +20,7 @@
           cols="12"
           md="6"
           xs="12"
+          align="stretch"
         >
           <call-to-action />
         </v-col>
