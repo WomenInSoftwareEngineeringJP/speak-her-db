@@ -9,10 +9,18 @@
         no-gutters
         align="stretch"
       >
-        <v-col>
+        <v-col
+          cols="12"
+          md="6"
+          xs="12"
+        >
           <illustration />
         </v-col>
-        <v-col>
+        <v-col
+          cols="12"
+          md="6"
+          xs="12"
+        >
           <call-to-action />
         </v-col>
       </v-row>
