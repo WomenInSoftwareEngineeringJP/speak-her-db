@@ -20,7 +20,14 @@
       hint="A brief description of the nominee"
       outlined
     />
-    <submitter-input />
+    <submitter-input
+      v-model="submitterInput"
+    />
+    <v-checkbox
+      v-model="permission"
+      class="mt-0"
+      label="I have the speaker's permission to submit her information to the SpeakHer database."
+    />
     <v-btn color="primary">
       Submit
     </v-btn>
@@ -62,6 +69,7 @@ export default {
         name: '',
         email: '',
       },
+      permisssion: false,
     };
   },
 };
