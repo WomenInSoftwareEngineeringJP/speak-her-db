@@ -58,6 +58,10 @@ export default {
         city: '',
         prefecture: '',
       },
+      submitterInput: {
+        name: '',
+        email: '',
+      },
     };
   },
 };
