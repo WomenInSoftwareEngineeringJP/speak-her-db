@@ -1,6 +1,10 @@
 <template>
   <v-row dense>
-    <v-col>
+    <v-col
+      cols="12"
+      md="3"
+      xs="12"
+    >
       <v-text-field
         ref="title"
         :value="value.title"
@@ -9,7 +13,11 @@
         @input="updateName('title', $event)"
       />
     </v-col>
-    <v-col>
+    <v-col
+      cols="12"
+      md="3"
+      xs="12"
+    >
       <v-text-field
         ref="first"
         :value="value.first"
@@ -18,7 +26,11 @@
         @input="updateName('first', $event)"
       />
     </v-col>
-    <v-col>
+    <v-col
+      cols="12"
+      md="3"
+      xs="12"
+    >
       <v-text-field
         ref="middle"
         :value="value.middle"
@@ -27,7 +39,11 @@
         @input="updateName('middle', $event)"
       />
     </v-col>
-    <v-col>
+    <v-col
+      cols="12"
+      md="3"
+      xs="12"
+    >
       <v-text-field
         ref="last"
         :value="value.last"
