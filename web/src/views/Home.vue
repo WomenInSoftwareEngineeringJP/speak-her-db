@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div>
     <v-parallax
       dark
       src="../assets/background.png"

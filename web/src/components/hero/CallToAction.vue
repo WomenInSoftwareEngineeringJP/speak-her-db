@@ -8,12 +8,12 @@
         class="text-center"
         cols="12"
       >
-        <h1 class="display-1 font-weight-thin homepage-title mb-4">
+        <h1 class="homepage-title mb-2">
           SpeakHer
         </h1>
-        <h4 class="subheading">
+        <h2 class="homepage-subtitle mb-4">
           Your online resource for finding female speakers in Japan
-        </h4>
+        </h2>
       </v-col>
     </v-row>
     <v-row

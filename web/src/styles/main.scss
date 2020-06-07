@@ -6,12 +6,15 @@ h2{
   color: #333333;
 }
 
-.home {
-  background-image: url('../assets/background.png');
-}
-
 .homepage-title {
   color: white;
+  font-size: 5rem;
+  font-weight: 200;
+}
+
+.homepage-subtitle {
+  color: white;
+  font-weight: 390;
 }
 
 .location {

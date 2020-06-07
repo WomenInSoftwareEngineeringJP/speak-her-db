@@ -1,5 +1,5 @@
 <template>
-  <v-app class="home">
+  <v-app>
     <toolbar />
 
     <v-content>

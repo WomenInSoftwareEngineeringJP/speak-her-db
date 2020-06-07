@@ -5,7 +5,6 @@
     dark
     src="../assets/background.png"
     flat
-
     absolute
   >
     <v-btn
