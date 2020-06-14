@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="mt-5">
     <v-img
       src="@/assets/hero.svg"
-      max-height="500"
+      max-height="650"
       contain
     />
   </div>
