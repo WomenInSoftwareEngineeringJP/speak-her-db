@@ -2,54 +2,28 @@
   <v-row dense>
     <v-col
       cols="12"
-      md="3"
+      md="6"
       xs="12"
     >
       <v-text-field
-        ref="title"
+        ref="english"
         :value="value.title"
-        label="Title"
+        label="Name (English / Romaji)"
         outlined
-        @input="updateName('title', $event)"
+        @input="updateName('english', $event)"
       />
     </v-col>
     <v-col
       cols="12"
-      md="3"
+      md="6"
       xs="12"
     >
       <v-text-field
-        ref="first"
+        ref="japanese"
         :value="value.first"
-        label="First Name"
+        label="Name (Kanji / Kana)"
         outlined
-        @input="updateName('first', $event)"
-      />
-    </v-col>
-    <v-col
-      cols="12"
-      md="3"
-      xs="12"
-    >
-      <v-text-field
-        ref="middle"
-        :value="value.middle"
-        label="Middle Name"
-        outlined
-        @input="updateName('middle', $event)"
-      />
-    </v-col>
-    <v-col
-      cols="12"
-      md="3"
-      xs="12"
-    >
-      <v-text-field
-        ref="last"
-        :value="value.last"
-        label="Last Name"
-        outlined
-        @input="updateName('last', $event)"
+        @input="updateName('japanese', $event)"
       />
     </v-col>
   </v-row>
@@ -65,7 +39,7 @@ export default {
   },
   data() {
     return {
-      nameFields: ['title', 'first', 'middle', 'last'],
+      nameFields: ['english', 'japanese'],
     };
   },
   methods: {
