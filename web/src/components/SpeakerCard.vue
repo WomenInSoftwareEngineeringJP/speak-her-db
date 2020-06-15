@@ -13,7 +13,7 @@
         >
           <span class="speaker-title">{{ jobTitle }}</span>
           <v-spacer />
-          <span class="location">{{ speaker.prefecture }}</span>
+          <span class="location">{{ prefecture }}</span>
         </v-row>
         <v-row>
           {{ speaker.other_info }}
@@ -44,9 +44,12 @@ export default {
       type: Object,
       required: true,
     },
+    prefectures: {
+      type: Array,
+      required: true,
+    },
   },
   data: () => ({
-    topics: [],
   }),
   computed: {
     jobTitle() {
@@ -55,13 +58,12 @@ export default {
       }
       return this.speaker.job_title || this.speaker.company;
     },
-  },
-  mounted() {
-    this.getTopics();
-  },
-  methods: {
-    getTopics() {
-      this.topics = this.speaker.topics.split(', ');
+    prefecture() {
+      const obj = this.prefectures.find((elem) => (elem.id === this.speaker.prefecture_id[0]));
+      return obj.fields.prefecture;
+    },
+    topics() {
+      return this.speaker.topics.split(', ');
     },
   },
 };

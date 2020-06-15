@@ -12,6 +12,7 @@
         >
           <speaker-card
             :speaker="speaker.fields"
+            :prefectures="prefectures"
             class="mb-5"
           />
         </div>
@@ -34,12 +35,27 @@ export default {
   },
   data: () => ({
     speakers: [],
+    prefectures: [],
     error: null,
   }),
   mounted() {
+    this.getPrefectures();
     this.getSpeakers();
   },
   methods: {
+    getPrefectures() {
+      db('Location')
+        .select({
+          view: 'All',
+        })
+        .firstPage((err, records) => {
+          if (err) {
+            this.error = err;
+          } else {
+            this.prefectures = records;
+          }
+        });
+    },
     getSpeakers() {
       db('People')
         .select({
