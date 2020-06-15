@@ -11,7 +11,7 @@
         <v-row
           class="my-1"
         >
-          <span class="speaker-title">{{ job_title }}</span>
+          <span class="speaker-title">{{ jobTitle }}</span>
           <v-spacer />
           <span class="location">{{ speaker.prefecture }}</span>
         </v-row>
@@ -46,19 +46,21 @@ export default {
     },
   },
   data: () => ({
-    job_title: null,
     topics: [],
   }),
+  computed: {
+    jobTitle() {
+      if (this.speaker.job_title && this.speaker.company) {
+        return `${this.speaker.job_title} at ${this.speaker.company}`;
+      }
+      return this.speaker.job_title || this.speaker.company;
+    },
+  },
   mounted() {
-    this.parseData();
+    this.getTopics();
   },
   methods: {
-    parseData() {
-      if (this.speaker.job_title && this.speaker.company) {
-        this.job_title = `${this.speaker.job_title} at ${this.speaker.company}`;
-      } else {
-        this.job_title = this.speaker.job_title || this.speaker.company;
-      }
+    getTopics() {
       this.topics = this.speaker.topics.split(', ');
     },
   },
