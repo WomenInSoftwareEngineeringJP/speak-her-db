@@ -6,7 +6,7 @@
     >
       <v-col>
         <card-header
-          :title="speaker.name"
+          :title="speaker.get('name')"
         />
         <v-row
           class="my-1"
@@ -16,7 +16,7 @@
           <span class="location">{{ prefecture }}</span>
         </v-row>
         <v-row>
-          {{ speaker.other_info }}
+          {{ speaker.get('other_info') }}
         </v-row>
 
         <v-row>
@@ -53,17 +53,18 @@ export default {
   }),
   computed: {
     jobTitle() {
-      if (this.speaker.job_title && this.speaker.company) {
-        return `${this.speaker.job_title} at ${this.speaker.company}`;
+      if (this.speaker.get('job_title') && this.speaker.get('company')) {
+        return `${this.speaker.get('job_title')} at ${this.speaker.get('company')}`;
       }
-      return this.speaker.job_title || this.speaker.company;
+      return this.speaker.get('job_title') || this.speaker.get('company');
     },
     prefecture() {
-      const obj = this.prefectures.find((elem) => (elem.id === this.speaker.prefecture_id[0]));
-      return obj.fields.prefecture;
+      const locationId = this.speaker.fields.location_id[0];
+      const location = this.prefectures.find((elem) => (elem.id === locationId));
+      return location.fields.prefecture;
     },
     topics() {
-      return this.speaker.topics.split(', ');
+      return this.speaker.get('topics').split(', ');
     },
   },
 };

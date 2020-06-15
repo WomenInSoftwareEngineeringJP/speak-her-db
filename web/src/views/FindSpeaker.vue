@@ -11,7 +11,7 @@
           :key="speaker.id"
         >
           <speaker-card
-            :speaker="speaker.fields"
+            :speaker="speaker"
             :prefectures="prefectures"
             class="mb-5"
           />
@@ -25,8 +25,7 @@
 // @ is an alias to /src
 import SpeakerCard from '@/components/SpeakerCard.vue';
 import Search from '@/components/Search.vue';
-
-import db from '../plugins/airtable';
+import db from '@/plugins/airtable';
 
 export default {
   components: {
