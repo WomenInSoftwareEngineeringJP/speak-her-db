@@ -11,17 +11,17 @@
         <v-row
           class="my-1"
         >
-          <span class="speaker-title">{{ speaker.title }}</span>
+          <span class="speaker-title">{{ jobTitle }}</span>
           <v-spacer />
-          <span class="location">{{ speaker.city }}, {{ speaker.prefecture }}</span>
+          <span class="location">{{ speaker.prefecture }}</span>
         </v-row>
         <v-row>
-          {{ speaker.bio }}
+          {{ speaker.other_info }}
         </v-row>
 
         <v-row>
           <tag-box
-            :tags="speaker.tags"
+            :tags="topics"
             class="mt-3"
           />
         </v-row>
@@ -45,10 +45,24 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-
-    };
+  data: () => ({
+    topics: [],
+  }),
+  computed: {
+    jobTitle() {
+      if (this.speaker.job_title && this.speaker.company) {
+        return `${this.speaker.job_title} at ${this.speaker.company}`;
+      }
+      return this.speaker.job_title || this.speaker.company;
+    },
+  },
+  mounted() {
+    this.getTopics();
+  },
+  methods: {
+    getTopics() {
+      this.topics = this.speaker.topics.split(', ');
+    },
   },
 };
 </script>

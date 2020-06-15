@@ -8,10 +8,10 @@
         <search />
         <div
           v-for="speaker in speakers"
-          :key="speaker.name"
+          :key="speaker.id"
         >
           <speaker-card
-            :speaker="speaker"
+            :speaker="speaker.fields"
             class="mb-5"
           />
         </div>
@@ -25,40 +25,34 @@
 import SpeakerCard from '@/components/SpeakerCard.vue';
 import Search from '@/components/Search.vue';
 
+import db from '../plugins/airtable';
+
 export default {
   components: {
     Search,
     SpeakerCard,
   },
-  data() {
-    return {
-      speakers: [
-        {
-          name: 'Kimiko Shibuya',
-          title: 'Lead Researcher at Tokyu Railways',
-          city: 'Yokohama',
-          prefecture: 'Kanagawa',
-          bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-          tags: ['STEM', 'Railway'],
-        },
-        {
-          name: 'Jesse Faden',
-          title: 'Director, Federal Bureau of Control',
-          city: 'Hachioji',
-          prefecture: 'Tokyo',
-          bio: 'Prime Candidate Seven',
-          tags: ['STEM', 'Mentor'],
-        },
-        {
-          name: 'Nasha Agumanu',
-          title: 'Professor at UNU Tokyo',
-          city: 'Shibuya',
-          prefecture: 'Tokyo',
-          bio: 'Tenured professor in Environmental Studies',
-          tags: ['STEM', 'Research'],
-        },
-      ],
-    };
+  data: () => ({
+    speakers: [],
+    error: null,
+  }),
+  mounted() {
+    this.getSpeakers();
+  },
+  methods: {
+    getSpeakers() {
+      db('People')
+        .select({
+          view: 'Published',
+        })
+        .firstPage((err, records) => {
+          if (err) {
+            this.error = err;
+          } else {
+            this.speakers = records;
+          }
+        });
+    },
   },
 };
 </script>
