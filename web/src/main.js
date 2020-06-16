@@ -6,7 +6,12 @@ import 'roboto-fontface/css/roboto/roboto-fontface.css';
 import '@mdi/font/css/materialdesignicons.css';
 import i18n from './i18n';
 
+import '@/styles/main.scss';
+
 Vue.config.productionTip = false;
+
+// Creation of the bus for emitting events from children to non-parent components
+window.bus = new Vue();
 
 new Vue({
   router,

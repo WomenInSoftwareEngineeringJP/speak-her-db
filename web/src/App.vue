@@ -1,25 +1,21 @@
 <template>
   <v-app>
-    <Nav/>
+    <toolbar />
+
     <v-content>
-      <HelloWorld/>
-      <HelloI18n/>
+      <router-view />
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
-import HelloI18n from './components/HelloI18n.vue';
-import Nav from './views/Nav.vue';
+import Toolbar from './components/Toolbar.vue';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
-    HelloI18n,
-    Nav,
+    Toolbar,
   },
 
   data: () => ({

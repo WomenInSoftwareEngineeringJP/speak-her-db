@@ -1,0 +1,58 @@
+<template>
+  <v-container>
+    <v-row
+      justify="center"
+      no-gutters
+    >
+      <v-col lg="10">
+        <search />
+        <div
+          v-for="speaker in speakers"
+          :key="speaker.id"
+        >
+          <speaker-card
+            :speaker="speaker.fields"
+            class="mb-5"
+          />
+        </div>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+
+<script>
+// @ is an alias to /src
+import SpeakerCard from '@/components/SpeakerCard.vue';
+import Search from '@/components/Search.vue';
+
+import db from '../plugins/airtable';
+
+export default {
+  components: {
+    Search,
+    SpeakerCard,
+  },
+  data: () => ({
+    speakers: [],
+    error: null,
+  }),
+  mounted() {
+    this.getSpeakers();
+  },
+  methods: {
+    getSpeakers() {
+      db('People')
+        .select({
+          view: 'Published',
+        })
+        .firstPage((err, records) => {
+          if (err) {
+            this.error = err;
+          } else {
+            this.speakers = records;
+          }
+        });
+    },
+  },
+};
+</script>
