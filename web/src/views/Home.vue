@@ -1,8 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-=======
   <div>
     <v-parallax
       dark
@@ -30,7 +26,6 @@
         </v-col>
       </v-row>
     </v-parallax>
->>>>>>> master
   </div>
 </template>
 

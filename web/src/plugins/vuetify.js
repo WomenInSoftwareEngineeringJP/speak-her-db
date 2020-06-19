@@ -6,10 +6,6 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css';
 Vue.use(Vuetify);
 
 export default new Vuetify({
-<<<<<<< HEAD
-  icons: {
-    iconfont: 'fa',
-=======
   theme: {
     themes: {
       light: {
@@ -18,6 +14,5 @@ export default new Vuetify({
         accent: '#c33764',
       },
     },
->>>>>>> master
   },
 });
