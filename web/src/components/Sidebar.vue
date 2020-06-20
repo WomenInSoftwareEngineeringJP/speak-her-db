@@ -35,6 +35,9 @@
 import LanguageSwitcher from './LanguageSwitcher.vue';
 
 export default {
+  components: {
+    LanguageSwitcher,
+  },
   props: {
     show: {
       type: Boolean,
@@ -44,9 +47,6 @@ export default {
       type: Array,
       required: true,
     },
-  },
-  components: {
-    LanguageSwitcher
   },
   data: () => ({
     drawer: false,
