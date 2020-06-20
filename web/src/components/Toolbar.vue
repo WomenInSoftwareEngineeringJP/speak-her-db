@@ -1,11 +1,9 @@
 <template>
   <v-app-bar
     app
-    color="primary"
+    dense
     dark
-    src="../assets/background.png"
     flat
-    absolute
   >
     <v-btn
       href="/"
@@ -21,9 +19,10 @@
     <v-toolbar-items class="d-flex align-center">
       <v-btn
         text
-        href="about"
+        target="_blank"
+        href="https://airtable.com/shrOSFTp1mDij00AK"
       >
-        About
+        Nominate A Speaker
       </v-btn>
       <v-divider
         class="mx-4"

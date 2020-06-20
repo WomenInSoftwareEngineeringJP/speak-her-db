@@ -1,11 +1,11 @@
 <template>
   <v-container>
     <v-row
+      class="pt-5"
       justify="center"
       no-gutters
     >
       <v-col lg="10">
-        <search />
         <div
           v-for="speaker in speakers"
           :key="speaker.id"
@@ -24,12 +24,10 @@
 <script>
 // @ is an alias to /src
 import SpeakerCard from '@/components/SpeakerCard.vue';
-import Search from '@/components/Search.vue';
 import db from '@/plugins/airtable';
 
 export default {
   components: {
-    Search,
     SpeakerCard,
   },
   data: () => ({

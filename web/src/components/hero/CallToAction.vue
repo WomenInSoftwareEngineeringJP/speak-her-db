@@ -2,6 +2,7 @@
   <v-container
     fluid
     fill-height
+    align="center"
   >
     <div class="align-md-center">
       <v-row>
@@ -23,21 +24,9 @@
         <v-btn
           outlined
           dark
-          class="ma-2"
-          href="find-speaker"
-        >
-          Find a speaker
-        </v-btn>
-      </v-row>
-      <v-row
-        align="center"
-        justify="center"
-      >
-        <v-btn
-          outlined
-          dark
           class="ma-4"
-          href="nominate-speaker"
+          target="_blank"
+          href="https://airtable.com/shrOSFTp1mDij00AK"
         >
           Nominate a speaker
         </v-btn>
