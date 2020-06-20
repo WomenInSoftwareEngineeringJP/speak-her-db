@@ -24,11 +24,16 @@
           </v-list-item-content>
         </v-list-item>
       </div>
+      <v-list-item>
+        <language-switcher />
+      </v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>
 
 <script>
+import LanguageSwitcher from './LanguageSwitcher.vue';
+
 export default {
   props: {
     show: {
@@ -39,6 +44,9 @@ export default {
       type: Array,
       required: true,
     },
+  },
+  components: {
+    LanguageSwitcher
   },
   data: () => ({
     drawer: false,
