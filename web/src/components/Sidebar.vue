@@ -45,6 +45,11 @@ export default {
     show() {
       this.drawer = this.show;
     },
+    drawer() {
+      if (!this.drawer) {
+              this.$emit('close-drawer')
+      }
+    }
   },
 };
 </script>

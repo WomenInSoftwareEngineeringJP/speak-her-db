@@ -8,6 +8,7 @@
       v-if="$vuetify.breakpoint.smAndDown"
       :show="showSidebar"
       :items="navigation"
+      @close-drawer="showSidebar = false"
     />
     <v-content>
       <router-view />
