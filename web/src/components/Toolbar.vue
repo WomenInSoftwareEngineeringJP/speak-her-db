@@ -18,7 +18,7 @@
 
     <v-spacer />
 
-    <v-toolbar-items class="d-flex align-center">
+    <v-toolbar-items class="d-flex align-center" v-if="$vuetify.mdAndUp">
       <v-btn
         text
         href="about"
@@ -31,6 +31,11 @@
         vertical
       />
       <language-switcher />
+    </v-toolbar-items>
+    <v-toolbar-items v-else>
+      <v-btn text>
+        <v-icon>menu</v-icon>
+      </v-btn>
     </v-toolbar-items>
   </v-app-bar>
 </template>
