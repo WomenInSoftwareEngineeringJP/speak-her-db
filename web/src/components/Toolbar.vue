@@ -18,13 +18,20 @@
 
     <v-spacer />
 
-    <v-toolbar-items class="d-flex align-center" v-if="$vuetify.mdAndUp">
-      <v-btn
-        text
-        href="about"
+    <v-toolbar-items
+      v-if="$vuetify.breakpoint.mdAndUp"
+      class="d-flex align-center"
+    >
+      <div v-for="item in filteredItems"
+        :key="item.title"
       >
-        About
-      </v-btn>
+        <v-btn
+          text
+          :href="item.path"
+        >
+          {{ item.title }}
+        </v-btn>
+      </div>
       <v-divider
         class="mx-4"
         inset
@@ -33,7 +40,10 @@
       <language-switcher />
     </v-toolbar-items>
     <v-toolbar-items v-else>
-      <v-btn text>
+      <v-btn
+        text
+        @click="$emit('click-hamburger')"
+      >
         <v-icon>menu</v-icon>
       </v-btn>
     </v-toolbar-items>
@@ -45,12 +55,24 @@
 import LanguageSwitcher from './LanguageSwitcher.vue';
 
 export default {
+  props: {
+    items: {
+      type: Array,
+      required: true,
+    }
+  },
   components: {
     LanguageSwitcher,
   },
+  computed: {
+    // some navigation items aren't meant for display in the toolbar, so filter
+    // them out
+    filteredItems() {
+      return this.items.filter((item) => { return !item.hideInToolbar })
+    }
+  },
   data() {
     return {
-
     };
   },
 };
