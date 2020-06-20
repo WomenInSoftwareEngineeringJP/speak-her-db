@@ -27,26 +27,26 @@ export default {
     Toolbar,
     Sidebar,
   },
+  data: () => ({
+    showSidebar: false,
+  }),
   computed: {
     navigation() {
       return [
         {
-          title: "Home",
-          icon: "home",
-          path: "/",
+          title: 'Home',
+          icon: 'home',
+          path: '/',
           hideInToolbar: true,
         },
         {
-          title: "About",
-          icon: "help",
-          path: "about"
-        }
+          title: 'About',
+          icon: 'help',
+          path: 'about',
+        },
       ];
-    }
+    },
   },
-  data: () => ({
-    showSidebar: false,
-  }),
   methods: {
     clickHamburger() {
       this.showSidebar = !this.showSidebar;

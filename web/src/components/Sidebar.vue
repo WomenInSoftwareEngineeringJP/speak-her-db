@@ -7,8 +7,10 @@
     color="primary"
   >
     <v-list>
-      <div v-for="item in items"
-          :key="item.title">
+      <div
+        v-for="item in items"
+        :key="item.title"
+      >
         <v-list-item
           :href="item.path"
           link
@@ -36,7 +38,7 @@ export default {
     items: {
       type: Array,
       required: true,
-    }
+    },
   },
   data: () => ({
     drawer: false,
@@ -47,9 +49,9 @@ export default {
     },
     drawer() {
       if (!this.drawer) {
-              this.$emit('close-drawer')
+        this.$emit('close-drawer');
       }
-    }
+    },
   },
 };
 </script>

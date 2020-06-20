@@ -22,7 +22,8 @@
       v-if="$vuetify.breakpoint.mdAndUp"
       class="d-flex align-center"
     >
-      <div v-for="item in filteredItems"
+      <div
+        v-for="item in filteredItems"
         :key="item.title"
       >
         <v-btn
@@ -55,25 +56,25 @@
 import LanguageSwitcher from './LanguageSwitcher.vue';
 
 export default {
+  components: {
+    LanguageSwitcher,
+  },
   props: {
     items: {
       type: Array,
       required: true,
-    }
+    },
   },
-  components: {
-    LanguageSwitcher,
+  data() {
+    return {
+    };
   },
   computed: {
     // some navigation items aren't meant for display in the toolbar, so filter
     // them out
     filteredItems() {
-      return this.items.filter((item) => { return !item.hideInToolbar })
-    }
-  },
-  data() {
-    return {
-    };
+      return this.items.filter((item) => !item.hideInToolbar);
+    },
   },
 };
 </script>
