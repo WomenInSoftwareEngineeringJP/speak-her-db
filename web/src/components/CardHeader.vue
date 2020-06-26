@@ -3,12 +3,13 @@
     <h2>{{ title }}</h2>
     <v-spacer />
     <v-btn
+      v-if="false"
       icon
       large
       class="ml-1"
       @click="toggleFavorite"
     >
-      <v-icon v-if="false">
+      <v-icon>
         {{ star }}
       </v-icon>
     </v-btn>

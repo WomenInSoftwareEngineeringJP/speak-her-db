@@ -2,7 +2,7 @@
   <v-container>
     <contact-dialogue
       :speaker="selectedSpeaker"
-      @cancel="selectedSpeaker = {}"
+      @close="selectedSpeaker = {}"
     />
     <v-row
       justify="center"
