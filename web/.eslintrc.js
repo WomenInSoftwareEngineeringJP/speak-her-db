@@ -7,6 +7,9 @@ module.exports = {
     'plugin:vue/recommended',
     '@vue/airbnb',
   ],
+  globals: {
+    "bus": false,
+  },
   parserOptions: {
     parser: 'babel-eslint',
   },

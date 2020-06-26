@@ -16,7 +16,7 @@
       icon
       large
       class="ml-1"
-      @click="contact"
+      @click="$emit('contact-speaker')"
     >
       <v-icon>email</v-icon>
     </v-btn>
@@ -45,9 +45,6 @@ export default {
     toggleFavorite() {
       this.favorited = !this.favorited;
       // TODO: find a way to save this
-    },
-    contact() {
-      // TODO
     },
   },
 };

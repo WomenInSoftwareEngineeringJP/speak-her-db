@@ -7,6 +7,7 @@
       <v-col>
         <card-header
           :title="speaker.name"
+          @contact-speaker="contactSpeaker()"
         />
         <v-row
           class="my-1"
@@ -62,6 +63,9 @@ export default {
   methods: {
     getTopics() {
       this.topics = this.speaker.topics.split(', ');
+    },
+    contactSpeaker() {
+      bus.$emit('contact-speaker', this.speaker);
     },
   },
 };

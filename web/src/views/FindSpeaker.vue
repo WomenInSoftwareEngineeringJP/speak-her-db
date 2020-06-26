@@ -1,5 +1,9 @@
 <template>
   <v-container>
+    <contact-modal
+      :speaker="selectedSpeaker"
+      @cancel="selectedSpeaker = {}"
+    />
     <v-row
       justify="center"
       no-gutters
@@ -24,20 +28,28 @@
 // @ is an alias to /src
 import SpeakerCard from '@/components/SpeakerCard.vue';
 import Search from '@/components/Search.vue';
+import ContactModal from '@/components/contact/ContactModal.vue';
 
 import db from '../plugins/airtable';
 
 export default {
   components: {
+    ContactModal,
     Search,
     SpeakerCard,
   },
   data: () => ({
     speakers: [],
     error: null,
+    selectedSpeaker: {},
   }),
   mounted() {
     this.getSpeakers();
+
+    bus.$on('contact-speaker', (speaker) => { this.selectedSpeaker = speaker; });
+  },
+  beforeDestroy() {
+    bus.$off('contact-speaker');
   },
   methods: {
     getSpeakers() {
