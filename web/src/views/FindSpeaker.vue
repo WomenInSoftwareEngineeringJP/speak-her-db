@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <contact-modal
+    <contact-dialogue
       :speaker="selectedSpeaker"
       @cancel="selectedSpeaker = {}"
     />
@@ -28,13 +28,13 @@
 // @ is an alias to /src
 import SpeakerCard from '@/components/SpeakerCard.vue';
 import Search from '@/components/Search.vue';
-import ContactModal from '@/components/contact/ContactModal.vue';
+import ContactDialogue from '@/components/contact/ContactDialogue.vue';
 
 import db from '../plugins/airtable';
 
 export default {
   components: {
-    ContactModal,
+    ContactDialogue,
     Search,
     SpeakerCard,
   },
