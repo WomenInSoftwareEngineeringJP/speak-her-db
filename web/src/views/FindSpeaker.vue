@@ -1,8 +1,15 @@
 <template>
   <v-container>
-    <contact-dialogue
+    <contact-dialog
       :speaker="selectedSpeaker"
-      @close="selectedSpeaker = {}"
+      :show="showDialog"
+      @close="showDialog=false"
+      @submit="showDialog= false; showSuccess = true"
+    />
+    <contact-result
+      :show="showSuccess"
+      :name="selectedSpeaker.name || ''"
+      @close="showSuccess = false"
     />
     <v-row
       justify="center"
@@ -28,13 +35,15 @@
 // @ is an alias to /src
 import SpeakerCard from '@/components/SpeakerCard.vue';
 import Search from '@/components/Search.vue';
-import ContactDialogue from '@/components/contact/ContactDialogue.vue';
+import ContactDialog from '@/components/contact/ContactDialog.vue';
+import ContactResult from '@/components/contact/ContactResult.vue';
 
 import db from '../plugins/airtable';
 
 export default {
   components: {
-    ContactDialogue,
+    ContactDialog,
+    ContactResult,
     Search,
     SpeakerCard,
   },
@@ -42,11 +51,13 @@ export default {
     speakers: [],
     error: null,
     selectedSpeaker: {},
+    showDialog: false,
+    showSuccess: false,
   }),
   mounted() {
     this.getSpeakers();
 
-    bus.$on('contact-speaker', (speaker) => { this.selectedSpeaker = speaker; });
+    bus.$on('contact-speaker', (speaker) => { this.selectedSpeaker = speaker; this.showDialog = true; });
   },
   beforeDestroy() {
     bus.$off('contact-speaker');

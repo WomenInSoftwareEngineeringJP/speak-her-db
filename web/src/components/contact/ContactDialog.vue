@@ -32,13 +32,17 @@
 
 
 <script>
-import TwoButtonModal from './TwoButtonModal.vue';
+import TwoButtonModal from '@/components/cards/TwoButtonModal.vue';
 
 export default {
   components: {
     TwoButtonModal,
   },
   props: {
+    show: {
+      type: Boolean,
+      required: true,
+    },
     speaker: {
       type: Object,
       default: () => ({}),
@@ -52,9 +56,8 @@ export default {
     },
   }),
   computed: {
-    // Check if the essential data of the speaker is set
     visible() {
-      return !!this.speaker.name;
+      return this.show;
     },
   },
   methods: {
@@ -65,9 +68,8 @@ export default {
     },
     submitForm() {
       // TODO: How to send this to Netlify?
-      console.log(this.form.name, this.speaker.name);
       this.resetForm();
-      this.$emit('close');
+      this.$emit('submit');
     },
   },
 };
