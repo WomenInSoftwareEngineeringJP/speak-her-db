@@ -5,7 +5,7 @@
     max-width="500px"
   >
     <form
-      name="contact"
+      name="contact-speaker"
       method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
@@ -97,7 +97,7 @@ export default {
       axios.post(
         '/',
         this.encode({
-          'form-name': 'ask-question',
+          'form-name': 'contact-speaker',
           ...this.form,
         }),
         axiosConfig,
