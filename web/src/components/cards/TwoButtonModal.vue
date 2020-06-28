@@ -16,6 +16,7 @@
         <v-btn
           text
           color="primary darken-2"
+          type="submit"
           @click="$emit('click')"
         >
           Submit

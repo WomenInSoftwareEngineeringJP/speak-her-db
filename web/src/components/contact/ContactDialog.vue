@@ -8,10 +8,16 @@
       name="contact"
       method="POST"
       data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      @submit.prevent="handleSubmit"
     >
+      <input
+        type="hidden"
+        name="form-name"
+        value="ask-question"
+      >
       <two-button-modal
         :title="`Contact ${speaker.name}?`"
-        @click="submitForm()"
         @cancel="$emit('close')"
       >
         We'll send a message to contact {{ speaker.name }} on your behalf.
@@ -42,6 +48,7 @@
 
 <script>
 import TwoButtonModal from '@/components/cards/TwoButtonModal.vue';
+import axios from 'axios';
 
 export default {
   components: {
@@ -75,8 +82,26 @@ export default {
       this.$set(this.form, 'email', '');
       this.$set(this.form, 'message', '');
     },
-    submitForm() {
-      // TODO: How to send this to Netlify?
+    encode(data) {
+      return Object.keys(data)
+        .map(
+          (key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`,
+        )
+        .join('&');
+    },
+    handleSubmit() {
+      const axiosConfig = {
+        header: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      };
+      this.form.speaker = this.speaker.name;
+      axios.post(
+        '/',
+        this.encode({
+          'form-name': 'ask-question',
+          ...this.form,
+        }),
+        axiosConfig,
+      );
       this.resetForm();
       this.$emit('submit');
     },
