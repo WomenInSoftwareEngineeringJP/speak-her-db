@@ -33,8 +33,6 @@
 </template>
 
 <script>
-import db from '@/plugins/airtable';
-
 export default {
   props: {
     value: {
@@ -50,21 +48,14 @@ export default {
     };
   },
   mounted() {
-    this.getPrefectures();
+    this.$getLocations(this.setPrefectures, this.setError);
   },
   methods: {
-    getPrefectures() {
-      db('Location')
-        .select({
-          view: 'All',
-        })
-        .firstPage((err, records) => {
-          if (err) {
-            this.error = err;
-          } else {
-            this.prefectures = records;
-          }
-        });
+    setPrefectures(records) {
+      this.prefectures = records;
+    },
+    setError(err) {
+      this.error = err;
     },
     // Build the Location object by populating all the nameFields and latest values
     updateLocation(updatedField, updatedValue) {

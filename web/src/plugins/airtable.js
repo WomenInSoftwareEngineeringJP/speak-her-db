@@ -1,10 +1,32 @@
-const Airtable = require('airtable');
+import Airtable from 'airtable';
 
-Airtable.configure({
-  endpointUrl: 'https://api.airtable.com',
-  apiKey: process.env.VUE_APP_AIRTABLE_API_KEY,
-});
+Airtable.install = function (Vue) {
+  /* eslint-disable no-param-reassign */
 
-const db = Airtable.base(process.env.VUE_APP_AIRTABLE_DB_ID);
+  this.configure({
+    endpointUrl: 'https://api.airtable.com',
+    apiKey: process.env.VUE_APP_AIRTABLE_API_KEY,
+  });
 
-export default db;
+  Vue.prototype.$db = this.base(process.env.VUE_APP_AIRTABLE_DB_ID);
+
+  Vue.prototype.$locations = [];
+
+  Vue.prototype.$getLocations = function (successCallback, errorCallback) {
+    if (this.$locations.length) {
+      // return cached response
+      successCallback(this.$locations);
+    } else {
+      this.$db('Location').select({ view: 'All' }).firstPage((error, records) => {
+        if (error) {
+          errorCallback(error);
+        } else {
+          this.$locations = records; // cache response
+          successCallback(records);
+        }
+      });
+    }
+  };
+};
+
+export default Airtable;

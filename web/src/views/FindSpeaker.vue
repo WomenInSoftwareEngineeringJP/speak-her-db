@@ -25,7 +25,6 @@
 // @ is an alias to /src
 import SpeakerCard from '@/components/SpeakerCard.vue';
 import Search from '@/components/Search.vue';
-import db from '@/plugins/airtable';
 
 export default {
   components: {
@@ -38,25 +37,18 @@ export default {
     error: null,
   }),
   mounted() {
-    this.getPrefectures();
+    this.$getLocations(this.setPrefectures, this.setError);
     this.getSpeakers();
   },
   methods: {
-    getPrefectures() {
-      db('Location')
-        .select({
-          view: 'All',
-        })
-        .firstPage((err, records) => {
-          if (err) {
-            this.error = err;
-          } else {
-            this.prefectures = records;
-          }
-        });
+    setPrefectures(records) {
+      this.prefectures = records;
+    },
+    setError(err) {
+      this.error = err;
     },
     getSpeakers() {
-      db('People')
+      this.$db('People')
         .select({
           view: 'Published',
         })
