@@ -61,7 +61,7 @@ export default {
     prefecture() {
       const locationId = this.speaker.fields.location_id[0];
       const location = this.prefectures.find((elem) => (elem.id === locationId));
-      return location.fields.prefecture;
+      return location?.fields?.prefecture;
     },
     topics() {
       return this.speaker.get('topics').split(', ');
