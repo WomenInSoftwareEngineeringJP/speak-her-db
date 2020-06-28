@@ -2,7 +2,7 @@
   <v-app>
     <toolbar
       :items="navigation"
-      @click-hamburger="clickHamburger"
+      @click-menu="clickMenu"
     />
     <sidebar
       v-if="$vuetify.breakpoint.smAndDown"
@@ -48,7 +48,7 @@ export default {
     },
   },
   methods: {
-    clickHamburger() {
+    clickMenu() {
       this.showSidebar = !this.showSidebar;
     },
   },

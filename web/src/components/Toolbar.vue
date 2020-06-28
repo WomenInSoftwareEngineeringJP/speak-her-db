@@ -43,7 +43,7 @@
     <v-toolbar-items v-else>
       <v-btn
         text
-        @click="$emit('click-hamburger')"
+        @click="$emit('click-menu')"
       >
         <v-icon>menu</v-icon>
       </v-btn>
