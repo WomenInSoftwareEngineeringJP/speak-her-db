@@ -26,19 +26,16 @@
           ref="name"
           v-model="form.name"
           label="Your Name"
-          name="userName"
         />
         <v-text-field
           ref="name"
           v-model="form.email"
           label="Email"
-          name="userEmail"
         />
         <v-textarea
           ref="name"
           v-model="form.message"
           label="Message"
-          name="userMessage"
         />
       </two-button-modal>
     </form>
