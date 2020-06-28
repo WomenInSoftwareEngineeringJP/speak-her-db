@@ -14,6 +14,7 @@ module.exports = {
           path.resolve(__dirname, 'dist'),
           // List of routes to prerender
           ['/'],
+          ['/find-speaker'],
           {
             // options
           },
