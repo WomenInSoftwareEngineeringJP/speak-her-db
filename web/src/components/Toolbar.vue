@@ -18,19 +18,35 @@
 
     <v-spacer />
 
-    <v-toolbar-items class="d-flex align-center">
-      <v-btn
-        text
-        href="about"
+    <v-toolbar-items
+      v-if="$vuetify.breakpoint.mdAndUp"
+      class="d-flex align-center"
+    >
+      <div
+        v-for="item in filteredItems"
+        :key="item.title"
       >
-        About
-      </v-btn>
+        <v-btn
+          text
+          :href="item.path"
+        >
+          {{ item.title }}
+        </v-btn>
+      </div>
       <v-divider
         class="mx-4"
         inset
         vertical
       />
       <language-switcher />
+    </v-toolbar-items>
+    <v-toolbar-items v-else>
+      <v-btn
+        text
+        @click="$emit('click-menu')"
+      >
+        <v-icon>menu</v-icon>
+      </v-btn>
     </v-toolbar-items>
   </v-app-bar>
 </template>
@@ -43,10 +59,22 @@ export default {
   components: {
     LanguageSwitcher,
   },
+  props: {
+    items: {
+      type: Array,
+      required: true,
+    },
+  },
   data() {
     return {
-
     };
+  },
+  computed: {
+    // some navigation items aren't meant for display in the toolbar, so filter
+    // them out
+    filteredItems() {
+      return this.items.filter((item) => !item.hideInToolbar);
+    },
   },
 };
 </script>
