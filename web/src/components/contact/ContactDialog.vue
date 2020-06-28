@@ -4,29 +4,38 @@
     persistent
     max-width="500px"
   >
-    <two-button-modal
-      :title="`Contact ${speaker.name}?`"
-      @click="submitForm()"
-      @cancel="$emit('close')"
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
     >
-      We'll send a message to contact {{ speaker.name }} on your behalf.
+      <two-button-modal
+        :title="`Contact ${speaker.name}?`"
+        @click="submitForm()"
+        @cancel="$emit('close')"
+      >
+        We'll send a message to contact {{ speaker.name }} on your behalf.
 
-      <v-text-field
-        ref="name"
-        v-model="form.name"
-        label="Your Name"
-      />
-      <v-text-field
-        ref="name"
-        v-model="form.email"
-        label="Email"
-      />
-      <v-textarea
-        ref="name"
-        v-model="form.message"
-        label="Message"
-      />
-    </two-button-modal>
+        <v-text-field
+          ref="name"
+          v-model="form.name"
+          label="Your Name"
+          name="userName"
+        />
+        <v-text-field
+          ref="name"
+          v-model="form.email"
+          label="Email"
+          name="userEmail"
+        />
+        <v-textarea
+          ref="name"
+          v-model="form.message"
+          label="Message"
+          name="userMessage"
+        />
+      </two-button-modal>
+    </form>
   </v-dialog>
 </template>
 
