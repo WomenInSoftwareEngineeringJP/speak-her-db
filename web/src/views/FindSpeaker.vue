@@ -11,7 +11,8 @@
           :key="speaker.id"
         >
           <speaker-card
-            :speaker="speaker.fields"
+            :speaker="speaker"
+            :prefectures="prefectures"
             class="mb-5"
           />
         </div>
@@ -25,8 +26,6 @@
 import SpeakerCard from '@/components/SpeakerCard.vue';
 import Search from '@/components/Search.vue';
 
-import db from '../plugins/airtable';
-
 export default {
   components: {
     Search,
@@ -34,14 +33,22 @@ export default {
   },
   data: () => ({
     speakers: [],
+    prefectures: [],
     error: null,
   }),
   mounted() {
+    this.$getLocations(this.setPrefectures, this.setError);
     this.getSpeakers();
   },
   methods: {
+    setPrefectures(records) {
+      this.prefectures = records;
+    },
+    setError(err) {
+      this.error = err;
+    },
     getSpeakers() {
-      db('People')
+      this.$db('People')
         .select({
           view: 'Published',
         })
