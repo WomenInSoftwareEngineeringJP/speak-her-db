@@ -13,10 +13,12 @@
     <v-content>
       <router-view />
     </v-content>
+    <app-footer />
   </v-app>
 </template>
 
 <script>
+import AppFooter from '@/components/AppFooter.vue';
 import Toolbar from './components/Toolbar.vue';
 import Sidebar from './components/Sidebar.vue';
 
@@ -26,6 +28,7 @@ export default {
   components: {
     Toolbar,
     Sidebar,
+    AppFooter,
   },
   data: () => ({
     showSidebar: false,
