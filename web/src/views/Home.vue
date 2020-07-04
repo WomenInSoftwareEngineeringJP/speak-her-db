@@ -27,9 +27,9 @@
       </v-row>
     </v-parallax>
     <br>
-    <Summary />
-    <v-divider />
-    <find-speaker />
+    <Summary id="summary" />
+    <v-divider class="my-10" />
+    <find-speaker id="find-speaker" />
   </div>
 </template>
 

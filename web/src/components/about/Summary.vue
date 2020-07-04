@@ -15,7 +15,7 @@
 
         <v-row
           justify="center"
-          class="mb-5 mt-4"
+          class="mt-10"
         >
           <v-btn
             outlined
