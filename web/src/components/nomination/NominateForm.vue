@@ -1,5 +1,8 @@
 <template>
-  <v-form class="my-3">
+  <v-form
+    class="my-3"
+    @submit.prevent="handleSubmit"
+  >
     <name-input
       v-model="form.speakerName"
     />
@@ -35,8 +38,14 @@
       v-model="form.permission"
       class="mt-0"
       label="I have the speaker's permission to submit her information to the SpeakHer database."
+      :error-messages="permissionErrors"
+      @input="$v.form.permission.$touch()"
+      @blur="$v.form.permission.$touch()"
     />
-    <v-btn color="primary">
+    <v-btn
+      color="primary"
+      type="submit"
+    >
       Submit
     </v-btn>
   </v-form>
@@ -49,7 +58,9 @@ import LocationInput from '@/components/nomination/LocationInput.vue';
 import SubmitterInput from '@/components/nomination/SubmitterInput.vue';
 import TopicsInput from '@/components/nomination/TopicsInput.vue';
 import { validationMixin } from 'vuelidate';
-import { required, email, minLength } from 'vuelidate/lib/validators';
+import {
+  required, email, minLength, sameAs,
+} from 'vuelidate/lib/validators';
 
 export default {
   components: {
@@ -73,6 +84,10 @@ export default {
       speakerBio: {
         required,
         minLength: minLength(50),
+      },
+      permission: {
+        required,
+        sameAs: sameAs(true),
       },
     },
   },
@@ -117,6 +132,12 @@ export default {
       if (!this.$v.form.speakerBio.minLength) { errors.push('Please write at least 50 characters'); }
       return errors;
     },
+    permissionErrors() {
+      const errors = [];
+      if (!this.$v.form.permission.$dirty) { return errors; }
+      if (!this.$v.form.permission.sameAs || !this.$v.form.permission.required) { errors.push('Please ask the nominee for permission'); }
+      return errors;
+    },
   },
   methods: {
     resetForm() {
@@ -128,7 +149,7 @@ export default {
       this.$set(this.form, 'submitterInput', { name: '', email: '' });
       this.$v.$reset();
     },
-    submit() {
+    handleSubmit() {
       this.$v.$touch();
       if (this.$v.$invalid) {
         console.error('invalid form');
