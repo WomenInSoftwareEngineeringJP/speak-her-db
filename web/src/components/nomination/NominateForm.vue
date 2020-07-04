@@ -7,6 +7,9 @@
       v-model="form.speakerEmail"
       label="Email"
       outlined
+      :error-messages="speakerEmailErrors"
+      @input="$v.form.speakerEmail.$touch()"
+      @blur="$v.form.speakerEmail.$touch()"
     />
     <job-input
       v-model="form.firstJob"
@@ -42,6 +45,8 @@ import JobInput from '@/components/nomination/JobInput.vue';
 import LocationInput from '@/components/nomination/LocationInput.vue';
 import SubmitterInput from '@/components/nomination/SubmitterInput.vue';
 import TopicsInput from '@/components/nomination/TopicsInput.vue';
+import { validationMixin } from 'vuelidate';
+import { required, email } from 'vuelidate/lib/validators';
 
 export default {
   components: {
@@ -51,14 +56,25 @@ export default {
     SubmitterInput,
     TopicsInput,
   },
+  mixins: [validationMixin],
+  validations: {
+    form: {
+      speakerName: {
+        english: { required },
+        japanese: { required },
+      },
+      speakerEmail: {
+        required,
+        email,
+      },
+    },
+  },
   data() {
     return {
       form: {
         speakerName: {
-          title: '',
-          first: '',
-          middle: '',
-          last: '',
+          english: '',
+          japanese: '',
         },
         speakerEmail: '',
         firstJob: {
@@ -79,8 +95,30 @@ export default {
       },
     };
   },
+  computed: {
+    speakerEmailErrors() {
+      const errors = [];
+      if (!this.$v.form.speakerEmail.$dirty) { return errors; }
+      if (!this.$v.form.speakerEmail.email) { errors.push('Must be valid e-mail'); }
+      if (!this.$v.form.speakerEmail.required) { errors.push('E-mail is required'); }
+      return errors;
+    },
+  },
   methods: {
+    resetForm() {
+      this.$set(this.form, 'speakerName', { english: '', japanese: '' });
+      this.$set(this.form, 'speakerEmail', '');
+      this.$set(this.form, 'firstJob', { title: '', company: '' });
+      this.$set(this.form, 'speakerBio', '');
+      this.$set(this.form, 'location', { city: '', prefecture: '' });
+      this.$set(this.form, 'submitterInput', { name: '', email: '' });
+      this.$v.$reset();
+    },
     submit() {
+      this.$v.$touch();
+      if (this.$v.$invalid) {
+        console.error('invalid form');
+      }
       // TODO
     },
   },
