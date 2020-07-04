@@ -22,6 +22,9 @@
       label="Speaker Bio"
       hint="A brief description of the nominee"
       outlined
+      :error-messages="speakerBioErrors"
+      @input="$v.form.speakerBio.$touch()"
+      @blur="$v.form.speakerBio.$touch()"
     />
     <topics-input v-model="form.topics" />
 
@@ -46,7 +49,7 @@ import LocationInput from '@/components/nomination/LocationInput.vue';
 import SubmitterInput from '@/components/nomination/SubmitterInput.vue';
 import TopicsInput from '@/components/nomination/TopicsInput.vue';
 import { validationMixin } from 'vuelidate';
-import { required, email } from 'vuelidate/lib/validators';
+import { required, email, minLength } from 'vuelidate/lib/validators';
 
 export default {
   components: {
@@ -66,6 +69,10 @@ export default {
       speakerEmail: {
         required,
         email,
+      },
+      speakerBio: {
+        required,
+        minLength: minLength(50),
       },
     },
   },
@@ -101,6 +108,13 @@ export default {
       if (!this.$v.form.speakerEmail.$dirty) { return errors; }
       if (!this.$v.form.speakerEmail.email) { errors.push('Must be valid e-mail'); }
       if (!this.$v.form.speakerEmail.required) { errors.push('E-mail is required'); }
+      return errors;
+    },
+    speakerBioErrors() {
+      const errors = [];
+      if (!this.$v.form.speakerBio.$dirty) { return errors; }
+      if (!this.$v.form.speakerBio.required) { errors.push('Bio is required'); }
+      if (!this.$v.form.speakerBio.minLength) { errors.push('Please write at least 50 characters'); }
       return errors;
     },
   },
