@@ -8,7 +8,7 @@ module.exports = {
     '@vue/airbnb',
   ],
   globals: {
-    "bus": false,
+    bus: false,
   },
   parserOptions: {
     parser: 'babel-eslint',
