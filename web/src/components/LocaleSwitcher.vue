@@ -5,19 +5,21 @@
     prepend-icon="v-language"
     @click="changeLocale"
   >
-    {{ language }}
+    {{ locale }}
   </v-btn>
 </template>
 
 <script>
-import { getSupportedLocales } from '@/util/i18n/get-supported-locales';
+import supportedLocales from '@/config/supported-locales';
+
+const { en, ja } = supportedLocales;
 
 export default {
-  data: () => ({ locales: getSupportedLocales }),
+  data: () => ({ locale: en }),
   methods: {
-    changeLocale(e) {
-      const locale = e.target.value;
-      this.$router.push(`/${locale}`);
+    changeLocale() {
+      this.locale = (this.locale === en) ? ja : en;
+      // this.$router.push(`/${this.locale}`);
     },
   },
 };
