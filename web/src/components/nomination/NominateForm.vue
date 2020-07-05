@@ -1,5 +1,8 @@
 <template>
-  <v-form class="my-3">
+  <v-form
+    class="my-3"
+    @submit.prevent="handleSubmit"
+  >
     <name-input
       v-model="form.name"
     />
@@ -60,7 +63,7 @@
     />
     <v-btn
       color="primary"
-      @click="submit()"
+      type="submit"
     >
       Submit
     </v-btn>
@@ -120,7 +123,7 @@ export default {
     };
   },
   methods: {
-    submit() {
+    handleSubmit() {
       const payload = this.parseFormData();
       if (process.env.NODE_ENV === 'production') {
         this.$db('People').create(payload, this.afterSave);
