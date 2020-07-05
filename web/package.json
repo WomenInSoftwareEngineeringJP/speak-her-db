@@ -10,7 +10,6 @@
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.13.0",
     "@mdi/font": "^3.6.95",
     "airtable": "0.8.1",
     "core-js": "^3.6.4",
