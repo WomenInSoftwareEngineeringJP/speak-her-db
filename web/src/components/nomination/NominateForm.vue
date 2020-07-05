@@ -37,8 +37,8 @@
 
     <submitter-input
       v-model="form.submitterInput"
-      :submitter-name-errors="submitterNameErrors"
-      :submitter-email-errors="emailErrors($v.form.submitterInput.email)"
+      :name-errors="submitterNameErrors"
+      :email-errors="emailErrors($v.form.submitterInput.email)"
       @touch-name="$v.form.submitterInput.name.$touch()"
       @touch-email="$v.form.submitterInput.email.$touch()"
     />
