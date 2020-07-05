@@ -1,9 +1,9 @@
 <template>
   <v-btn
+    v-model="$i18n.locale"
     text
-    @click='changeLocale'
-    prepend-icon='v-language'
-    v-model='$i18n.locale'
+    prepend-icon="v-language"
+    @click="changeLocale"
   >
     {{ language }}
   </v-btn>
@@ -13,9 +13,7 @@
 import { getSupportedLocales } from '@/util/i18n/get-supported-locales';
 
 export default {
-  data: () => {
-    return { locales: getSupportedLocales() }
-  },
+  data: () => ({ locales: getSupportedLocales }),
   methods: {
     changeLocale(e) {
       const locale = e.target.value;

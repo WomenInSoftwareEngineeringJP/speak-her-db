@@ -25,18 +25,18 @@
         </v-list-item>
       </div>
       <v-list-item>
-        <language-switcher />
+        <locale-switcher />
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>
 
 <script>
-import LanguageSwitcher from './LanguageSwitcher.vue';
+import LocaleSwitcher from './LocaleSwitcher.vue';
 
 export default {
   components: {
-    LanguageSwitcher,
+    LocaleSwitcher,
   },
   props: {
     show: {

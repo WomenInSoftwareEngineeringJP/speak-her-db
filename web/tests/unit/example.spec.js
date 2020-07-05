@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { shallowMount } from '@vue/test-utils';
-import Home from '@/components/LanguageSwitcher.vue';
+import Home from '@/components/LocaleSwitcher.vue';
 
 describe('Home.vue', () => {
   it('renders props.msg when passed', () => {
