@@ -1,7 +1,7 @@
 <template>
   <v-select
     v-model='$i18n.locale'
-    prepend-icon='fa-globe'
+    prepend-icon='v-language'
     class='locale-switcher'
   >
   </v-select>
