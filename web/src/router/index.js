@@ -4,9 +4,11 @@ import Home from '../views/Home.vue';
 import About from '../views/About.vue';
 import FindSpeaker from '../views/FindSpeaker.vue';
 import NominateSpeaker from '../views/NominateSpeaker.vue';
+import NotFound404 from '../views/NotFound404.vue';
 
 Vue.use(VueRouter);
 
+// order matters!
 const routes = [
   {
     path: '/',
@@ -28,6 +30,17 @@ const routes = [
     path: '/nominate-speaker',
     name: 'Nominate a Speaker',
     component: NominateSpeaker,
+  },
+  {
+    path: '/404',
+    name: '404 Not Found',
+    component: NotFound404,
+  },
+  {
+    path: '*',
+    beforeEnter() {
+      window.location = '/404';
+    },
   },
 ];
 

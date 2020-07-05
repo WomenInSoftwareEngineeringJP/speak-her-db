@@ -24,7 +24,7 @@
           outlined
           dark
           class="ma-2"
-          href="find-speaker"
+          @click="$vuetify.goTo('#find-speaker', options)"
         >
           Find a speaker
         </v-btn>
@@ -54,8 +54,19 @@
 export default {
   data() {
     return {
-
+      duration: 400,
+      offset: -50,
+      easing: 'easeInOutCubic',
     };
+  },
+  computed: {
+    options() {
+      return {
+        duration: this.duration,
+        offset: this.offset,
+        easing: this.easing,
+      };
+    },
   },
 };
 </script>
