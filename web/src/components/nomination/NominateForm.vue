@@ -11,11 +11,6 @@
       label="Email"
       outlined
     />
-    <v-text-field
-      v-model="form.photo_url"
-      label="Photo URL"
-      outlined
-    />
     <job-input
       v-model="form.job"
     />
@@ -28,14 +23,8 @@
       hint="A brief description of the nominee"
       outlined
     />
+    <topics-input v-model="form.topics" />
     <v-row dense>
-      <v-col
-        cols="12"
-        md="6"
-        xs="12"
-      >
-        <topics-input v-model="form.topics" />
-      </v-col>
       <v-col
         cols="12"
         md="6"
@@ -46,6 +35,17 @@
           label="Languages"
           :items="languageOptions"
           multiple
+          outlined
+        />
+      </v-col>
+      <v-col
+        cols="12"
+        md="6"
+        xs="12"
+      >
+        <v-text-field
+          v-model="form.photo_url"
+          label="Photo URL"
           outlined
         />
       </v-col>
@@ -116,7 +116,7 @@ export default {
           name: '',
           email: '',
         },
-        topics: '',
+        topics: [],
         languages: [],
         consent: false,
       },
