@@ -1,14 +1,10 @@
 <template>
   <v-row dense>
     <v-col>
-      <v-autocomplete
+      <v-text-field
         ref="topics"
         label="Topics"
-        :items="topics"
-        item-text="en"
-        multiple
-        chips
-        deletable-chips
+        hint="Add topic names or keywords separated by comma"
         outlined
         :value="value"
         @input="$emit('input', $event)"
@@ -21,19 +17,12 @@
 export default {
   props: {
     value: {
-      type: Array,
+      type: String,
       required: true,
     },
   },
   data() {
     return {
-      locationFields: ['city', 'prefecture'],
-      topics: [
-        { en: 'STEM' },
-        { en: 'Business' },
-        { en: 'Fintech' },
-        { en: 'Art' },
-      ],
     };
   },
   methods: {
