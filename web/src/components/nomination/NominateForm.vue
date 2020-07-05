@@ -25,7 +25,28 @@
       hint="A brief description of the nominee"
       outlined
     />
-    <topics-input v-model="form.topics" />
+    <v-row dense>
+      <v-col
+        cols="12"
+        md="6"
+        xs="12"
+      >
+        <topics-input v-model="form.topics" />
+      </v-col>
+      <v-col
+        cols="12"
+        md="6"
+        xs="12"
+      >
+        <v-autocomplete
+          v-model="form.languages"
+          label="Languages"
+          :items="languageOptions"
+          multiple
+          outlined
+        />
+      </v-col>
+    </v-row>
     <urls-input
       v-model="form.urls"
     />
@@ -65,6 +86,7 @@ export default {
   },
   data() {
     return {
+      languageOptions: ['English', '日本語'],
       form: {
         name: {
           en: '',
@@ -92,6 +114,7 @@ export default {
           email: '',
         },
         topics: '',
+        languages: [],
         consent: false,
       },
     };
@@ -111,10 +134,10 @@ export default {
 
       // copy the the fields that don't need parsing from the form object
       const {
-        email, photo_url, speaker_bio, topics,
+        email, photo_url, speaker_bio, topics, languages,
       } = this.form;
       let payloadFields = {
-        email, photo_url, speaker_bio, topics,
+        email, photo_url, speaker_bio, topics, languages,
       };
 
       // now parse the rest
