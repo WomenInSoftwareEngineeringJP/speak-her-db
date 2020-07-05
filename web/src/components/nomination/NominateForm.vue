@@ -5,6 +5,10 @@
   >
     <name-input
       v-model="form.speakerName"
+      :english-errors="englishErrors"
+      :japanese-errors="japaneseErrors"
+      @touch-english="$v.form.speakerName.english.$touch()"
+      @touch-japanese="$v.form.speakerName.japanese.$touch()"
     />
     <v-text-field
       v-model="form.speakerEmail"
@@ -118,6 +122,18 @@ export default {
     };
   },
   computed: {
+    englishErrors() {
+      const errors = [];
+      if (!this.$v.form.speakerName.english.$dirty) { return errors; }
+      if (!this.$v.form.speakerName.english.required) { errors.push('Name is required'); }
+      return errors;
+    },
+    japaneseErrors() {
+      const errors = [];
+      if (!this.$v.form.speakerName.japanese.$dirty) { return errors; }
+      if (!this.$v.form.speakerName.japanese.required) { errors.push('Japanese name is required'); }
+      return errors;
+    },
     speakerEmailErrors() {
       const errors = [];
       if (!this.$v.form.speakerEmail.$dirty) { return errors; }
