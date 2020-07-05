@@ -3,11 +3,13 @@ import Vuelidate from 'vuelidate';
 import App from './App.vue';
 import router from './router';
 import vuetify from './plugins/vuetify';
+import Airtable from './plugins/airtable';
 import 'roboto-fontface/css/roboto/roboto-fontface.css';
 import '@mdi/font/css/materialdesignicons.css';
 
 import '@/styles/main.scss';
 
+Vue.use(Airtable); // install our customized Airtable plugin
 Vue.config.productionTip = false;
 
 Vue.use(Vuelidate);

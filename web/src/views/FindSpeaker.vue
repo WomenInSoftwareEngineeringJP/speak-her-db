@@ -16,13 +16,19 @@
       no-gutters
     >
       <v-col lg="10">
+        <v-row>
+          <h2 class="mx-2 mb-2">
+            Find a speaker
+          </h2>
+        </v-row>
         <search />
         <div
           v-for="speaker in speakers"
           :key="speaker.id"
         >
           <speaker-card
-            :speaker="speaker.fields"
+            :speaker="speaker"
+            :prefectures="prefectures"
             class="mb-5"
           />
         </div>
@@ -38,8 +44,6 @@ import Search from '@/components/Search.vue';
 import ContactDialog from '@/components/contact/ContactDialog.vue';
 import ContactResult from '@/components/contact/ContactResult.vue';
 
-import db from '../plugins/airtable';
-
 export default {
   components: {
     ContactDialog,
@@ -49,12 +53,14 @@ export default {
   },
   data: () => ({
     speakers: [],
+    prefectures: [],
     error: null,
     selectedSpeaker: {},
     showDialog: false,
     showSuccess: false,
   }),
   mounted() {
+    this.$getLocations(this.setPrefectures, this.setError);
     this.getSpeakers();
 
     bus.$on('contact-speaker', (speaker) => { this.selectedSpeaker = speaker; this.showDialog = true; });
@@ -63,8 +69,14 @@ export default {
     bus.$off('contact-speaker');
   },
   methods: {
+    setPrefectures(records) {
+      this.prefectures = records;
+    },
+    setError(err) {
+      this.error = err;
+    },
     getSpeakers() {
-      db('People')
+      this.$db('People')
         .select({
           view: 'Published',
         })

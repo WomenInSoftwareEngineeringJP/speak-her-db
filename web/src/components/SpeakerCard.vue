@@ -6,7 +6,7 @@
     >
       <v-col>
         <card-header
-          :title="speaker.name"
+          :title="speaker.get('name')"
           @contact-speaker="contactSpeaker()"
         />
         <v-row
@@ -14,10 +14,10 @@
         >
           <span class="speaker-title">{{ jobTitle }}</span>
           <v-spacer />
-          <span class="location">{{ speaker.prefecture }}</span>
+          <span class="location">{{ prefecture }}</span>
         </v-row>
         <v-row>
-          {{ speaker.other_info }}
+          {{ speaker.get('other_info') }}
         </v-row>
 
         <v-row>
@@ -45,25 +45,30 @@ export default {
       type: Object,
       required: true,
     },
+    prefectures: {
+      type: Array,
+      required: true,
+    },
   },
   data: () => ({
-    topics: [],
   }),
   computed: {
     jobTitle() {
-      if (this.speaker.job_title && this.speaker.company) {
-        return `${this.speaker.job_title} at ${this.speaker.company}`;
+      if (this.speaker.get('job_title') && this.speaker.get('company')) {
+        return `${this.speaker.get('job_title')} at ${this.speaker.get('company')}`;
       }
-      return this.speaker.job_title || this.speaker.company;
+      return this.speaker.get('job_title') || this.speaker.get('company');
     },
-  },
-  mounted() {
-    this.getTopics();
+    prefecture() {
+      const locationId = this.speaker.fields.location_id[0];
+      const location = this.prefectures.find((elem) => (elem.id === locationId));
+      return location?.fields?.prefecture;
+    },
+    topics() {
+      return this.speaker.get('topics').split(', ');
+    },
   },
   methods: {
-    getTopics() {
-      this.topics = this.speaker.topics.split(', ');
-    },
     contactSpeaker() {
       bus.$emit('contact-speaker', this.speaker);
     },
