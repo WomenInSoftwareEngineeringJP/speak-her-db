@@ -1,36 +1,46 @@
 <template>
   <v-form class="my-3">
     <name-input
-      v-model="form.speakerName"
+      v-model="form.name"
     />
     <v-text-field
-      v-model="form.speakerEmail"
+      v-model="form.email"
       label="Email"
       outlined
     />
+    <v-text-field
+      v-model="form.photo_url"
+      label="Photo URL"
+      outlined
+    />
     <job-input
-      v-model="form.firstJob"
+      v-model="form.job"
     />
     <location-input
       v-model="form.location"
     />
     <v-textarea
-      v-model="form.speakerBio"
+      v-model="form.speaker_bio"
       label="Speaker Bio"
       hint="A brief description of the nominee"
       outlined
     />
     <topics-input v-model="form.topics" />
-
+    <urls-input
+      v-model="form.urls"
+    />
     <submitter-input
-      v-model="form.submitterInput"
+      v-model="form.submitter"
     />
     <v-checkbox
-      v-model="form.permission"
+      v-model="form.consent"
       class="mt-0"
       label="I have the speaker's permission to submit her information to the SpeakHer database."
     />
-    <v-btn color="primary">
+    <v-btn
+      color="primary"
+      @click="submit()"
+    >
       Submit
     </v-btn>
   </v-form>
@@ -40,6 +50,7 @@
 import NameInput from '@/components/nomination/NameInput.vue';
 import JobInput from '@/components/nomination/JobInput.vue';
 import LocationInput from '@/components/nomination/LocationInput.vue';
+import UrlsInput from '@/components/nomination/UrlsInput.vue';
 import SubmitterInput from '@/components/nomination/SubmitterInput.vue';
 import TopicsInput from '@/components/nomination/TopicsInput.vue';
 
@@ -48,40 +59,91 @@ export default {
     NameInput,
     JobInput,
     LocationInput,
+    UrlsInput,
     SubmitterInput,
     TopicsInput,
   },
   data() {
     return {
       form: {
-        speakerName: {
-          title: '',
-          first: '',
-          middle: '',
-          last: '',
+        name: {
+          en: '',
+          ja: '',
         },
-        speakerEmail: '',
-        firstJob: {
+        email: '',
+        photo_url: '',
+        job: {
           title: '',
           company: '',
         },
-        speakerBio: '',
+        speaker_bio: '',
         location: {
           city: '',
           prefecture: '',
         },
-        submitterInput: {
+        urls: {
+          linkedin: '',
+          twitter: '',
+          facebook: '',
+          website: '',
+        },
+        submitter: {
           name: '',
           email: '',
         },
-        topics: [],
-        permisssion: false,
+        topics: '',
+        consent: false,
       },
     };
   },
   methods: {
     submit() {
-      // TODO
+      const payload = this.parseFormData();
+      debugger;
+      this.$db('People').create(payload, this.afterSave);
+    },
+    // parse the data into the payload format expected by Airtable
+    parseFormData() {
+      /* eslint-disable camelcase */
+
+      // copy the the fields that don't need parsing from the form object
+      const {
+        email, photo_url, speaker_bio, topics,
+      } = this.form;
+      let payloadFields = {
+        email, photo_url, speaker_bio, topics,
+      };
+
+      // now parse the rest
+      payloadFields = {
+        ...payloadFields,
+        job_title: this.form.job.title,
+        company: this.form.job.company,
+        city: this.form.location.city,
+        location_id: [this.form.location.prefecture],
+      };
+
+      Object.keys(this.form.name).forEach((field) => {
+        payloadFields[`name_${field}`] = this.form.name[field];
+      });
+      Object.keys(this.form.urls).forEach((field) => {
+        payloadFields[`${field}_url`] = this.form.urls[field];
+      });
+      Object.keys(this.form.submitter).forEach((field) => {
+        payloadFields[`submitter_${field}`] = this.form.submitter[field];
+      });
+
+      // Airtable expects an array of objects with the key `fields`
+      return [{ fields: payloadFields }];
+    },
+    afterSave(err, records) {
+      if (err) {
+        // Do something on error
+        console.error(err);
+      } else {
+        // Do something on success
+        console.log(`Successfully saved ${records.length} records!`);
+      }
     },
   },
 };
