@@ -3,7 +3,7 @@
     <v-parallax
       dark
       src="../assets/background.png"
-      height="800"
+      height="100%"
     >
       <v-row
         no-gutters
@@ -26,18 +26,26 @@
         </v-col>
       </v-row>
     </v-parallax>
+    <br>
+    <Summary id="summary" />
+    <v-divider class="my-10" />
+    <find-speaker id="find-speaker" />
   </div>
 </template>
 
 <script>
 import Illustration from '@/components/hero/Illustration.vue';
 import CallToAction from '@/components/hero/CallToAction.vue';
+import Summary from '@/components/about/Summary.vue';
+import FindSpeaker from '@/views/FindSpeaker.vue';
 
 export default {
   name: 'Home',
   components: {
     Illustration,
     CallToAction,
+    Summary,
+    FindSpeaker,
   },
   data() {
     return {
