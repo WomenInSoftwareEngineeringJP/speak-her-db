@@ -14,7 +14,7 @@
       v-model="form.speakerEmail"
       label="Email"
       outlined
-      :error-messages="speakerEmailErrors"
+      :error-messages="emailErrors($v.form.speakerEmail)"
       @input="$v.form.speakerEmail.$touch()"
       @blur="$v.form.speakerEmail.$touch()"
     />
@@ -37,6 +37,10 @@
 
     <submitter-input
       v-model="form.submitterInput"
+      :submitter-name-errors="submitterNameErrors"
+      :submitter-email-errors="emailErrors($v.form.submitterInput.email)"
+      @touch-name="$v.form.submitterInput.name.$touch()"
+      @touch-email="$v.form.submitterInput.email.$touch()"
     />
     <v-checkbox
       v-model="form.permission"
@@ -94,6 +98,10 @@ export default {
         required,
         sameAs: sameAs(true),
       },
+      submitterInput: {
+        name: { required },
+        email: { required },
+      },
     },
   },
   data() {
@@ -136,18 +144,17 @@ export default {
       if (!this.$v.form.speakerName.japanese.japanese) { errors.push('Please enter your name in Kanji / Kana'); }
       return errors;
     },
-    speakerEmailErrors() {
-      const errors = [];
-      if (!this.$v.form.speakerEmail.$dirty) { return errors; }
-      if (!this.$v.form.speakerEmail.email) { errors.push('Must be valid e-mail'); }
-      if (!this.$v.form.speakerEmail.required) { errors.push('E-mail is required'); }
-      return errors;
-    },
     speakerBioErrors() {
       const errors = [];
       if (!this.$v.form.speakerBio.$dirty) { return errors; }
       if (!this.$v.form.speakerBio.required) { errors.push('Bio is required'); }
       if (!this.$v.form.speakerBio.minLength) { errors.push('Please write at least 50 characters'); }
+      return errors;
+    },
+    submitterNameErrors() {
+      const errors = [];
+      if (!this.$v.form.speakerName.english.$dirty) { return errors; }
+      if (!this.$v.form.speakerName.english.required) { errors.push('Name is required'); }
       return errors;
     },
     permissionErrors() {
@@ -158,6 +165,14 @@ export default {
     },
   },
   methods: {
+    // must pass in this.$v.form.[field]
+    emailErrors(field) {
+      const errors = [];
+      if (!field.$dirty) { return errors; }
+      if (!field.email) { errors.push('Must be valid e-mail'); }
+      if (!field.required) { errors.push('E-mail is required'); }
+      return errors;
+    },
     resetForm() {
       this.$set(this.form, 'speakerName', { english: '', japanese: '' });
       this.$set(this.form, 'speakerEmail', '');
