@@ -65,6 +65,7 @@ import { validationMixin } from 'vuelidate';
 import {
   required, email, minLength, sameAs,
 } from 'vuelidate/lib/validators';
+import japanese from '@/validators/japanese';
 
 export default {
   components: {
@@ -79,7 +80,7 @@ export default {
     form: {
       speakerName: {
         english: { required },
-        japanese: { required },
+        japanese: { required, japanese },
       },
       speakerEmail: {
         required,
@@ -132,6 +133,7 @@ export default {
       const errors = [];
       if (!this.$v.form.speakerName.japanese.$dirty) { return errors; }
       if (!this.$v.form.speakerName.japanese.required) { errors.push('Japanese name is required'); }
+      if (!this.$v.form.speakerName.japanese.japanese) { errors.push('Please enter your name in Kanji / Kana'); }
       return errors;
     },
     speakerEmailErrors() {

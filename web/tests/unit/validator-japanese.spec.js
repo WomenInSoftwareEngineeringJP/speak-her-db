@@ -1,25 +1,23 @@
+/* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
 import japanese from '@/validators/japanese';
 
 describe('japanese.js', () => {
   it('accepts Hiragana', () => {
-    const msg = 'すごいですね！わたしはねこです。';
-    // eslint-disable-next-line no-unused-expressions
-    expect(japanese(msg)).to.be.true;
+    expect(japanese('すごいですね！わたしはねこです。')).to.be.true;
   });
   it('accepts Katakana', () => {
-    const msg = 'チーズバーガートネコ！';
-    // eslint-disable-next-line no-unused-expressions
-    expect(japanese(msg)).to.be.true;
+    expect(japanese('チーズバーガートネコ！')).to.be.true;
   });
   it('accepts Kanji', () => {
-    const msg = '鼠色大学';
-    // eslint-disable-next-line no-unused-expressions
-    expect(japanese(msg)).to.be.true;
+    expect(japanese('鼠色大学')).to.be.true;
   });
   it('rejects Rōmaji', () => {
-    const msg = 'This is Romaji';
-    // eslint-disable-next-line no-unused-expressions
-    expect(japanese(msg)).to.be.false;
+    expect(japanese('This is Romaji')).to.be.false;
+    expect(japanese('すごいsurprise')).to.be.false;
+  });
+  it('rejects Emoji', () => {
+    expect(japanese('🧐')).to.be.false;
+    expect(japanese('すごい🧐')).to.be.false;
   });
 });
