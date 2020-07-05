@@ -17,10 +17,10 @@
         value="ask-question"
       >
       <two-button-modal
-        :title="`Contact ${speaker.name}?`"
+        :title="`Contact ${speaker.get('name')}?`"
         @cancel="$emit('close')"
       >
-        We'll send a message to contact {{ speaker.name }} on your behalf.
+        We'll send a message to contact {{ speaker.get('name') }} on your behalf.
 
         <v-text-field
           v-model="form.name"
