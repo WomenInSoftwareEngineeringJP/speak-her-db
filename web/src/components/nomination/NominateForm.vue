@@ -99,8 +99,11 @@ export default {
   methods: {
     submit() {
       const payload = this.parseFormData();
-      debugger;
-      this.$db('People').create(payload, this.afterSave);
+      if (process.env.NODE_ENV === 'production') {
+        this.$db('People').create(payload, this.afterSave);
+      } else {
+        console.log(payload);
+      }
     },
     // parse the data into the payload format expected by Airtable
     parseFormData() {
