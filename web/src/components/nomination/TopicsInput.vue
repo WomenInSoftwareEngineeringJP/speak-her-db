@@ -5,11 +5,12 @@
         ref="topics"
         label="Topics"
         :items="topics"
-        outlined
+        item-text="en"
         multiple
         chips
         deletable-chips
-        :value="value.topics"
+        outlined
+        :value="value"
         @input="$emit('input', $event)"
       />
     </v-col>
@@ -26,11 +27,17 @@ export default {
   },
   data() {
     return {
-      topics: ['Web Development', 'Blockchain', 'Entrepreneurship', 'Management'],
+      topics: [
+        { en: 'STEM' },
+        { en: 'Business' },
+        { en: 'Fintech' },
+        { en: 'Art' },
+      ],
       error: null,
     };
   },
   mounted() {
+    // TODO: fetch topics from database
     // this.$getTopics(this.setTopics, this.setError);
   },
   methods: {
