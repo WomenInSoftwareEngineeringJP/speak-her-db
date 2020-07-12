@@ -21,7 +21,7 @@
             Find a speaker
           </h2>
         </v-row>
-        <search />
+        <search v-if="false" />
         <div
           v-for="speaker in speakers"
           :key="speaker.id"
