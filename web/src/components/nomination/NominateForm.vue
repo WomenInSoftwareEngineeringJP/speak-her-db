@@ -146,24 +146,23 @@ export default {
       // now parse the rest
       payloadFields = {
         ...payloadFields,
+        name_en: this.form.name.en,
+        name_ja: this.form.name.ja,
         job_title: this.form.job.title,
         company: this.form.job.company,
         city: this.form.location.city,
         location_id: [this.form.location.prefecture],
+        linkedin_url: this.form.urls.linkedin,
+        facebook_url: this.form.urls.facebook,
+        twitter_url: this.form.urls.twitter,
+        website_url: this.form.urls.website,
+        submitter_name: this.form.submitter.name,
+        submitter_email: this.form.submitter.email,
       };
-
-      Object.keys(this.form.name).forEach((field) => {
-        payloadFields[`name_${field}`] = this.form.name[field];
-      });
-      Object.keys(this.form.urls).forEach((field) => {
-        payloadFields[`${field}_url`] = this.form.urls[field];
-      });
-      Object.keys(this.form.submitter).forEach((field) => {
-        payloadFields[`submitter_${field}`] = this.form.submitter[field];
-      });
 
       // Airtable expects an array of objects with the key `fields`
       return [{ fields: payloadFields }];
+      /* eslint-enable camelcase */
     },
     afterSave(err, records) {
       if (err) {
