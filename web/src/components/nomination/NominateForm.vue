@@ -166,10 +166,8 @@ export default {
     },
     afterSave(err, records) {
       if (err) {
-        // Do something on error
         console.error(err);
       } else {
-        // Do something on success
         console.log(`Successfully saved ${records.length} records!`);
       }
     },
