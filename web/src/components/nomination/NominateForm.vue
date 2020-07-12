@@ -1,36 +1,70 @@
 <template>
-  <v-form class="my-3">
+  <v-form
+    class="my-3"
+    @submit.prevent="handleSubmit"
+  >
     <name-input
-      v-model="form.speakerName"
+      v-model="form.name"
     />
     <v-text-field
-      v-model="form.speakerEmail"
+      v-model="form.email"
       label="Email"
       outlined
     />
     <job-input
-      v-model="form.firstJob"
+      v-model="form.job"
     />
     <location-input
       v-model="form.location"
     />
     <v-textarea
-      v-model="form.speakerBio"
+      v-model="form.speaker_bio"
       label="Speaker Bio"
       hint="A brief description of the nominee"
       outlined
     />
     <topics-input v-model="form.topics" />
-
+    <v-row dense>
+      <v-col
+        cols="12"
+        md="6"
+        xs="12"
+      >
+        <v-autocomplete
+          v-model="form.languages"
+          label="Languages"
+          :items="languageOptions"
+          multiple
+          outlined
+        />
+      </v-col>
+      <v-col
+        cols="12"
+        md="6"
+        xs="12"
+      >
+        <v-text-field
+          v-model="form.photo_url"
+          label="Photo URL"
+          outlined
+        />
+      </v-col>
+    </v-row>
+    <urls-input
+      v-model="form.urls"
+    />
     <submitter-input
-      v-model="form.submitterInput"
+      v-model="form.submitter"
     />
     <v-checkbox
-      v-model="form.permission"
+      v-model="form.consent"
       class="mt-0"
       label="I have the speaker's permission to submit her information to the SpeakHer database."
     />
-    <v-btn color="primary">
+    <v-btn
+      color="primary"
+      type="submit"
+    >
       Submit
     </v-btn>
   </v-form>
@@ -40,6 +74,7 @@
 import NameInput from '@/components/nomination/NameInput.vue';
 import JobInput from '@/components/nomination/JobInput.vue';
 import LocationInput from '@/components/nomination/LocationInput.vue';
+import UrlsInput from '@/components/nomination/UrlsInput.vue';
 import SubmitterInput from '@/components/nomination/SubmitterInput.vue';
 import TopicsInput from '@/components/nomination/TopicsInput.vue';
 
@@ -48,40 +83,93 @@ export default {
     NameInput,
     JobInput,
     LocationInput,
+    UrlsInput,
     SubmitterInput,
     TopicsInput,
   },
   data() {
     return {
+      languageOptions: ['English', '日本語'],
       form: {
-        speakerName: {
-          title: '',
-          first: '',
-          middle: '',
-          last: '',
+        name: {
+          en: '',
+          ja: '',
         },
-        speakerEmail: '',
-        firstJob: {
+        email: '',
+        photo_url: '',
+        job: {
           title: '',
           company: '',
         },
-        speakerBio: '',
+        speaker_bio: '',
         location: {
           city: '',
           prefecture: '',
         },
-        submitterInput: {
+        urls: {
+          linkedin: '',
+          twitter: '',
+          facebook: '',
+          website: '',
+        },
+        submitter: {
           name: '',
           email: '',
         },
         topics: [],
-        permisssion: false,
+        languages: [],
+        consent: false,
       },
     };
   },
   methods: {
-    submit() {
-      // TODO
+    handleSubmit() {
+      const payload = this.parseFormData();
+      if (process.env.NODE_ENV === 'production') {
+        this.$db('People').create(payload, this.afterSave);
+      } else {
+        console.log(payload);
+      }
+    },
+    // parse the data into the payload format expected by Airtable
+    parseFormData() {
+      /* eslint-disable camelcase */
+
+      // copy the the fields that don't need parsing from the form object
+      const {
+        email, photo_url, speaker_bio, topics, languages,
+      } = this.form;
+      let payloadFields = {
+        email, photo_url, speaker_bio, topics, languages,
+      };
+
+      // now parse the rest
+      payloadFields = {
+        ...payloadFields,
+        name_en: this.form.name.en,
+        name_ja: this.form.name.ja,
+        job_title: this.form.job.title,
+        company: this.form.job.company,
+        city: this.form.location.city,
+        location_id: [this.form.location.prefecture],
+        linkedin_url: this.form.urls.linkedin,
+        facebook_url: this.form.urls.facebook,
+        twitter_url: this.form.urls.twitter,
+        website_url: this.form.urls.website,
+        submitter_name: this.form.submitter.name,
+        submitter_email: this.form.submitter.email,
+      };
+
+      // Airtable expects an array of objects with the key `fields`
+      return [{ fields: payloadFields }];
+      /* eslint-enable camelcase */
+    },
+    afterSave(err, records) {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(`Successfully saved ${records.length} records!`);
+      }
     },
   },
 };

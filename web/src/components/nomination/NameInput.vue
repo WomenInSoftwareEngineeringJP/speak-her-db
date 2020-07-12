@@ -6,11 +6,11 @@
       xs="12"
     >
       <v-text-field
-        ref="english"
-        :value="value.title"
+        ref="en"
+        :value="value.en"
         label="Name (English / Romaji)"
         outlined
-        @input="updateName('english', $event)"
+        @input="updateName('en', $event)"
       />
     </v-col>
     <v-col
@@ -19,11 +19,11 @@
       xs="12"
     >
       <v-text-field
-        ref="japanese"
-        :value="value.first"
+        ref="ja"
+        :value="value.ja"
         label="Name (Kanji / Kana)"
         outlined
-        @input="updateName('japanese', $event)"
+        @input="updateName('ja', $event)"
       />
     </v-col>
   </v-row>
@@ -39,7 +39,7 @@ export default {
   },
   data() {
     return {
-      nameFields: ['english', 'japanese'],
+      nameFields: ['en', 'ja'],
     };
   },
   methods: {

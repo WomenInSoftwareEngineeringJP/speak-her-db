@@ -9,7 +9,7 @@
         ref="name"
         label="Submitter Name"
         outlined
-        :value="value.title"
+        :value="value.name"
         @input="updateSubmitter('name', $event)"
       />
     </v-col>
@@ -22,7 +22,7 @@
         ref="email"
         label="Submitter Email"
         outlined
-        :value="value.title"
+        :value="value.email"
         @input="updateSubmitter('email', $event)"
       />
     </v-col>
