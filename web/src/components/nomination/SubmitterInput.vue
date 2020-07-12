@@ -10,7 +10,7 @@
         label="Submitter Name"
         :error-messages="nameErrors"
         outlined
-        :value="value.title"
+        :value="value.name"
         @input="updateSubmitter('name', $event)"
         @blur="$emit('touch-name')"
       />
@@ -25,7 +25,7 @@
         label="Submitter Email"
         :error-messages="emailErrors"
         outlined
-        :value="value.title"
+        :value="value.email"
         @input="updateSubmitter('email', $event)"
         @blur="$emit('touch-email')"
       />
