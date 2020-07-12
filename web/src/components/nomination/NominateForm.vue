@@ -74,9 +74,9 @@
       v-model="form.consent"
       class="mt-0"
       label="I have the speaker's permission to submit her information to the SpeakHer database."
-      :error-messages="permissionErrors"
-      @input="$v.form.permission.$touch()"
-      @blur="$v.form.permission.$touch()"
+      :error-messages="consentErrors"
+      @input="$v.form.consent.$touch()"
+      @blur="$v.form.consent.$touch()"
     />
     <v-btn
       color="primary"
@@ -124,13 +124,13 @@ export default {
         required,
         minLength: minLength(50),
       },
-      permission: {
+      consent: {
         required,
         sameAs: sameAs(true),
       },
       submitter: {
         name: { required },
-        email: { required },
+        email: { required, email },
       },
     },
   },
@@ -196,10 +196,10 @@ export default {
       if (!this.$v.form.submitter.name.required) { errors.push('Name is required'); }
       return errors;
     },
-    permissionErrors() {
+    consentErrors() {
       const errors = [];
-      if (!this.$v.form.permission.$dirty) { return errors; }
-      if (!this.$v.form.permission.sameAs || !this.$v.form.permission.required) { errors.push('Please ask the nominee for permission'); }
+      if (!this.$v.form.consent.$dirty) { return errors; }
+      if (!this.$v.form.consent.sameAs || !this.$v.form.consent.required) { errors.push('Please ask the nominee for permission'); }
       return errors;
     },
   },
@@ -268,6 +268,7 @@ export default {
         console.error(err);
       } else {
         console.log(`Successfully saved ${records.length} records!`);
+        this.resetForm();
       }
     },
   },
