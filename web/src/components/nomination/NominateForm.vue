@@ -96,9 +96,11 @@ import SubmitterInput from '@/components/nomination/SubmitterInput.vue';
 import TopicsInput from '@/components/nomination/TopicsInput.vue';
 import { validationMixin } from 'vuelidate';
 import {
-  required, email, minLength, sameAs,
+  required, email, minLength,
 } from 'vuelidate/lib/validators';
 import japanese from '@/validators/japanese';
+
+const isTrue = (value) => value;
 
 export default {
   components: {
@@ -125,8 +127,7 @@ export default {
         minLength: minLength(50),
       },
       consent: {
-        required,
-        sameAs: sameAs(true),
+        isTrue,
       },
       submitter: {
         name: { required },
@@ -199,7 +200,8 @@ export default {
     consentErrors() {
       const errors = [];
       if (!this.$v.form.consent.$dirty) { return errors; }
-      if (!this.$v.form.consent.sameAs || !this.$v.form.consent.required) { errors.push('Please ask the nominee for permission'); }
+      if (!this.$v.form.consent.isTrue) { errors.push('Please ask the nominee for permission'); }
+      console.log(this.$v.form.consent);
       return errors;
     },
   },
@@ -224,7 +226,8 @@ export default {
     handleSubmit() {
       this.$v.$touch();
       if (this.$v.$invalid) {
-        console.error('invalid form');
+        console.error('invalid form', this.form);
+        return;
       }
 
       const payload = this.parseFormData();
