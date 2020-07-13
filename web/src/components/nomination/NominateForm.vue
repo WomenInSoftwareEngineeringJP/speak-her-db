@@ -23,6 +23,10 @@
     />
     <location-input
       v-model="form.location"
+      :city-errors="cityErrors"
+      :prefecture-errors="prefectureErrors"
+      @touch-city="$v.form.location.city.$touch()"
+      @touch-prefecture="$v.form.location.prefecture.$touch()"
     />
     <v-textarea
       v-model="form.speaker_bio"
@@ -126,6 +130,10 @@ export default {
         required,
         minLength: minLength(50),
       },
+      location: {
+        city: { required },
+        prefecture: { required },
+      },
       consent: {
         isTrue,
       },
@@ -191,6 +199,18 @@ export default {
       if (!this.$v.form.speaker_bio.minLength) { errors.push('Please write at least 50 characters'); }
       return errors;
     },
+    cityErrors() {
+      const errors = [];
+      if (!this.$v.form.location.city.$dirty) { return errors; }
+      if (!this.$v.form.location.city.required) { errors.push('City is required'); }
+      return errors;
+    },
+    prefectureErrors() {
+      const errors = [];
+      if (!this.$v.form.location.prefecture.$dirty) { return errors; }
+      if (!this.$v.form.location.prefecture.required) { errors.push('Prefecture is required'); }
+      return errors;
+    },
     submitterNameErrors() {
       const errors = [];
       if (!this.$v.form.submitter.name.$dirty) { return errors; }
@@ -236,6 +256,7 @@ export default {
       } else {
         console.log(payload);
       }
+      this.resetForm();
     },
     // parse the data into the payload format expected by Airtable
     parseFormData() {
@@ -271,7 +292,6 @@ export default {
         console.error(err);
       } else {
         console.log(`Successfully saved ${records.length} records!`);
-        this.resetForm();
       }
     },
   },
