@@ -1,7 +1,7 @@
 <template>
   <v-form
     class="my-3"
-    @submit.prevent="handleSubmit"
+    @submit.prevent="handleSubmit()"
   >
     <name-input
       v-model="form.name"
@@ -47,9 +47,12 @@
         <v-autocomplete
           v-model="form.languages"
           label="Languages"
+          :error-messages="languagesErrors"
           :items="languageOptions"
           multiple
           outlined
+          @input="$v.form.languages.$touch()"
+          @blur="$v.form.languages.$touch()"
         />
       </v-col>
       <v-col
@@ -126,6 +129,7 @@ export default {
         required,
         email,
       },
+      languages: { required },
       speaker_bio: {
         required,
         minLength: minLength(50),
@@ -192,6 +196,12 @@ export default {
       if (!this.$v.form.name.ja.japanese) { errors.push('Please enter your name in Kanji / Kana'); }
       return errors;
     },
+    languagesErrors() {
+      const errors = [];
+      if (!this.$v.form.languages.$dirty) { return errors; }
+      if (!this.$v.form.languages.required) { errors.push('Please select spoken languages'); }
+      return errors;
+    },
     speakerBioErrors() {
       const errors = [];
       if (!this.$v.form.speaker_bio.$dirty) { return errors; }
@@ -244,6 +254,7 @@ export default {
       this.$v.$reset();
     },
     handleSubmit() {
+      // Check validity
       this.$v.$touch();
       if (this.$v.$invalid) {
         console.error('invalid form', this.form);
