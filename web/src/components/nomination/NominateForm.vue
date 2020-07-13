@@ -99,7 +99,7 @@
     />
     <v-btn
       class="mr-5"
-      @click="resetForm"
+      @click="resetForm(); clearAlert()"
     >
       Reset Form
     </v-btn>
@@ -109,6 +109,10 @@
     >
       Submit
     </v-btn>
+    <variable-alert
+      :type="alert.type"
+      :message="alert.message"
+    />
   </v-form>
 </template>
 
@@ -119,6 +123,9 @@ import LocationInput from '@/components/nomination/LocationInput.vue';
 import UrlsInput from '@/components/nomination/UrlsInput.vue';
 import SubmitterInput from '@/components/nomination/SubmitterInput.vue';
 import TopicsInput from '@/components/nomination/TopicsInput.vue';
+
+import VariableAlert from '@/components/alerts/VariableAlert.vue';
+
 import { validationMixin } from 'vuelidate';
 import {
   required, email, minLength, url,
@@ -137,6 +144,7 @@ export default {
     UrlsInput,
     SubmitterInput,
     TopicsInput,
+    VariableAlert,
   },
   mixins: [validationMixin],
   validations: {
@@ -177,6 +185,10 @@ export default {
   data() {
     return {
       languageOptions: ['English', '日本語'],
+      alert: {
+        type: '',
+        message: '',
+      },
       form: {
         name: {
           en: '',
@@ -309,15 +321,18 @@ export default {
       // Check validity
       this.$v.$touch();
       if (this.$v.$invalid) {
-        console.error('invalid form', this.form);
+        this.setAlert('warning', 'Please complete the form correctly.');
         return;
       }
+
+      this.clearAlert();
 
       const payload = this.parseFormData();
       if (process.env.NODE_ENV === 'production') {
         this.$db('People').create(payload, this.afterSave);
       } else {
         console.log(payload);
+        this.setAlert('success', 'Thank you for your submission!');
       }
       this.resetForm();
     },
@@ -353,8 +368,10 @@ export default {
     afterSave(err, records) {
       if (err) {
         console.error(err);
+        this.setAlert('error', err);
       } else {
         console.log(`Successfully saved ${records.length} records!`);
+        this.setAlert('success', 'Thank you for your submission!');
       }
     },
     // delay validation so it's less aggressive
@@ -364,6 +381,13 @@ export default {
         clearTimeout(touchMap.get($v));
       }
       touchMap.set($v, setTimeout($v.$touch, VALIDATION_DELAY));
+    },
+    setAlert(type, message) {
+      this.$set(this.alert, 'type', type);
+      this.$set(this.alert, 'message', message);
+    },
+    clearAlert() {
+      this.$set(this.alert, 'message', '');
     },
   },
 };
