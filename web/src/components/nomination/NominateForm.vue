@@ -258,7 +258,6 @@ export default {
       const errors = [];
       if (!this.$v.form.consent.$dirty) { return errors; }
       if (!this.$v.form.consent.isTrue) { errors.push('Please ask the nominee for permission'); }
-      console.log(this.$v.form.consent);
       return errors;
     },
   },
