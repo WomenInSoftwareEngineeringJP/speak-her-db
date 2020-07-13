@@ -245,12 +245,22 @@ export default {
       return errors;
     },
     resetForm() {
-      this.$set(this.form, 'speakerName', { english: '', japanese: '' });
+      this.$set(this.form, 'name', { en: '', ja: '' });
       this.$set(this.form, 'speakerEmail', '');
-      this.$set(this.form, 'firstJob', { title: '', company: '' });
-      this.$set(this.form, 'speakerBio', '');
+      this.$set(this.form, 'job', { title: '', company: '' });
+      this.$set(this.form, 'speaker_bio', '');
       this.$set(this.form, 'location', { city: '', prefecture: '' });
-      this.$set(this.form, 'submitterInput', { name: '', email: '' });
+      this.$set(this.form, 'submitter', { name: '', email: '' });
+      this.$set(this.form, 'urls', {
+        linkedin: '',
+        twitter: '',
+        facebook: '',
+        website: '',
+      });
+      this.$set(this.form, 'photo_url', '');
+      this.$set(this.form, 'languages', []);
+      this.$set(this.form, 'topics', []);
+      this.$set(this.form, 'consent', false);
       this.$v.$reset();
     },
     handleSubmit() {
