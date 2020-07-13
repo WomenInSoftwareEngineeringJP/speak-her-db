@@ -93,6 +93,9 @@
       @input="$v.form.consent.$touch()"
       @blur="$v.form.consent.$touch()"
     />
+    <v-btn @click="resetForm" class="mr-5">
+      Reset Form
+    </v-btn>
     <v-btn
       color="primary"
       type="submit"
