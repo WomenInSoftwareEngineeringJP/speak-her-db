@@ -288,7 +288,7 @@ export default {
     },
     resetForm() {
       this.$set(this.form, 'name', { en: '', ja: '' });
-      this.$set(this.form, 'speakerEmail', '');
+      this.$set(this.form, 'email', '');
       this.$set(this.form, 'job', { title: '', company: '' });
       this.$set(this.form, 'speaker_bio', '');
       this.$set(this.form, 'location', { city: '', prefecture: '' });
