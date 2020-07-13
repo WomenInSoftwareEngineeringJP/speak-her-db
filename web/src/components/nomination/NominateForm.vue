@@ -15,8 +15,8 @@
       label="Email"
       outlined
       :error-messages="emailErrors($v.form.email)"
-      @input="$v.form.email.$touch()"
-      @blur="$v.form.email.$touch()"
+      @input="delayTouch($v.form.email)"
+      @blur="delayTouch($v.form.email)"
     />
     <job-input
       v-model="form.job"
@@ -29,14 +29,14 @@
       @touch-prefecture="$v.form.location.prefecture.$touch()"
     />
     <v-textarea
-      v-model="form.speaker_bio"
       id="speaker-bio"
+      v-model="form.speaker_bio"
       label="Speaker Bio"
       hint="A brief description of the nominee"
       outlined
       :error-messages="speakerBioErrors"
-      @input="$v.form.speaker_bio.$touch()"
-      @blur="$v.form.speaker_bio.$touch()"
+      @input="delayTouch($v.form.speaker_bio)"
+      @blur="delayTouch($v.form.speaker_bio)"
     />
     <topics-input v-model="form.topics" />
     <v-row dense>
@@ -64,7 +64,10 @@
         <v-text-field
           v-model="form.photo_url"
           label="Photo URL"
+          :error-messages="urlErrors($v.form.photo_url)"
           outlined
+          @input="delayTouch($v.form.photo_url)"
+          @blur="delayTouch($v.form.photo_url)"
         />
       </v-col>
     </v-row>
@@ -74,17 +77,17 @@
       :linkedin-errors="urlErrors($v.form.urls.linkedin)"
       :twitter-errors="urlErrors($v.form.urls.twitter)"
       :website-errors="urlErrors($v.form.urls.website)"
-      @touch-fb="$v.form.urls.facebook.$touch()"
-      @touch-linkedin="$v.form.urls.linkedin.$touch()"
-      @touch-twitter="$v.form.urls.twitter.$touch()"
-      @touch-website="$v.form.urls.website.$touch()"
+      @touch-fb="delayTouch($v.form.urls.facebook)"
+      @touch-linkedin="delayTouch($v.form.urls.linkedin)"
+      @touch-twitter="delayTouch($v.form.urls.twitter)"
+      @touch-website="delayTouch($v.form.urls.website)"
     />
     <submitter-input
       v-model="form.submitter"
       :name-errors="submitterNameErrors"
       :email-errors="emailErrors($v.form.submitter.email)"
       @touch-name="$v.form.submitter.name.$touch()"
-      @touch-email="$v.form.submitter.email.$touch()"
+      @touch-email="delayTouch($v.form.submitter.email)"
     />
     <v-checkbox
       v-model="form.consent"
@@ -123,6 +126,8 @@ import {
 import japanese from '@/validators/japanese';
 
 const isTrue = (value) => value;
+const touchMap = new WeakMap();
+const VALIDATION_DELAY = 1000;
 
 export default {
   components: {
@@ -160,6 +165,7 @@ export default {
         name: { required },
         email: { required, email },
       },
+      photo_url: { url },
       urls: {
         facebook: { url },
         twitter: { url },
@@ -256,7 +262,7 @@ export default {
       return errors;
     },
   },
-  created() {
+  mounted() {
     // Prevent enter from submitting the form inside the bio text area
     const ENTER = 13;
     document.getElementById('speaker-bio').addEventListener('keypress', (event) => {
@@ -351,6 +357,14 @@ export default {
       } else {
         console.log(`Successfully saved ${records.length} records!`);
       }
+    },
+    // delay validation so it's less aggressive
+    delayTouch($v) {
+      $v.$reset();
+      if (touchMap.has($v)) {
+        clearTimeout(touchMap.get($v));
+      }
+      touchMap.set($v, setTimeout($v.$touch, VALIDATION_DELAY));
     },
   },
 };
