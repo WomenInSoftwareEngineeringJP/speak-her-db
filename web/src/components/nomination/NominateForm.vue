@@ -15,8 +15,8 @@
       label="Email"
       outlined
       :error-messages="emailErrors($v.form.email)"
-      @input="$v.form.email.$touch()"
-      @blur="$v.form.email.$touch()"
+      @input="delayTouch($v.form.email)"
+      @blur="delayTouch($v.form.email)"
     />
     <job-input
       v-model="form.job"
@@ -29,13 +29,14 @@
       @touch-prefecture="$v.form.location.prefecture.$touch()"
     />
     <v-textarea
+      id="speaker-bio"
       v-model="form.speaker_bio"
       label="Speaker Bio"
       hint="A brief description of the nominee"
       outlined
       :error-messages="speakerBioErrors"
-      @input="$v.form.speaker_bio.$touch()"
-      @blur="$v.form.speaker_bio.$touch()"
+      @input="delayTouch($v.form.speaker_bio)"
+      @blur="delayTouch($v.form.speaker_bio)"
     />
     <topics-input v-model="form.topics" />
     <v-row dense>
@@ -63,19 +64,30 @@
         <v-text-field
           v-model="form.photo_url"
           label="Photo URL"
+          :error-messages="urlErrors($v.form.photo_url)"
           outlined
+          @input="delayTouch($v.form.photo_url)"
+          @blur="delayTouch($v.form.photo_url)"
         />
       </v-col>
     </v-row>
     <urls-input
       v-model="form.urls"
+      :fb-errors="urlErrors($v.form.urls.facebook)"
+      :linkedin-errors="urlErrors($v.form.urls.linkedin)"
+      :twitter-errors="urlErrors($v.form.urls.twitter)"
+      :website-errors="urlErrors($v.form.urls.website)"
+      @touch-fb="delayTouch($v.form.urls.facebook)"
+      @touch-linkedin="delayTouch($v.form.urls.linkedin)"
+      @touch-twitter="delayTouch($v.form.urls.twitter)"
+      @touch-website="delayTouch($v.form.urls.website)"
     />
     <submitter-input
       v-model="form.submitter"
       :name-errors="submitterNameErrors"
       :email-errors="emailErrors($v.form.submitter.email)"
       @touch-name="$v.form.submitter.name.$touch()"
-      @touch-email="$v.form.submitter.email.$touch()"
+      @touch-email="delayTouch($v.form.submitter.email)"
     />
     <v-checkbox
       v-model="form.consent"
@@ -85,6 +97,12 @@
       @input="$v.form.consent.$touch()"
       @blur="$v.form.consent.$touch()"
     />
+    <v-btn
+      class="mr-5"
+      @click="resetForm"
+    >
+      Reset Form
+    </v-btn>
     <v-btn
       color="primary"
       type="submit"
@@ -103,11 +121,13 @@ import SubmitterInput from '@/components/nomination/SubmitterInput.vue';
 import TopicsInput from '@/components/nomination/TopicsInput.vue';
 import { validationMixin } from 'vuelidate';
 import {
-  required, email, minLength,
+  required, email, minLength, url,
 } from 'vuelidate/lib/validators';
 import japanese from '@/validators/japanese';
 
 const isTrue = (value) => value;
+const touchMap = new WeakMap();
+const VALIDATION_DELAY = 1000;
 
 export default {
   components: {
@@ -144,6 +164,13 @@ export default {
       submitter: {
         name: { required },
         email: { required, email },
+      },
+      photo_url: { url },
+      urls: {
+        facebook: { url },
+        twitter: { url },
+        linkedin: { url },
+        website: { url },
       },
     },
   },
@@ -231,9 +258,17 @@ export default {
       const errors = [];
       if (!this.$v.form.consent.$dirty) { return errors; }
       if (!this.$v.form.consent.isTrue) { errors.push('Please ask the nominee for permission'); }
-      console.log(this.$v.form.consent);
       return errors;
     },
+  },
+  mounted() {
+    // Prevent enter from submitting the form inside the bio text area
+    const ENTER = 13;
+    document.getElementById('speaker-bio').addEventListener('keypress', (event) => {
+      if (event.keyCode === ENTER) {
+        event.preventDefault();
+      }
+    });
   },
   methods: {
     // must pass in this.$v.form.[field]
@@ -244,9 +279,16 @@ export default {
       if (!field.required) { errors.push('E-mail is required'); }
       return errors;
     },
+    // must pass in this.$v.form.[field]
+    urlErrors(field) {
+      const errors = [];
+      if (!field.$dirty) { return errors; }
+      if (!field.url) { errors.push('Must be valid url'); }
+      return errors;
+    },
     resetForm() {
       this.$set(this.form, 'name', { en: '', ja: '' });
-      this.$set(this.form, 'speakerEmail', '');
+      this.$set(this.form, 'email', '');
       this.$set(this.form, 'job', { title: '', company: '' });
       this.$set(this.form, 'speaker_bio', '');
       this.$set(this.form, 'location', { city: '', prefecture: '' });
@@ -314,6 +356,14 @@ export default {
       } else {
         console.log(`Successfully saved ${records.length} records!`);
       }
+    },
+    // delay validation so it's less aggressive
+    delayTouch($v) {
+      $v.$reset();
+      if (touchMap.has($v)) {
+        clearTimeout(touchMap.get($v));
+      }
+      touchMap.set($v, setTimeout($v.$touch, VALIDATION_DELAY));
     },
   },
 };
