@@ -69,6 +69,14 @@
     </v-row>
     <urls-input
       v-model="form.urls"
+      :fb-errors="urlErrors($v.form.urls.facebook)"
+      :linkedin-errors="urlErrors($v.form.urls.linkedin)"
+      :twitter-errors="urlErrors($v.form.urls.twitter)"
+      :website-errors="urlErrors($v.form.urls.website)"
+      @touch-fb="$v.form.urls.facebook.$touch()"
+      @touch-linkedin="$v.form.urls.linkedin.$touch()"
+      @touch-twitter="$v.form.urls.twitter.$touch()"
+      @touch-website="$v.form.urls.website.$touch()"
     />
     <submitter-input
       v-model="form.submitter"
@@ -103,7 +111,7 @@ import SubmitterInput from '@/components/nomination/SubmitterInput.vue';
 import TopicsInput from '@/components/nomination/TopicsInput.vue';
 import { validationMixin } from 'vuelidate';
 import {
-  required, email, minLength,
+  required, email, minLength, url,
 } from 'vuelidate/lib/validators';
 import japanese from '@/validators/japanese';
 
@@ -144,6 +152,12 @@ export default {
       submitter: {
         name: { required },
         email: { required, email },
+      },
+      urls: {
+        facebook: { url },
+        twitter: { url },
+        linkedin: { url },
+        website: { url },
       },
     },
   },
@@ -242,6 +256,13 @@ export default {
       if (!field.$dirty) { return errors; }
       if (!field.email) { errors.push('Must be valid e-mail'); }
       if (!field.required) { errors.push('E-mail is required'); }
+      return errors;
+    },
+    // must pass in this.$v.form.[field]
+    urlErrors(field) {
+      const errors = [];
+      if (!field.$dirty) { return errors; }
+      if (!field.url) { errors.push('Must be valid url'); }
       return errors;
     },
     resetForm() {
