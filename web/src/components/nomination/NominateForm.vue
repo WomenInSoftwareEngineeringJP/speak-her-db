@@ -135,6 +135,7 @@ import japanese from '@/validators/japanese';
 const isTrue = (value) => value;
 const touchMap = new WeakMap();
 const VALIDATION_DELAY = 1000;
+const BIO_LENGTH = 30;
 
 export default {
   components: {
@@ -160,7 +161,7 @@ export default {
       languages: { required },
       speaker_bio: {
         required,
-        minLength: minLength(50),
+        minLength: minLength(BIO_LENGTH),
       },
       location: {
         city: { required },
@@ -245,7 +246,7 @@ export default {
       const errors = [];
       if (!this.$v.form.speaker_bio.$dirty) { return errors; }
       if (!this.$v.form.speaker_bio.required) { errors.push('Bio is required'); }
-      if (!this.$v.form.speaker_bio.minLength) { errors.push('Please write at least 50 characters'); }
+      if (!this.$v.form.speaker_bio.minLength) { errors.push(`Please write at least ${BIO_LENGTH} characters`); }
       return errors;
     },
     cityErrors() {
