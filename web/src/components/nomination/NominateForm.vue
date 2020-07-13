@@ -30,6 +30,7 @@
     />
     <v-textarea
       v-model="form.speaker_bio"
+      id="speaker-bio"
       label="Speaker Bio"
       hint="A brief description of the nominee"
       outlined
@@ -93,7 +94,10 @@
       @input="$v.form.consent.$touch()"
       @blur="$v.form.consent.$touch()"
     />
-    <v-btn @click="resetForm" class="mr-5">
+    <v-btn
+      class="mr-5"
+      @click="resetForm"
+    >
       Reset Form
     </v-btn>
     <v-btn
@@ -251,6 +255,15 @@ export default {
       console.log(this.$v.form.consent);
       return errors;
     },
+  },
+  created() {
+    // Prevent enter from submitting the form inside the bio text area
+    const ENTER = 13;
+    document.getElementById('speaker-bio').addEventListener('keypress', (event) => {
+      if (event.keyCode === ENTER) {
+        event.preventDefault();
+      }
+    });
   },
   methods: {
     // must pass in this.$v.form.[field]
