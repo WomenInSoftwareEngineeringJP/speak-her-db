@@ -1,4 +1,4 @@
 export default {
-  en: 'English',
-  ja: '日本語',
+  en: { label: 'English', code: 'en' },
+  ja: { label: '日本語', code: 'ja' },
 };

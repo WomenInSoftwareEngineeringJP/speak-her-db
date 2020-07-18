@@ -1,13 +1,12 @@
 <template>
   <v-btn
-    v-model="$i18n.locale"
     text
     @click="changeLocale"
   >
     <v-icon left>
       language
     </v-icon>
-    {{ locale }}
+    {{ locale.label }}
   </v-btn>
 </template>
 
@@ -21,6 +20,7 @@ export default {
   methods: {
     changeLocale() {
       this.locale = (this.locale === en) ? ja : en;
+      this.$i18n.locale = this.locale.code;
     },
   },
 };
