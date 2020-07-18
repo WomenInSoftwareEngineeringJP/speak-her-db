@@ -88,7 +88,6 @@ export default {
   },
   methods: {
     contactSpeaker() {
-      console.log(this.speaker.fields);
       bus.$emit('contact-speaker', this.speaker);
     },
   },
