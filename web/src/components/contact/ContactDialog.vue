@@ -17,10 +17,10 @@
         value="ask-question"
       >
       <two-button-modal
-        :title="`Contact ${speaker.get('name')}?`"
+        :title="`Contact ${name}?`"
         @cancel="$emit('close')"
       >
-        We'll send a message to contact {{ speaker.get('name') }} on your behalf.
+        We'll send a message to contact {{ name }} on your behalf.
 
         <v-text-field
           v-model="form.name"
@@ -101,6 +101,13 @@ export default {
     },
   }),
   computed: {
+    name() {
+      try {
+        return this.speaker.get('name_en');
+      } catch (e) {
+        return '';
+      }
+    },
     visible() {
       return this.show;
     },
