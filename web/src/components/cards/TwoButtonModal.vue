@@ -11,7 +11,7 @@
           text
           @click="$emit('cancel')"
         >
-          Cancel
+          {{ $t('actions.cancel') }}
         </v-btn>
         <v-btn
           text
@@ -19,7 +19,7 @@
           type="submit"
           @click="$emit('click')"
         >
-          Submit
+          {{ $t('actions.submit') }}
         </v-btn>
       </v-card-actions>
     </v-col>

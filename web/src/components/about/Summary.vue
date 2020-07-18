@@ -5,12 +5,10 @@
       no-gutters
     >
       <v-col lg="10">
-        <h2>Want to find female speakers for your next event?</h2>
+        <h2>{{ $t('about.summary.title') }}</h2>
         <br>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem,
-          vero magni delectus optio dignissimos harum. Animi tempore cum fugiat
-          dolorem assumenda corporis porro, vel fugit ad voluptatibus sapiente! Non, quos?
+          {{ $t('about.summary.body') }}
         </p>
 
         <v-row

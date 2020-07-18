@@ -8,7 +8,7 @@
     />
     <contact-result
       :show="showSuccess"
-      :name="selectedSpeaker.name || ''"
+      :name="selectedName"
       @close="showSuccess = false"
     />
     <v-row
@@ -18,7 +18,7 @@
       <v-col lg="10">
         <v-row>
           <h2 class="mx-2 mb-2">
-            Find a speaker
+            {{ $t('findSpeaker.title') }}
           </h2>
         </v-row>
         <search v-if="false" />
@@ -55,10 +55,15 @@ export default {
     speakers: [],
     prefectures: [],
     error: null,
-    selectedSpeaker: {},
+    selectedSpeaker: undefined,
     showDialog: false,
     showSuccess: false,
   }),
+  computed: {
+    selectedName() {
+      return this.selectedSpeaker ? this.selectedSpeaker.get('name_en') : '';
+    },
+  },
   mounted() {
     this.$getLocations(this.setPrefectures, this.setError);
     this.getSpeakers();

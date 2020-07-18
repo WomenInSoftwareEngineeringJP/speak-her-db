@@ -2,5 +2,41 @@
   "hero": {
     "title": "SpeakHer",
     "subtitle": "Your online resource for finding female speakers in Japan"
+  },
+  "nav": {
+    "findSpeaker": "Find a speaker",
+    "nominateSpeaker": "Nominate a speaker"
+  },
+  "footer": {
+    "dateString": "2020 SpeakHer Project"
+  },
+  "about": {
+    "title": "About",
+    "summary": {
+      "title": "Want to find female speakers for your next event?",
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, vero magni delectus optio dignissimos harum. Animi tempore cum fugiat dolorem assumenda corporis porro, vel fugit ad voluptatibus sapiente! Non, quos?"
+    }
+  },
+  "findSpeaker": {
+    "title": "Find a speaker"
+  },
+  "nominateSpeaker": {
+    "title": "Nominate a speaker"
+  },
+  "404": {
+    "title": "404: Page Not Found",
+    "body": "Uh oh, we couldn't find that page",
+    "goHome": "Take me back home"
+  },
+  "actions": {
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "resetForm": "Reset Form"
+  },
+  "contact": {
+    "body": "We'll send a message to contact {0} on your behalf.",
+    "thanks": "Thanks!",
+    "forward" : "We'll forward your message to {0}.",
+    "required": "All fields are required"
   }
 }

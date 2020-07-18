@@ -26,7 +26,7 @@
           class="ma-2"
           @click="$vuetify.goTo('#find-speaker', options)"
         >
-          Find a speaker
+          {{ $t('nav.findSpeaker') }}
         </v-btn>
       </v-row>
       <v-row
@@ -39,7 +39,7 @@
           class="ma-4"
           href="nominate-speaker"
         >
-          Nominate a speaker
+          {{ $t('nav.nominateSpeaker') }}
         </v-btn>
       </v-row>
       <v-row

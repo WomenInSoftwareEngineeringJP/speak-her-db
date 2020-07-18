@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    About
+    {{ $t('about.title') }}
   </v-container>
 </template>
 

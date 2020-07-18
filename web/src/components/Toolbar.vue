@@ -12,7 +12,7 @@
       text
     >
       <v-toolbar-title>
-        SpeakHer
+        {{ $t('hero.title') }}
       </v-toolbar-title>
     </v-btn>
 

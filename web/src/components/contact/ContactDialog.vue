@@ -20,7 +20,7 @@
         :title="`Contact ${name}?`"
         @cancel="$emit('close')"
       >
-        We'll send a message to contact {{ name }} on your behalf.
+        {{ $t('contact.body', [name]) }}
 
         <v-text-field
           v-model="form.name"
@@ -50,7 +50,7 @@
           text
           class="mb-0"
         >
-          All fields are required.
+          {{ $t('contact.required') }}
         </v-alert>
       </two-button-modal>
     </form>
