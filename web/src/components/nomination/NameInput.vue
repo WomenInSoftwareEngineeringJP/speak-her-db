@@ -6,11 +6,13 @@
       xs="12"
     >
       <v-text-field
-        ref="english"
-        :value="value.title"
+        ref="en"
+        :value="value.en"
+        :error-messages="englishErrors"
         label="Name (English / Romaji)"
         outlined
-        @input="updateName('english', $event)"
+        @input="updateName('en', $event)"
+        @blur="$emit('touch-english')"
       />
     </v-col>
     <v-col
@@ -19,11 +21,13 @@
       xs="12"
     >
       <v-text-field
-        ref="japanese"
-        :value="value.first"
+        ref="ja"
+        :value="value.ja"
+        :error-messages="japaneseErrors"
         label="Name (Kanji / Kana)"
         outlined
-        @input="updateName('japanese', $event)"
+        @input="updateName('ja', $event)"
+        @blur="$emit('touch-japanese')"
       />
     </v-col>
   </v-row>
@@ -36,10 +40,18 @@ export default {
       type: Object,
       required: true,
     },
+    englishErrors: {
+      type: Array,
+      default: () => [],
+    },
+    japaneseErrors: {
+      type: Array,
+      default: () => [],
+    },
   },
   data() {
     return {
-      nameFields: ['english', 'japanese'],
+      nameFields: ['en', 'ja'],
     };
   },
   methods: {
@@ -50,6 +62,7 @@ export default {
         name[field] = updatedField === field ? updatedValue : this.$refs[field].value;
       });
       this.$emit('input', name);
+      this.$emit(`touch-${updatedField}`);
     },
   },
 };

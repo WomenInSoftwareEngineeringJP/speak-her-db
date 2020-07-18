@@ -27,16 +27,29 @@ export default {
   },
   data() {
     return {
-      locationFields: ['city', 'prefecture'],
       topics: [
         { en: 'STEM' },
         { en: 'Business' },
         { en: 'Fintech' },
         { en: 'Art' },
       ],
+      error: null,
     };
   },
+  mounted() {
+    // TODO: fetch topics from database
+    // this.$getTopics(this.setTopics, this.setError);
+  },
   methods: {
+    setTopics(records) {
+      this.topics = records;
+    },
+    setError(err) {
+      this.error = err;
+    },
+    addTopic() {
+      // TODO: add new topics
+    },
   },
 };
 </script>

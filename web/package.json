@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "speak-her",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,12 +12,14 @@
   "dependencies": {
     "@mdi/font": "^3.6.95",
     "airtable": "0.8.1",
+    "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "material-design-icons-iconfont": "^5.0.1",
     "roboto-fontface": "*",
     "vue": "^2.6.11",
     "vue-i18n": "^8.17.3",
     "vue-router": "^3.1.6",
+    "vuelidate": "^0.7.5",
     "vuetify": "^2.2.11"
   },
   "devDependencies": {
