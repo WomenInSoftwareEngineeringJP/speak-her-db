@@ -2,5 +2,13 @@
   "hero": {
     "title": "SpeakHer",
     "subtitle": "Your online resource for finding female speakers in Japan"
+  },
+  "nav": {
+    "findSpeaker": "Find a speaker",
+    "nominateSpeaker": "Nominate a speaker"
+  },
+  "twoButtonModal": {
+    "cancel": "Cancel",
+    "submit": "Submit"
   }
 }
