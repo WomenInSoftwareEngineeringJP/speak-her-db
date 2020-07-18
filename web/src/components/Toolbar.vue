@@ -38,7 +38,7 @@
         inset
         vertical
       />
-      <language-switcher />
+      <locale-switcher />
     </v-toolbar-items>
     <v-toolbar-items v-else>
       <v-btn
@@ -53,11 +53,11 @@
 
 <script>
 
-import LanguageSwitcher from './LanguageSwitcher.vue';
+import LocaleSwitcher from './LocaleSwitcher.vue';
 
 export default {
   components: {
-    LanguageSwitcher,
+    LocaleSwitcher,
   },
   props: {
     items: {
