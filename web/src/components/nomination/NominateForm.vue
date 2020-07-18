@@ -101,13 +101,13 @@
       class="mr-5"
       @click="resetForm(); clearAlert()"
     >
-      Reset Form
+      {{ $t('actions.resetForm') }}
     </v-btn>
     <v-btn
       color="primary"
       type="submit"
     >
-      Submit
+      {{ $t('actions.submit') }}
     </v-btn>
     <variable-alert
       :type="alert.type"

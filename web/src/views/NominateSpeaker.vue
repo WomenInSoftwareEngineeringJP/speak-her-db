@@ -10,7 +10,7 @@
             class="px-8 py-2"
           >
             <v-col>
-              <h1>Nominate a Speaker</h1>
+              <h1>{{ $t('nominateSpeaker.title') }}</h1>
               <nominate-form />
             </v-col>
           </v-row>

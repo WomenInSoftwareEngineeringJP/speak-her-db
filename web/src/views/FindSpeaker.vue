@@ -18,7 +18,7 @@
       <v-col lg="10">
         <v-row>
           <h2 class="mx-2 mb-2">
-            Find a speaker
+            {{ $t('findSpeaker.title') }}
           </h2>
         </v-row>
         <search v-if="false" />

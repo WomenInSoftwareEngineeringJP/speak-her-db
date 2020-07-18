@@ -4,9 +4,9 @@
     max-width="500px"
   >
     <v-card>
-      <v-card-title>Thanks!</v-card-title>
+      <v-card-title>{{ $t('contact.thanks') }}</v-card-title>
       <v-card-text>
-        We'll forward your message to {{ name }}.
+        {{ $t('contact.forward', name) }}
       </v-card-text>
     </v-card>
   </v-dialog>

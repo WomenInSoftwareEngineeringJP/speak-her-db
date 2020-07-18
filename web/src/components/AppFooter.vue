@@ -9,7 +9,7 @@
       justify="center"
       align="center"
     >
-      2020 SpeakHer
+      {{ $t('footer.dateString') }}
     </v-row>
   </v-footer>
 </template>
