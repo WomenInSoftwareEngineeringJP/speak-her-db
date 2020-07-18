@@ -34,9 +34,9 @@
     "resetForm": "Reset Form"
   },
   "contact": {
-    "body": "We'll send a message to contact {name} on your behalf.",
+    "body": "We'll send a message to contact {0} on your behalf.",
     "thanks": "Thanks!",
-    "forward" : "We'll forward your message to {name}.",
+    "forward" : "We'll forward your message to {0}.",
     "required": "All fields are required"
   }
 }

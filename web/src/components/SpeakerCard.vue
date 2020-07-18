@@ -6,7 +6,7 @@
     >
       <v-col>
         <card-header
-          :title="speaker.get('name')"
+          :title="name"
           @contact-speaker="contactSpeaker()"
         />
         <v-row
@@ -17,7 +17,7 @@
           <span class="location">{{ prefecture }}</span>
         </v-row>
         <v-row>
-          {{ speaker.get('other_info') }}
+          {{ otherInfo }}
         </v-row>
 
         <v-row>
@@ -65,16 +65,29 @@ export default {
       return location?.fields?.prefecture;
     },
     topics() {
-      return this.speaker.get('topics').split(', ');
+      try {
+        return this.speaker.get('topics').split(', ');
+      } catch (e) {
+        return [];
+      }
     },
     name() {
-      console.log(this.speaker.get('topics'));
-      return this.speaker.get('name');
+      try {
+        return this.speaker.get('name_en') || '';
+      } catch (e) {
+        return '';
+      }
+    },
+    otherInfo() {
+      try {
+        return this.speaker.get('other_info');
+      } catch (e) {
+        return '';
+      }
     },
   },
   methods: {
     contactSpeaker() {
-      console.log(this.speaker.fields);
       bus.$emit('contact-speaker', this.speaker);
     },
   },
