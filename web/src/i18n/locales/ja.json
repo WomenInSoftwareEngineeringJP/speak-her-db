@@ -1,6 +1,6 @@
 {
-  "nav": {
-    "title": "日本語DBの版"
-  },
-  "message": "こんにちわ"
+  "hero": {
+    "title": "SpeakHer",
+    "subtitle": "日本語DBの版"
+  }
 }

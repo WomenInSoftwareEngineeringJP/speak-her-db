@@ -9,10 +9,10 @@
           class="text-center"
         >
           <h1 class="homepage-title mb-2">
-            SpeakHer
+            {{ $t('hero.title') }}
           </h1>
           <h2 class="homepage-subtitle mb-4">
-            Your online resource for finding female speakers in Japan
+            {{ $t('hero.subtitle') }}
           </h2>
         </v-col>
       </v-row>

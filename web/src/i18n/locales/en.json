@@ -1,6 +1,6 @@
 {
-  "nav": {
-    "title": "SpeakHer Database"
-  },
-  "message": "hello English!"
+  "hero": {
+    "title": "SpeakHer",
+    "subtitle": "Your online resource for finding female speakers in Japan"
+  }
 }

@@ -2,9 +2,11 @@
   <v-btn
     v-model="$i18n.locale"
     text
-    prepend-icon="v-language"
     @click="changeLocale"
   >
+    <v-icon left>
+      language
+    </v-icon>
     {{ locale }}
   </v-btn>
 </template>
@@ -19,7 +21,6 @@ export default {
   methods: {
     changeLocale() {
       this.locale = (this.locale === en) ? ja : en;
-      // this.$router.push(`/${this.locale}`);
     },
   },
 };
