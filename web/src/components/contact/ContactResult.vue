@@ -6,7 +6,7 @@
     <v-card>
       <v-card-title>{{ $t('contact.thanks') }}</v-card-title>
       <v-card-text>
-        {{ $t('contact.forward', name) }}
+        {{ $t('contact.forward', [name]) }}
       </v-card-text>
     </v-card>
   </v-dialog>
