@@ -12,7 +12,7 @@
     />
     <v-text-field
       v-model="form.email"
-      label="Email"
+      :label="$t('nominateSpeaker.email.label')"
       outlined
       :error-messages="emailErrors($v.form.email)"
       @input="delayTouch($v.form.email)"
@@ -31,8 +31,8 @@
     <v-textarea
       id="speaker-bio"
       v-model="form.speaker_bio"
-      label="Speaker Bio"
-      hint="A brief description of the nominee"
+      :label="$t('nominateSpeaker.bio.label')"
+      :hint="$t('nominateSpeaker.bio.hint')"
       outlined
       :error-messages="speakerBioErrors"
       @input="delayTouch($v.form.speaker_bio)"
@@ -47,7 +47,7 @@
       >
         <v-autocomplete
           v-model="form.languages"
-          label="Languages"
+          :label="$t('nominateSpeaker.languages.label')"
           :error-messages="languagesErrors"
           :items="languageOptions"
           multiple
@@ -63,7 +63,7 @@
       >
         <v-text-field
           v-model="form.photo_url"
-          label="Photo URL"
+          :label="$t('nominateSpeaker.photoURL.label')"
           :error-messages="urlErrors($v.form.photo_url)"
           outlined
           @input="delayTouch($v.form.photo_url)"
@@ -92,7 +92,7 @@
     <v-checkbox
       v-model="form.consent"
       class="mt-0"
-      label="I have the speaker's permission to submit her information to the SpeakHer database."
+      :label="$t('nominateSpeaker.consent.label')"
       :error-messages="consentErrors"
       @input="$v.form.consent.$touch()"
       @blur="$v.form.consent.$touch()"
@@ -226,7 +226,7 @@ export default {
     englishErrors() {
       const errors = [];
       if (!this.$v.form.name.en.$dirty) { return errors; }
-      if (!this.$v.form.name.en.required) { errors.push('Name is required'); }
+      if (!this.$v.form.name.en.required) { errors.push(); }
       return errors;
     },
     japaneseErrors() {
@@ -369,10 +369,10 @@ export default {
     afterSave(err, records) {
       if (err) {
         console.error(err);
-        this.setAlert('error', err);
+        this.setAlert('error', this.$t('nominateSpeaker.error', [err]));
       } else {
         console.log(`Successfully saved ${records.length} records!`);
-        this.setAlert('success', 'Thank you for your submission!');
+        this.setAlert('success', this.$t('nominateSpeaker.thanks'));
       }
     },
     // delay validation so it's less aggressive

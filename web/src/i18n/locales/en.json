@@ -22,7 +22,25 @@
     "title": "Find a speaker"
   },
   "nominateSpeaker": {
-    "title": "Nominate a speaker"
+    "title": "Nominate a speaker",
+    "thanks": "'Thank you for your submission!'",
+    "email": {
+      "label": "Email"
+    },
+    "bio": {
+      "label": "Speaker Bio",
+      "hint": "A brief description of the nominee"
+    },
+    "languages": {
+      "label": "Languages"
+    },
+    "photoURL": {
+      "label": "Photo URL"
+    },
+    "consent": {
+      "label": "I have the speaker's permission to submit her information to the SpeakHer database."
+    },
+    "error": "Error: {0}"
   },
   "404": {
     "title": "404: Page Not Found",
@@ -37,13 +55,13 @@
   "contact": {
     "body": "We'll send a message to contact {0} on your behalf.",
     "thanks": "Thanks!",
-    "forward" : "We'll forward your message to {0}.",
-    "validations": {    
-      "required": "All fields are required",
-      "nameRequired": "Name is required",
-      "emailRequired": "Email is required",
-      "valid": "Must provide a valid email",
-      "messageRequired": "A brief message is required"
-    }
+    "forward" : "We'll forward your message to {0}."
+  },
+  "validations": {    
+    "required": "All fields are required",
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "valid": "Must provide a valid email",
+    "messageRequired": "A brief message is required"
   }
 }
