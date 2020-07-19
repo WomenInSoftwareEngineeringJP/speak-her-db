@@ -14,7 +14,8 @@
     "title": "About",
     "summary": {
       "title": "Want to find female speakers for your next event?",
-      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, vero magni delectus optio dignissimos harum. Animi tempore cum fugiat dolorem assumenda corporis porro, vel fugit ad voluptatibus sapiente! Non, quos?"
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, vero magni delectus optio dignissimos harum. Animi tempore cum fugiat dolorem assumenda corporis porro, vel fugit ad voluptatibus sapiente! Non, quos?",
+      "learnMore": "Learn more"
     }
   },
   "findSpeaker": {
@@ -37,6 +38,12 @@
     "body": "We'll send a message to contact {0} on your behalf.",
     "thanks": "Thanks!",
     "forward" : "We'll forward your message to {0}.",
-    "required": "All fields are required"
+    "validations": {    
+      "required": "All fields are required",
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "valid": "Must provide a valid email",
+      "messageRequired": "A brief message is required"
+    }
   }
 }
