@@ -226,7 +226,7 @@ export default {
     englishErrors() {
       const errors = [];
       if (!this.$v.form.name.en.$dirty) { return errors; }
-      if (!this.$v.form.name.en.required) { errors.push(); }
+      if (!this.$v.form.name.en.required) { errors.push(this.$t('validations.enNameRequired')); }
       return errors;
     },
     japaneseErrors() {
@@ -245,26 +245,26 @@ export default {
     speakerBioErrors() {
       const errors = [];
       if (!this.$v.form.speaker_bio.$dirty) { return errors; }
-      if (!this.$v.form.speaker_bio.required) { errors.push(this.$t('validations.bioRequired')); }
+      if (!this.$v.form.speaker_bio.required) { errors.push(this.requiredError('nominateSpeaker.bio.label')); }
       if (!this.$v.form.speaker_bio.minLength) { errors.push(this.$t('validations.bioLength', [BIO_LENGTH])); }
       return errors;
     },
     cityErrors() {
       const errors = [];
       if (!this.$v.form.location.city.$dirty) { return errors; }
-      if (!this.$v.form.location.city.required) { errors.push(this.$t('validations.cityRequired')); }
+      if (!this.$v.form.location.city.required) { errors.push(this.requiredError('nominateSpeaker.city')); }
       return errors;
     },
     prefectureErrors() {
       const errors = [];
       if (!this.$v.form.location.prefecture.$dirty) { return errors; }
-      if (!this.$v.form.location.prefecture.required) { errors.push(this.$t('validations.prefRequired')); }
+      if (!this.$v.form.location.prefecture.required) { errors.push(this.requiredError('nominateSpeaker.prefecture')); }
       return errors;
     },
     submitterNameErrors() {
       const errors = [];
       if (!this.$v.form.submitter.name.$dirty) { return errors; }
-      if (!this.$v.form.submitter.name.required) { errors.push(this.$t('validations.nameRequired')); }
+      if (!this.$v.form.submitter.name.required) { errors.push(this.requiredError('nominateSpeaker.submitterName')); }
       return errors;
     },
     consentErrors() {
@@ -284,12 +284,16 @@ export default {
     });
   },
   methods: {
+    // helper to complete i18n for required field errors
+    requiredError(key) {
+      return this.$t('validations.fieldRequired', [this.$t(key)]);
+    },
     // must pass in this.$v.form.[field]
     emailErrors(field) {
       const errors = [];
       if (!field.$dirty) { return errors; }
       if (!field.email) { errors.push(this.$t('validations.emailValid')); }
-      if (!field.required) { errors.push(this.$t('validations.emailRequired')); }
+      if (!field.required) { errors.push(this.$t('validations.fieldRequired', [this.$t('nominateSpeaker.email')])); }
       return errors;
     },
     // must pass in this.$v.form.[field]

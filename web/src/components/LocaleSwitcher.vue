@@ -4,7 +4,9 @@
     @click="changeLocale"
   >
     <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
-    <v-icon>language</v-icon>
+    <v-icon left>
+      language
+    </v-icon>
     {{ locale.label }}
   </v-btn>
 </template>

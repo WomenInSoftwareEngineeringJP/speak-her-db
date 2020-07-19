@@ -50,7 +50,7 @@
           text
           class="mb-0"
         >
-          {{ $t('validations.required') }}
+          {{ $t('validations.allRequired') }}
         </v-alert>
       </two-button-modal>
     </form>
@@ -117,20 +117,20 @@ export default {
     nameErrors() {
       const errors = [];
       if (!this.$v.form.name.$dirty) return errors;
-      if (!this.$v.form.name.required) { errors.push(this.$t('validations.nameRequired')); }
+      if (!this.$v.form.name.required) { errors.push(this.$t('validations.fieldRequired', [this.$t('contact.name')])); }
       return errors;
     },
     emailErrors() {
       const errors = [];
       if (!this.$v.form.email.$dirty) { return errors; }
       if (!this.$v.form.email.email) { errors.push(this.$t('validations.validEmail')); }
-      if (!this.$v.form.email.required) { errors.push(this.$t('validations.emailRequired')); }
+      if (!this.$v.form.email.required) { errors.push(this.$t('validations.fieldRequired', [this.$t('contact.email')])); }
       return errors;
     },
     messageErrors() {
       const errors = [];
       if (!this.$v.form.message.$dirty) { return errors; }
-      if (!this.$v.form.message.required) { errors.push(this.$t('validations.messageRequired')); }
+      if (!this.$v.form.message.required) { errors.push(this.$t('validations.fieldRequired', [this.$t('contact.message')])); }
       return errors;
     },
   },
