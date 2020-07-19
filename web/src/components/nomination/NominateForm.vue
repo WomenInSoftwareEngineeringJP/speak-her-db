@@ -232,45 +232,45 @@ export default {
     japaneseErrors() {
       const errors = [];
       if (!this.$v.form.name.ja.$dirty) { return errors; }
-      if (!this.$v.form.name.ja.required) { errors.push('Japanese name is required'); }
-      if (!this.$v.form.name.ja.japanese) { errors.push('Please enter your name in Kanji / Kana'); }
+      if (!this.$v.form.name.ja.required) { errors.push(this.$t('validations.jaNameRequired')); }
+      if (!this.$v.form.name.ja.japanese) { errors.push(this.$t('validations.jaNameCharacters')); }
       return errors;
     },
     languagesErrors() {
       const errors = [];
       if (!this.$v.form.languages.$dirty) { return errors; }
-      if (!this.$v.form.languages.required) { errors.push('Please select spoken languages'); }
+      if (!this.$v.form.languages.required) { errors.push(this.$t('validations.languagesRequired')); }
       return errors;
     },
     speakerBioErrors() {
       const errors = [];
       if (!this.$v.form.speaker_bio.$dirty) { return errors; }
-      if (!this.$v.form.speaker_bio.required) { errors.push('Bio is required'); }
-      if (!this.$v.form.speaker_bio.minLength) { errors.push(`Please write at least ${BIO_LENGTH} characters`); }
+      if (!this.$v.form.speaker_bio.required) { errors.push(this.$t('validations.bioRequired')); }
+      if (!this.$v.form.speaker_bio.minLength) { errors.push(this.$t('validations.bioLength', [BIO_LENGTH])); }
       return errors;
     },
     cityErrors() {
       const errors = [];
       if (!this.$v.form.location.city.$dirty) { return errors; }
-      if (!this.$v.form.location.city.required) { errors.push('City is required'); }
+      if (!this.$v.form.location.city.required) { errors.push(this.$t('validations.cityRequired')); }
       return errors;
     },
     prefectureErrors() {
       const errors = [];
       if (!this.$v.form.location.prefecture.$dirty) { return errors; }
-      if (!this.$v.form.location.prefecture.required) { errors.push('Prefecture is required'); }
+      if (!this.$v.form.location.prefecture.required) { errors.push(this.$t('validations.prefRequired')); }
       return errors;
     },
     submitterNameErrors() {
       const errors = [];
       if (!this.$v.form.submitter.name.$dirty) { return errors; }
-      if (!this.$v.form.submitter.name.required) { errors.push('Name is required'); }
+      if (!this.$v.form.submitter.name.required) { errors.push(this.$t('validations.nameRequired')); }
       return errors;
     },
     consentErrors() {
       const errors = [];
       if (!this.$v.form.consent.$dirty) { return errors; }
-      if (!this.$v.form.consent.isTrue) { errors.push('Please ask the nominee for permission'); }
+      if (!this.$v.form.consent.isTrue) { errors.push(this.$t('validations.consentRequired')); }
       return errors;
     },
   },
@@ -288,15 +288,15 @@ export default {
     emailErrors(field) {
       const errors = [];
       if (!field.$dirty) { return errors; }
-      if (!field.email) { errors.push('Must be valid e-mail'); }
-      if (!field.required) { errors.push('E-mail is required'); }
+      if (!field.email) { errors.push(this.$t('validations.emailValid')); }
+      if (!field.required) { errors.push(this.$t('validations.emailRequired')); }
       return errors;
     },
     // must pass in this.$v.form.[field]
     urlErrors(field) {
       const errors = [];
       if (!field.$dirty) { return errors; }
-      if (!field.url) { errors.push('Must be valid url'); }
+      if (!field.url) { errors.push(this.$t('validations.URLValid')); }
       return errors;
     },
     resetForm() {
@@ -322,7 +322,7 @@ export default {
       // Check validity
       this.$v.$touch();
       if (this.$v.$invalid) {
-        this.setAlert('warning', 'Please complete the form correctly.');
+        this.setAlert('warning', this.$t('validations.invalidForm'));
         return;
       }
 
@@ -333,7 +333,7 @@ export default {
         this.$db('People').create(payload, this.afterSave);
       } else {
         console.log(payload);
-        this.setAlert('success', 'Thank you for your submission!');
+        this.setAlert('success', this.$t('nominateSpeaker.thanks'));
       }
       this.resetForm();
     },

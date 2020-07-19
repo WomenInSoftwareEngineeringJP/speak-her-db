@@ -23,7 +23,7 @@
   },
   "nominateSpeaker": {
     "title": "Nominate a speaker",
-    "thanks": "'Thank you for your submission!'",
+    "thanks": "Thank you for your submission!",
     "email": {
       "label": "Email"
     },
@@ -62,6 +62,17 @@
     "nameRequired": "Name is required",
     "emailRequired": "Email is required",
     "valid": "Must provide a valid email",
-    "messageRequired": "A brief message is required"
+    "messageRequired": "A brief message is required",
+    "jaNameRequired": "Japanese name is required",
+    "jaNameCharacters": "Please enter your name in Kanji / Kana",
+    "languagesRequired": "Please select spoken languages",
+    "bioRequired": "Bio is required",
+    "bioLength": "Please write at least {0} characters",
+    "cityRequired": "City is required",
+    "prefRequired": "Prefecture is required",
+    "consentRequired": "Please ask the nominee for permission",
+    "emailValid": "Email must be valid",
+    "URLValid": "URL must be valid",
+    "invalidForm": "Please complete the form correctly"
   }
 }
