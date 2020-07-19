@@ -245,26 +245,26 @@ export default {
     speakerBioErrors() {
       const errors = [];
       if (!this.$v.form.speaker_bio.$dirty) { return errors; }
-      if (!this.$v.form.speaker_bio.required) { errors.push(this.requiredError('nominateSpeaker.bio.label')); }
+      if (!this.$v.form.speaker_bio.required) { errors.push(this.requiredError(this.$t('nominateSpeaker.bio.label'))); }
       if (!this.$v.form.speaker_bio.minLength) { errors.push(this.$t('validations.bioLength', [BIO_LENGTH])); }
       return errors;
     },
     cityErrors() {
       const errors = [];
       if (!this.$v.form.location.city.$dirty) { return errors; }
-      if (!this.$v.form.location.city.required) { errors.push(this.requiredError('nominateSpeaker.city')); }
+      if (!this.$v.form.location.city.required) { errors.push(this.requiredError(this.$t('nominateSpeaker.city'))); }
       return errors;
     },
     prefectureErrors() {
       const errors = [];
       if (!this.$v.form.location.prefecture.$dirty) { return errors; }
-      if (!this.$v.form.location.prefecture.required) { errors.push(this.requiredError('nominateSpeaker.prefecture')); }
+      if (!this.$v.form.location.prefecture.required) { errors.push(this.requiredError(this.$t('nominateSpeaker.prefecture'))); }
       return errors;
     },
     submitterNameErrors() {
       const errors = [];
       if (!this.$v.form.submitter.name.$dirty) { return errors; }
-      if (!this.$v.form.submitter.name.required) { errors.push(this.requiredError('nominateSpeaker.submitterName')); }
+      if (!this.$v.form.submitter.name.required) { errors.push(this.requiredError(this.$t('nominateSpeaker.submitterName'))); }
       return errors;
     },
     consentErrors() {
@@ -285,15 +285,15 @@ export default {
   },
   methods: {
     // helper to complete i18n for required field errors
-    requiredError(key) {
-      return this.$t('validations.fieldRequired', [this.$t(key)]);
+    requiredError(field) {
+      return this.$t('validations.fieldRequired', [field]);
     },
     // must pass in this.$v.form.[field]
     emailErrors(field) {
       const errors = [];
       if (!field.$dirty) { return errors; }
       if (!field.email) { errors.push(this.$t('validations.emailValid')); }
-      if (!field.required) { errors.push(this.$t('validations.fieldRequired', [this.$t('nominateSpeaker.email')])); }
+      if (!field.required) { errors.push(this.requiredError(this.$t('nominateSpeaker.email'))); }
       return errors;
     },
     // must pass in this.$v.form.[field]
