@@ -14,14 +14,38 @@
     "title": "About",
     "summary": {
       "title": "Want to find female speakers for your next event?",
-      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, vero magni delectus optio dignissimos harum. Animi tempore cum fugiat dolorem assumenda corporis porro, vel fugit ad voluptatibus sapiente! Non, quos?"
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, vero magni delectus optio dignissimos harum. Animi tempore cum fugiat dolorem assumenda corporis porro, vel fugit ad voluptatibus sapiente! Non, quos?",
+      "learnMore": "Learn more"
     }
   },
   "findSpeaker": {
     "title": "Find a speaker"
   },
   "nominateSpeaker": {
-    "title": "Nominate a speaker"
+    "title": "Nominate a speaker",
+    "thanks": "Thank you for your submission!",
+    "nameEn": "Name (English / Rо̄maji)",
+    "nameJa": "Name (Kanji / Kana)",
+    "email": "Email",
+    "jobTitle": "Job Title",
+    "company": "Company",
+    "city": "City",
+    "prefecture": "Prefecture",
+    "bio": {
+      "label": "Speaker Bio",
+      "hint": "A brief description of the nominee"
+    },
+    "topics": "Topics",
+    "languages": "Languages",
+    "photoURL": "Photo URL",
+    "twitter": "Twitter URL",
+    "linkedIn": "LinkedIn URL",
+    "facebook": "Facebook URL",
+    "website": "Website",
+    "submitterName": "Submitter Name",
+    "submitterEmail": "Submitter Email",
+    "consent": "I have the speaker's permission to submit her information to the SpeakHer database.",
+    "error": "Error: {0}"
   },
   "404": {
     "title": "404: Page Not Found",
@@ -34,9 +58,28 @@
     "resetForm": "Reset Form"
   },
   "contact": {
+    "title": "Contact {0}?",
     "body": "We'll send a message to contact {0} on your behalf.",
+    "name": "Name",
+    "yourName": "Your Name",
+    "email": "Email",
+    "message": "Message",
     "thanks": "Thanks!",
-    "forward" : "We'll forward your message to {0}.",
-    "required": "All fields are required"
+    "forward" : "We'll forward your message to {0}."
+  },
+  "validations": {    
+    "allRequired": "All fields are required",
+    "fieldRequired": "{0} is required",
+    "valid": "Must provide a valid email",
+    "messageRequired": "A brief message is required",
+    "enNameRequired": "English name is required",
+    "jaNameRequired": "Japanese name is required",
+    "jaNameCharacters": "Please enter your name in Kanji / Kana",
+    "languagesRequired": "Please select spoken languages",
+    "bioLength": "Please write at least {0} characters",
+    "consentRequired": "Please ask the nominee for permission",
+    "emailValid": "Email must be valid",
+    "URLValid": "URL must be valid",
+    "invalidForm": "Please complete the form correctly"
   }
 }

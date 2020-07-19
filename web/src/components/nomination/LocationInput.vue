@@ -7,7 +7,7 @@
     >
       <v-text-field
         ref="city"
-        label="City"
+        :label="$t('nominateSpeaker.city')"
         outlined
         :error-messages="cityErrors"
         :value="value.city"
@@ -22,7 +22,7 @@
     >
       <v-autocomplete
         ref="prefecture"
-        label="Prefecture"
+        :label="$t('nominateSpeaker.prefecture')"
         :error-messages="prefectureErrors"
         :items="prefectures"
         :item-text="(e) => (e.get('prefecture'))"

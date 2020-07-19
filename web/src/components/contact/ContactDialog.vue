@@ -17,28 +17,28 @@
         value="ask-question"
       >
       <two-button-modal
-        :title="`Contact ${name}?`"
+        :title="$t('contact.title', [name])"
         @cancel="$emit('close')"
       >
         {{ $t('contact.body', [name]) }}
 
         <v-text-field
           v-model="form.name"
-          label="Your Name"
+          :label="$t('contact.yourName')"
           :error-messages="nameErrors"
           @input="$v.form.name.$touch()"
           @blur="$v.form.name.$touch()"
         />
         <v-text-field
           v-model="form.email"
-          label="Email"
+          :label="$t('contact.email')"
           :error-messages="emailErrors"
           @input="$v.form.email.$touch()"
           @blur="$v.form.email.$touch()"
         />
         <v-textarea
           v-model="form.message"
-          label="Message"
+          :label="$t('contact.message')"
           :error-messages="messageErrors"
           @input="$v.form.message.$touch()"
           @blur="$v.form.message.$touch()"
@@ -50,7 +50,7 @@
           text
           class="mb-0"
         >
-          {{ $t('contact.required') }}
+          {{ $t('validations.allRequired') }}
         </v-alert>
       </two-button-modal>
     </form>
@@ -117,20 +117,20 @@ export default {
     nameErrors() {
       const errors = [];
       if (!this.$v.form.name.$dirty) return errors;
-      if (!this.$v.form.name.required) { errors.push('Name is required.'); }
+      if (!this.$v.form.name.required) { errors.push(this.$t('validations.fieldRequired', [this.$t('contact.name')])); }
       return errors;
     },
     emailErrors() {
       const errors = [];
       if (!this.$v.form.email.$dirty) { return errors; }
-      if (!this.$v.form.email.email) { errors.push('Must be valid e-mail'); }
-      if (!this.$v.form.email.required) { errors.push('E-mail is required'); }
+      if (!this.$v.form.email.email) { errors.push(this.$t('validations.validEmail')); }
+      if (!this.$v.form.email.required) { errors.push(this.$t('validations.fieldRequired', [this.$t('contact.email')])); }
       return errors;
     },
     messageErrors() {
       const errors = [];
       if (!this.$v.form.message.$dirty) { return errors; }
-      if (!this.$v.form.message.required) { errors.push('A brief message is required'); }
+      if (!this.$v.form.message.required) { errors.push(this.$t('validations.fieldRequired', [this.$t('contact.message')])); }
       return errors;
     },
   },

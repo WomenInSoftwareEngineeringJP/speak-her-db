@@ -10,7 +10,7 @@
           ref="linkedin"
           :value="value.linkedin"
           :error-messages="linkedinErrors"
-          label="LinkedIn URL"
+          :label="$t('nominateSpeaker.linkedIn')"
           outlined
           @input="updateURLs('linkedin', $event)"
           @blur="$emit('touch-linkedin')"
@@ -25,7 +25,7 @@
           ref="facebook"
           :value="value.facebook"
           :error-messages="fbErrors"
-          label="Facebook URL"
+          :label="$t('nominateSpeaker.facebook')"
           outlined
           @input="updateURLs('facebook', $event)"
           @blur="$emit('touch-fb')"
@@ -42,7 +42,7 @@
           ref="twitter"
           :value="value.twitter"
           :error-messages="twitterErrors"
-          label="Twitter URL"
+          :label="$t('nominateSpeaker.twitter')"
           outlined
           @input="updateURLs('twitter', $event)"
           @blur="$emit('touch-twitter')"
@@ -57,7 +57,7 @@
           ref="website"
           :value="value.website"
           :error-messages="websiteErrors"
-          label="Website URL"
+          :label="$t('nominateSpeaker.website')"
           outlined
           @input="updateURLs('website', $event)"
           @blur="$emit('touch-website')"

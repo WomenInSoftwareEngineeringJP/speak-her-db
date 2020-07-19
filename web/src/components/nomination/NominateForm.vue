@@ -12,7 +12,7 @@
     />
     <v-text-field
       v-model="form.email"
-      label="Email"
+      :label="$t('nominateSpeaker.email')"
       outlined
       :error-messages="emailErrors($v.form.email)"
       @input="delayTouch($v.form.email)"
@@ -31,8 +31,8 @@
     <v-textarea
       id="speaker-bio"
       v-model="form.speaker_bio"
-      label="Speaker Bio"
-      hint="A brief description of the nominee"
+      :label="$t('nominateSpeaker.bio.label')"
+      :hint="$t('nominateSpeaker.bio.hint')"
       outlined
       :error-messages="speakerBioErrors"
       @input="delayTouch($v.form.speaker_bio)"
@@ -47,7 +47,7 @@
       >
         <v-autocomplete
           v-model="form.languages"
-          label="Languages"
+          :label="$t('nominateSpeaker.languages')"
           :error-messages="languagesErrors"
           :items="languageOptions"
           multiple
@@ -63,7 +63,7 @@
       >
         <v-text-field
           v-model="form.photo_url"
-          label="Photo URL"
+          :label="$t('nominateSpeaker.photoURL')"
           :error-messages="urlErrors($v.form.photo_url)"
           outlined
           @input="delayTouch($v.form.photo_url)"
@@ -92,7 +92,7 @@
     <v-checkbox
       v-model="form.consent"
       class="mt-0"
-      label="I have the speaker's permission to submit her information to the SpeakHer database."
+      :label="$t('nominateSpeaker.consent')"
       :error-messages="consentErrors"
       @input="$v.form.consent.$touch()"
       @blur="$v.form.consent.$touch()"
@@ -226,51 +226,51 @@ export default {
     englishErrors() {
       const errors = [];
       if (!this.$v.form.name.en.$dirty) { return errors; }
-      if (!this.$v.form.name.en.required) { errors.push('Name is required'); }
+      if (!this.$v.form.name.en.required) { errors.push(this.$t('validations.enNameRequired')); }
       return errors;
     },
     japaneseErrors() {
       const errors = [];
       if (!this.$v.form.name.ja.$dirty) { return errors; }
-      if (!this.$v.form.name.ja.required) { errors.push('Japanese name is required'); }
-      if (!this.$v.form.name.ja.japanese) { errors.push('Please enter your name in Kanji / Kana'); }
+      if (!this.$v.form.name.ja.required) { errors.push(this.$t('validations.jaNameRequired')); }
+      if (!this.$v.form.name.ja.japanese) { errors.push(this.$t('validations.jaNameCharacters')); }
       return errors;
     },
     languagesErrors() {
       const errors = [];
       if (!this.$v.form.languages.$dirty) { return errors; }
-      if (!this.$v.form.languages.required) { errors.push('Please select spoken languages'); }
+      if (!this.$v.form.languages.required) { errors.push(this.$t('validations.languagesRequired')); }
       return errors;
     },
     speakerBioErrors() {
       const errors = [];
       if (!this.$v.form.speaker_bio.$dirty) { return errors; }
-      if (!this.$v.form.speaker_bio.required) { errors.push('Bio is required'); }
-      if (!this.$v.form.speaker_bio.minLength) { errors.push(`Please write at least ${BIO_LENGTH} characters`); }
+      if (!this.$v.form.speaker_bio.required) { errors.push(this.requiredError(this.$t('nominateSpeaker.bio.label'))); }
+      if (!this.$v.form.speaker_bio.minLength) { errors.push(this.$t('validations.bioLength', [BIO_LENGTH])); }
       return errors;
     },
     cityErrors() {
       const errors = [];
       if (!this.$v.form.location.city.$dirty) { return errors; }
-      if (!this.$v.form.location.city.required) { errors.push('City is required'); }
+      if (!this.$v.form.location.city.required) { errors.push(this.requiredError(this.$t('nominateSpeaker.city'))); }
       return errors;
     },
     prefectureErrors() {
       const errors = [];
       if (!this.$v.form.location.prefecture.$dirty) { return errors; }
-      if (!this.$v.form.location.prefecture.required) { errors.push('Prefecture is required'); }
+      if (!this.$v.form.location.prefecture.required) { errors.push(this.requiredError(this.$t('nominateSpeaker.prefecture'))); }
       return errors;
     },
     submitterNameErrors() {
       const errors = [];
       if (!this.$v.form.submitter.name.$dirty) { return errors; }
-      if (!this.$v.form.submitter.name.required) { errors.push('Name is required'); }
+      if (!this.$v.form.submitter.name.required) { errors.push(this.requiredError(this.$t('nominateSpeaker.submitterName'))); }
       return errors;
     },
     consentErrors() {
       const errors = [];
       if (!this.$v.form.consent.$dirty) { return errors; }
-      if (!this.$v.form.consent.isTrue) { errors.push('Please ask the nominee for permission'); }
+      if (!this.$v.form.consent.isTrue) { errors.push(this.$t('validations.consentRequired')); }
       return errors;
     },
   },
@@ -284,19 +284,23 @@ export default {
     });
   },
   methods: {
+    // helper to complete i18n for required field errors
+    requiredError(field) {
+      return this.$t('validations.fieldRequired', [field]);
+    },
     // must pass in this.$v.form.[field]
     emailErrors(field) {
       const errors = [];
       if (!field.$dirty) { return errors; }
-      if (!field.email) { errors.push('Must be valid e-mail'); }
-      if (!field.required) { errors.push('E-mail is required'); }
+      if (!field.email) { errors.push(this.$t('validations.emailValid')); }
+      if (!field.required) { errors.push(this.requiredError(this.$t('nominateSpeaker.email'))); }
       return errors;
     },
     // must pass in this.$v.form.[field]
     urlErrors(field) {
       const errors = [];
       if (!field.$dirty) { return errors; }
-      if (!field.url) { errors.push('Must be valid url'); }
+      if (!field.url) { errors.push(this.$t('validations.URLValid')); }
       return errors;
     },
     resetForm() {
@@ -322,7 +326,7 @@ export default {
       // Check validity
       this.$v.$touch();
       if (this.$v.$invalid) {
-        this.setAlert('warning', 'Please complete the form correctly.');
+        this.setAlert('warning', this.$t('validations.invalidForm'));
         return;
       }
 
@@ -333,7 +337,7 @@ export default {
         this.$db('People').create(payload, this.afterSave);
       } else {
         console.log(payload);
-        this.setAlert('success', 'Thank you for your submission!');
+        this.setAlert('success', this.$t('nominateSpeaker.thanks'));
       }
       this.resetForm();
     },
@@ -369,10 +373,10 @@ export default {
     afterSave(err, records) {
       if (err) {
         console.error(err);
-        this.setAlert('error', err);
+        this.setAlert('error', this.$t('nominateSpeaker.error', [err]));
       } else {
         console.log(`Successfully saved ${records.length} records!`);
-        this.setAlert('success', 'Thank you for your submission!');
+        this.setAlert('success', this.$t('nominateSpeaker.thanks'));
       }
     },
     // delay validation so it's less aggressive

@@ -20,7 +20,7 @@
             color="primary"
             to="/about"
           >
-            Learn more
+            {{ $t('about.summary.learnMore') }}
           </v-btn>
         </v-row>
       </v-col>
