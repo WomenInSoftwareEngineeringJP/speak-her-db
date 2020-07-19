@@ -7,7 +7,7 @@
     >
       <v-text-field
         ref="title"
-        label="Job Title"
+        :label="$t('nominateSpeaker.jobTitle')"
         outlined
         :value="value.title"
         @input="updateJob('title', $event)"
@@ -21,7 +21,7 @@
       <v-text-field
         ref="company"
         :value="value.company"
-        label="Company"
+        :label="$t('nominateSpeaker.company')"
         outlined
         @input="updateJob('company', $event)"
       />

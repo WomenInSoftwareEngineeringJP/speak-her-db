@@ -19,6 +19,7 @@
       class="ml-1"
       @click="$emit('contact-speaker')"
     >
+      <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
       <v-icon>email</v-icon>
     </v-btn>
   </v-row>

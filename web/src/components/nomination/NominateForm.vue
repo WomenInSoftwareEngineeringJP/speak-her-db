@@ -12,7 +12,7 @@
     />
     <v-text-field
       v-model="form.email"
-      :label="$t('nominateSpeaker.email.label')"
+      :label="$t('nominateSpeaker.email')"
       outlined
       :error-messages="emailErrors($v.form.email)"
       @input="delayTouch($v.form.email)"
@@ -47,7 +47,7 @@
       >
         <v-autocomplete
           v-model="form.languages"
-          :label="$t('nominateSpeaker.languages.label')"
+          :label="$t('nominateSpeaker.languages')"
           :error-messages="languagesErrors"
           :items="languageOptions"
           multiple
@@ -63,7 +63,7 @@
       >
         <v-text-field
           v-model="form.photo_url"
-          :label="$t('nominateSpeaker.photoURL.label')"
+          :label="$t('nominateSpeaker.photoURL')"
           :error-messages="urlErrors($v.form.photo_url)"
           outlined
           @input="delayTouch($v.form.photo_url)"
@@ -92,7 +92,7 @@
     <v-checkbox
       v-model="form.consent"
       class="mt-0"
-      :label="$t('nominateSpeaker.consent.label')"
+      :label="$t('nominateSpeaker.consent')"
       :error-messages="consentErrors"
       @input="$v.form.consent.$touch()"
       @blur="$v.form.consent.$touch()"

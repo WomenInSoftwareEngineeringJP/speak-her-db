@@ -45,6 +45,7 @@
         text
         @click="$emit('click-menu')"
       >
+        <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
         <v-icon>menu</v-icon>
       </v-btn>
     </v-toolbar-items>

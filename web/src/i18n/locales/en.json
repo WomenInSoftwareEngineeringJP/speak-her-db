@@ -24,22 +24,27 @@
   "nominateSpeaker": {
     "title": "Nominate a speaker",
     "thanks": "Thank you for your submission!",
-    "email": {
-      "label": "Email"
-    },
+    "nameEn": "Name (English / Rо̄maji)",
+    "nameJa": "Name (Kanji / Kana)",
+    "email": "Email",
+    "jobTitle": "Job Title",
+    "company": "Company",
+    "city": "City",
+    "prefecture": "Prefecture",
     "bio": {
       "label": "Speaker Bio",
       "hint": "A brief description of the nominee"
     },
-    "languages": {
-      "label": "Languages"
-    },
-    "photoURL": {
-      "label": "Photo URL"
-    },
-    "consent": {
-      "label": "I have the speaker's permission to submit her information to the SpeakHer database."
-    },
+    "topics": "Topics",
+    "languages": "Languages",
+    "photoURL": "Photo URL",
+    "twitter": "Twitter URL",
+    "linkedIn": "LinkedIn URL",
+    "facebook": "Facebook URL",
+    "website": "Website",
+    "submitterName": "Submitter Name",
+    "submitterEmail": "Submitter Email",
+    "consent": "I have the speaker's permission to submit her information to the SpeakHer database.",
     "error": "Error: {0}"
   },
   "404": {
@@ -53,7 +58,11 @@
     "resetForm": "Reset Form"
   },
   "contact": {
+    "title": "Contact {0}?",
     "body": "We'll send a message to contact {0} on your behalf.",
+    "yourName": "Your Name",
+    "email": "Email",
+    "message": "Message",
     "thanks": "Thanks!",
     "forward" : "We'll forward your message to {0}."
   },

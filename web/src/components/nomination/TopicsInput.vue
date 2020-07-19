@@ -3,7 +3,7 @@
     <v-col>
       <v-autocomplete
         ref="topics"
-        label="Topics"
+        :label="$t('nominateSpeaker.topics')"
         :items="topics"
         item-text="en"
         multiple

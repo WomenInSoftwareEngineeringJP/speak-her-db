@@ -17,28 +17,28 @@
         value="ask-question"
       >
       <two-button-modal
-        :title="`Contact ${name}?`"
+        :title="$t('contact.title', [name])"
         @cancel="$emit('close')"
       >
         {{ $t('contact.body', [name]) }}
 
         <v-text-field
           v-model="form.name"
-          label="Your Name"
+          :label="$t('contact.yourName')"
           :error-messages="nameErrors"
           @input="$v.form.name.$touch()"
           @blur="$v.form.name.$touch()"
         />
         <v-text-field
           v-model="form.email"
-          label="Email"
+          :label="$t('contact.email')"
           :error-messages="emailErrors"
           @input="$v.form.email.$touch()"
           @blur="$v.form.email.$touch()"
         />
         <v-textarea
           v-model="form.message"
-          label="Message"
+          :label="$t('contact.message')"
           :error-messages="messageErrors"
           @input="$v.form.message.$touch()"
           @blur="$v.form.message.$touch()"

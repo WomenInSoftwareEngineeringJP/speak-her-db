@@ -7,7 +7,7 @@
     >
       <v-text-field
         ref="name"
-        label="Submitter Name"
+        :label="$t('nominateSpeaker.submitterName')"
         :error-messages="nameErrors"
         outlined
         :value="value.name"
@@ -22,7 +22,7 @@
     >
       <v-text-field
         ref="email"
-        label="Submitter Email"
+        :label="$t('nominateSpeaker.submitterEmail')"
         :error-messages="emailErrors"
         outlined
         :value="value.email"

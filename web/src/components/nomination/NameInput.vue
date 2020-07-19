@@ -9,7 +9,7 @@
         ref="en"
         :value="value.en"
         :error-messages="englishErrors"
-        label="Name (English / Romaji)"
+        :label="$t('nominateSpeaker.nameEn')"
         outlined
         @input="updateName('en', $event)"
         @blur="$emit('touch-english')"
@@ -24,7 +24,7 @@
         ref="ja"
         :value="value.ja"
         :error-messages="japaneseErrors"
-        label="Name (Kanji / Kana)"
+        :label="$t('nominateSpeaker.nameJa')"
         outlined
         @input="updateName('ja', $event)"
         @blur="$emit('touch-japanese')"
