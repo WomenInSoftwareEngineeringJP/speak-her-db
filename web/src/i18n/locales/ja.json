@@ -15,7 +15,7 @@
     "actions": {
         "cancel": "キャンセル",
         "resetForm": "フォームをリセット",
-        "submit": "参加する"
+        "submit": "送信する"
     },
     "contact": {
         "body": "{0}に代わってメッセージを送信します。",
