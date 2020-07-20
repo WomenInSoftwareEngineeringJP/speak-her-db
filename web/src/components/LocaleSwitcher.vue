@@ -18,10 +18,19 @@ const { en, ja } = supportedLocales;
 
 export default {
   data: () => ({ locale: en }),
+  watch: {
+    locale() {
+      this.$i18n.locale = this.locale.code || en.code;
+    },
+  },
+  created() {
+    this.locale = JSON.parse(localStorage.locale || null) || en;
+  },
   methods: {
     changeLocale() {
-      this.locale = (this.locale === en) ? ja : en;
-      this.$i18n.locale = this.locale.code;
+      console.log(this.locale, en);
+      this.locale = (this.locale.code === en.code) ? ja : en;
+      localStorage.locale = JSON.stringify(this.locale);
     },
   },
 };
