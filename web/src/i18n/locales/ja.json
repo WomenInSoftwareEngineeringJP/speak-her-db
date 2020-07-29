@@ -1,30 +1,30 @@
 {
     "404": {
         "body": "そのページはありませんでした",
-        "goHome": "ほーむぺーじにいく",
+        "goHome": "ホームに戻る",
         "title": "404：ページが見つかりません"
     },
     "about": {
         "summary": {
             "body": "...",
             "learnMore": "もっと詳しく知る",
-            "title": "次のイベントの女性スピーカーを見つけたいですか？"
+            "title": "イベントの女性スピーカーを見つけたいですか？"
         },
-        "title": "約"
+        "title": "SpeakHerについて"
     },
     "actions": {
         "cancel": "キャンセル",
-        "resetForm": "フォームをリセット",
+        "resetForm": "フォームをリセットする",
         "submit": "送信する"
     },
     "contact": {
-        "body": "{0}に代わってメッセージを送信します。",
+        "body": "私たちは{0}にメッセージを送信します。",
         "email": "Eメール",
-        "forward": "メッセージを{0}転送します。",
+        "forward": "メッセージを{0}に転送します。",
         "message": "メッセージ",
         "name": "お名前",
-        "thanks": "ありがとう！",
-        "title": "{0}連絡しますか？",
+        "thanks": "ありがとうございます！",
+        "title": "{0}に連絡しますか？",
         "yourName": "お名前"
     },
     "findSpeaker": {
@@ -34,7 +34,7 @@
         "dateString": "2020 SpeakHerプロジェクト"
     },
     "hero": {
-        "subtitle": "日本語DBの版",
+        "subtitle": "日本で女性のスピーカーを探すオンラインリソース",
         "title": "SpeakHer"
     },
     "nav": {
@@ -44,11 +44,11 @@
     "nominateSpeaker": {
         "bio": {
             "hint": "候補者の簡単な説明",
-            "label": "スピーカーバイオ"
+            "label": "経歴"
         },
         "city": "都市",
         "company": "会社",
-        "consent": "彼女の情報をSpeakHerデータベースに送信する許可をスピーカーに与えています。",
+        "consent": "スピーカーの情報をSpeakHerデータベースに送信する許可をスピーカーから得ています。",
         "email": "Eメール",
         "error": "エラー： {0}",
         "facebook": "FacebookのURL",
@@ -58,9 +58,9 @@
         "nameEn": "お名前(英語\/ローマ字)",
         "nameJa": "お名前（漢字\/かな）",
         "photoURL": "写真のURL",
-        "prefecture": "県",
-        "submitterEmail": "送信者のメール",
-        "submitterName": "提出者名",
+        "prefecture": "都道府県",
+        "submitterEmail": "提出者のメール",
+        "submitterName": "提出者",
         "thanks": "投稿ありがとうございます！",
         "title": "スピーカーを指名する",
         "topics": "トピック",
@@ -72,14 +72,14 @@
         "bioLength": "少なくとも{0}文字入力してください",
         "consentRequired": "候補者に許可を求めてください",
         "emailValid": "メールアドレスは有効である必要があります",
-        "enNameRequired": "英語名が必要です",
+        "enNameRequired": "ローマ字で入力してください",
         "fieldRequired": "{0}が必要です",
-        "invalidForm": "フォームに正しく記入してください",
-        "jaNameCharacters": "漢字\/かなであなたの名前を入力してください",
-        "jaNameRequired": "日本語名が必要です",
-        "languagesRequired": "話されている言語を選択してください",
-        "messageRequired": "日本語名が必要です",
+        "invalidForm": "フォームに記入してください",
+        "jaNameCharacters": "漢字\/かなでお名前を入力してください",
+        "jaNameRequired": "漢字\/かなで入力してください",
+        "languagesRequired": "話せる言語を選択してください",
+        "messageRequired": "スピーカーへの簡単なメッセージが必要です",
         "URLValid": "URLは有効である必要があります",
-        "valid": "有効なメールアドレスを提供する必要があります"
+        "valid": "有効なメールアドレスを提供してください"
     }
 }
