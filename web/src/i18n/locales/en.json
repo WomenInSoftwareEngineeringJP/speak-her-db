@@ -18,6 +18,10 @@
         "resetForm": "Reset Form",
         "submit": "Submit"
     },
+    "codeOfConduct": {
+        "title": "Code of Conduct",
+        "body": "Please do not use this site outside of the purpose of promoting and requesting female speakers. No solicitations or harassment. We take the safety of our community seriously."
+    },
     "contact": {
         "body": "We'll send a message to contact {0} on your behalf.",
         "email": "Email",
@@ -35,6 +39,8 @@
         "freeQ": "Do speakers give presentations for free?",
         "obligationA": "Even if speakers are listed on our platform, they are under no obligation to give a presentation or respond to messages. Our service is simply meant to connect event organizers with women speakers. From there, both parties can decide if the opportunity is a good fit.",
         "obligationQ": "Are speakers obliged to give talks?",
+        "qualifyA": "The biggest hurdle to public speaking is often our own fears. We welcome any woman with an interest in public speaking to nominate herself, regardless of training or experience.",
+        "qualifyQ": "Are there prerequisites for being a speaker?",
         "title": "Frequently Asked Questions",
         "whoA": "This is an open source project created by Yan Fan, Tutti Quintella, Ann Kilzer. The original idea comes from Emi Takemura Miller. Additional assistance was provided by Women Who Code Tokyo. If you’d like to make a contribution, please check out our GitHub page.",
         "whoQ": "Who built this?",
