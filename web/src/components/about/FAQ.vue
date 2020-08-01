@@ -26,6 +26,10 @@ export default {
           answer: this.$t('faq.whyA'),
         },
         {
+          question: this.$t('faq.qualifyQ'),
+          answer: this.$t('faq.qualifyA'),
+        },
+        {
           question: this.$t('faq.obligationQ'),
           answer: this.$t('faq.obligationA'),
         },
