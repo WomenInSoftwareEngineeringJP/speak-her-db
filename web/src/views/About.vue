@@ -6,15 +6,19 @@
     <p>{{ $t('about.purpose') }}</p>
     <v-divider />
     <f-a-q />
+    <v-divider />
+    <code-of-conduct />
   </page-card>
 </template>
 
 <script>
 import PageCard from '@/components/cards/PageCard.vue';
 import FAQ from '@/components/about/FAQ.vue';
+import CodeOfConduct from '@/components/about/CodeOfConduct.vue';
 
 export default {
   components: {
+    CodeOfConduct,
     FAQ,
     PageCard,
   },

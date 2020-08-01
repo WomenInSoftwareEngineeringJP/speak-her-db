@@ -18,6 +18,10 @@
         "resetForm": "Reset Form",
         "submit": "Submit"
     },
+    "codeOfConduct": {
+        "title": "Code of Conduct",
+        "body": "Please do not use this site outside of the purpose of promoting and requesting female speakers. No solicitations or harassment. We take the safety of our community seriously."
+    },
     "contact": {
         "body": "We'll send a message to contact {0} on your behalf.",
         "email": "Email",
