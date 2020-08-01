@@ -9,7 +9,12 @@
       justify="center"
       align="center"
     >
-      {{ $t('footer.dateString') }}
+      <a
+        color="#ffffff"
+        class="footer-link"
+        target="_blank"
+        href="https://github.com/WWCodeTokyo/speak-her-db"
+      >{{ $t('footer.dateString') }}</a>
     </v-row>
   </v-footer>
 </template>
