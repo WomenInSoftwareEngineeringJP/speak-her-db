@@ -5,13 +5,13 @@
         "title": "404: Page Not Found"
     },
     "about": {
+        "purpose": "The purpose of gathering this information is so that event organizers can easily search for female speakers and that fellow speakers can connect with and support each other. PLEASE NOTE: Except for your email, the information you provide below will be public to those visiting our upcoming website. Please do not share any information you do not want to be available to the general public.",
         "summary": {
-            "body": "SpeakHer is a database of women public speakers in Japan. A common excuse we hear from conference and event organizers is how they can't find any women. Let's banish that excuse. Please join our list and make sure that women get fair representation for public speaking engagements.",
+            "body": "SpeakHer is a database of women public speakers in Japan. A common excuse we hear from conference and event organizers is how they can't find any women. Let's banish that excuse.\n\nPlease join our list and make sure that women get fair representation for public speaking engagements.",
             "learnMore": "Learn more",
             "title": "Want to find female speakers for your next event?"
         },
-        "title": "About",
-        "purpose": "The purpose of gathering this information is so that event organizers can easily search for female speakers and that fellow speakers can connect with and support each other. PLEASE NOTE: Except for your email, the information you provide below will be public to those visiting our upcoming website. Please do not share any information you do not want to be available to the general public."
+        "title": "About"
     },
     "actions": {
         "cancel": "Cancel",
@@ -27,6 +27,19 @@
         "thanks": "Thanks!",
         "title": "Contact {0}?",
         "yourName": "Your Name"
+    },
+    "faq": {
+        "correctionA": "Please email:\n\nYan Fan [English]\nyan@codechrysalis.io\n\nEmi Takemura Miller [Japanese]\nemitakemura@gmail.com",
+        "correctionQ": "I’ve been nominated, but I would like my information corrected or removed.",
+        "freeA": "While it is free to use this website to contact speakers, some speakers may charge for their services, while others may choose to speak for free. We support our members’ decisions to set their value and determine how to donate their time and energy.",
+        "freeQ": "Do speakers give presentations for free?",
+        "obligationA": "Even if speakers are listed on our platform, they are under no obligation to give a presentation or respond to messages. Our service is simply meant to connect event organizers with women speakers. From there, both parties can decide if the opportunity is a good fit.",
+        "obligationQ": "Are speakers obliged to give talks?",
+        "title": "Frequently Asked Questions",
+        "whoA": "This is an open source project created by Yan Fan, Tutti Quintella, Ann Kilzer. The original idea comes from Emi Takemura Miller. Additional assistance was provided by Women Who Code Tokyo. If you’d like to make a contribution, please check out our GitHub page.",
+        "whoQ": "Who built this?",
+        "whyA": "Gender Equality is one of the UN’s 17 Sustainable Development Goals. We see an opportunity for more representation of women in professional environments. It is far too common to see all-male panels (aka “Manels” at public events). We hope that by elevating the voices of women, we can create a better society.",
+        "whyQ": "Why does this matter?"
     },
     "findSpeaker": {
         "title": "Find a speaker"
@@ -82,18 +95,5 @@
         "messageRequired": "A brief message is required",
         "URLValid": "URL must be valid",
         "valid": "Must provide a valid email"
-    }, 
-    "faq": {
-        "title": "Frequently Asked Questions",
-        "whyQ": "Why does this matter?",
-        "whyA": "Gender Equality is one of the UN’s 17 Sustainable Development Goals. We see an opportunity for more representation of women in professional environments. It is far too common to see all-male panels (aka “Manels” at public events). We hope that by elevating the voices of women, we can create a better society.",
-        "obligationQ": "Are speakers obliged to give talks?",
-        "obligationA": "Even if speakers are listed on our platform, they are under no obligation to give a presentation or respond to messages. Our service is simply meant to connect event organizers with women speakers. From there, both parties can decide if the opportunity is a good fit.",
-        "freeQ": "Do speakers give presentations for free?",
-        "freeA": "While it is free to use this website to contact speakers, some speakers may charge for their services, while others may choose to speak for free. We support our members’ decisions to set their value and determine how to donate their time and energy.",
-        "whoQ": "Who built this?",
-        "whoA": "This is an open source project created by Yan Fan, Tutti Quintella, Ann Kilzer. The original idea comes from Emi Takemura Miller. Additional assistance was provided by Women Who Code Tokyo. If you’d like to make a contribution, please check out our GitHub page.",
-        "correctionQ": "I’ve been nominated, but I would like my information corrected or removed.",
-        "correctionA": "Please reach out to Yan Fan [English] yan@codechrysalis.io or Emi Takemura Miller [Japanese] emitakemura@gmail.com so we can help you."
     }
 }
