@@ -5,7 +5,7 @@
         ref="topics"
         :label="$t('nominateSpeaker.topics')"
         :items="topics"
-        item-text="name_en"
+        :item-text="$i18n.locale === 'ja' ? 'name_ja' : 'name_en'"
         item-value="id"
         multiple
         chips
