@@ -6,8 +6,6 @@
         :label="$t('nominateSpeaker.topics.label')"
         :hint="$t('nominateSpeaker.topics.hint')"
         :items="topics"
-        :item-text="$i18n.locale === 'ja' ? 'name_ja' : 'name_en'"
-        item-value="id"
         persistent-hint
         multiple
         chips
@@ -41,8 +39,7 @@ export default {
     setTopics(records) {
       this.topics = records.map((topic) => ({
         id: topic.id,
-        name_en: topic.get('name_en'),
-        name_ja: topic.get('name_ja'),
+        text: topic.get('name'),
       }));
     },
     setError(err) {
