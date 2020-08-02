@@ -5,7 +5,8 @@
         ref="topics"
         :label="$t('nominateSpeaker.topics')"
         :items="topics"
-        item-text="en"
+        item-text="name_en"
+        item-value="id"
         multiple
         chips
         deletable-chips
@@ -27,22 +28,20 @@ export default {
   },
   data() {
     return {
-      topics: [
-        { en: 'STEM' },
-        { en: 'Business' },
-        { en: 'Fintech' },
-        { en: 'Art' },
-      ],
+      topics: [],
       error: null,
     };
   },
   mounted() {
-    // TODO: fetch topics from database
-    // this.$getTopics(this.setTopics, this.setError);
+    this.$getTopics(this.setTopics, this.setError);
   },
   methods: {
     setTopics(records) {
-      this.topics = records;
+      this.topics = records.map((topic) => ({
+        id: topic.id,
+        name_en: topic.get('name_en'),
+        name_ja: topic.get('name_ja'),
+      }));
     },
     setError(err) {
       this.error = err;
