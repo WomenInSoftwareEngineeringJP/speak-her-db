@@ -3,10 +3,12 @@
     <v-col>
       <v-combobox
         ref="topics"
-        :label="$t('nominateSpeaker.topics')"
+        :label="$t('nominateSpeaker.topics.label')"
+        :hint="$t('nominateSpeaker.topics.hint')"
         :items="topics"
         :item-text="$i18n.locale === 'ja' ? 'name_ja' : 'name_en'"
         item-value="id"
+        persistent-hint
         multiple
         chips
         deletable-chips
