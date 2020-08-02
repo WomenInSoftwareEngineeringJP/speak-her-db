@@ -84,7 +84,10 @@
         "submitterName": "提出者",
         "thanks": "投稿ありがとうございます！",
         "title": "スピーカーを指名する",
-        "topics": "得意分野",
+        "topics": {
+            "label": "得意分野",
+            "hint": "何かを入力してEnterキーを押し、新しいトピックを追加します"
+        },
         "twitter": "TwitterのURL",
         "website": "ウェブサイト"
     },

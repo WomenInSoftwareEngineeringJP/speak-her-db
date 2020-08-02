@@ -1,12 +1,14 @@
 <template>
   <v-row dense>
     <v-col>
-      <v-autocomplete
+      <v-combobox
         ref="topics"
-        :label="$t('nominateSpeaker.topics')"
+        :label="$t('nominateSpeaker.topics.label')"
+        :hint="$t('nominateSpeaker.topics.hint')"
         :items="topics"
         :item-text="$i18n.locale === 'ja' ? 'name_ja' : 'name_en'"
         item-value="id"
+        persistent-hint
         multiple
         chips
         deletable-chips
@@ -45,9 +47,6 @@ export default {
     },
     setError(err) {
       this.error = err;
-    },
-    addTopic() {
-      // TODO: add new topics
     },
   },
 };
