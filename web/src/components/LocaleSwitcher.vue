@@ -7,7 +7,7 @@
     <v-icon left>
       language
     </v-icon>
-    {{ locale.label }}
+    {{ switchLabel }}
   </v-btn>
 </template>
 
@@ -18,6 +18,14 @@ const { en, ja } = supportedLocales;
 
 export default {
   data: () => ({ locale: en }),
+  computed: {
+    switchLabel() {
+      if (this.locale.code === en.code) {
+        return ja.label;
+      }
+      return en.label;
+    },
+  },
   watch: {
     locale() {
       this.$i18n.locale = this.locale.code || en.code;
