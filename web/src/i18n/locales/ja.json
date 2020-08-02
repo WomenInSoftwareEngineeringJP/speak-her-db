@@ -86,7 +86,7 @@
         "title": "スピーカーを指名する",
         "topics": {
             "label": "得意分野",
-            "hint": "Type anything and press enter to add new topics"
+            "hint": "何かを入力してEnterキーを押し、新しいトピックを追加します"
         },
         "twitter": "TwitterのURL",
         "website": "ウェブサイト"
