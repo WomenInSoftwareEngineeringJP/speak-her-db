@@ -51,6 +51,7 @@ export default {
     },
   },
   data: () => ({
+    topics: [],
   }),
   computed: {
     jobTitle() {
@@ -63,13 +64,6 @@ export default {
       const locationId = this.speaker.fields.location_id[0];
       const location = this.prefectures.find((elem) => (elem.id === locationId));
       return location?.fields?.prefecture;
-    },
-    topics() {
-      try {
-        return this.speaker.get('topics').split(', ');
-      } catch (e) {
-        return [];
-      }
     },
     name() {
       try {
@@ -86,7 +80,19 @@ export default {
       }
     },
   },
+  mounted() {
+    this.$getSpeakerTopics(this.speaker.id, this.setTopics, this.setError);
+  },
   methods: {
+    setTopics(records) {
+      this.topics = records.map((topic) => ({
+        id: topic.id,
+        text: topic.get('name'),
+      }));
+    },
+    setError(err) {
+      this.error = err;
+    },
     contactSpeaker() {
       bus.$emit('contact-speaker', this.speaker);
     },

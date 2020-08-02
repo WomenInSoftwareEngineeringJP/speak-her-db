@@ -2,16 +2,16 @@
   <v-row class="pa-0 ma-0">
     <div
       v-for="tag in tags"
-      :key="tag"
+      :key="tag.name"
       fluid
       class="mr-2"
       align="end"
     >
       <v-chip
-        :color="generateColor(tag)"
+        :color="generateColor(tag.name)"
         label
       >
-        {{ tag }}
+        {{ tag.name }}
       </v-chip>
     </div>
   </v-row>
