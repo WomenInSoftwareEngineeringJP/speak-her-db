@@ -1,11 +1,12 @@
 <template>
   <v-row dense>
     <v-col>
-      <v-autocomplete
+      <v-combobox
         ref="topics"
-        :label="$t('nominateSpeaker.topics')"
+        :label="$t('nominateSpeaker.topics.label')"
+        :hint="$t('nominateSpeaker.topics.hint')"
         :items="topics"
-        item-text="en"
+        persistent-hint
         multiple
         chips
         deletable-chips
@@ -27,28 +28,22 @@ export default {
   },
   data() {
     return {
-      topics: [
-        { en: 'STEM' },
-        { en: 'Business' },
-        { en: 'Fintech' },
-        { en: 'Art' },
-      ],
+      topics: [],
       error: null,
     };
   },
   mounted() {
-    // TODO: fetch topics from database
-    // this.$getTopics(this.setTopics, this.setError);
+    this.$getTopics(this.setTopics, this.setError);
   },
   methods: {
     setTopics(records) {
-      this.topics = records;
+      this.topics = records.map((topic) => ({
+        id: topic.id,
+        text: topic.get('name'),
+      }));
     },
     setError(err) {
       this.error = err;
-    },
-    addTopic() {
-      // TODO: add new topics
     },
   },
 };

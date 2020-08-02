@@ -84,7 +84,10 @@
         "submitterName": "Submitter Name",
         "thanks": "Thank you for your submission!",
         "title": "Nominate a speaker",
-        "topics": "Topics",
+        "topics": {
+            "label": "Topics",
+            "hint": "Type anything and press enter to add new topics"
+        },
         "twitter": "Twitter URL",
         "website": "Website"
     },

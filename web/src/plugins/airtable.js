@@ -28,6 +28,25 @@ Airtable.install = function (Vue) {
       });
     }
   };
+
+  Vue.prototype.$topics = [];
+
+  Vue.prototype.$getTopics = function (successCallback, errorCallback) {
+    if (this.$topics.length) {
+      // return cached response
+      successCallback(this.$topics);
+    } else {
+      this.$db('Topics').select({ view: 'All' }).firstPage((error, records) => {
+        if (error) {
+          console.error(`Error fetching topics: ${error}`);
+          errorCallback(error);
+        } else {
+          this.$topics = records; // cache response
+          successCallback(records);
+        }
+      });
+    }
+  };
 };
 
 export default Airtable;

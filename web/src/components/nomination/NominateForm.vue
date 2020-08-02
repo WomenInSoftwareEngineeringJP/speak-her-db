@@ -334,7 +334,7 @@ export default {
 
       const payload = this.parseFormData();
       if (process.env.NODE_ENV === 'production') {
-        this.$db('People').create(payload, this.afterSave);
+        this.$db('People').create(payload, { typecast: true }, this.afterSave);
       } else {
         console.log(payload);
         this.setAlert('success', this.$t('nominateSpeaker.thanks'));
@@ -345,11 +345,19 @@ export default {
     parseFormData() {
       /* eslint-disable camelcase */
 
+      // for existing topics we should send just the id
+      const topics = this.form.topics.map((elem) => {
+        if (typeof elem === 'object' && elem !== null) {
+          return elem.id;
+        }
+        return elem;
+      });
+
       // translate the fields into airtable format
       const payloadFields = {
+        topics,
         email: this.form.email,
         speaker_bio: this.form.speaker_bio,
-        topics: this.form.topics,
         languages: this.form.languages,
         photo_url: this.form.photo_url,
         name_en: this.form.name.en,
