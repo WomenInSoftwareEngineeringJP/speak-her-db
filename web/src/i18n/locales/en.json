@@ -51,7 +51,8 @@
         "title": "Find a speaker"
     },
     "footer": {
-        "dateString": "2020 SpeakHer Project"
+        "dateString": "2020 SpeakHer Project",
+        "netlify": "Powered by Netlify"
     },
     "hero": {
         "subtitle": "Your online resource for finding female speakers in Japan",
