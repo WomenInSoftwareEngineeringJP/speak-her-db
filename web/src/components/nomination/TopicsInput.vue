@@ -1,7 +1,7 @@
 <template>
   <v-row dense>
     <v-col>
-      <v-autocomplete
+      <v-combobox
         ref="topics"
         :label="$t('nominateSpeaker.topics')"
         :items="topics"
@@ -45,9 +45,6 @@ export default {
     },
     setError(err) {
       this.error = err;
-    },
-    addTopic() {
-      // TODO: add new topics
     },
   },
 };
