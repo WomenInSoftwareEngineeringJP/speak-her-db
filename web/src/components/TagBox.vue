@@ -2,16 +2,16 @@
   <v-row class="pa-0 ma-0">
     <div
       v-for="tag in tags"
-      :key="tag.name"
+      :key="tag"
       fluid
       class="mr-2"
       align="end"
     >
       <v-chip
-        :color="generateColor(tag.name)"
+        :color="generateColor(tag)"
         label
       >
-        {{ tag.name }}
+        {{ tag }}
       </v-chip>
     </div>
   </v-row>
@@ -31,8 +31,11 @@ export default {
   },
   methods: {
     generateColor(tag) {
-      const i = tag.charCodeAt(0) % softColors.length;
-      return softColors[i];
+      if (tag && tag.length > 0) {
+        const i = tag.charCodeAt(0) % softColors.length;
+        return softColors[i];
+      }
+      return softColors[0];
     },
   },
 };

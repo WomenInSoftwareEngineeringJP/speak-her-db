@@ -80,15 +80,19 @@ export default {
       }
     },
   },
-  mounted() {
-    this.$getSpeakerTopics(this.speaker.id, this.setTopics, this.setError);
+  created() {
+    this.$getTopics(this.setTopics, this.setError);
   },
   methods: {
     setTopics(records) {
-      this.topics = records.map((topic) => ({
-        id: topic.id,
-        text: topic.get('name'),
-      }));
+      const tKeys = this.speaker.get('topics');
+      this.topics = [];
+
+      for (let i = 0; i < tKeys.length; i += 1) {
+        const topicId = tKeys[i];
+        const topic = records.find((elem) => (elem.id === topicId));
+        this.topics.push(topic.get('name'));
+      }
     },
     setError(err) {
       this.error = err;

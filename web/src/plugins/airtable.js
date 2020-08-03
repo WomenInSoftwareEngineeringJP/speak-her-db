@@ -47,25 +47,6 @@ Airtable.install = function (Vue) {
       });
     }
   };
-
-  Vue.prototype.$speakerTopics = new Map();
-
-  Vue.prototype.$getSpeakerTopics = function (speakerID, successCallback, errorCallback) {
-    if (this.$speakerTopics.hasKey(speakerID)) {
-      // return cached response
-      successCallback(this.$speakerTopics.get(speakerID));
-    } else {
-      this.$db('Topics').select({ view: 'All', fields: ['name'], filterByFormula: "({People} = 'TODO')" }).firstPage((error, records) => {
-        if (error) {
-          console.error(`Error fetching topics: ${error}`);
-          errorCallback(error);
-        } else {
-          this.$speakerTopics.set(speakerID, records); // cache response
-          successCallback(records);
-        }
-      });
-    }
-  };
 };
 
 export default Airtable;
