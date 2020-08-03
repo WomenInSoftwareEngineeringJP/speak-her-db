@@ -89,8 +89,7 @@ export default {
       this.topics = [];
 
       for (let i = 0; i < tKeys.length; i += 1) {
-        const topicId = tKeys[i];
-        const topic = records.find((elem) => (elem.id === topicId));
+        const topic = records.find((elem) => (elem.id === tKeys[i]));
         this.topics.push(topic.get('name'));
       }
     },
