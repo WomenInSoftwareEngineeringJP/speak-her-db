@@ -31,8 +31,11 @@ export default {
   },
   methods: {
     generateColor(tag) {
-      const i = tag.charCodeAt(0) % softColors.length;
-      return softColors[i];
+      if (tag && tag.length > 0) {
+        const i = tag.charCodeAt(0) % softColors.length;
+        return softColors[i];
+      }
+      return softColors[0];
     },
   },
 };
