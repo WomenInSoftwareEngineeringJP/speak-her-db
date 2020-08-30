@@ -1,5 +1,20 @@
+# SpeakHer
 
-## Database connection
+SpeakHer is a database of women public speakers in Japan. A common excuse we hear from conference and event organizers is how they can't find any women. Let's banish that excuse. Please join our list and make sure that women get fair representation for public speaking engagements.
+
+The purpose of gathering this information is so that event organizers can easily search for female speakers and that fellow speakers can connect with and support each other
+
+## Code of Conduct
+
+All contributors to this repository must follow the [Code of Conduct](https://www.womenwhocode.com/codeofconduct). Thank you for helping us build an inclusive open-source project.
+
+## Running the code
+
+Requirements:
+- [Yarn](https://yarnpkg.com/)
+
+
+### Database connection
 
 This project uses Airtable as a data source. Follow these steps to configure a database on your local environment:
 
