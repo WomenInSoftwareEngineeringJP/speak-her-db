@@ -1,4 +1,9 @@
+![GitHub](https://img.shields.io/github/license/WWCodeTokyo/speak-her-db)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4db391fa-4beb-4632-afe5-0931358657f2/deploy-status)](https://app.netlify.com/sites/speak-her-db/deploys)
+
 # SpeakHer
+
+https://speakher.jp/
 
 SpeakHer is a database of women public speakers in Japan. A common excuse we hear from conference and event organizers is how they can't find any women. Let's banish that excuse. Please join our list and make sure that women get fair representation for public speaking engagements.
 
