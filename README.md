@@ -1,5 +1,7 @@
 ![GitHub](https://img.shields.io/github/license/WWCodeTokyo/speak-her-db)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4db391fa-4beb-4632-afe5-0931358657f2/deploy-status)](https://app.netlify.com/sites/speak-her-db/deploys)
+![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fspeakher.jp)
+![Twitter Follow](https://img.shields.io/twitter/follow/speakherjapan?style=social)
 
 # SpeakHer
 
