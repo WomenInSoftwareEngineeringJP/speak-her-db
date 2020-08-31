@@ -1,6 +1,22 @@
 <template>
   <v-row>
-    <h2>{{ title }}</h2>
+    <h2 class="d-flex align-center mr-4">
+      {{ title }}
+    </h2>
+    <div
+      v-for="language in languages"
+      :key="language"
+      class="d-flex justify-center align-center mr-2"
+    >
+      <v-chip
+        color="silver"
+        label
+        outlined
+        small
+      >
+        {{ language }}
+      </v-chip>
+    </div>
     <v-spacer />
     <v-btn
       v-if="false"
@@ -31,6 +47,11 @@ export default {
     title: {
       type: String,
       required: true,
+    },
+    languages: {
+      type: Array,
+      required: false,
+      default: () => [],
     },
   },
   data() {

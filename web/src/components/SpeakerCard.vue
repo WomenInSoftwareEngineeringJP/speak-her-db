@@ -7,6 +7,7 @@
       <v-col>
         <card-header
           :title="name"
+          :languages="speaker.get('languages')"
           @contact-speaker="contactSpeaker()"
         />
         <v-row
@@ -16,10 +17,6 @@
           <v-spacer />
           <span class="location">{{ prefecture }}</span>
         </v-row>
-        <v-row>
-          {{ otherInfo }}
-        </v-row>
-
         <v-row>
           <tag-box
             :tags="topics"
@@ -72,9 +69,10 @@ export default {
         return '';
       }
     },
-    otherInfo() {
+    // TODO: to add this to the card we need to decide what to do with long entries
+    speakerBio() {
       try {
-        return this.speaker.get('other_info');
+        return this.speaker.get('speaker_bio');
       } catch (e) {
         return '';
       }
