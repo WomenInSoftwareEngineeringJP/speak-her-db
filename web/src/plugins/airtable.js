@@ -1,8 +1,7 @@
 import Airtable from 'airtable';
-
+/* eslint-disable no-param-reassign */
+/* eslint-disable func-names */
 Airtable.install = function (Vue) {
-  /* eslint-disable no-param-reassign */
-
   this.configure({
     endpointUrl: 'https://api.airtable.com',
     apiKey: process.env.VUE_APP_AIRTABLE_API_KEY,
