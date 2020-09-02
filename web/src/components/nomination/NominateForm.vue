@@ -372,6 +372,7 @@ export default {
         website_url: this.form.urls.website,
         submitter_name: this.form.submitter.name,
         submitter_email: this.form.submitter.email,
+        consent: this.form.consent,
       };
 
       // Airtable expects an array of objects with the key `fields`
