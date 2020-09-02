@@ -10,6 +10,7 @@
       <v-chip
         :color="generateColor(tag)"
         label
+        class="mb-2"
       >
         {{ tag }}
       </v-chip>
