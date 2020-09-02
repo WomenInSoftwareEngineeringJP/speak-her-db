@@ -8,6 +8,7 @@
       ref="languages"
       :label="$t('nominateSpeaker.languages')"
       :items="languages"
+      :error-messages="errors"
       multiple
       outlined
       :value="value"
@@ -20,6 +21,10 @@
 export default {
   props: {
     value: {
+      type: Array,
+      required: true,
+    },
+    errors: {
       type: Array,
       required: true,
     },

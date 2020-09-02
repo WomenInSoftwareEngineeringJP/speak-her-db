@@ -40,7 +40,12 @@
     />
     <topics-input v-model="form.topics" />
     <v-row dense>
-      <language-input v-model="form.languages" />
+      <language-input
+        v-model="form.languages"
+        :errors="languagesErrors"
+        @input="$v.form.languages.$touch()"
+        @blur="$v.form.languages.$touch()"
+      />
       <v-col
         cols="12"
         md="6"
