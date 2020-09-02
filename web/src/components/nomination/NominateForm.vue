@@ -45,7 +45,7 @@
         md="6"
         xs="12"
       >
-        <v-autocomplete
+        <v-combobox
           v-model="form.languages"
           :label="$t('nominateSpeaker.languages')"
           :error-messages="languagesErrors"
@@ -185,7 +185,8 @@ export default {
   },
   data() {
     return {
-      languageOptions: ['English', '日本語'],
+      languageOptions: ['English', '日本語', 'French', 'German', 'Hindi', 'Korean', 'Mandarin', 'Portugeuse',
+        'Spanish', 'Thai', 'Vietnamese'],
       alert: {
         type: '',
         message: '',
