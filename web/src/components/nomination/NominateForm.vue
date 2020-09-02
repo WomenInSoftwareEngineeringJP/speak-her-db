@@ -40,22 +40,7 @@
     />
     <topics-input v-model="form.topics" />
     <v-row dense>
-      <v-col
-        cols="12"
-        md="6"
-        xs="12"
-      >
-        <v-combobox
-          v-model="form.languages"
-          :label="$t('nominateSpeaker.languages')"
-          :error-messages="languagesErrors"
-          :items="languageOptions"
-          multiple
-          outlined
-          @input="$v.form.languages.$touch()"
-          @blur="$v.form.languages.$touch()"
-        />
-      </v-col>
+      <language-input v-model="form.languages" />
       <v-col
         cols="12"
         md="6"
@@ -123,7 +108,7 @@ import LocationInput from '@/components/nomination/LocationInput.vue';
 import UrlsInput from '@/components/nomination/UrlsInput.vue';
 import SubmitterInput from '@/components/nomination/SubmitterInput.vue';
 import TopicsInput from '@/components/nomination/TopicsInput.vue';
-
+import LanguageInput from '@/components/nomination/LanguageInput.vue';
 import VariableAlert from '@/components/alerts/VariableAlert.vue';
 
 import { validationMixin } from 'vuelidate';
@@ -145,6 +130,7 @@ export default {
     UrlsInput,
     SubmitterInput,
     TopicsInput,
+    LanguageInput,
     VariableAlert,
   },
   mixins: [validationMixin],
@@ -185,8 +171,6 @@ export default {
   },
   data() {
     return {
-      languageOptions: ['English', '日本語', 'French', 'German', 'Hindi', 'Korean', 'Mandarin', 'Portugeuse',
-        'Spanish', 'Thai', 'Vietnamese'],
       alert: {
         type: '',
         message: '',
@@ -354,12 +338,20 @@ export default {
         return elem;
       });
 
+      // for existing languages we should send just the id
+      const languages = this.form.languages.map((elem) => {
+        if (typeof elem === 'object' && elem !== null) {
+          return elem.id;
+        }
+        return elem;
+      });
+
       // translate the fields into airtable format
       const payloadFields = {
         topics,
         email: this.form.email,
         speaker_bio: this.form.speaker_bio,
-        languages: this.form.languages,
+        languages2: languages, // TODO: update the airtable table names in the next PR
         photo_url: this.form.photo_url,
         name_en: this.form.name.en,
         name_ja: this.form.name.ja,
