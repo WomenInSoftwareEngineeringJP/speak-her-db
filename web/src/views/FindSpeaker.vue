@@ -84,6 +84,9 @@ export default {
       this.$db('People')
         .select({
           view: 'Published',
+          sort: [
+            { field: 'name_en', direction: 'asc' },
+          ],
         })
         .firstPage((err, records) => {
           if (err) {
