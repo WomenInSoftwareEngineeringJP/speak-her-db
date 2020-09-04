@@ -5,7 +5,7 @@
     </h2>
     <div
       v-for="language in languages"
-      :key="language"
+      :key="language.id"
       class="d-flex justify-center align-center mr-2"
     >
       <v-chip
@@ -14,7 +14,7 @@
         outlined
         small
       >
-        {{ language }}
+        {{ formatLanguage(language) }}
       </v-chip>
     </div>
     <v-spacer />
@@ -68,6 +68,11 @@ export default {
     toggleFavorite() {
       this.favorited = !this.favorited;
       // TODO: find a way to save this
+    },
+    formatLanguage(language) {
+      return (language.fields.native && language.fields.native !== '')
+        ? `${language.fields.name} - ${language.fields.native}`
+        : language.fields.name;
     },
   },
 };

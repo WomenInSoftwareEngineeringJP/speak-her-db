@@ -29,6 +29,7 @@
           <speaker-card
             :speaker="speaker"
             :prefectures="prefectures"
+            :language-list="languageList"
             class="mb-5"
           />
         </div>
@@ -54,6 +55,7 @@ export default {
   data: () => ({
     speakers: [],
     prefectures: [],
+    languageList: [],
     error: null,
     selectedSpeaker: undefined,
     showDialog: false,
@@ -66,6 +68,7 @@ export default {
   },
   mounted() {
     this.$getLocations(this.setPrefectures, this.setError);
+    this.$getLanguages(this.setLanguageList, this.setError);
     this.getSpeakers();
 
     bus.$on('contact-speaker', (speaker) => { this.selectedSpeaker = speaker; this.showDialog = true; });
@@ -76,6 +79,9 @@ export default {
   methods: {
     setPrefectures(records) {
       this.prefectures = records;
+    },
+    setLanguageList(records) {
+      this.languageList = records;
     },
     setError(err) {
       this.error = err;
