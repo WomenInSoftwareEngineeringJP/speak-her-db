@@ -46,6 +46,25 @@ Airtable.install = function (Vue) {
       });
     }
   };
+
+  Vue.prototype.$languages = [];
+
+  Vue.prototype.$getLanguages = function (successCallback, errorCallback) {
+    if (this.$languages.length) {
+      // return cached response
+      successCallback(this.$languages);
+    } else {
+      this.$db('Languages').select({ view: 'All' }).firstPage((error, records) => {
+        if (error) {
+          console.error(`Error fetching languages: ${error}`);
+          errorCallback(error);
+        } else {
+          this.$languages = records; // cache response
+          successCallback(records);
+        }
+      });
+    }
+  };
 };
 
 export default Airtable;
