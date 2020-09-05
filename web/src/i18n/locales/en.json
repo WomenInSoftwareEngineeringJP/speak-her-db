@@ -64,8 +64,8 @@
     },
     "nominateSpeaker": {
         "bio": {
-            "hint": "A brief description of the nominee",
-            "label": "Speaker Bio written in the third person (he/she/they, etc.)"
+            "hint": "A brief description of the nominee written in the third person (she/they, etc.)",
+            "label": "Speaker Bio"
         },
         "city": "City",
         "company": "Company",
