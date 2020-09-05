@@ -68,7 +68,7 @@ export default {
     },
     languages() {
       const languageIds = this.speaker.get('languages2');
-      return this.languageList.filter((language) => languageIds.find((id) => (id === language.id)));
+      return this.languageList.filter((language) => languageIds.includes(language.id));
     },
     name() {
       try {

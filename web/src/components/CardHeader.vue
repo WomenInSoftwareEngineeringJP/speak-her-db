@@ -14,7 +14,7 @@
         outlined
         small
       >
-        {{ formatLanguage(language) }}
+        {{ format(language) }}
       </v-chip>
     </div>
     <v-spacer />
@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import formatLanguage from '@/util/format';
+
 export default {
   props: {
     title: {
@@ -69,10 +71,8 @@ export default {
       this.favorited = !this.favorited;
       // TODO: find a way to save this
     },
-    formatLanguage(language) {
-      return (language.fields.native && language.fields.native !== '')
-        ? `${language.fields.name} - ${language.fields.native}`
-        : language.fields.name;
+    format(language) {
+      return formatLanguage(language);
     },
   },
 };
