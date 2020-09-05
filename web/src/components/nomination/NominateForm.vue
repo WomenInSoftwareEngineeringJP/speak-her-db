@@ -25,12 +25,9 @@
           @blur="delayTouch($v.form.email)"
         />
       </v-col>
-      <pronoun-input 
+      <pronoun-input
         v-model="form.pronouns"
-        @input="$v.form.pronouns.$touch()"
-        @blur="$v.form.pronouns.$touch()"
       />
-      <v-col
     </v-row>
     <job-input
       v-model="form.job"
@@ -202,7 +199,7 @@ export default {
           ja: '',
         },
         email: '',
-        pronouns: null,
+        pronouns: '',
         photo_url: '',
         job: {
           title: '',
@@ -373,6 +370,7 @@ export default {
         topics,
         email: this.form.email,
         speaker_bio: this.form.speaker_bio,
+        pronouns: this.form.pronouns,
         languages2: languages, // TODO: update the airtable table names in the next PR
         photo_url: this.form.photo_url,
         name_en: this.form.name.en,

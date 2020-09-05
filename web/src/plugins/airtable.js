@@ -73,7 +73,7 @@ Airtable.install = function (Vue) {
       // return cached response
       successCallback(this.$pronouns);
     } else {
-      this.$db('Pronouns').select({ view: 'All', filterByFormula: "visible_in_form" }).firstPage((error, records) => {
+      this.$db('Pronouns').select({ view: 'All', filterByFormula: 'visible_in_form' }).firstPage((error, records) => {
         if (error) {
           console.error(`Error fetching pronouns: ${error}`);
           errorCallback(error);

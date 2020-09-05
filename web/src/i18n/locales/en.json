@@ -65,7 +65,7 @@
     "nominateSpeaker": {
         "bio": {
             "hint": "A brief description of the nominee",
-            "label": "Speaker Bio"
+            "label": "Speaker Bio written in the third person (he/she/they, etc.)"
         },
         "city": "City",
         "company": "Company",
@@ -79,7 +79,10 @@
         "nameEn": "Name (English \/ Rо̄maji)",
         "nameJa": "Name (Kanji \/ Kana)",
         "photoURL": "Photo URL",
-        "pronouns": "Pronouns",
+        "pronouns": {
+            "label": "Pronouns",
+            "hint": "Please type in pronouns if yours are not listed"
+        },
         "prefecture": "Prefecture",
         "submitterEmail": "Submitter Email",
         "submitterName": "Submitter Name",

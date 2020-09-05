@@ -6,8 +6,10 @@
   >
     <v-combobox
       ref="pronouns"
-      :label="$t('nominateSpeaker.pronouns')"
+      :label="$t('nominateSpeaker.pronouns.label')"
+      :hint="$t('nominateSpeaker.pronouns.hint')"
       :items="pronouns"
+      persistent-hint
       outlined
       :value="value"
       @input="$emit('input', $event)"
@@ -19,7 +21,7 @@
 export default {
   props: {
     value: {
-      type: Object,
+      type: String,
       required: true,
     },
   },
@@ -34,11 +36,7 @@ export default {
   },
   methods: {
     setPronouns(records) {
-      console.log(records)
-      this.pronouns = records.map((pronoun) => ({
-        id: pronoun.id,
-        text: pronoun.get('value'),
-      }));
+      this.pronouns = records.map((pronoun) => (pronoun.get('value')));
     },
     setError(err) {
       this.error = err;
