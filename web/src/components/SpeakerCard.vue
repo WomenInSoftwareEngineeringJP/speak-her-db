@@ -7,7 +7,7 @@
       <v-col>
         <card-header
           :title="name"
-          :languages="speaker.get('languages')"
+          :languages="languages"
           @contact-speaker="contactSpeaker()"
         />
         <v-row
@@ -46,6 +46,10 @@ export default {
       type: Array,
       required: true,
     },
+    languageList: {
+      type: Array,
+      required: true,
+    },
   },
   data: () => ({
     topics: [],
@@ -61,6 +65,10 @@ export default {
       const locationId = this.speaker.fields.location_id[0];
       const location = this.prefectures.find((elem) => (elem.id === locationId));
       return location?.fields?.prefecture;
+    },
+    languages() {
+      const languageIds = this.speaker.get('languages');
+      return this.languageList.filter((language) => languageIds.includes(language.id));
     },
     name() {
       try {

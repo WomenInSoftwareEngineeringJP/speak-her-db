@@ -5,7 +5,7 @@
     </h2>
     <div
       v-for="language in languages"
-      :key="language"
+      :key="language.id"
       class="d-flex justify-center align-center mr-2"
     >
       <v-chip
@@ -14,7 +14,7 @@
         outlined
         small
       >
-        {{ language }}
+        {{ format(language) }}
       </v-chip>
     </div>
     <v-spacer />
@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import formatLanguage from '@/util/format';
+
 export default {
   props: {
     title: {
@@ -68,6 +70,9 @@ export default {
     toggleFavorite() {
       this.favorited = !this.favorited;
       // TODO: find a way to save this
+    },
+    format(language) {
+      return formatLanguage(language);
     },
   },
 };

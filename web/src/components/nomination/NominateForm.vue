@@ -370,8 +370,8 @@ export default {
         topics,
         email: this.form.email,
         speaker_bio: this.form.speaker_bio,
+        languages,
         pronouns: this.form.pronouns,
-        languages2: languages, // TODO: update the airtable table names in the next PR
         photo_url: this.form.photo_url,
         name_en: this.form.name.en,
         name_ja: this.form.name.ja,
