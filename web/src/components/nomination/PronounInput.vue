@@ -27,20 +27,9 @@ export default {
   },
   data() {
     return {
-      pronouns: [],
+      pronouns: ['she/her', 'they/their'],
       error: null,
     };
-  },
-  mounted() {
-    this.$getPronouns(this.setPronouns, this.setError);
-  },
-  methods: {
-    setPronouns(records) {
-      this.pronouns = records.map((pronoun) => (pronoun.get('value')));
-    },
-    setError(err) {
-      this.error = err;
-    },
   },
 };
 </script>

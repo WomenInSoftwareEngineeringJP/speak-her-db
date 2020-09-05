@@ -65,25 +65,6 @@ Airtable.install = function (Vue) {
       });
     }
   };
-
-  Vue.prototype.$pronouns = [];
-
-  Vue.prototype.$getPronouns = function (successCallback, errorCallback) {
-    if (this.$pronouns.length) {
-      // return cached response
-      successCallback(this.$pronouns);
-    } else {
-      this.$db('Pronouns').select({ view: 'All', filterByFormula: 'visible_in_form' }).firstPage((error, records) => {
-        if (error) {
-          console.error(`Error fetching pronouns: ${error}`);
-          errorCallback(error);
-        } else {
-          this.$pronouns = records; // cache response
-          successCallback(records);
-        }
-      });
-    }
-  };
 };
 
 export default Airtable;
