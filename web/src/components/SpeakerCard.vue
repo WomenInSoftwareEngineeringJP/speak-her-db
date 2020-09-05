@@ -67,7 +67,7 @@ export default {
       return location?.fields?.prefecture;
     },
     languages() {
-      const languageIds = this.speaker.get('languages2');
+      const languageIds = this.speaker.get('languages');
       return this.languageList.filter((language) => languageIds.includes(language.id));
     },
     name() {
