@@ -10,14 +10,25 @@
       @touch-english="$v.form.name.en.$touch()"
       @touch-japanese="$v.form.name.ja.$touch()"
     />
-    <v-text-field
-      v-model="form.email"
-      :label="$t('nominateSpeaker.email')"
-      outlined
-      :error-messages="emailErrors($v.form.email)"
-      @input="delayTouch($v.form.email)"
-      @blur="delayTouch($v.form.email)"
-    />
+    <v-row dense>
+      <v-col
+        cols="12"
+        md="6"
+        xs="12"
+      >
+        <v-text-field
+          v-model="form.email"
+          :label="$t('nominateSpeaker.email')"
+          outlined
+          :error-messages="emailErrors($v.form.email)"
+          @input="delayTouch($v.form.email)"
+          @blur="delayTouch($v.form.email)"
+        />
+      </v-col>
+      <pronoun-input
+        v-model="form.pronouns"
+      />
+    </v-row>
     <job-input
       v-model="form.job"
     />
@@ -114,6 +125,7 @@ import UrlsInput from '@/components/nomination/UrlsInput.vue';
 import SubmitterInput from '@/components/nomination/SubmitterInput.vue';
 import TopicsInput from '@/components/nomination/TopicsInput.vue';
 import LanguageInput from '@/components/nomination/LanguageInput.vue';
+import PronounInput from '@/components/nomination/PronounInput.vue';
 import VariableAlert from '@/components/alerts/VariableAlert.vue';
 
 import { validationMixin } from 'vuelidate';
@@ -137,6 +149,7 @@ export default {
     TopicsInput,
     LanguageInput,
     VariableAlert,
+    PronounInput,
   },
   mixins: [validationMixin],
   validations: {
@@ -186,6 +199,7 @@ export default {
           ja: '',
         },
         email: '',
+        pronouns: '',
         photo_url: '',
         job: {
           title: '',
@@ -356,6 +370,7 @@ export default {
         topics,
         email: this.form.email,
         speaker_bio: this.form.speaker_bio,
+        pronouns: this.form.pronouns,
         languages2: languages, // TODO: update the airtable table names in the next PR
         photo_url: this.form.photo_url,
         name_en: this.form.name.en,
