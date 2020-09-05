@@ -16,7 +16,12 @@ Airtable.install = function (Vue) {
       // return cached response
       successCallback(this.$locations);
     } else {
-      this.$db('Location').select({ view: 'All' }).firstPage((error, records) => {
+      this.$db('Location').select({
+        view: 'All',
+        sort: [
+          { field: 'code', direction: 'asc' },
+        ],
+      }).firstPage((error, records) => {
         if (error) {
           console.error(`Error fetching locations: ${error}`);
           errorCallback(error);
