@@ -1,10 +1,10 @@
 <template>
-  <v-row class="pa-0 ma-0">
+  <v-row class="pa-0 my-0 px-36">
     <div
       v-for="tag in tags"
       :key="tag"
       fluid
-      class="mr-2"
+      class="mx-2"
       align="end"
     >
       <v-chip

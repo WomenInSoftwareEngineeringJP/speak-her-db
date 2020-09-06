@@ -5,24 +5,43 @@
       align="stretch"
     >
       <v-col>
-        <card-header
-          :title="name"
-          :languages="languages"
-          @contact-speaker="contactSpeaker()"
-        />
-        <v-row
-          class="my-1"
+        <v-expansion-panels
+          flat
+          hover
+          class="pa-0 ma-0"
         >
-          <span class="speaker-title">{{ jobTitle }}</span>
-          <v-spacer />
-          <span class="location">{{ prefecture }}</span>
-        </v-row>
-        <v-row>
-          <tag-box
-            :tags="topics"
-            class="mt-3"
-          />
-        </v-row>
+          <v-expansion-panel>
+            <v-expansion-panel-header class="py-0 my-0">
+              <v-col
+                no-gutters
+                class="pa-0 ma-0"
+              >
+                <card-header
+                  :title="name"
+                  :languages="languages"
+                  :pronouns="speaker.get('pronouns')"
+                  class="mr-5"
+                  @contact-speaker="contactSpeaker()"
+                />
+
+                <v-row
+                  class="my-1 mr-5"
+                >
+                  <span class="speaker-title">{{ jobTitle }}</span>
+                  <v-spacer />
+                  <span class="location">{{ prefecture }}</span>
+                </v-row>
+              </v-col>
+            </v-expansion-panel-header>
+            <v-expansion-panel-content class="px-0 mx-0">
+              {{ speaker.get('speaker_bio') }}
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
+        <tag-box
+          :tags="topics"
+          class="mt-3"
+        />
       </v-col>
     </v-row>
   </v-card>

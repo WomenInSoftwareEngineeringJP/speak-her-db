@@ -3,20 +3,10 @@
     <h2 class="d-flex align-center mr-4">
       {{ title }}
     </h2>
-    <div
-      v-for="language in languages"
-      :key="language.id"
-      class="d-flex justify-center align-center mr-2"
-    >
-      <v-chip
-        color="silver"
-        label
-        outlined
-        small
-      >
-        {{ format(language) }}
-      </v-chip>
-    </div>
+    <h4 class="d-flex align-center mr-4">
+      {{ pronouns }}
+    </h4>
+    <languages :languages="languages" />
     <v-spacer />
     <v-btn
       v-if="false"
@@ -42,9 +32,12 @@
 </template>
 
 <script>
-import formatLanguage from '@/util/format';
+import Languages from './Languages.vue';
 
 export default {
+  components: {
+    Languages,
+  },
   props: {
     title: {
       type: String,
@@ -54,6 +47,10 @@ export default {
       type: Array,
       required: false,
       default: () => [],
+    },
+    pronouns: {
+      type: String,
+      default: '',
     },
   },
   data() {
@@ -70,9 +67,6 @@ export default {
     toggleFavorite() {
       this.favorited = !this.favorited;
       // TODO: find a way to save this
-    },
-    format(language) {
-      return formatLanguage(language);
     },
   },
 };
