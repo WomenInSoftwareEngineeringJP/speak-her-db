@@ -10,7 +10,7 @@
           hover
           class="pa-0 ma-0"
         >
-          <v-expansion-panel>
+          <v-expansion-panel class="py-0 my-0">
             <v-expansion-panel-header class="py-0 my-0">
               <v-col
                 no-gutters
