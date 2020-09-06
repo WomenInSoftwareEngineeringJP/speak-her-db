@@ -3,7 +3,10 @@
     <h2 class="d-flex align-center mr-4">
       {{ title }}
     </h2>
-    <h4 class="d-flex align-center mr-4">
+    <h4
+      v-if="pronouns !==''"
+      class="d-flex mr-4 pronouns"
+    >
       {{ pronouns }}
     </h4>
     <languages :languages="languages" />

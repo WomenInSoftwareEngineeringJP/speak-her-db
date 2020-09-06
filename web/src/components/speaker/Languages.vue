@@ -1,20 +1,22 @@
 <template>
-  <v-row>
-    <div
-      v-for="language in languages"
-      :key="language.id"
-      class="d-flex justify-center align-center mr-2"
-    >
-      <v-chip
-        color="silver"
-        label
-        outlined
-        small
+  <v-col>
+    <v-row>
+      <div
+        v-for="language in languages"
+        :key="language.id"
+        class="d-flex justify-center align-center mr-2"
       >
-        {{ format(language) }}
-      </v-chip>
-    </div>
-  </v-row>
+        <v-chip
+          color="silver"
+          label
+          outlined
+          small
+        >
+          {{ format(language) }}
+        </v-chip>
+      </div>
+    </v-row>
+  </v-col>
 </template>
 
 <script>
