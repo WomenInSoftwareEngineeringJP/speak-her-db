@@ -4,7 +4,7 @@
       <div
         v-for="language in languages"
         :key="language.id"
-        class="d-flex justify-center align-center mr-2"
+        class="d-flex justify-center align-center mr-2 mb-1"
       >
         <v-chip
           color="silver"
