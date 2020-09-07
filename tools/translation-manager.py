@@ -18,24 +18,36 @@ def flatten(dict: Dict, prefix=""):
   return list
 
 class TranslationManager(object):
-  """Handlles import and export of locale files into the translation spreadsheet"""
-  def prepare(self):
-    with open('web/src/i18n/locales/en.json') as json_file: 
+  """Handles import and export of locale files into the translation spreadsheet"""
+  def exportJSON(self, locale="en"):
+    """"""
+    with open(f'../web/src/i18n/locales/{locale}.json') as json_file: 
       input = json.load(json_file) 
 
-    output = open('en.csv', 'w')
+    output = open(f"{locale}.csv", 'w')
     
     # create the csv writer object 
     csv_writer = csv.writer(output) 
     
     pairs = flatten(input)
 
-    csv_writer.writerow(['key', 'en'])
+    csv_writer.writerow(["key", locale])
     for p in pairs:
       csv_writer.writerow(p)
     
     output.close()
     
+  def importCSV(self, file):
+    #data = {}
+
+    with open(file, encoding='utf-8') as csv_file:
+      csvReader = csv.DictReader(csv_file) 
+          
+      # Convert each row into a dictionary  
+      # and add it to data 
+      for rows in csvReader: 
+              
+        print(rows)
 
 if __name__ == '__main__':
   fire.Fire(TranslationManager)
