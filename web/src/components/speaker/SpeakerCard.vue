@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-row
-      class="px-8 py-2"
+      :class="dynamicCardPadding"
       align="stretch"
     >
       <v-col>
@@ -23,17 +23,10 @@
                   class="mr-5"
                   @contact-speaker="contactSpeaker()"
                 />
-
-                <v-row
-                  class="my-1 mr-5"
-                >
-                  <span class="speaker-title">{{ jobTitle }}</span>
-                  <v-spacer />
-                  <span class="location">{{ prefecture }}</span>
-                </v-row>
-                <v-row class="my-1 mr-5">
-                  <span class="speaker-title">{{ secondTitle }}</span>
-                </v-row>
+                <title-location
+                  :speaker="speaker"
+                  :prefectures="prefectures"
+                />
               </v-col>
             </v-expansion-panel-header>
             <v-expansion-panel-content class="px-0 mx-0">
@@ -60,12 +53,14 @@
 import CardHeader from './CardHeader.vue';
 import Links from './Links.vue';
 import TagBox from './TagBox.vue';
+import TitleLocation from './TitleLocation.vue';
 
 export default {
   components: {
     CardHeader,
     Links,
     TagBox,
+    TitleLocation,
   },
   props: {
     speaker: {
@@ -85,23 +80,6 @@ export default {
     topics: [],
   }),
   computed: {
-    jobTitle() {
-      if (this.speaker.get('job_title') && this.speaker.get('company')) {
-        return `${this.speaker.get('job_title')} at ${this.speaker.get('company')}`;
-      }
-      return this.speaker.get('job_title') || this.speaker.get('company');
-    },
-    secondTitle() {
-      if (this.speaker.get('secondary_title') && this.speaker.get('secondary_affiliation')) {
-        return `${this.speaker.get('secondary_title')} at ${this.speaker.get('secondary_affiliation')}`;
-      }
-      return this.speaker.get('secondary_title') || this.speaker.get('secondary_affiliation');
-    },
-    prefecture() {
-      const locationId = this.speaker.fields.location_id[0];
-      const location = this.prefectures.find((elem) => (elem.id === locationId));
-      return location?.fields?.prefecture;
-    },
     languages() {
       const languageIds = this.speaker.get('languages');
       return this.languageList.filter((language) => languageIds.includes(language.id));
@@ -113,13 +91,24 @@ export default {
         return '';
       }
     },
-    // TODO: to add this to the card we need to decide what to do with long entries
     speakerBio() {
       try {
         return this.speaker.get('speaker_bio');
       } catch (e) {
         return '';
       }
+    },
+    dynamicCardPadding() {
+      if (this.$vuetify.breakpoint.mdAndUp) {
+        return {
+          'px-6': true,
+          'py-4': true,
+        };
+      }
+      return {
+        'px-4': true,
+        'py-4': true,
+      };
     },
   },
   created() {

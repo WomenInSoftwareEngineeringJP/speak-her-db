@@ -1,37 +1,58 @@
 <template>
-  <v-row>
-    <h2 class="d-flex align-center mr-4">
-      {{ title }}
-    </h2>
-    <h4
-      v-if="pronouns !==''"
-      class="d-flex mr-4 pronouns"
-    >
-      {{ pronouns }}
-    </h4>
-    <languages :languages="languages" />
-    <v-spacer />
-    <v-btn
-      v-if="false"
-      icon
-      large
-      class="ml-1"
-      @click="toggleFavorite"
-    >
-      <v-icon>
-        {{ star }}
-      </v-icon>
-    </v-btn>
-    <v-btn
-      icon
-      large
-      class="ml-1"
-      @click="$emit('contact-speaker')"
-    >
-      <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
-      <v-icon>email</v-icon>
-    </v-btn>
-  </v-row>
+  <div>
+    <v-row>
+      <h2 class="d-flex align-center mr-4">
+        {{ title }}
+      </h2>
+      <h4
+        v-if="$vuetify.breakpoint.mdAndUp && pronouns !==''"
+        class="d-flex mr-4 pronouns"
+      >
+        {{ pronouns }}
+      </h4>
+      <languages
+        v-if="$vuetify.breakpoint.mdAndUp"
+        :languages="languages"
+      />
+      <v-spacer />
+      <v-btn
+        v-if="false"
+        icon
+        large
+        class="ml-1"
+        @click="toggleFavorite"
+      >
+        <v-icon>
+          {{ star }}
+        </v-icon>
+      </v-btn>
+      <v-btn
+        icon
+        large
+        :class="contactClass"
+        @click="$emit('contact-speaker')"
+      >
+        <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
+        <v-icon>email</v-icon>
+      </v-btn>
+    </v-row>
+    <!--mobile view-->
+    <div v-if="$vuetify.breakpoint.smAndDown">
+      <v-row>
+        <h4
+          v-if="pronouns !==''"
+          class="d-flex mr-4 pronouns"
+        >
+          {{ pronouns }}
+        </h4>
+      </v-row>
+      <v-row>
+        <languages
+          :languages="languages"
+        />
+      </v-row>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -64,6 +85,15 @@ export default {
   computed: {
     star() {
       return this.favorited ? 'star' : 'star_border';
+    },
+    // Dynamically generate class based on viewport size
+    contactClass() {
+      if (this.$vuetify.breakpoint.mdAndUp) {
+        return { 'ml-1': true };
+      }
+      return {
+
+      };
     },
   },
   methods: {
