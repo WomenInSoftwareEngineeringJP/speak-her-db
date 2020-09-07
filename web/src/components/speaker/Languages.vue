@@ -8,7 +8,6 @@
       >
         <v-chip
           color="silver"
-          label
           outlined
           small
         >
