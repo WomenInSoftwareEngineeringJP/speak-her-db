@@ -38,6 +38,12 @@
             </v-expansion-panel-header>
             <v-expansion-panel-content class="px-0 mx-0">
               {{ speaker.get('speaker_bio') }}
+              <links
+                :facebook="speaker.get('facebook_url')"
+                :twitter="speaker.get('twitter_url')"
+                :linked-in="speaker.get('linkedin_url')"
+                :website="speaker.get('website_url')"
+              />
             </v-expansion-panel-content>
           </v-expansion-panel>
         </v-expansion-panels>
@@ -52,11 +58,13 @@
 
 <script>
 import CardHeader from './CardHeader.vue';
+import Links from './Links.vue';
 import TagBox from './TagBox.vue';
 
 export default {
   components: {
     CardHeader,
+    Links,
     TagBox,
   },
   props: {
