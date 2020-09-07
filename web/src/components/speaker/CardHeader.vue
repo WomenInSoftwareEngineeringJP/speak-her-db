@@ -38,9 +38,11 @@
     </v-row>
     <!--mobile view-->
     <div v-if="$vuetify.breakpoint.smAndDown">
-      <v-row>
+      <v-row
+        v-if="pronouns !==''"
+        class="pb-3"
+      >
         <h4
-          v-if="pronouns !==''"
           class="d-flex mr-4 pronouns"
         >
           {{ pronouns }}

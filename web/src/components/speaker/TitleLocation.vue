@@ -2,9 +2,7 @@
   <div>
     <!-- desktop view -->
     <div v-if="$vuetify.breakpoint.mdAndUp">
-      <v-row
-        class="my-1 mr-5"
-      >
+      <v-row class="my-1 mr-5">
         <span class="speaker-title">{{ jobTitle }}</span>
         <v-spacer />
         <span class="location">{{ prefecture }}</span>

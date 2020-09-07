@@ -1,5 +1,5 @@
 <template>
-  <v-col>
+  <v-col :class="dynamicPadding">
     <v-row>
       <div
         v-for="language in languages"
@@ -27,6 +27,18 @@ export default {
       type: Array,
       required: false,
       default: () => [],
+    },
+  },
+  computed: {
+    dynamicPadding() {
+      if (this.$vuetify.breakpoint.mdAndUp) {
+        return {
+
+        };
+      }
+      return {
+        'py-0': true,
+      };
     },
   },
   methods: {

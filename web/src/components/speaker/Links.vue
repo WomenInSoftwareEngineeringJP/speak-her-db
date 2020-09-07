@@ -26,19 +26,19 @@ export default {
   props: {
     twitter: {
       type: String,
-      required: true,
+      default: '',
     },
     facebook: {
       type: String,
-      required: true,
+      default: '',
     },
     linkedIn: {
       type: String,
-      required: true,
+      default: '',
     },
     website: {
       type: String,
-      required: true,
+      default: '',
     },
   },
 };
