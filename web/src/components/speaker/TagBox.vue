@@ -1,5 +1,5 @@
 <template>
-  <v-row class="pa-0 my-0 px-36">
+  <v-row class="py-0 my-0 mx-1">
     <div
       v-for="tag in tags"
       :key="tag"
