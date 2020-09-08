@@ -4,7 +4,6 @@ import App from './App.vue';
 import router from './router';
 import vuetify from './plugins/vuetify';
 import Airtable from './plugins/airtable';
-import 'roboto-fontface/css/roboto/roboto-fontface.css';
 import '@mdi/font/css/materialdesignicons.css';
 import i18n from './i18n/i18n';
 
