@@ -6,6 +6,7 @@
     >
       <v-col>
         <v-expansion-panels
+          accordion
           flat
           hover
           class="pa-0 ma-0"
@@ -29,8 +30,8 @@
                 />
               </v-col>
             </v-expansion-panel-header>
-            <v-expansion-panel-content class="px-0 mx-0">
-              {{ speaker.get('speaker_bio') }}
+            <v-expansion-panel-content class="pa-0 ma-0">
+              <p>{{ speaker.get('speaker_bio') }}</p>
               <links
                 :facebook="speaker.get('facebook_url')"
                 :twitter="speaker.get('twitter_url')"
