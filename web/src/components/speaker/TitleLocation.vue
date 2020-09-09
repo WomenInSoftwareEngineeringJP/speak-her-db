@@ -1,28 +1,17 @@
 <template>
   <div>
-    <!-- desktop view -->
-    <div v-if="$vuetify.breakpoint.mdAndUp">
-      <v-row class="my-1 mr-5">
-        <span class="speaker-title">{{ jobTitle }}</span>
-        <v-spacer />
-        <span class="location">{{ prefecture }}</span>
-      </v-row>
-      <v-row class="my-1 mr-5">
-        <span class="speaker-title">{{ secondTitle }}</span>
-      </v-row>
-    </div>
-    <!-- mobile view-->
-    <div v-else>
-      <v-row class="my-2 mr-5">
-        <span class="speaker-title">{{ jobTitle }}</span>
-      </v-row>
-      <v-row class="my-2 mr-5">
-        <span class="speaker-title">{{ secondTitle }}</span>
-      </v-row>
-      <v-row class="my-2 mr-5 mt-2">
-        <span class="location">{{ prefecture }}</span>
-      </v-row>
-    </div>
+    <v-row class="mb-2">
+      <span class="speaker-title">{{ jobTitle }}</span>
+    </v-row>
+    <v-row
+      v-if="secondTitle !== ''"
+      class="mb-2"
+    >
+      <span class="speaker-title">{{ secondTitle }}</span>
+    </v-row>
+    <v-row class="mb-2">
+      <span class="location">{{ prefecture }}</span>
+    </v-row>
   </div>
 </template>
 

@@ -20,7 +20,7 @@
                 <card-header
                   :title="name"
                   :languages="languages"
-                  :pronouns="speaker.get('pronouns')"
+                  pronouns=""
                   class="mr-5"
                   @contact-speaker="contactSpeaker()"
                 />
@@ -31,19 +31,18 @@
               </v-col>
             </v-expansion-panel-header>
             <v-expansion-panel-content class="pa-0 ma-0">
+              <div
+                v-if="pronouns !== ''"
+                class="mb-2 pronouns"
+              >
+                {{ $t('findSpeaker.pronouns', [pronouns]) }}
+              </div>
               <p>{{ speaker.get('speaker_bio') }}</p>
-              <links
-                :facebook="speaker.get('facebook_url')"
-                :twitter="speaker.get('twitter_url')"
-                :linked-in="speaker.get('linkedin_url')"
-                :website="speaker.get('website_url')"
-              />
             </v-expansion-panel-content>
           </v-expansion-panel>
         </v-expansion-panels>
-        <tag-box
-          :tags="topics"
-          class="mt-3"
+        <card-footer
+          :speaker="speaker"
         />
       </v-col>
     </v-row>
@@ -52,15 +51,13 @@
 
 <script>
 import CardHeader from './CardHeader.vue';
-import Links from './Links.vue';
-import TagBox from './TagBox.vue';
+import CardFooter from './CardFooter.vue';
 import TitleLocation from './TitleLocation.vue';
 
 export default {
   components: {
     CardHeader,
-    Links,
-    TagBox,
+    CardFooter,
     TitleLocation,
   },
   props: {
@@ -78,7 +75,6 @@ export default {
     },
   },
   data: () => ({
-    topics: [],
   }),
   computed: {
     languages() {
@@ -88,6 +84,13 @@ export default {
     name() {
       try {
         return this.speaker.get('name_en') || '';
+      } catch (e) {
+        return '';
+      }
+    },
+    pronouns() {
+      try {
+        return this.speaker.get('pronouns') || '';
       } catch (e) {
         return '';
       }
@@ -112,22 +115,7 @@ export default {
       };
     },
   },
-  created() {
-    this.$getTopics(this.setTopics, this.setError);
-  },
   methods: {
-    setTopics(records) {
-      const tKeys = this.speaker.get('topics');
-      this.topics = [];
-
-      for (let i = 0; i < tKeys.length; i += 1) {
-        const topic = records.find((elem) => (elem.id === tKeys[i]));
-        this.topics.push(topic.get('name'));
-      }
-    },
-    setError(err) {
-      this.error = err;
-    },
     contactSpeaker() {
       bus.$emit('contact-speaker', this.speaker);
     },

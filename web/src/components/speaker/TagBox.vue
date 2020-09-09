@@ -1,11 +1,11 @@
 <template>
-  <v-row class="py-0 my-0 mx-1">
+  <v-row class="pa-0 ma-0 d-flex">
     <div
       v-for="tag in tags"
       :key="tag"
       fluid
-      class="mx-2"
-      align="end"
+      class="mr-3"
+      align="center"
     >
       <v-chip
         :color="generateColor(tag)"

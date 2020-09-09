@@ -15,26 +15,6 @@
         :languages="languages"
       />
       <v-spacer />
-      <v-btn
-        v-if="false"
-        icon
-        large
-        class="ml-1"
-        @click="toggleFavorite"
-      >
-        <v-icon>
-          {{ star }}
-        </v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        large
-        :class="contactClass"
-        @click="$emit('contact-speaker')"
-      >
-        <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
-        <v-icon>email</v-icon>
-      </v-btn>
     </v-row>
     <!--mobile view-->
     <div v-if="$vuetify.breakpoint.smAndDown">
@@ -81,13 +61,9 @@ export default {
   },
   data() {
     return {
-      favorited: false,
     };
   },
   computed: {
-    star() {
-      return this.favorited ? 'star' : 'star_border';
-    },
     // Dynamically generate class based on viewport size
     contactClass() {
       if (this.$vuetify.breakpoint.mdAndUp) {
@@ -99,10 +75,6 @@ export default {
     },
   },
   methods: {
-    toggleFavorite() {
-      this.favorited = !this.favorited;
-      // TODO: find a way to save this
-    },
   },
 };
 </script>
