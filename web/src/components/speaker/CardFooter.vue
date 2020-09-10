@@ -21,6 +21,7 @@
       cols="12"
       md="1"
       xs="2"
+      align-self="end"
     >
       <v-row
         justify="end"
