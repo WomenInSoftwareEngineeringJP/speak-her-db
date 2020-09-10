@@ -1,10 +1,13 @@
 <template>
-  <v-row class="mx-3">
+  <v-row
+    class="mx-3"
+    no-gutters
+  >
     <v-col
       class="pl-0 ml-0"
       cols="12"
       md="11"
-      xs="10"
+      sm="10"
     >
       <tag-box
         :tags="topics"
@@ -20,11 +23,12 @@
     <v-col
       cols="12"
       md="1"
-      xs="2"
+      sm="2"
       align-self="end"
     >
       <v-row
         justify="end"
+        no-gutters
       >
         <v-btn
           color="primary"
