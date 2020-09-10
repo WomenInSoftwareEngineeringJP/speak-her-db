@@ -20,9 +20,7 @@
                 <card-header
                   :title="name"
                   :languages="languages"
-                  pronouns=""
                   class="mr-5"
-                  @contact-speaker="contactSpeaker()"
                 />
                 <title-location
                   :speaker="speaker"
@@ -43,6 +41,7 @@
         </v-expansion-panels>
         <card-footer
           :speaker="speaker"
+          @contact-speaker="contactSpeaker()"
         />
       </v-col>
     </v-row>
