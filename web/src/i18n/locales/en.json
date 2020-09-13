@@ -48,7 +48,8 @@
         "whyQ": "Why does this matter?"
     },
     "findSpeaker": {
-        "title": "Find a speaker"
+        "title": "Find a speaker",
+        "pronouns": "Pronouns: {0}"
     },
     "footer": {
         "dateString": "2020 SpeakHer Project",

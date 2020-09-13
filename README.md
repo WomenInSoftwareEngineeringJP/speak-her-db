@@ -20,6 +20,17 @@ All contributors to this repository must follow the [Code of Conduct](https://ww
 Requirements:
 - [Yarn](https://yarnpkg.com/)
 
+### Style & UI
+
+1. We use Material Design via the [Vuetify](https://vuetifyjs.com/en/) framework for this site.
+
+2. Icons should be selected from the [Material Icon Set (Filled)](https://material.io/resources/icons/?style=baseline), with a few exceptions where social media icons may be taken from FontAwesome.
+
+3. Please ensure new features support Responsive Design (friendly to mobile, tablet, desktop, etc.).
+
+4. We love mockups and paper prototypes, so if you have a suggestion and can sketch your idea, that's helpful.
+
+Please ask @ann-kilzer if you have questions!
 
 ### Database connection
 
