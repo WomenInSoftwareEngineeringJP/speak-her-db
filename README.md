@@ -11,6 +11,10 @@ SpeakHer is a database of women public speakers in Japan. A common excuse we hea
 
 The purpose of gathering this information is so that event organizers can easily search for female speakers and that fellow speakers can connect with and support each other
 
+## How to Contribute
+
+Please check out our [contributor guidelines](https://github.com/WWCodeTokyo/speak-her-db/blob/master/CONTRIBUTING.md).
+
 ## Code of Conduct
 
 All contributors to this repository must follow the [Code of Conduct](https://www.womenwhocode.com/codeofconduct). Thank you for helping us build an inclusive open-source project.
@@ -19,7 +23,6 @@ All contributors to this repository must follow the [Code of Conduct](https://ww
 
 Requirements:
 - [Yarn](https://yarnpkg.com/)
-
 
 ### Database connection
 
