@@ -9,6 +9,7 @@
       method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
+      data-netlify-recaptcha="true"
       @submit.prevent="handleSubmit"
     >
       <input
@@ -43,6 +44,7 @@
           @input="$v.form.message.$touch()"
           @blur="$v.form.message.$touch()"
         />
+        <div data-netlify-recaptcha="true" />
         <v-alert
           v-if="invalid"
           color="error"
