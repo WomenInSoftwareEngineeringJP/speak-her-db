@@ -337,12 +337,10 @@ export default {
       this.clearAlert();
 
       const payload = this.parseFormData();
-      if (process.env.NODE_ENV === 'production') {
-        this.$db('People').create(payload, { typecast: true }, this.afterSave);
-      } else {
+      if (process.env.NODE_ENV === 'development') {
         console.log(payload);
-        this.setAlert('success', this.$t('nominateSpeaker.thanks'));
       }
+      this.$db('People').create(payload, { typecast: true }, this.afterSave);
       this.resetForm();
     },
     // parse the data into the payload format expected by Airtable
