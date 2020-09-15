@@ -82,6 +82,9 @@ export default {
     },
     name() {
       try {
+        if (this.$i18n.locale === 'ja') {
+          return this.speaker.get('name_ja') || this.speaker.get('name_en') || '';
+        }
         return this.speaker.get('name_en') || '';
       } catch (e) {
         return '';
