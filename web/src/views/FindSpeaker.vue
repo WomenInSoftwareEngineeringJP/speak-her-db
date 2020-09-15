@@ -40,7 +40,7 @@
 
 <script>
 // @ is an alias to /src
-import SpeakerCard from '@/components/SpeakerCard.vue';
+import SpeakerCard from '@/components/speaker/SpeakerCard.vue';
 import Search from '@/components/Search.vue';
 import ContactDialog from '@/components/contact/ContactDialog.vue';
 import ContactResult from '@/components/contact/ContactResult.vue';

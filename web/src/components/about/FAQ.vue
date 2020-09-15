@@ -6,10 +6,22 @@
     <br>
     <div
       v-for="q in questions"
-      :key="q.question"
+      :key="q.question()"
     >
       <h3>{{ q.question() }}</h3>
       <p>{{ q.answer() }}</p>
+    </div>
+    <div>
+      <h3>{{ $t('faq.correctionQ') }}</h3>
+      <i18n
+        path="faq.correctionA"
+        tag="p"
+      >
+        <a
+          :href="`mailto:${contact}`"
+          target="_blank"
+        >{{ contact }}</a>
+      </i18n>
     </div>
   </div>
 </template>
@@ -20,6 +32,7 @@
 export default {
   data() {
     return {
+      contact: 'speakherjp@gmail.com',
       questions: [
         {
           question: () => this.$t('faq.whyQ'),
@@ -40,10 +53,6 @@ export default {
         {
           question: () => this.$t('faq.whoQ'),
           answer: () => this.$t('faq.whoA'),
-        },
-        {
-          question: () => this.$t('faq.correctionQ'),
-          answer: () => this.$t('faq.correctionA'),
         },
       ],
     };

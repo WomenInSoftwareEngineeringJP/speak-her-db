@@ -30,10 +30,21 @@ h2{
   color: #404040;
 }
 
+.pronouns {
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 390;
+  color: #404040;
+}
+
 .spacer {
   height: 20px;
 }
 
 .footer-link:link, .footer-link:visited {
   color: white;
+}
+
+.v-expansion-panel-content__wrap {
+  padding: 12px 12px 0px !important;
 }
