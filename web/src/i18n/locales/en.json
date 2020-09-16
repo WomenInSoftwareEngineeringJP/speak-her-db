@@ -33,7 +33,7 @@
         "yourName": "Your Name"
     },
     "faq": {
-        "correctionA": "Please email:\n\nspeakherjp@gmail.com",
+        "correctionA": "Please email: {0}",
         "correctionQ": "I’ve been nominated, but I would like my information corrected or removed.",
         "freeA": "While it is free to use this website to contact speakers, some speakers may charge for their services, while others may choose to speak for free. We support our members’ decisions to set their value and determine how to donate their time and energy.",
         "freeQ": "Do speakers give presentations for free?",
@@ -48,7 +48,8 @@
         "whyQ": "Why does this matter?"
     },
     "findSpeaker": {
-        "title": "Find a speaker"
+        "title": "Find a speaker",
+        "pronouns": "Pronouns: {0}"
     },
     "footer": {
         "dateString": "2020 SpeakHer Project",
