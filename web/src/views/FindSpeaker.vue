@@ -40,6 +40,7 @@
 
 <script>
 // @ is an alias to /src
+import api from '@/services/api';
 import SpeakerCard from '@/components/speaker/SpeakerCard.vue';
 import Search from '@/components/Search.vue';
 import ContactDialog from '@/components/contact/ContactDialog.vue';
@@ -67,7 +68,7 @@ export default {
     },
   },
   mounted() {
-    this.$getLocations(this.setPrefectures, this.setError);
+    api.fetch('locations', this.setPrefectures, this.setError);
     this.$getLanguages(this.setLanguageList, this.setError);
     this.getSpeakers();
 
