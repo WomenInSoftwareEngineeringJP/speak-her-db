@@ -4,7 +4,7 @@ const Airtable = require('airtable');
 exports.handler = function (event, context, callback) {
   const response = {
     statusCode: 200,
-    body: "",
+    body: '',
     headers: {
       'content-type': 'application/json',
       'cache-control': 'Cache-Control: max-age=60, public',
@@ -33,18 +33,27 @@ exports.handler = function (event, context, callback) {
       .select(query)
       .firstPage((error, records) => {
         if (error) {
-          console.error(`Error fetching Locations: ${error}`);
           response.statusCode = 500;
           response.body = JSON.stringify({ error });
-
-          callback(error, response);
-        } else {
-          response.body = JSON.stringify({ records });
-          callback(null, response);
+          console.error(`Error fetching Locations: ${error}`);
+          return callback(error, response);
         }
+        response.body = JSON.stringify({ records });
+        return callback(null, response);
       });
-  } else if (event.httpMethod === 'POST') {
-    base('Location')
-      .create(event.body, { typecast: true }, callback);
   }
+  if (event.httpMethod === 'POST') {
+    base('Location')
+      .create(event.body, { typecast: true }, (error, records) => {
+        if (error) {
+          response.statusCode = 500;
+          response.body = JSON.stringify({ error });
+          console.error(`Error fetching Locations: ${error}`);
+          return callback(error, response);
+        }
+        response.body = JSON.stringify({ records });
+        return callback(null, response);
+      });
+  }
+  return null;
 };
