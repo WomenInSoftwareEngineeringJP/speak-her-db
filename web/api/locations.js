@@ -1,9 +1,10 @@
 const Airtable = require('airtable');
 
-export function handler (event, context, callback) {
+/* eslint-disable func-names */
+exports.handler = function (event, context, callback) {
   const response = {
     statusCode: 200,
-    body: {},
+    body: "",
     headers: {
       'content-type': 'application/json',
       'cache-control': 'Cache-Control: max-age=60, public',
@@ -13,7 +14,7 @@ export function handler (event, context, callback) {
   if (!process.env.AIRTABLE_API_KEY || !process.env.AIRTABLE_DB_ID) {
     const error = 'Missing one or more Airtable ENV variables.';
     response.statusCode = 500;
-    response.body = { error };
+    response.body = JSON.stringify({ error });
 
     console.error(error);
     return callback(error, response);
@@ -34,11 +35,11 @@ export function handler (event, context, callback) {
         if (error) {
           console.error(`Error fetching Locations: ${error}`);
           response.statusCode = 500;
-          response.body = { error: error.toString() };
+          response.body = JSON.stringify({ error });
 
           callback(error, response);
         } else {
-          response.body = records;
+          response.body = JSON.stringify({ records });
           callback(null, response);
         }
       });

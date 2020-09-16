@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const $axios = axios.create({
-  baseURL: '/.netlify/api',
+  baseURL: '/.netlify/functions',
   timeout: 10000, // 10 seconds
 });
 
