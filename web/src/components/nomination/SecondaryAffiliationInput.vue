@@ -6,13 +6,13 @@
       xs="12"
     >
       <v-text-field
-        ref="title"
+        ref="secondary_title"
         :label="$t('nominateSpeaker.affiliation.title')"
         :hint="$t('nominateSpeaker.affiliation.hint')"
         persistent-hint
         outlined
-        :value="value.title"
-        @input="updateAffiliation('title', $event)"
+        :value="value.secondary_title"
+        @input="updateAffiliation('secondary_title', $event)"
       />
     </v-col>
     <v-col
@@ -21,11 +21,11 @@
       xs="12"
     >
       <v-text-field
-        ref="company"
-        :value="value.company"
+        ref="secondary_affiliation"
+        :value="value.secondary_affiliation"
         :label="$t('nominateSpeaker.affiliation.company')"
         outlined
-        @input="updateAffiliation('company', $event)"
+        @input="updateAffiliation('secondary_affiliation', $event)"
       />
     </v-col>
   </v-row>
@@ -41,7 +41,7 @@ export default {
   },
   data() {
     return {
-      affiliationFields: ['title', 'company'],
+      affiliationFields: ['secondary_title', 'secondary_affiliation'],
     };
   },
   methods: {
