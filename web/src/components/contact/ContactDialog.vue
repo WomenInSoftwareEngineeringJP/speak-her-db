@@ -17,10 +17,10 @@
         value="ask-question"
       >
       <two-button-modal
-        :title="$t('contact.title', [name])"
+        :title="$t('contact.title', [speakerName])"
         @cancel="$emit('close')"
       >
-        {{ $t('contact.body', [name]) }}
+        {{ $t('contact.body', [speakerName]) }}
 
         <v-text-field
           v-model="form.name"
@@ -101,9 +101,12 @@ export default {
     },
   }),
   computed: {
-    name() {
+    speakerName() {
       try {
-        return this.speaker.get('name_en');
+        if (this.$i18n.locale === 'ja') {
+          return this.speaker.fields.name_ja || this.speaker.fields.name_en || '';
+        }
+        return this.speaker.fields.name_en || '';
       } catch (e) {
         return '';
       }
@@ -123,7 +126,7 @@ export default {
     emailErrors() {
       const errors = [];
       if (!this.$v.form.email.$dirty) { return errors; }
-      if (!this.$v.form.email.email) { errors.push(this.$t('validations.validEmail')); }
+      if (!this.$v.form.email.email) { errors.push(this.$t('validations.emailValid')); }
       if (!this.$v.form.email.required) { errors.push(this.$t('validations.fieldRequired', [this.$t('contact.email')])); }
       return errors;
     },
@@ -153,18 +156,23 @@ export default {
       if (this.$v.$invalid) {
         return;
       }
+
+      this.form.speaker = this.speaker.fields.name_en;
+      const messageContent = this.encode({
+        'form-name': 'contact-speaker',
+        ...this.form,
+      });
+
       const axiosConfig = {
         header: { 'Content-Type': 'application/x-www-form-urlencoded' },
       };
-      this.form.speaker = this.speaker.name;
-      axios.post(
-        '/',
-        this.encode({
-          'form-name': 'contact-speaker',
-          ...this.form,
-        }),
-        axiosConfig,
-      );
+
+      if (process.env.NODE_ENV === 'production') {
+        axios.post('/', messageContent, axiosConfig);
+      } else {
+        console.log(messageContent);
+      }
+
       this.resetForm();
       this.$emit('submit');
     },
