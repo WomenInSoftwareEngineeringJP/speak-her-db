@@ -5,16 +5,11 @@ const $axios = axios.create({
   timeout: 10000, // 10 seconds
 });
 
-function fetch(entity, successCallback, errorCallback) {
-  $axios.get(entity)
+function getLocations(successCallback, errorCallback) {
+  // TODO: Add some caching logic here
+  $axios.get('locations')
     .then((response) => successCallback(response.data.records))
     .catch((error) => errorCallback(error));
 }
 
-function create(entity, payload, successCallback, errorCallback) {
-  $axios.post(entity, payload)
-    .then((response) => successCallback(response.data))
-    .catch((error) => errorCallback(error));
-}
-
-export default { fetch, create };
+export default { getLocations };

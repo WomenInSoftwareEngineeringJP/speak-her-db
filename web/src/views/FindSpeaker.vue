@@ -74,11 +74,14 @@ export default {
     },
   },
   mounted() {
-    api.fetch('locations', this.setPrefectures, this.setError);
+    api.getLocations(this.setPrefectures, this.setError);
     this.$getLanguages(this.setLanguageList, this.setError);
     this.getSpeakers();
 
-    bus.$on('contact-speaker', (speaker) => { this.selectedSpeaker = speaker; this.showDialog = true; });
+    bus.$on('contact-speaker', (speaker) => {
+      this.selectedSpeaker = speaker;
+      this.showDialog = true;
+    });
   },
   beforeDestroy() {
     bus.$off('contact-speaker');
@@ -97,9 +100,7 @@ export default {
       this.$db('People')
         .select({
           view: 'Published',
-          sort: [
-            { field: 'name_en', direction: 'asc' },
-          ],
+          sort: [{ field: 'name_en', direction: 'asc' }],
         })
         .firstPage((err, records) => {
           if (err) {
