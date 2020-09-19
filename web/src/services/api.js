@@ -12,4 +12,11 @@ function getLocations(successCallback, errorCallback) {
     .catch((error) => errorCallback(error));
 }
 
-export default { getLocations };
+function getTopics(successCallback, errorCallback) {
+  // TODO: Add some caching logic here
+  $axios.get('topics')
+    .then((response) => successCallback(response.data.records))
+    .catch((error) => errorCallback(error));
+}
+
+export default { getLocations, getTopics };
