@@ -44,6 +44,7 @@
       v-model="form.speaker_bio"
       :label="$t('nominateSpeaker.bio.label')"
       :hint="$t('nominateSpeaker.bio.hint')"
+      persistent-hint
       outlined
       :error-messages="speakerBioErrors"
       @input="delayTouch($v.form.speaker_bio)"
