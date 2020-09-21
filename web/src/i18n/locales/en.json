@@ -99,6 +99,7 @@
     "validations": {
         "allRequired": "All fields are required",
         "bioLength": "Please write at least {0} characters",
+        "bioThirdPerson": "Please write the bio in third person",
         "consentRequired": "Please ask the nominee for permission",
         "emailValid": "Email must be valid",
         "enNameRequired": "English name is required",

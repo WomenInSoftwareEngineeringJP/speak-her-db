@@ -133,6 +133,7 @@ import {
   required, email, minLength, url,
 } from 'vuelidate/lib/validators';
 import japanese from '@/validators/japanese';
+import isThirdPerson from '@/validators/isThirdPerson';
 
 const isTrue = (value) => value;
 const touchMap = new WeakMap();
@@ -166,6 +167,7 @@ export default {
       speaker_bio: {
         required,
         minLength: minLength(BIO_LENGTH),
+        isThirdPerson,
       },
       location: {
         city: { required },
@@ -251,6 +253,7 @@ export default {
       if (!this.$v.form.speaker_bio.$dirty) { return errors; }
       if (!this.$v.form.speaker_bio.required) { errors.push(this.requiredError(this.$t('nominateSpeaker.bio.label'))); }
       if (!this.$v.form.speaker_bio.minLength) { errors.push(this.$t('validations.bioLength', [BIO_LENGTH])); }
+      if (!this.$v.form.speaker_bio.isThirdPerson) { errors.push(this.$t('validations.bioThirdPerson')); }
       return errors;
     },
     cityErrors() {
