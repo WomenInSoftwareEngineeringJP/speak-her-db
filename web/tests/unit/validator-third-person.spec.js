@@ -17,7 +17,7 @@ describe('isThirdPerson.js', () => {
     expect(isThirdPerson('While in London, I studied things.')).to.be.false;
   });
   it('rejects first person in Japanese', () => {
-    expect(isThirdPerson('私わイタリア人です。')).to.be.false;
+    expect(isThirdPerson('私はイタリア人です。')).to.be.false;
     expect(isThirdPerson('わたし')).to.be.false;
   });
 });
