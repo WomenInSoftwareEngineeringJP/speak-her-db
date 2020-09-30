@@ -40,6 +40,7 @@
 
 <script>
 // @ is an alias to /src
+import api from '@/services/api';
 import SpeakerCard from '@/components/speaker/SpeakerCard.vue';
 import Search from '@/components/Search.vue';
 import ContactDialog from '@/components/contact/ContactDialog.vue';
@@ -73,11 +74,14 @@ export default {
     },
   },
   mounted() {
-    this.$getLocations(this.setPrefectures, this.setError);
+    api.getLocations(this.setPrefectures, this.setError);
     this.$getLanguages(this.setLanguageList, this.setError);
     this.getSpeakers();
 
-    bus.$on('contact-speaker', (speaker) => { this.selectedSpeaker = speaker; this.showDialog = true; });
+    bus.$on('contact-speaker', (speaker) => {
+      this.selectedSpeaker = speaker;
+      this.showDialog = true;
+    });
   },
   beforeDestroy() {
     bus.$off('contact-speaker');
@@ -96,9 +100,7 @@ export default {
       this.$db('People')
         .select({
           view: 'Published',
-          sort: [
-            { field: 'name_en', direction: 'asc' },
-          ],
+          sort: [{ field: 'name_en', direction: 'asc' }],
         })
         .firstPage((err, records) => {
           if (err) {
