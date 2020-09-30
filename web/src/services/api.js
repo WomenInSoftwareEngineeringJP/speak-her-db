@@ -6,7 +6,8 @@ const $axios = axios.create({
 });
 
 function getLocations(successCallback, errorCallback) {
-  // TODO: Add some caching logic here
+  // TODO: Add some caching logic/state management here
+  // https://github.com/WWCodeTokyo/speak-her-db/issues/146
   $axios.get('locations')
     .then((response) => successCallback(response.data.records))
     .catch((error) => errorCallback(error));
