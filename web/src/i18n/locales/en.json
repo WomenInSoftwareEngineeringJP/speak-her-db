@@ -75,6 +75,11 @@
         "error": "Error: {0}",
         "facebook": "Facebook URL",
         "jobTitle": "Job Title",
+        "affiliation": {
+            "title": "Secondary Role",
+            "company": "Organization",
+            "hint": "Academic institutions, volunteer positions, or second jobs"
+        },
         "languages": "Languages",
         "linkedIn": "LinkedIn URL",
         "nameEn": "Name (English \/ Rо̄maji)",

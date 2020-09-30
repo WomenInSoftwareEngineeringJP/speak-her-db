@@ -8,7 +8,7 @@
     />
     <contact-result
       :show="showSuccess"
-      :name="selectedName"
+      :speaker-name="selectedName"
       @close="showSuccess = false"
     />
     <v-row
@@ -66,7 +66,13 @@ export default {
   }),
   computed: {
     selectedName() {
-      return this.selectedSpeaker ? this.selectedSpeaker.get('name_en') : '';
+      if (this.selectedSpeaker) {
+        if (this.$i18n.locale === 'ja') {
+          return this.selectedSpeaker.get('name_ja') || this.selectedSpeaker.get('name_en') || '';
+        }
+        return this.selectedSpeaker.get('name_en') || '';
+      }
+      return '';
     },
   },
   mounted() {
