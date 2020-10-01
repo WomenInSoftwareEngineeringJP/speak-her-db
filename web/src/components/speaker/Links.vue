@@ -13,6 +13,9 @@
       <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
       <v-icon>web</v-icon>
     </social-button>
+    <social-button :link="priorPresentation">
+      <i class="fab fa-youtube" />
+    </social-button>
   </div>
 </template>
 
@@ -37,6 +40,10 @@ export default {
       default: '',
     },
     website: {
+      type: String,
+      default: '',
+    },
+    priorPresentation: {
       type: String,
       default: '',
     },

@@ -99,7 +99,8 @@
             "hint": "Type anything and press enter to add new topics"
         },
         "twitter": "Twitter URL",
-        "website": "Website"
+        "website": "Website",
+        "priorPresentation": "Link to a prior presentation"
     },
     "validations": {
         "allRequired": "All fields are required",
