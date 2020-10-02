@@ -397,6 +397,7 @@ export default {
         facebook_url: this.form.urls.facebook,
         twitter_url: this.form.urls.twitter,
         website_url: this.form.urls.website,
+        prior_presentation_url: this.form.urls.priorPresentation,
         submitter_name: this.form.submitter.name,
         submitter_email: this.form.submitter.email,
         consent: this.form.consent,
