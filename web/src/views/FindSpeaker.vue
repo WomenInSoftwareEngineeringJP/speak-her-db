@@ -21,9 +21,24 @@
             {{ $t('findSpeaker.title') }}
           </h2>
         </v-row>
+        <v-row v-if="speakers.length">
+          <v-spacer />
+          <v-col
+            lg="3"
+            class="text-right"
+          >
+            <pagination
+              :page-start="(page - 1) * pageSize + 1"
+              :page-end="lastPageEntry"
+              :max-page="isMaxPage"
+              :on-next-page-click="getNextPage"
+              :on-prev-page-click="getPreviousPage"
+            />
+          </v-col>
+        </v-row>
         <search v-if="false" />
         <div
-          v-for="speaker in speakers"
+          v-for="speaker in getSpeakersForPage"
           :key="speaker.id"
         >
           <speaker-card
@@ -43,6 +58,7 @@
 import api from '@/services/api';
 import SpeakerCard from '@/components/speaker/SpeakerCard.vue';
 import Search from '@/components/Search.vue';
+import Pagination from '@/components/Pagination.vue';
 import ContactDialog from '@/components/contact/ContactDialog.vue';
 import ContactResult from '@/components/contact/ContactResult.vue';
 
@@ -50,6 +66,7 @@ export default {
   components: {
     ContactDialog,
     ContactResult,
+    Pagination,
     Search,
     SpeakerCard,
   },
@@ -61,6 +78,9 @@ export default {
     selectedSpeaker: undefined,
     showDialog: false,
     showSuccess: false,
+    page: 0,
+    pageSize: 50,
+    isMaxPage: false,
   }),
   computed: {
     selectedName() {
@@ -71,6 +91,14 @@ export default {
         return this.selectedSpeaker.get('name_en') || '';
       }
       return '';
+    },
+    getSpeakersForPage() {
+      const offset = (this.page - 1) * this.pageSize;
+      return this.speakers.slice(offset, this.page * this.pageSize);
+    },
+    lastPageEntry() {
+      const lastPageEntry = this.page * this.pageSize;
+      return lastPageEntry > this.speakers.length ? this.speakers.length : lastPageEntry;
     },
   },
   mounted() {
@@ -96,19 +124,47 @@ export default {
     setError(err) {
       this.error = err;
     },
+    getPreviousPage() {
+      if (this.page > 1) {
+        this.page -= 1;
+        this.isMaxPage = false;
+      }
+    },
+    getNextPage() {
+      // leave empty, this function is overwritten by the getSpeakers method
+    },
     getSpeakers() {
       this.$db('People')
         .select({
           view: 'Published',
           sort: [{ field: 'name_en', direction: 'asc' }],
+          pageSize: this.pageSize,
         })
-        .firstPage((err, records) => {
-          if (err) {
-            this.error = err;
-          } else {
-            this.speakers = records;
-          }
-        });
+        .eachPage(
+          (records, next) => {
+            this.speakers.push(...records);
+            this.page += 1;
+            this.getNextPage = next;
+          },
+          (err) => {
+            if (err) {
+              this.error = err;
+            }
+
+            // if the error is null no new page exists
+            this.isMaxPage = true;
+
+            // reset the getNextPage function to just increment the page
+            // as there is no more results to fetch.
+            this.getNextPage = () => {
+              if (!this.isMaxPage) {
+                this.page += 1;
+                const lastPageEntry = this.page * this.pageSize;
+                this.isMaxPage = lastPageEntry >= this.speakers.length;
+              }
+            };
+          },
+        );
     },
   },
 };
