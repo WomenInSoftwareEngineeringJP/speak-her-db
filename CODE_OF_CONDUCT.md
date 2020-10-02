@@ -1,93 +1,71 @@
-# Citizen Code of Conduct
+市民行動規範
+1。目的
+Speak Her DBの主な目標は、可能な限り最も多様で多様な背景を持つ、最大数の寄稿者を包括することです。そのため、性別、性的指向、能力、民族性、社会経済的地位、宗教（またはその欠如）に関係なく、すべての人に友好的で安全で居心地の良い環境を提供することをお約束します。
 
-## 1. Purpose
+この行動規範は、私たちのコミュニティに参加するすべての人々に対する私たちの期待と、容認できない行動の結果を概説しています。
 
-A primary goal of Speak Her DB is to be inclusive to the largest number of contributors, with the most varied and diverse backgrounds possible. As such, we are committed to providing a friendly, safe and welcoming environment for all, regardless of gender, sexual orientation, ability, ethnicity, socioeconomic status, and religion (or lack thereof).
+Speak Her DBに参加するすべての人を招待して、すべての人に安全で前向きな体験を提供できるように支援します。
 
-This code of conduct outlines our expectations for all those who participate in our community, as well as the consequences for unacceptable behavior.
+2. [ソース/文化/技術]市民権を開く
+この行動規範の補足的な目標は、参加者に私たちの行動とコミュニティへの影響との関係を認識して強化することを奨励することにより、オープン[ソース/文化/技術]の市民権を高めることです。
 
-We invite all those who participate in Speak Her DB to help us create safe and positive experiences for everyone.
+コミュニティは、コミュニティが存在する社会を反映しており、社会に存在するさまざまな形の不平等や権力の乱用に対抗するには、積極的な行動が不可欠です。
 
-## 2. Open [Source/Culture/Tech] Citizenship
+私たちのコミュニティが歓迎され、友好的であり、すべての参加者が最大限に貢献することを奨励するために特別な努力をしている人を見かけたら、私たちは知りたいです。
 
-A supplemental goal of this Code of Conduct is to increase open [source/culture/tech] citizenship by encouraging participants to recognize and strengthen the relationships between our actions and their effects on our community.
+3.期待される動作
+次の動作は、すべてのコミュニティメンバーに期待され、要求されます。
 
-Communities mirror the societies in which they exist and positive action is essential to counteract the many forms of inequality and abuses of power that exist in society.
+本格的かつ積極的な方法で参加してください。そうすることで、あなたはこのコミュニティの健康と長寿に貢献します。
+あなたのスピーチと行動において考慮と尊重を行使してください。
+競合する前にコラボレーションを試みます。
+侮辱的、差別的、または嫌がらせの行動や言論は控えてください。
+あなたの周囲とあなたの仲間の参加者に注意してください。危険な状況、困窮している人、またはこの行動規範の違反に気付いた場合は、重要ではないと思われる場合でも、コミュニティリーダーに警告してください。
+4.容認できない行動
+次の行動は嫌がらせと見なされ、コミュニティ内では受け入れられません。
 
-If you see someone who is making an extra effort to ensure our community is welcoming, friendly, and encourages all participants to contribute to the fullest extent, we want to know.
+暴力、暴力の脅迫、または他人に対する暴力的な言葉。
+性差別主義者、人種差別主義者、同性愛嫌悪、トランスフォビア、障害者差別、またはその他の差別的なジョークや言葉。
+性的に露骨または暴力的なコンテンツを投稿または表示する。
+他人の個人を特定する情報を投稿する、または投稿すると脅迫する（「doxing」）。
+個人的な侮辱、特に性別、性的指向、人種、宗教、または障害に関連する侮辱。
+不適切な写真撮影または録音。
+不適切な物理的接触。触れる前に誰かの同意が必要です。
+歓迎されない性的注意。これには、性的なコメントやジョークが含まれます。不適切な接触、手探り、および歓迎されない性的進歩。
+意図的な脅迫、ストーカー行為、またはフォロー（オンラインまたは対面）。
+上記の行動のいずれかを支持または奨励する。
+5.容認できない行動の結果
+スポンサーや意思決定権限を持つメンバーを含む、コミュニティメンバーからの容認できない行動は容認されません。
 
-## 3. Expected Behavior
+容認できない行動をやめるように求められた人は、すぐに従うことが期待されます。
 
-The following behaviors are expected and requested of all community members:
+コミュニティメンバーが容認できない行動をとった場合、コミュニティオーガナイザーは、警告なしに（有料イベントの場合は返金なしで）コミュニティからの一時的な禁止または永久的な追放を含め、適切と思われる行動をとることができます。
 
- * Participate in an authentic and active way. In doing so, you contribute to the health and longevity of this community.
- * Exercise consideration and respect in your speech and actions.
- * Attempt collaboration before conflict.
- * Refrain from demeaning, discriminatory, or harassing behavior and speech.
- * Be mindful of your surroundings and of your fellow participants. Alert community leaders if you notice a dangerous situation, someone in distress, or violations of this Code of Conduct, even if they seem inconsequential.
+6.報告ガイドライン
+容認できない行動を起こしたり目撃したりする場合、またはその他の懸念がある場合は、できるだけ早くコミュニティ主催者に通知してください。 talkherjp@gmail.com。
 
-## 4. Unacceptable Behavior
+さらに、コミュニティオーガナイザーは、コミュニティメンバーが地元の法執行機関に関与するのを支援したり、容認できない行動を経験している人々が安全であると感じるのを支援したりするために利用できます。
 
-The following behaviors are considered harassment and are unacceptable within our community:
+7.不満への対処
+この行動規範に違反したとして誤ってまたは不当に非難されたと思われる場合は、苦情の簡潔な説明をWWCodeTokyoに通知する必要があります。あなたの苦情は、私たちの既存の統治方針に従って処理されます。ポリシー
 
- * Violence, threats of violence or violent language directed against another person.
- * Sexist, racist, homophobic, transphobic, ableist or otherwise discriminatory jokes and language.
- * Posting or displaying sexually explicit or violent material.
- * Posting or threatening to post other people's personally identifying information ("doxing").
- * Personal insults, particularly those related to gender, sexual orientation, race, religion, or disability.
- * Inappropriate photography or recording.
- * Inappropriate physical contact. You should have someone's consent before touching them.
- * Unwelcome sexual attention. This includes, sexualized comments or jokes; inappropriate touching, groping, and unwelcomed sexual advances.
- * Deliberate intimidation, stalking or following (online or in person).
- * Advocating for, or encouraging, any of the above behavior.
+8.範囲
+すべてのコミュニティ参加者（寄稿者、有料またはその他、スポンサー、およびその他のゲスト）は、オンラインおよび対面のすべてのコミュニティ会場、および関連するすべての1対1のコミュニケーションにおいて、この行動規範を遵守することを期待しています。コミュニティビジネスへ。
 
-## 5. Consequences of Unacceptable Behavior
+この行動規範とそれに関連する手順は、コミュニティ活動の範囲外で発生する容認できない行動にも適用されます。そのような行動は、コミュニティメンバーの安全と福祉に悪影響を与える可能性があります。
 
-Unacceptable behavior from any community member, including sponsors and those with decision-making authority, will not be tolerated.
+9.連絡先情報
+talkherjp@gmail.com
 
-Anyone asked to stop unacceptable behavior is expected to comply immediately.
+10.ライセンスと帰属
+市民行動規範 は、クリエイティブ-コモンズ表示-共有同様 ライセンスの下でスタンプタウン-シンジケートによって配布されています。
 
-If a community member engages in unacceptable behavior, the community organizers may take any action they deem appropriate, up to and including a temporary ban or permanent expulsion from the community without warning (and without refund in the case of a paid event).
+Django行動規範とオタクフェミニズムのハラスメント防止ポリシーから派生したテキストの一部。
 
-## 6. Reporting Guidelines
+リビジョン2.3。 2017年3月6日に投稿されました。
 
-If you are subject to or witness unacceptable behavior, or have any other concerns, please notify a community organizer as soon as possible. speakherjp@gmail.com.
+リビジョン2.2。 2016年2月4日に投稿されました。
 
+リビジョン2.1。 2014年6月23日に投稿されました。
 
-Additionally, community organizers are available to help community members engage with local law enforcement or to otherwise help those experiencing unacceptable behavior feel safe.
-
-## 7. Addressing Grievances
-
-If you feel you have been falsely or unfairly accused of violating this Code of Conduct, you should notify WWCodeTokyo with a concise description of your grievance. Your grievance will be handled in accordance with our existing governing policies. [Policy](https://www.womenwhocode.com/codeofconduct)
-
-
-## 8. Scope
-
-We expect all community participants (contributors, paid or otherwise; sponsors; and other guests) to abide by this Code of Conduct in all community venues--online and in-person--as well as in all one-on-one communications pertaining to community business.
-
-This code of conduct and its related procedures also applies to unacceptable behavior occurring outside the scope of community activities when such behavior has the potential to adversely affect the safety and well-being of community members.
-
-## 9. Contact info
-
-speakherjp@gmail.com
-
-
-## 10. License and attribution
-
-The Citizen Code of Conduct is distributed by [Stumptown Syndicate](http://stumptownsyndicate.org) under a [Creative Commons Attribution-ShareAlike license](http://creativecommons.org/licenses/by-sa/3.0/). 
-
-Portions of text derived from the [Django Code of Conduct](https://www.djangoproject.com/conduct/) and the [Geek Feminism Anti-Harassment Policy](http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy).
-
-_Revision 2.3. Posted 6 March 2017._
-
-_Revision 2.2. Posted 4 February 2016._
-
-_Revision 2.1. Posted 23 June 2014._
-
-_Revision 2.0, adopted by the [Stumptown Syndicate](http://stumptownsyndicate.org) board on 10 January 2013. Posted 17 March 2013._
-
-## 11. Addendum
-
-Any in-person events organized via Women Who Code, including events related to the SpeakHer project, are covered by the Women Who Code [Code of Conduct](https://www.womenwhocode.com/codeofconduct).
-
-Third-party events organized by users of the [SpeakHer Website](https://speakher.jp) may have their own community rules. In the scope of a Speaking Event where a speaker has been selected from the Speak Her DB, We request that the speaker is treated following the expectations in this Code of Conduct.
+スタンプタウン-シンジケートボードによって採用されたリビジョン2.0
