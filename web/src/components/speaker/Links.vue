@@ -14,7 +14,8 @@
       <v-icon>web</v-icon>
     </social-button>
     <social-button :link="priorPresentation">
-      <i class="fab fa-youtube" />
+      <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
+      <v-icon>ondemand_video</v-icon>
     </social-button>
   </div>
 </template>
