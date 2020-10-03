@@ -86,19 +86,13 @@
       @touch-twitter="delayTouch($v.form.urls.twitter)"
       @touch-website="delayTouch($v.form.urls.website)"
     />
-    <v-row dense>
-      <v-col
-        cols="12"
-        md="6"
-        xs="12"
-      >
-        <v-switch
-          v-model="isSelfNomination"
-          label="I am nominating myself"
-          @change="handleSelfNominationSwitch"
-        />
-      </v-col>
-    </v-row>
+    <v-checkbox
+      v-model="isSelfNomination"
+      class="mt-0"
+      label="I am nominating myself"
+      :hide-details="true"
+      @click.capture="handleSelfNomination()"
+    />
     <submitter-input
       v-model="form.submitter"
       :name-errors="submitterNameErrors"
@@ -355,6 +349,7 @@ export default {
 
       if (this.isSelfNomination) {
         this.$set(this.form, 'submitter', { name: this.form.name.en, email: this.form.email });
+        this.$v.form.submitter.name.$touch();
       }
     },
     handleEmailInput() {
@@ -362,15 +357,19 @@ export default {
 
       if (this.isSelfNomination) {
         this.$set(this.form, 'submitter', { name: this.form.name.en, email: this.form.email });
+        this.$v.form.submitter.email.$touch();
       }
     },
-    handleSelfNominationSwitch() {
+    handleSelfNomination() {
+      this.isSelfNomination = !this.isSelfNomination;
       if (!this.isSelfNomination) {
         this.$set(this.form, 'submitter', { name: '', email: '' });
         return;
       }
 
       this.$set(this.form, 'submitter', { name: this.form.name.en, email: this.form.email });
+      this.$v.form.submitter.name.$touch();
+      this.$v.form.submitter.email.$touch();
     },
     handleSubmit() {
       // Check validity
