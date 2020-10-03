@@ -130,8 +130,25 @@ export default {
         this.isMaxPage = false;
       }
     },
+    airTableNextPage() {
+      // placeholder, this will be overwritten by the next method returned by airtablejs.
+      // This will be set to `undefined` when the done function passed into eachPage is called
+      // which marks that the last page on the server side was reached.
+    },
+    getNextPageInternal() {
+      if (!this.isMaxPage) {
+        this.page += 1;
+        const lastPageEntry = this.page * this.pageSize;
+        this.isMaxPage = lastPageEntry >= this.speakers.length;
+      }
+    },
     getNextPage() {
-      // leave empty, this function is overwritten by the getSpeakers method
+      if (this.airTableNextPage) {
+        this.airTableNextPage();
+        return;
+      }
+
+      this.getNextPageInternal();
     },
     getSpeakers() {
       this.$db('People')
@@ -144,7 +161,7 @@ export default {
           (records, next) => {
             this.speakers.push(...records);
             this.page += 1;
-            this.getNextPage = next;
+            this.airTableNextPage = next;
           },
           (err) => {
             if (err) {
@@ -154,15 +171,9 @@ export default {
             // if the error is null no new page exists
             this.isMaxPage = true;
 
-            // reset the getNextPage function to just increment the page
-            // as there is no more results to fetch.
-            this.getNextPage = () => {
-              if (!this.isMaxPage) {
-                this.page += 1;
-                const lastPageEntry = this.page * this.pageSize;
-                this.isMaxPage = lastPageEntry >= this.speakers.length;
-              }
-            };
+            // set airTableNextPage to undefined to mark that we can not fetch any more pages
+            // and have to switch to internal pagination logic
+            this.airTableNextPage = undefined;
           },
         );
     },
