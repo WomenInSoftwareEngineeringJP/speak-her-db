@@ -51,7 +51,7 @@ If a community member engages in unacceptable behavior, the community organizers
 
 ## 6. Reporting Guidelines
 
-If you are subject to or witness unacceptable behavior, or have any other concerns, please notify a community organizer as soon as possible to @tuttiq
+If you are subject to or witness unacceptable behavior, or have any other concerns, please notify a community organizer as soon as possible. speakherjp@gmail.com.
 
 
 Additionally, community organizers are available to help community members engage with local law enforcement or to otherwise help those experiencing unacceptable behavior feel safe.
@@ -74,7 +74,7 @@ speakherjp@gmail.com
 
 ## 10. License and attribution
 
-The Citizen Code of Conduct is distributed by [Stumptown Syndicate](http://stumptownsyndicate.org) under a [Creative Commons Attribution-ShareAlike license](http://creativecommons.org/licenses/by-sa/3.0/).
+The Citizen Code of Conduct is distributed by [Stumptown Syndicate](http://stumptownsyndicate.org) under a [Creative Commons Attribution-ShareAlike license](http://creativecommons.org/licenses/by-sa/3.0/). 
 
 Portions of text derived from the [Django Code of Conduct](https://www.djangoproject.com/conduct/) and the [Geek Feminism Anti-Harassment Policy](http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy).
 
@@ -90,4 +90,4 @@ _Revision 2.0, adopted by the [Stumptown Syndicate](http://stumptownsyndicate.or
 
 Any in-person events organized via Women Who Code, including events related to the SpeakHer project, are covered by the Women Who Code [Code of Conduct](https://www.womenwhocode.com/codeofconduct).
 
-Third-party events organized by users of the [SpeakHer Website](https://speakher.jp) may have their own community rules. In the scope of a Speaking Event where a speaker has been selected from the Speak Her DB, we kindly ask that the speaker is treated following the expectations in this Code of Conduct.
+Third-party events organized by users of the [SpeakHer Website](https://speakher.jp) may have their own community rules. In the scope of a Speaking Event where a speaker has been selected from the Speak Her DB, We request that the speaker is treated following the expectations in this Code of Conduct.
