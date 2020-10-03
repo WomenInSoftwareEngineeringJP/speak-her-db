@@ -10,7 +10,7 @@ Please check with us before working on tickets in the "Icebox / Ideas" column or
 
 ## Approval process ✅
 
-All PRs must be approved by Code Owners. It helps us verify your code faster when there are good notes and tests (or reproducible steps for manual tests).
+All PRs must be approved by Code Owners. It helps us verify your code faster when there are good notes and tests (or reproducible steps for manual tests). 
 
 ## Code style 📝
 
@@ -26,7 +26,7 @@ Please set up your editor to use [eslint](https://eslint.org/). We don't use Pre
 
 4. We love mockups and paper prototypes, so if you have a suggestion and can sketch your idea, that's helpful.
 
-Please ask @tuttiq if you have questions!
+Please ask @ann-kilzer if you have questions!
 
 ## Translations 🌐
 

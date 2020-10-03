@@ -2,4 +2,4 @@
 
 ## Reporting a Vulnerability
 
-Please contact @tuttiq
+Please send an email to speakherjp@gmail.com.
