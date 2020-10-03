@@ -5,13 +5,13 @@
     </span>
     <v-icon
       :disabled="prevDisabled"
-      @click="onPrevPageClick"
+      @click="prevPage()"
     >
       mdi-chevron-left
     </v-icon>
     <v-icon
       :disabled="maxPage"
-      @click="onNextPageClick"
+      @click="nextPage()"
     >
       mdi-chevron-right
     </v-icon>
@@ -34,18 +34,18 @@ export default {
       type: Boolean,
       required: true,
     },
-    onPrevPageClick: {
-      type: Function,
-      required: true,
-    },
-    onNextPageClick: {
-      type: Function,
-      required: true,
-    },
   },
   computed: {
     prevDisabled() {
       return this.$props.pageStart <= 1;
+    },
+  },
+  methods: {
+    prevPage() {
+      this.$emit('onPrevPageClick');
+    },
+    nextPage() {
+      this.$emit('onNextPageClick');
     },
   },
 };

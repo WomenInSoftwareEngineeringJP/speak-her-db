@@ -31,8 +31,8 @@
               :page-start="(page - 1) * pageSize + 1"
               :page-end="lastPageEntry"
               :max-page="isMaxPage"
-              :on-next-page-click="getNextPage"
-              :on-prev-page-click="getPreviousPage"
+              @onNextPageClick="getNextPage()"
+              @onPrevPageClick="getPreviousPage()"
             />
           </v-col>
         </v-row>
