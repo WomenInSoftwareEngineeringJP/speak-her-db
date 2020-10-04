@@ -13,62 +13,64 @@
           cols="12"
           md="4"
           xs="12"
-          justify="left"
-          align="center"
         >
-          <h3>{{ $t('footer.title') }}</h3>
+          <v-row>
+            <h3>{{ $t('footer.title') }}</h3>
+          </v-row>
         </v-col>
         <v-col
           cols="12"
           md="4"
           xs="12"
-          justify="center"
-          align="center"
         >
-          <a
-            class="footer-link"
-            target="_blank"
-            href="https://www.netlify.com"
-          >
-            {{ $t('footer.netlify') }}
-          </a>
+          <v-row>
+            <a
+              class="footer-link"
+              target="_blank"
+              href="https://www.netlify.com"
+            >
+              {{ $t('footer.netlify') }}
+            </a>
+          </v-row>
         </v-col>
         <v-col
           cols="12"
           md="4"
           xs="12"
-          justify="right"
         >
-          <social-button
-            dark
-            x-large
-            :link="github"
-          >
-            <i
-              class="fab fa-github-alt"
-            />
-          </social-button>
-          <social-button
-            dark
-            x-large
-            :link="twitter"
-          >
-            <i class="fab fa-twitter" />
-          </social-button>
-          <social-button
-            dark
-            x-large
-            :link="instagram"
-          >
-            <i class="fab fa-instagram" />
-          </social-button>
-          <social-button
-            dark
-            x-large
-            :link="facebook"
-          >
-            <i class="fab fa-facebook-f" />
-          </social-button>
+          <v-row>
+            <v-spacer v-if="$vuetify.breakpoint.mdAndUp" />
+            <social-button
+              dark
+              x-large
+              :link="github"
+            >
+              <i
+                class="fab fa-github-alt"
+              />
+            </social-button>
+            <social-button
+              dark
+              x-large
+              :link="twitter"
+            >
+              <i class="fab fa-twitter" />
+            </social-button>
+            <social-button
+              dark
+              x-large
+              :link="instagram"
+            >
+              <i class="fab fa-instagram" />
+            </social-button>
+            <social-button
+              dark
+              x-large
+              :link="facebook"
+            >
+              <i class="fab fa-facebook-f" />
+            </social-button>
+          </v-row>
         </v-col>
       </v-row>
     </v-container>
