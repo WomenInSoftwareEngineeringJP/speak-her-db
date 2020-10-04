@@ -28,9 +28,9 @@
             class="text-right"
           >
             <pagination
-              :page-start="(page - 1) * pageSize + 1"
-              :page-end="lastPageEntry"
-              :max-page="isMaxPage"
+              :first-entry="(page - 1) * pageSize + 1"
+              :last-entry="lastPage"
+              :is-last-page="isLastPage"
               @onNextPageClick="getNextPage()"
               @onPrevPageClick="getPreviousPage()"
             />
@@ -48,6 +48,21 @@
             class="mb-5"
           />
         </div>
+        <v-row v-if="speakers.length">
+          <v-spacer />
+          <v-col
+            lg="3"
+            class="text-right"
+          >
+            <pagination
+              :first-entry="(page - 1) * pageSize + 1"
+              :last-entry="lastPage"
+              :is-last-page="isLastPage"
+              @onNextPageClick="getNextPage()"
+              @onPrevPageClick="getPreviousPage()"
+            />
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
   </v-container>
@@ -80,7 +95,7 @@ export default {
     showSuccess: false,
     page: 0,
     pageSize: 50,
-    isMaxPage: false,
+    isLastPage: false,
   }),
   computed: {
     selectedName() {
@@ -96,7 +111,7 @@ export default {
       const offset = (this.page - 1) * this.pageSize;
       return this.speakers.slice(offset, this.page * this.pageSize);
     },
-    lastPageEntry() {
+    lastPage() {
       const lastPageEntry = this.page * this.pageSize;
       return lastPageEntry > this.speakers.length ? this.speakers.length : lastPageEntry;
     },
@@ -127,7 +142,7 @@ export default {
     getPreviousPage() {
       if (this.page > 1) {
         this.page -= 1;
-        this.isMaxPage = false;
+        this.isLastPage = false;
       }
     },
     airTableNextPage() {
@@ -136,10 +151,10 @@ export default {
       // which marks that the last page on the server side was reached.
     },
     getNextPageInternal() {
-      if (!this.isMaxPage) {
+      if (!this.isLastPage) {
         this.page += 1;
         const lastPageEntry = this.page * this.pageSize;
-        this.isMaxPage = lastPageEntry >= this.speakers.length;
+        this.isLastPage = lastPageEntry >= this.speakers.length;
       }
     },
     getNextPage() {
@@ -169,7 +184,7 @@ export default {
             }
 
             // if the error is null no new page exists
-            this.isMaxPage = true;
+            this.isLastPage = true;
 
             // set airTableNextPage to undefined to mark that we can not fetch any more pages
             // and have to switch to internal pagination logic

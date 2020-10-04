@@ -1,16 +1,16 @@
 <template>
   <span>
     <span>
-      {{ pageStart }} - {{ pageEnd }}
+      {{ firstEntry }} - {{ lastEntry }}
     </span>
     <v-icon
-      :disabled="prevDisabled"
+      :disabled="isFirstPage"
       @click="prevPage()"
     >
       mdi-chevron-left
     </v-icon>
     <v-icon
-      :disabled="maxPage"
+      :disabled="isLastPage"
       @click="nextPage()"
     >
       mdi-chevron-right
@@ -22,21 +22,21 @@
 
 export default {
   props: {
-    pageStart: {
+    firstEntry: {
       type: Number,
       required: true,
     },
-    pageEnd: {
+    lastEntry: {
       type: Number,
       required: true,
     },
-    maxPage: {
+    isLastPage: {
       type: Boolean,
       required: true,
     },
   },
   computed: {
-    prevDisabled() {
+    isFirstPage() {
       return this.$props.pageStart <= 1;
     },
   },
