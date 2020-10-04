@@ -44,6 +44,7 @@
           <speaker-card
             :speaker="speaker"
             :prefectures="prefectures"
+            :topic-list="topicList"
             :language-list="languageList"
             class="mb-5"
           />
@@ -88,6 +89,7 @@ export default {
   data: () => ({
     speakers: [],
     prefectures: [],
+    topicList: [],
     languageList: [],
     error: null,
     selectedSpeaker: undefined,
@@ -118,6 +120,7 @@ export default {
   },
   mounted() {
     api.getLocations(this.setPrefectures, this.setError);
+    api.getTopics(this.setTopics, this.setError);
     this.$getLanguages(this.setLanguageList, this.setError);
     this.getSpeakers();
 
@@ -132,6 +135,9 @@ export default {
   methods: {
     setPrefectures(records) {
       this.prefectures = records;
+    },
+    setTopics(records) {
+      this.topicList = records;
     },
     setLanguageList(records) {
       this.languageList = records;
