@@ -8,6 +8,10 @@ The tag "good first issue" and "help wanted" highlights some tickets that we'd l
 
 Please check with us before working on tickets in the "Icebox / Ideas" column or with the "backburner" label. Please also check before working on a ticket already assigned to somebody.
 
+## Using git
+
+We prefer merges instead of rebasing. Merges to master will be squashed. Please don't use `force-push` as it messes with Pull request comments and makes it hard for others to look at your branch.
+
 ## Approval process ✅
 
 All PRs must be approved by Code Owners. It helps us verify your code faster when there are good notes and tests (or reproducible steps for manual tests). Please follow the template and explain your ticket in the PR description so we can understand your changes. If you're changing the UI, screenshots for desktop and mobile view are appreciated. 
