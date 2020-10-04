@@ -3,6 +3,8 @@ module.exports = {
     'vuetify',
   ],
 
+  publicPath: process.env.NODE_ENV === 'production' ? 'https://speakher.jp/' : '/',
+
   pluginOptions: {
     i18n: {
       locale: 'en',
