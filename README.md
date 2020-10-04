@@ -58,6 +58,39 @@ yarn serve
 
 Access it on `localhost:8080` on your browser.
 
+### Useful commands
+
+Install dependencies
+```
+yarn install
+```
+
+Compiles and hot-reloads for development
+```
+yarn run serve
+```
+
+Compiles and minifies for production
+```
+yarn run build
+```
+
+Lints and fixes files
+```
+yarn run lint
+```
+
+### Running tests
+
+```
+yarn run test
+```
+
+Run unit tests
+```
+yarn run test:unit
+```
+
 ### Testing production on local environment
 
 If you have access to the production database, you can setup your production config on `.env.production` and run the app in production mode using the command `yarn serve --mode production`
