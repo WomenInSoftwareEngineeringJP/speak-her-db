@@ -14,7 +14,7 @@
           md="4"
           xs="12"
         >
-          <v-row>
+          <v-row :justify="$vuetify.breakpoint.mdAndUp ? left : center">
             <h3>{{ $t('footer.title') }}</h3>
           </v-row>
         </v-col>
@@ -23,7 +23,7 @@
           md="4"
           xs="12"
         >
-          <v-row>
+          <v-row justify="center">
             <a
               class="footer-link"
               target="_blank"
@@ -38,7 +38,7 @@
           md="4"
           xs="12"
         >
-          <v-row>
+          <v-row justify="center">
             <v-spacer v-if="$vuetify.breakpoint.mdAndUp" />
             <social-button
               dark
