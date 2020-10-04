@@ -32,6 +32,9 @@
     <job-input
       v-model="form.job"
     />
+    <secondary-affiliation-input
+      v-model="form.affiliation"
+    />
     <location-input
       v-model="form.location"
       :city-errors="cityErrors"
@@ -44,6 +47,7 @@
       v-model="form.speaker_bio"
       :label="$t('nominateSpeaker.bio.label')"
       :hint="$t('nominateSpeaker.bio.hint')"
+      persistent-hint
       outlined
       :error-messages="speakerBioErrors"
       @input="delayTouch($v.form.speaker_bio)"
@@ -120,6 +124,7 @@
 <script>
 import NameInput from '@/components/nomination/NameInput.vue';
 import JobInput from '@/components/nomination/JobInput.vue';
+import SecondaryAffiliationInput from '@/components/nomination/SecondaryAffiliationInput.vue';
 import LocationInput from '@/components/nomination/LocationInput.vue';
 import UrlsInput from '@/components/nomination/UrlsInput.vue';
 import SubmitterInput from '@/components/nomination/SubmitterInput.vue';
@@ -143,6 +148,7 @@ export default {
   components: {
     NameInput,
     JobInput,
+    SecondaryAffiliationInput,
     LocationInput,
     UrlsInput,
     SubmitterInput,
@@ -204,6 +210,10 @@ export default {
         job: {
           title: '',
           company: '',
+        },
+        affiliation: {
+          secondary_title: '',
+          secondary_affiliation: '',
         },
         speaker_bio: '',
         location: {
@@ -311,6 +321,7 @@ export default {
       this.$set(this.form, 'name', { en: '', ja: '' });
       this.$set(this.form, 'email', '');
       this.$set(this.form, 'job', { title: '', company: '' });
+      this.$set(this.form, 'affiliation', { secondary_title: '', secondary_affiliation: '' });
       this.$set(this.form, 'speaker_bio', '');
       this.$set(this.form, 'location', { city: '', prefecture: '' });
       this.$set(this.form, 'submitter', { name: '', email: '' });
@@ -337,12 +348,10 @@ export default {
       this.clearAlert();
 
       const payload = this.parseFormData();
-      if (process.env.NODE_ENV === 'production') {
-        this.$db('People').create(payload, { typecast: true }, this.afterSave);
-      } else {
+      if (process.env.NODE_ENV === 'development') {
         console.log(payload);
-        this.setAlert('success', this.$t('nominateSpeaker.thanks'));
       }
+      this.$db('People').create(payload, { typecast: true }, this.afterSave);
       this.resetForm();
     },
     // parse the data into the payload format expected by Airtable
@@ -377,6 +386,8 @@ export default {
         name_ja: this.form.name.ja,
         job_title: this.form.job.title,
         company: this.form.job.company,
+        secondary_title: this.form.affiliation.secondary_title,
+        secondary_affiliation: this.form.affiliation.secondary_affiliation,
         city: this.form.location.city,
         location_id: [this.form.location.prefecture],
         linkedin_url: this.form.urls.linkedin,

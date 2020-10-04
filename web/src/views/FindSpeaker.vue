@@ -8,7 +8,7 @@
     />
     <contact-result
       :show="showSuccess"
-      :name="selectedName"
+      :speaker-name="selectedName"
       @close="showSuccess = false"
     />
     <v-row
@@ -29,6 +29,7 @@
           <speaker-card
             :speaker="speaker"
             :prefectures="prefectures"
+            :topic-list="topicList"
             :language-list="languageList"
             class="mb-5"
           />
@@ -40,6 +41,7 @@
 
 <script>
 // @ is an alias to /src
+import api from '@/services/api';
 import SpeakerCard from '@/components/speaker/SpeakerCard.vue';
 import Search from '@/components/Search.vue';
 import ContactDialog from '@/components/contact/ContactDialog.vue';
@@ -55,6 +57,7 @@ export default {
   data: () => ({
     speakers: [],
     prefectures: [],
+    topicList: [],
     languageList: [],
     error: null,
     selectedSpeaker: undefined,
@@ -63,15 +66,25 @@ export default {
   }),
   computed: {
     selectedName() {
-      return this.selectedSpeaker ? this.selectedSpeaker.get('name_en') : '';
+      if (this.selectedSpeaker) {
+        if (this.$i18n.locale === 'ja') {
+          return this.selectedSpeaker.get('name_ja') || this.selectedSpeaker.get('name_en') || '';
+        }
+        return this.selectedSpeaker.get('name_en') || '';
+      }
+      return '';
     },
   },
   mounted() {
-    this.$getLocations(this.setPrefectures, this.setError);
+    api.getLocations(this.setPrefectures, this.setError);
+    api.getTopics(this.setTopics, this.setError);
     this.$getLanguages(this.setLanguageList, this.setError);
     this.getSpeakers();
 
-    bus.$on('contact-speaker', (speaker) => { this.selectedSpeaker = speaker; this.showDialog = true; });
+    bus.$on('contact-speaker', (speaker) => {
+      this.selectedSpeaker = speaker;
+      this.showDialog = true;
+    });
   },
   beforeDestroy() {
     bus.$off('contact-speaker');
@@ -79,6 +92,9 @@ export default {
   methods: {
     setPrefectures(records) {
       this.prefectures = records;
+    },
+    setTopics(records) {
+      this.topicList = records;
     },
     setLanguageList(records) {
       this.languageList = records;
@@ -90,9 +106,7 @@ export default {
       this.$db('People')
         .select({
           view: 'Published',
-          sort: [
-            { field: 'name_en', direction: 'asc' },
-          ],
+          sort: [{ field: 'name_en', direction: 'asc' }],
         })
         .firstPage((err, records) => {
           if (err) {
