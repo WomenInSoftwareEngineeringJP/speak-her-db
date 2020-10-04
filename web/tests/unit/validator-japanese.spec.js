@@ -9,6 +9,10 @@ describe('japanese.js', () => {
   it('accepts Katakana', () => {
     expect(japanese('チーズバーガートネコ！')).to.be.true;
   });
+  it('rejects half-width Katakana', () => {
+    expect(japanese('アンキルザー')).to.be.true;
+    expect(japanese('ｱﾝｷﾙｻﾞｰ')).to.be.false;
+  });
   it('accepts Kanji', () => {
     expect(japanese('鼠色大学')).to.be.true;
   });

@@ -68,25 +68,23 @@ export default {
       type: Object,
       required: true,
     },
-  },
-  data: () => ({
-    topics: [],
-  }),
-  created() {
-    this.$getTopics(this.setTopics, this.setError);
-  },
-  methods: {
-    setTopics(records) {
-      const tKeys = this.speaker.get('topics');
-      this.topics = [];
-
-      for (let i = 0; i < tKeys.length; i += 1) {
-        const topic = records.find((elem) => (elem.id === tKeys[i]));
-        this.topics.push(topic.get('name'));
-      }
+    topicList: {
+      type: Array,
+      required: true,
     },
-    setError(err) {
-      this.error = err;
+  },
+  computed: {
+    topics() {
+      const tKeys = this.speaker.get('topics');
+      const speakerTopics = [];
+
+      tKeys.forEach((topicId) => {
+        const topic = this.topicList.find((elem) => (elem.id === topicId));
+        if (topic) {
+          speakerTopics.push(topic.fields.name);
+        }
+      });
+      return speakerTopics;
     },
   },
 };

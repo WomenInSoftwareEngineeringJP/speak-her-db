@@ -40,6 +40,8 @@ This project uses Airtable as a data source. Follow these steps to configure a d
 NODE_ENV=development
 VUE_APP_AIRTABLE_DB_ID=[dev database ID here]
 VUE_APP_AIRTABLE_API_KEY=[your api key here]
+AIRTABLE_DB_ID=[dev database ID here]
+AIRTABLE_API_KEY=[your api key here]
 ```
 
 You can change other DB configs on `/plugins/airtable.js`.
@@ -55,6 +57,39 @@ yarn serve
 ```
 
 Access it on `localhost:8080` on your browser.
+
+### Useful commands
+
+Install dependencies
+```
+yarn install
+```
+
+Compiles and hot-reloads for development
+```
+yarn run serve
+```
+
+Compiles and minifies for production
+```
+yarn run build
+```
+
+Lints and fixes files
+```
+yarn run lint
+```
+
+### Running tests
+
+```
+yarn run test
+```
+
+Run unit tests
+```
+yarn run test:unit
+```
 
 ### Testing production on local environment
 
