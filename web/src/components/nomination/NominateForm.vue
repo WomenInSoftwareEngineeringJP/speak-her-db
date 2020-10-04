@@ -343,6 +343,8 @@ export default {
       this.$set(this.form, 'topics', []);
       this.$set(this.form, 'consent', false);
       this.$v.$reset();
+
+      this.isSelfNomination = false;
     },
     handleTouchNameEn() {
       this.$v.form.name.en.$touch();
