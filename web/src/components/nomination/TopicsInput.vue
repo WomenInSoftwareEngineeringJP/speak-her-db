@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import api from '@/services/api';
+
 export default {
   props: {
     value: {
@@ -33,13 +35,13 @@ export default {
     };
   },
   mounted() {
-    this.$getTopics(this.setTopics, this.setError);
+    api.getTopics(this.setTopics, this.setError);
   },
   methods: {
     setTopics(records) {
       this.topics = records.map((topic) => ({
         id: topic.id,
-        text: topic.get('name'),
+        text: topic.fields.name,
       }));
     },
     setError(err) {
