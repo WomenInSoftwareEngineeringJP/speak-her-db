@@ -7,7 +7,7 @@
       v-model="form.name"
       :english-errors="englishErrors"
       :japanese-errors="japaneseErrors"
-      @touch-english="$v.form.name.en.$touch()"
+      @touch-english="handleTouchNameEn()"
       @touch-japanese="$v.form.name.ja.$touch()"
     />
     <v-row dense>
@@ -21,8 +21,8 @@
           :label="$t('nominateSpeaker.email')"
           outlined
           :error-messages="emailErrors($v.form.email)"
-          @input="delayTouch($v.form.email)"
-          @blur="delayTouch($v.form.email)"
+          @input="handleEmailInput()"
+          @blur="handleEmailInput()"
         />
       </v-col>
       <pronoun-input
@@ -86,6 +86,13 @@
       @touch-linkedin="delayTouch($v.form.urls.linkedin)"
       @touch-twitter="delayTouch($v.form.urls.twitter)"
       @touch-website="delayTouch($v.form.urls.website)"
+    />
+    <v-checkbox
+      v-model="isSelfNomination"
+      class="mt-0"
+      :label="$t('nominateSpeaker.selfNomination')"
+      :hide-details="true"
+      @click.capture="handleSelfNomination()"
     />
     <submitter-input
       v-model="form.submitter"
@@ -199,6 +206,7 @@ export default {
         type: '',
         message: '',
       },
+      isSelfNomination: false,
       form: {
         name: {
           en: '',
@@ -336,6 +344,35 @@ export default {
       this.$set(this.form, 'topics', []);
       this.$set(this.form, 'consent', false);
       this.$v.$reset();
+
+      this.isSelfNomination = false;
+    },
+    handleTouchNameEn() {
+      this.$v.form.name.en.$touch();
+
+      if (this.isSelfNomination) {
+        this.$set(this.form, 'submitter', { name: this.form.name.en, email: this.form.email });
+        this.$v.form.submitter.name.$touch();
+      }
+    },
+    handleEmailInput() {
+      this.delayTouch(this.$v.form.email);
+
+      if (this.isSelfNomination) {
+        this.$set(this.form, 'submitter', { name: this.form.name.en, email: this.form.email });
+        this.$v.form.submitter.email.$touch();
+      }
+    },
+    handleSelfNomination() {
+      this.isSelfNomination = !this.isSelfNomination;
+      if (!this.isSelfNomination) {
+        this.$set(this.form, 'submitter', { name: '', email: '' });
+        return;
+      }
+
+      this.$set(this.form, 'submitter', { name: this.form.name.en, email: this.form.email });
+      this.$v.form.submitter.name.$touch();
+      this.$v.form.submitter.email.$touch();
     },
     handleSubmit() {
       // Check validity
