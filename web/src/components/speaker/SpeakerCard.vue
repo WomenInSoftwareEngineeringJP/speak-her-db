@@ -43,6 +43,7 @@
         </v-expansion-panels>
         <card-footer
           :speaker="speaker"
+          :topic-list="topicList"
           @contact-speaker="contactSpeaker()"
         />
       </v-col>
@@ -67,6 +68,10 @@ export default {
       required: true,
     },
     prefectures: {
+      type: Array,
+      required: true,
+    },
+    topicList: {
       type: Array,
       required: true,
     },

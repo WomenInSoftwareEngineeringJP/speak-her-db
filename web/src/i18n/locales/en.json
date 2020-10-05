@@ -110,7 +110,7 @@
         "enNameRequired": "English name is required",
         "fieldRequired": "{0} is required",
         "invalidForm": "Please complete the form correctly",
-        "jaNameCharacters": "Please enter your name in Kanji \/ Kana",
+        "jaNameCharacters": "Please enter your name in full width Kanji \/ Kana",
         "jaNameRequired": "Japanese name is required",
         "languagesRequired": "Please select spoken languages",
         "messageRequired": "A brief message is required",
