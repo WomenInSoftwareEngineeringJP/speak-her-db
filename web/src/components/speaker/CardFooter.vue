@@ -19,6 +19,7 @@
         :twitter="speaker.get('twitter_url')"
         :linked-in="speaker.get('linkedin_url')"
         :website="speaker.get('website_url')"
+        :prior-presentation="speaker.get('prior_presentation_url')"
       />
     </v-col>
     <v-col
@@ -37,6 +38,7 @@
           :twitter="speaker.get('twitter_url')"
           :linked-in="speaker.get('linkedin_url')"
           :website="speaker.get('website_url')"
+          :prior-presentation="speaker.get('prior_presentation_url')"
         />
         <v-spacer />
         <v-btn

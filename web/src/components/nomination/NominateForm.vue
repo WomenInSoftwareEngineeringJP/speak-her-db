@@ -82,10 +82,12 @@
       :linkedin-errors="urlErrors($v.form.urls.linkedin)"
       :twitter-errors="urlErrors($v.form.urls.twitter)"
       :website-errors="urlErrors($v.form.urls.website)"
+      :prior-presentation-errors="urlErrors($v.form.urls.priorPresentation)"
       @touch-fb="delayTouch($v.form.urls.facebook)"
       @touch-linkedin="delayTouch($v.form.urls.linkedin)"
       @touch-twitter="delayTouch($v.form.urls.twitter)"
       @touch-website="delayTouch($v.form.urls.website)"
+      @touch-prior-presentation="delayTouch($v.form.urls.priorPresentation)"
     />
     <v-checkbox
       v-model="isSelfNomination"
@@ -197,6 +199,7 @@ export default {
         twitter: { url },
         linkedin: { url },
         website: { url },
+        priorPresentation: { url },
       },
     },
   },
@@ -233,6 +236,7 @@ export default {
           twitter: '',
           facebook: '',
           website: '',
+          priorPresentation: '',
         },
         submitter: {
           name: '',
@@ -431,6 +435,7 @@ export default {
         facebook_url: this.form.urls.facebook,
         twitter_url: this.form.urls.twitter,
         website_url: this.form.urls.website,
+        prior_presentation_url: this.form.urls.priorPresentation,
         submitter_name: this.form.submitter.name,
         submitter_email: this.form.submitter.email,
         consent: this.form.consent,
