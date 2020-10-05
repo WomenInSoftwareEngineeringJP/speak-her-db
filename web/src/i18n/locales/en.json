@@ -90,6 +90,7 @@
             "hint": "Please type in pronouns if yours are not listed"
         },
         "prefecture": "Prefecture",
+        "selfNomination": "I am nominating myself",
         "submitterEmail": "Submitter Email",
         "submitterName": "Submitter Name",
         "thanks": "Thank you for your submission!",
