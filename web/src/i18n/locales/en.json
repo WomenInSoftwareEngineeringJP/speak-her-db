@@ -90,6 +90,7 @@
             "hint": "Please type in pronouns if yours are not listed"
         },
         "prefecture": "Prefecture",
+        "selfNomination": "I am nominating myself",
         "submitterEmail": "Submitter Email",
         "submitterName": "Submitter Name",
         "thanks": "Thank you for your submission!",
@@ -99,7 +100,8 @@
             "hint": "Type anything and press enter to add new topics"
         },
         "twitter": "Twitter URL",
-        "website": "Website"
+        "website": "Website",
+        "priorPresentation": "Link to a prior presentation"
     },
     "validations": {
         "allRequired": "All fields are required",

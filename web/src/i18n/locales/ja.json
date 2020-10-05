@@ -80,6 +80,7 @@
         "nameJa": "お名前（漢字\/かな）",
         "photoURL": "写真のURL",
         "prefecture": "都道府県",
+        "selfNomination": "自分を指名しています",
         "submitterEmail": "推薦者のEメール",
         "submitterName": "推薦者",
         "thanks": "ご投稿ありがとうございます！",

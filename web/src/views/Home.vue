@@ -2,7 +2,7 @@
   <div>
     <v-parallax
       dark
-      src="../assets/background.png"
+      src="../assets/background.svg"
       height="100%"
     >
       <v-row
