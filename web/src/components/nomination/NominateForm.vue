@@ -89,7 +89,7 @@
     <v-checkbox
       v-model="isSelfNomination"
       class="mt-0"
-      label="I am nominating myself"
+      :label="$t('nominateSpeaker.selfNomination')"
       :hide-details="true"
       @click.capture="handleSelfNomination()"
     />
