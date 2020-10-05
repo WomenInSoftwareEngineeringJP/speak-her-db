@@ -67,7 +67,7 @@
     <v-row dense>
       <v-col
         cols="12"
-        md="6"
+        md="12"
         xs="12"
       >
         <v-text-field
