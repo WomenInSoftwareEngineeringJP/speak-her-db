@@ -8,13 +8,15 @@
     <v-container
       fluid
     >
-      <v-row no-gutters>
+      <v-row
+        no-gutters
+      >
         <v-col
           cols="12"
           md="4"
           xs="12"
         >
-          <v-row :justify="$vuetify.breakpoint.mdAndUp ? left : center">
+          <v-row :justify="$vuetify.breakpoint.mdAndUp ? 'left' : 'center'">
             <h3>
               {{ $t('footer.title') }}
             </h3>
