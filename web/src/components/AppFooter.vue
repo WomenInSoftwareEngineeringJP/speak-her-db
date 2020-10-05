@@ -15,7 +15,9 @@
           xs="12"
         >
           <v-row :justify="$vuetify.breakpoint.mdAndUp ? left : center">
-            <h3>{{ $t('footer.title') }}</h3>
+            <h3>
+              {{ $t('footer.title') }}
+            </h3>
           </v-row>
         </v-col>
         <v-col
