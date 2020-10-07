@@ -37,17 +37,32 @@
           </v-col>
         </v-row>
         <search v-if="false" />
-        <div
-          v-for="speaker in getSpeakersForPage"
-          :key="speaker.id"
+        <v-row
+          v-if="isLoading"
+          justify="space-around"
         >
-          <speaker-card
-            :speaker="speaker"
-            :prefectures="prefectures"
-            :topic-list="topicList"
-            :language-list="languageList"
-            class="mb-5"
-          />
+          <v-col lg="1">
+            <v-progress-circular
+              indeterminate
+              color="primary"
+            />
+          </v-col>
+        </v-row>
+        <div
+          v-if="!isLoading"
+        >
+          <div
+            v-for="speaker in getSpeakersForPage"
+            :key="speaker.id"
+          >
+            <speaker-card
+              :speaker="speaker"
+              :prefectures="prefectures"
+              :topic-list="topicList"
+              :language-list="languageList"
+              class="mb-5"
+            />
+          </div>
         </div>
         <v-row v-if="speakers.length">
           <v-spacer />
@@ -98,6 +113,7 @@ export default {
     page: 0,
     pageSize: 50,
     isLastPage: false,
+    isLoading: true,
   }),
   computed: {
     selectedName() {
@@ -147,8 +163,10 @@ export default {
     },
     getPreviousPage() {
       if (this.page > 1) {
+        this.isLoading = true;
         this.page -= 1;
         this.isLastPage = false;
+        this.isLoading = false;
       }
     },
     airTableNextPage() {
@@ -162,8 +180,10 @@ export default {
         const lastPageEntry = this.page * this.pageSize;
         this.isLastPage = lastPageEntry >= this.speakers.length;
       }
+      this.isLoading = false;
     },
     getNextPage() {
+      this.isLoading = true;
       if (this.airTableNextPage) {
         this.airTableNextPage();
         return;
@@ -183,6 +203,7 @@ export default {
             this.speakers.push(...records);
             this.page += 1;
             this.airTableNextPage = next;
+            this.isLoading = false;
           },
           (err) => {
             if (err) {
@@ -191,6 +212,7 @@ export default {
 
             // if the error is null no new page exists
             this.isLastPage = true;
+            this.isLoading = false;
 
             // set airTableNextPage to undefined to mark that we can not fetch any more pages
             // and have to switch to internal pagination logic
