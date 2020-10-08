@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     isFirstPage() {
-      return this.$props.pageStart <= 1;
+      return this.$props.firstEntry <= 1;
     },
   },
   methods: {
