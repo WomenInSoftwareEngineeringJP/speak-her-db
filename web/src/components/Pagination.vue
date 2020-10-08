@@ -1,5 +1,6 @@
 <template>
   <span>
+    <!--eslint-disable @intlify/vue-i18n/no-raw-text -->
     <span>
       {{ firstEntry }} - {{ lastEntry }}
     </span>
