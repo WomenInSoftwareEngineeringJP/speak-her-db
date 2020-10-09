@@ -2,17 +2,17 @@
   <v-row class="pa-0 ma-0 d-flex">
     <div
       v-for="tag in tags"
-      :key="tag"
+      :key="tag.name"
       fluid
       class="mr-3"
       align="center"
     >
       <v-chip
-        :color="generateColor(tag)"
+        :color="generateColor(tag.name)"
         label
         class="mb-2"
       >
-        {{ tag }}
+        {{ localizedTag(tag) }}
       </v-chip>
     </div>
   </v-row>
@@ -39,18 +39,24 @@ export default {
     };
   },
   methods: {
-    generateColor(tag) {
-      if (tag) {
-        if (tag in this.colorCache) {
-          return this.colorCache[tag];
+    localizedTag(tag) {
+      if (this.$i18n.locale === 'ja' && tag.name_ja && tag.name_ja !== '') {
+        return tag.name_ja;
+      }
+      return tag.name;
+    },
+    generateColor(name) {
+      if (name) {
+        if (name in this.colorCache) {
+          return this.colorCache[name];
         }
         let sum = 0;
-        for (let i = 0; i < tag.length; i += 1) {
-          sum += tag.charCodeAt(i);
+        for (let i = 0; i < name.length; i += 1) {
+          sum += name.charCodeAt(i);
         }
         const i = sum % softColors.length;
         const color = softColors[i];
-        this.colorCache[tag] = color;
+        this.colorCache[name] = color;
         return color;
       }
       return softColors[0];

@@ -134,7 +134,7 @@ export default {
       return lastPageEntry > this.speakers.length ? this.speakers.length : lastPageEntry;
     },
   },
-  mounted() {
+  async mounted() {
     api.getLocations(this.setPrefectures, this.setError);
     api.getTopics(this.setTopics, this.setError);
     this.$getLanguages(this.setLanguageList, this.setError);
