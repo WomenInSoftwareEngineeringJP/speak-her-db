@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import SocialButton from './SocialButton.vue';
+import SocialButton from '@/components/buttons/SocialButton.vue';
 
 export default {
   components: {
