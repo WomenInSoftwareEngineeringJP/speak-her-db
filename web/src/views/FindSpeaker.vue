@@ -137,7 +137,7 @@ export default {
   mounted() {
     api.getLocations(this.setPrefectures, this.setError);
     api.getTopics(this.setTopics, this.setError);
-    this.$getLanguages(this.setLanguageList, this.setError);
+    api.getLanguages(this.setLanguageList, this.setError);
     this.getSpeakers();
 
     bus.$on('contact-speaker', (speaker) => {
