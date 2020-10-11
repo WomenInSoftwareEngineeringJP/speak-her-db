@@ -80,12 +80,14 @@ export default {
       const tKeys = this.speaker.get('topics');
       const speakerTopics = [];
 
-      tKeys.forEach((topicId) => {
-        const topic = this.topicList.find((elem) => (elem.id === topicId));
-        if (topic) {
-          speakerTopics.push(topic.fields.name);
-        }
-      });
+      if (tKeys) {
+        tKeys.forEach((topicId) => {
+          const topic = this.topicList.find((elem) => (elem.id === topicId));
+          if (topic) {
+            speakerTopics.push({ name: topic.fields.name, name_ja: topic.fields.name_ja });
+          }
+        });
+      }
       return speakerTopics;
     },
   },
