@@ -21,19 +21,64 @@
             {{ $t('findSpeaker.title') }}
           </h2>
         </v-row>
+        <v-row v-if="speakers.length">
+          <v-spacer />
+          <v-col
+            lg="3"
+            class="text-right"
+          >
+            <pagination
+              :first-entry="(page - 1) * pageSize + 1"
+              :last-entry="lastPage"
+              :is-last-page="isLastPage"
+              @onNextPageClick="getNextPage()"
+              @onPrevPageClick="getPreviousPage()"
+            />
+          </v-col>
+        </v-row>
         <search v-if="false" />
-        <div
-          v-for="speaker in speakers"
-          :key="speaker.id"
+        <v-row
+          v-if="isLoading"
+          justify="space-around"
         >
-          <speaker-card
-            :speaker="speaker"
-            :prefectures="prefectures"
-            :topic-list="topicList"
-            :language-list="languageList"
-            class="mb-5"
-          />
+          <v-col lg="1">
+            <v-progress-circular
+              indeterminate
+              color="primary"
+            />
+          </v-col>
+        </v-row>
+        <div
+          v-if="!isLoading"
+        >
+          <div
+            v-for="speaker in getSpeakersForPage"
+            :key="speaker.id"
+          >
+            <speaker-card
+              :speaker="speaker"
+              :prefectures="prefectures"
+              :topic-list="topicList"
+              :language-list="languageList"
+              class="mb-5"
+            />
+          </div>
         </div>
+        <v-row v-if="speakers.length">
+          <v-spacer />
+          <v-col
+            lg="3"
+            class="text-right"
+          >
+            <pagination
+              :first-entry="(page - 1) * pageSize + 1"
+              :last-entry="lastPage"
+              :is-last-page="isLastPage"
+              @onNextPageClick="getNextPage()"
+              @onPrevPageClick="getPreviousPage()"
+            />
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
   </v-container>
@@ -44,6 +89,7 @@
 import api from '@/services/api';
 import SpeakerCard from '@/components/speaker/SpeakerCard.vue';
 import Search from '@/components/Search.vue';
+import Pagination from '@/components/Pagination.vue';
 import ContactDialog from '@/components/contact/ContactDialog.vue';
 import ContactResult from '@/components/contact/ContactResult.vue';
 
@@ -51,6 +97,7 @@ export default {
   components: {
     ContactDialog,
     ContactResult,
+    Pagination,
     Search,
     SpeakerCard,
   },
@@ -63,6 +110,10 @@ export default {
     selectedSpeaker: undefined,
     showDialog: false,
     showSuccess: false,
+    page: 0,
+    pageSize: 50,
+    isLastPage: false,
+    isLoading: true,
   }),
   computed: {
     selectedName() {
@@ -73,6 +124,14 @@ export default {
         return this.selectedSpeaker.get('name_en') || '';
       }
       return '';
+    },
+    getSpeakersForPage() {
+      const offset = (this.page - 1) * this.pageSize;
+      return this.speakers.slice(offset, this.page * this.pageSize);
+    },
+    lastPage() {
+      const lastPageEntry = this.page * this.pageSize;
+      return lastPageEntry > this.speakers.length ? this.speakers.length : lastPageEntry;
     },
   },
   mounted() {
@@ -102,19 +161,64 @@ export default {
     setError(err) {
       this.error = err;
     },
+    getPreviousPage() {
+      if (this.page > 1) {
+        this.isLoading = true;
+        this.page -= 1;
+        this.isLastPage = false;
+        this.isLoading = false;
+      }
+    },
+    airTableNextPage() {
+      // placeholder, this will be overwritten by the next method returned by airtablejs.
+      // This will be set to `undefined` when the done function passed into eachPage is called
+      // which marks that the last page on the server side was reached.
+    },
+    getNextPageInternal() {
+      if (!this.isLastPage) {
+        this.page += 1;
+        const lastPageEntry = this.page * this.pageSize;
+        this.isLastPage = lastPageEntry >= this.speakers.length;
+      }
+      this.isLoading = false;
+    },
+    getNextPage() {
+      this.isLoading = true;
+      if (this.airTableNextPage) {
+        this.airTableNextPage();
+        return;
+      }
+
+      this.getNextPageInternal();
+    },
     getSpeakers() {
       this.$db('People')
         .select({
           view: 'Published',
           sort: [{ field: 'name_en', direction: 'asc' }],
+          pageSize: this.pageSize,
         })
-        .firstPage((err, records) => {
-          if (err) {
-            this.error = err;
-          } else {
-            this.speakers = records;
-          }
-        });
+        .eachPage(
+          (records, next) => {
+            this.speakers.push(...records);
+            this.page += 1;
+            this.airTableNextPage = next;
+            this.isLoading = false;
+          },
+          (err) => {
+            if (err) {
+              this.error = err;
+            }
+
+            // if the error is null no new page exists
+            this.isLastPage = true;
+            this.isLoading = false;
+
+            // set airTableNextPage to undefined to mark that we can not fetch any more pages
+            // and have to switch to internal pagination logic
+            this.airTableNextPage = undefined;
+          },
+        );
     },
   },
 };
