@@ -20,4 +20,10 @@ function getTopics(successCallback, errorCallback) {
     .catch((error) => errorCallback(error));
 }
 
-export default { getLocations, getTopics };
+function getLanguages(successCallback, errorCallback) {
+  $axios.get('languages')
+    .then((response) => successCallback(response.data.records))
+    .catch((error) => errorCallback(error));
+}
+
+export default { getLocations, getTopics, getLanguages };
