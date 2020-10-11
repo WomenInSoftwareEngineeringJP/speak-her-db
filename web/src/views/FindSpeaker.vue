@@ -21,7 +21,7 @@
             {{ $t('findSpeaker.title') }}
           </h2>
         </v-row>
-        <speaker-pagination
+        <pagination-row
           v-if="speakers.length"
           :first-entry="(page - 1) * pageSize + 1"
           :last-entry="lastEntry"
@@ -57,7 +57,7 @@
             />
           </div>
         </div>
-        <speaker-pagination
+        <pagination-row
           v-if="speakers.length"
           :first-entry="(page - 1) * pageSize + 1"
           :last-entry="lastEntry"
@@ -77,7 +77,7 @@ import SpeakerCard from '@/components/speaker/SpeakerCard.vue';
 import Search from '@/components/Search.vue';
 import ContactDialog from '@/components/contact/ContactDialog.vue';
 import ContactResult from '@/components/contact/ContactResult.vue';
-import SpeakerPagination from '@/components/speaker/SpeakerPagination.vue';
+import PaginationRow from '@/components/PaginationRow.vue';
 
 export default {
   components: {
@@ -85,7 +85,7 @@ export default {
     ContactResult,
     Search,
     SpeakerCard,
-    SpeakerPagination,
+    PaginationRow,
   },
   data: () => ({
     speakers: [],
