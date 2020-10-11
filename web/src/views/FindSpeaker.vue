@@ -21,21 +21,14 @@
             {{ $t('findSpeaker.title') }}
           </h2>
         </v-row>
-        <v-row v-if="speakers.length">
-          <v-spacer />
-          <v-col
-            lg="3"
-            class="text-right"
-          >
-            <pagination
-              :first-entry="(page - 1) * pageSize + 1"
-              :last-entry="lastPage"
-              :is-last-page="isLastPage"
-              @onNextPageClick="getNextPage()"
-              @onPrevPageClick="getPreviousPage()"
-            />
-          </v-col>
-        </v-row>
+        <pagination-row
+          v-if="speakers.length"
+          :first-entry="(page - 1) * pageSize + 1"
+          :last-entry="lastEntry"
+          :is-last-page="isLastPage"
+          @onNextPage="getNextPage()"
+          @onPrevPage="getPreviousPage()"
+        />
         <search v-if="false" />
         <v-row
           v-if="isLoading"
@@ -64,21 +57,14 @@
             />
           </div>
         </div>
-        <v-row v-if="speakers.length">
-          <v-spacer />
-          <v-col
-            lg="3"
-            class="text-right"
-          >
-            <pagination
-              :first-entry="(page - 1) * pageSize + 1"
-              :last-entry="lastPage"
-              :is-last-page="isLastPage"
-              @onNextPageClick="getNextPage()"
-              @onPrevPageClick="getPreviousPage()"
-            />
-          </v-col>
-        </v-row>
+        <pagination-row
+          v-if="speakers.length"
+          :first-entry="(page - 1) * pageSize + 1"
+          :last-entry="lastEntry"
+          :is-last-page="isLastPage"
+          @onNextPage="getNextPage()"
+          @onPrevPage="getPreviousPage()"
+        />
       </v-col>
     </v-row>
   </v-container>
@@ -89,17 +75,17 @@
 import api from '@/services/api';
 import SpeakerCard from '@/components/speaker/SpeakerCard.vue';
 import Search from '@/components/Search.vue';
-import Pagination from '@/components/Pagination.vue';
 import ContactDialog from '@/components/contact/ContactDialog.vue';
 import ContactResult from '@/components/contact/ContactResult.vue';
+import PaginationRow from '@/components/PaginationRow.vue';
 
 export default {
   components: {
     ContactDialog,
     ContactResult,
-    Pagination,
     Search,
     SpeakerCard,
+    PaginationRow,
   },
   data: () => ({
     speakers: [],
@@ -129,7 +115,7 @@ export default {
       const offset = (this.page - 1) * this.pageSize;
       return this.speakers.slice(offset, this.page * this.pageSize);
     },
-    lastPage() {
+    lastEntry() {
       const lastPageEntry = this.page * this.pageSize;
       return lastPageEntry > this.speakers.length ? this.speakers.length : lastPageEntry;
     },
@@ -137,7 +123,7 @@ export default {
   mounted() {
     api.getLocations(this.setPrefectures, this.setError);
     api.getTopics(this.setTopics, this.setError);
-    this.$getLanguages(this.setLanguageList, this.setError);
+    api.getLanguages(this.setLanguageList, this.setError);
     this.getSpeakers();
 
     bus.$on('contact-speaker', (speaker) => {
