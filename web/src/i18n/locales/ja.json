@@ -50,7 +50,7 @@
     "findSpeaker": {
         "title": "スピーカーを探す",
         "pronouns": "Pronouns: {0}",
-        "no-results": "No speakers found"
+        "noResults": "No speakers found"
     },
     "footer": {
         "title": "SpeakHer 日本 2020",
