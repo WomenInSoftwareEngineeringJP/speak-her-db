@@ -48,7 +48,7 @@
         "whyQ": "なぜ重要なのでしょうか？"
     },
     "findSpeaker": {
-        "title": "スピーカーを探す"
+        "title": "講演者を探す"
     },
     "footer": {
         "dateString": "2020 SpeakHerプロジェクト",
@@ -59,8 +59,8 @@
         "title": "SpeakHer"
     },
     "nav": {
-        "findSpeaker": "スピーカーを探す",
-        "nominateSpeaker": "スピーカーを推薦・登録する"
+        "findSpeaker": "講演者を探す",
+        "nominateSpeaker": "講演者を推薦・登録する"
     },
     "nominateSpeaker": {
         "bio": {
@@ -69,7 +69,7 @@
         },
         "city": "都市",
         "company": "会社",
-        "consent": "スピーカーの情報をSpeakHerデータベースに登録する許可をスピーカーから得ています。",
+        "consent": "講演者の情報をSpeakHerデータベースに登録する許可を講演者から得ています。",
         "email": "Eメール",
         "error": "エラー： {0}",
         "facebook": "FacebookのURL",
@@ -83,7 +83,7 @@
         "submitterEmail": "推薦者のEメール",
         "submitterName": "推薦者",
         "thanks": "ご投稿ありがとうございます！",
-        "title": "スピーカーを指名する",
+        "title": "講演者を指名する",
         "topics": {
             "label": "関心のある分野",
             "hint": "分野を入力後、Enterキーを押し、新しい分野を追加します"
