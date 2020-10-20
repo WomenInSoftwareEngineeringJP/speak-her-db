@@ -7,7 +7,7 @@
       v-model="form.name"
       :english-errors="englishErrors"
       :japanese-errors="japaneseErrors"
-      @touch-english="$v.form.name.en.$touch()"
+      @touch-english="handleTouchNameEn()"
       @touch-japanese="$v.form.name.ja.$touch()"
     />
     <v-row dense>
@@ -21,8 +21,8 @@
           :label="$t('nominateSpeaker.email')"
           outlined
           :error-messages="emailErrors($v.form.email)"
-          @input="delayTouch($v.form.email)"
-          @blur="delayTouch($v.form.email)"
+          @input="handleEmailInput()"
+          @blur="handleEmailInput()"
         />
       </v-col>
       <pronoun-input
@@ -31,6 +31,9 @@
     </v-row>
     <job-input
       v-model="form.job"
+    />
+    <secondary-affiliation-input
+      v-model="form.affiliation"
     />
     <location-input
       v-model="form.location"
@@ -44,6 +47,7 @@
       v-model="form.speaker_bio"
       :label="$t('nominateSpeaker.bio.label')"
       :hint="$t('nominateSpeaker.bio.hint')"
+      persistent-hint
       outlined
       :error-messages="speakerBioErrors"
       @input="delayTouch($v.form.speaker_bio)"
@@ -78,10 +82,19 @@
       :linkedin-errors="urlErrors($v.form.urls.linkedin)"
       :twitter-errors="urlErrors($v.form.urls.twitter)"
       :website-errors="urlErrors($v.form.urls.website)"
+      :prior-presentation-errors="urlErrors($v.form.urls.priorPresentation)"
       @touch-fb="delayTouch($v.form.urls.facebook)"
       @touch-linkedin="delayTouch($v.form.urls.linkedin)"
       @touch-twitter="delayTouch($v.form.urls.twitter)"
       @touch-website="delayTouch($v.form.urls.website)"
+      @touch-prior-presentation="delayTouch($v.form.urls.priorPresentation)"
+    />
+    <v-checkbox
+      v-model="isSelfNomination"
+      class="mt-0"
+      :label="$t('nominateSpeaker.selfNomination')"
+      :hide-details="true"
+      @click.capture="handleSelfNomination()"
     />
     <submitter-input
       v-model="form.submitter"
@@ -120,6 +133,7 @@
 <script>
 import NameInput from '@/components/nomination/NameInput.vue';
 import JobInput from '@/components/nomination/JobInput.vue';
+import SecondaryAffiliationInput from '@/components/nomination/SecondaryAffiliationInput.vue';
 import LocationInput from '@/components/nomination/LocationInput.vue';
 import UrlsInput from '@/components/nomination/UrlsInput.vue';
 import SubmitterInput from '@/components/nomination/SubmitterInput.vue';
@@ -143,6 +157,7 @@ export default {
   components: {
     NameInput,
     JobInput,
+    SecondaryAffiliationInput,
     LocationInput,
     UrlsInput,
     SubmitterInput,
@@ -184,6 +199,7 @@ export default {
         twitter: { url },
         linkedin: { url },
         website: { url },
+        priorPresentation: { url },
       },
     },
   },
@@ -193,6 +209,7 @@ export default {
         type: '',
         message: '',
       },
+      isSelfNomination: false,
       form: {
         name: {
           en: '',
@@ -205,6 +222,10 @@ export default {
           title: '',
           company: '',
         },
+        affiliation: {
+          secondary_title: '',
+          secondary_affiliation: '',
+        },
         speaker_bio: '',
         location: {
           city: '',
@@ -215,6 +236,7 @@ export default {
           twitter: '',
           facebook: '',
           website: '',
+          priorPresentation: '',
         },
         submitter: {
           name: '',
@@ -311,6 +333,7 @@ export default {
       this.$set(this.form, 'name', { en: '', ja: '' });
       this.$set(this.form, 'email', '');
       this.$set(this.form, 'job', { title: '', company: '' });
+      this.$set(this.form, 'affiliation', { secondary_title: '', secondary_affiliation: '' });
       this.$set(this.form, 'speaker_bio', '');
       this.$set(this.form, 'location', { city: '', prefecture: '' });
       this.$set(this.form, 'submitter', { name: '', email: '' });
@@ -325,6 +348,35 @@ export default {
       this.$set(this.form, 'topics', []);
       this.$set(this.form, 'consent', false);
       this.$v.$reset();
+
+      this.isSelfNomination = false;
+    },
+    handleTouchNameEn() {
+      this.$v.form.name.en.$touch();
+
+      if (this.isSelfNomination) {
+        this.$set(this.form, 'submitter', { name: this.form.name.en, email: this.form.email });
+        this.$v.form.submitter.name.$touch();
+      }
+    },
+    handleEmailInput() {
+      this.delayTouch(this.$v.form.email);
+
+      if (this.isSelfNomination) {
+        this.$set(this.form, 'submitter', { name: this.form.name.en, email: this.form.email });
+        this.$v.form.submitter.email.$touch();
+      }
+    },
+    handleSelfNomination() {
+      this.isSelfNomination = !this.isSelfNomination;
+      if (!this.isSelfNomination) {
+        this.$set(this.form, 'submitter', { name: '', email: '' });
+        return;
+      }
+
+      this.$set(this.form, 'submitter', { name: this.form.name.en, email: this.form.email });
+      this.$v.form.submitter.name.$touch();
+      this.$v.form.submitter.email.$touch();
     },
     handleSubmit() {
       // Check validity
@@ -337,12 +389,10 @@ export default {
       this.clearAlert();
 
       const payload = this.parseFormData();
-      if (process.env.NODE_ENV === 'production') {
-        this.$db('People').create(payload, { typecast: true }, this.afterSave);
-      } else {
+      if (process.env.NODE_ENV === 'development') {
         console.log(payload);
-        this.setAlert('success', this.$t('nominateSpeaker.thanks'));
       }
+      this.$db('People').create(payload, { typecast: true }, this.afterSave);
       this.resetForm();
     },
     // parse the data into the payload format expected by Airtable
@@ -377,12 +427,15 @@ export default {
         name_ja: this.form.name.ja,
         job_title: this.form.job.title,
         company: this.form.job.company,
+        secondary_title: this.form.affiliation.secondary_title,
+        secondary_affiliation: this.form.affiliation.secondary_affiliation,
         city: this.form.location.city,
         location_id: [this.form.location.prefecture],
         linkedin_url: this.form.urls.linkedin,
         facebook_url: this.form.urls.facebook,
         twitter_url: this.form.urls.twitter,
         website_url: this.form.urls.website,
+        prior_presentation_url: this.form.urls.priorPresentation,
         submitter_name: this.form.submitter.name,
         submitter_email: this.form.submitter.email,
         consent: this.form.consent,

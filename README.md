@@ -11,6 +11,10 @@ SpeakHer is a database of women public speakers in Japan. A common excuse we hea
 
 The purpose of gathering this information is so that event organizers can easily search for female speakers and that fellow speakers can connect with and support each other
 
+## How to Contribute
+
+Please check out our [contributor guidelines](https://github.com/WWCodeTokyo/speak-her-db/blob/master/CONTRIBUTING.md).
+
 ## Code of Conduct
 
 All contributors to this repository must follow the [Code of Conduct](https://www.womenwhocode.com/codeofconduct). Thank you for helping us build an inclusive open-source project.
@@ -19,31 +23,74 @@ All contributors to this repository must follow the [Code of Conduct](https://ww
 
 Requirements:
 - [Yarn](https://yarnpkg.com/)
-
+- A free [Airtable account](https://airtable.com)
 
 ### Database connection
 
 This project uses Airtable as a data source. Follow these steps to configure a database on your local environment:
 
-1. Make a copy of `.env.sample` and rename to just `.env`
-2. Get your Airtable API Key on your [Airtable account](https://airtable.com/account)
-3. Edit `.env` to add your `AIRTABLE_API_KEY` and `AIRTABLE_DB_ID`
+1. Make a copy of `.env.sample` and rename it to `.env.development`
+2. Register as a contributor of the Airtable development database [cliking here](https://airtable.com/invite/l?inviteId=invLCTAgGOsrWkXGM&inviteToken=3280cfd046a759fbcf5cb70371fbfab6dd306c9ce9851c2bd50da6de57b04121)
+3. Get your Airtable API Key on your [Airtable account](https://airtable.com/account)
+4. Get the development database ID on the [Dev DB Docs](https://airtable.com/appHpbskGp4dMpqEO/api/docs#javascript/introduction)
+5. Edit `.env.development` to add your `AIRTABLE_API_KEY` and the development `AIRTABLE_DB_ID`
 
-`.env`
+`.env.development`
 ```
+NODE_ENV=development
+VUE_APP_AIRTABLE_DB_ID=[dev database ID here]
 VUE_APP_AIRTABLE_API_KEY=[your api key here]
-VUE_APP_AIRTABLE_DB_ID=[your database ID here]
+AIRTABLE_DB_ID=[dev database ID here]
+AIRTABLE_API_KEY=[your api key here]
 ```
 
-You can change the DB configs on `/plugins/airtable.js`.
+You can change other DB configs on `/plugins/airtable.js`.
 
-Further information on the database schema and query documentation [here](https://airtable.com/apprMeMSVqvZhoE6a/api/docs#javascript/introduction).
+Further information on the database schema and query documentation [here](https://airtable.com/appHpbskGp4dMpqEO/api/docs#javascript/introduction) (login with the account you registered on step 2).
 
 
-
-How to run this:
+### Running the app
 
 ```
 cd web
 yarn serve
 ```
+
+Access it on `localhost:8080` on your browser.
+
+### Useful commands
+
+Install dependencies
+```
+yarn install
+```
+
+Compiles and hot-reloads for development
+```
+yarn run serve
+```
+
+Compiles and minifies for production
+```
+yarn run build
+```
+
+Lints and fixes files
+```
+yarn run lint
+```
+
+### Running tests
+
+```
+yarn run test
+```
+
+Run unit tests
+```
+yarn run test:unit
+```
+
+### Testing production on local environment
+
+If you have access to the production database, you can setup your production config on `.env.production` and run the app in production mode using the command `yarn serve --mode production`
