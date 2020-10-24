@@ -64,6 +64,23 @@
         />
       </v-col>
     </v-row>
+    <v-row dense>
+      <v-col
+        cols="12"
+        md="12"
+        xs="12"
+      >
+        <v-text-field
+          ref="priorPresentation"
+          :value="value.priorPresentation"
+          :error-messages="priorPresentationErrors"
+          :label="$t('nominateSpeaker.priorPresentation')"
+          outlined
+          @input="updateURLs('priorPresentation', $event)"
+          @blur="$emit('touch-prior-presentation')"
+        />
+      </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -90,10 +107,14 @@ export default {
       type: Array,
       default: () => [],
     },
+    priorPresentationErrors: {
+      type: Array,
+      default: () => [],
+    },
   },
   data() {
     return {
-      urlFields: ['linkedin', 'facebook', 'twitter', 'website'],
+      urlFields: ['linkedin', 'facebook', 'twitter', 'website', 'priorPresentation'],
     };
   },
   methods: {

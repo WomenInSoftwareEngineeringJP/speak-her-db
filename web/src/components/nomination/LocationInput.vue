@@ -25,7 +25,7 @@
         :label="$t('nominateSpeaker.prefecture')"
         :error-messages="prefectureErrors"
         :items="prefectures"
-        :item-text="(e) => (e.get('prefecture'))"
+        :item-text="(e) => e.fields.prefecture"
         item-value="id"
         outlined
         :value="value.prefecture"
@@ -37,6 +37,8 @@
 </template>
 
 <script>
+import api from '@/services/api';
+
 export default {
   props: {
     value: {
@@ -60,7 +62,7 @@ export default {
     };
   },
   mounted() {
-    this.$getLocations(this.setPrefectures, this.setError);
+    api.getLocations(this.setPrefectures, this.setError);
   },
   methods: {
     setPrefectures(records) {

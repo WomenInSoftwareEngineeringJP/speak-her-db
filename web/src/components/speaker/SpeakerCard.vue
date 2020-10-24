@@ -35,12 +35,15 @@
               >
                 {{ $t('findSpeaker.pronouns', [pronouns]) }}
               </div>
-              <p class="pa-0 ma-0">{{ speaker.get('speaker_bio') }}</p>
+              <p class="pa-0 ma-0">
+                {{ speaker.get('speaker_bio') }}
+              </p>
             </v-expansion-panel-content>
           </v-expansion-panel>
         </v-expansion-panels>
         <card-footer
           :speaker="speaker"
+          :topic-list="topicList"
           @contact-speaker="contactSpeaker()"
         />
       </v-col>
@@ -65,6 +68,10 @@ export default {
       required: true,
     },
     prefectures: {
+      type: Array,
+      required: true,
+    },
+    topicList: {
       type: Array,
       required: true,
     },

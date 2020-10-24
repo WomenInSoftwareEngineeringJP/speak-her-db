@@ -1,5 +1,5 @@
-References #[Issue number] 
-*Please link to the related issue, using the [references] keyword only if the PR completes the entire issue*
+Resolves #[Issue number] 
+*Please link to the related issue, using the [Resolves] keyword only if the PR completes the entire issue*
 
 **Proposed Changes**
 

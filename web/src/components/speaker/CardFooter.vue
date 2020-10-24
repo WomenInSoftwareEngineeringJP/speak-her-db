@@ -19,6 +19,7 @@
         :twitter="speaker.get('twitter_url')"
         :linked-in="speaker.get('linkedin_url')"
         :website="speaker.get('website_url')"
+        :prior-presentation="speaker.get('prior_presentation_url')"
       />
     </v-col>
     <v-col
@@ -37,6 +38,7 @@
           :twitter="speaker.get('twitter_url')"
           :linked-in="speaker.get('linkedin_url')"
           :website="speaker.get('website_url')"
+          :prior-presentation="speaker.get('prior_presentation_url')"
         />
         <v-spacer />
         <v-btn
@@ -68,25 +70,25 @@ export default {
       type: Object,
       required: true,
     },
-  },
-  data: () => ({
-    topics: [],
-  }),
-  created() {
-    this.$getTopics(this.setTopics, this.setError);
-  },
-  methods: {
-    setTopics(records) {
-      const tKeys = this.speaker.get('topics');
-      this.topics = [];
-
-      for (let i = 0; i < tKeys.length; i += 1) {
-        const topic = records.find((elem) => (elem.id === tKeys[i]));
-        this.topics.push(topic.get('name'));
-      }
+    topicList: {
+      type: Array,
+      required: true,
     },
-    setError(err) {
-      this.error = err;
+  },
+  computed: {
+    topics() {
+      const tKeys = this.speaker.get('topics');
+      const speakerTopics = [];
+
+      if (tKeys) {
+        tKeys.forEach((topicId) => {
+          const topic = this.topicList.find((elem) => (elem.id === topicId));
+          if (topic) {
+            speakerTopics.push({ name: topic.fields.name, name_ja: topic.fields.name_ja });
+          }
+        });
+      }
+      return speakerTopics;
     },
   },
 };
