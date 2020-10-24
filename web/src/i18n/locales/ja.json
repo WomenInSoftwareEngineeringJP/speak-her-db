@@ -33,7 +33,7 @@
         "yourName": "お名前"
     },
     "faq": {
-        "correctionA": "こちらまでご連絡ください。\n\nspeakherjp@gmail.com",
+        "correctionA": "こちらまでご連絡ください。{0}",
         "correctionQ": "リストに掲載されている情報の修正・削除を希望される方",
         "freeA": "このサイトを介してスピーカーに連絡することは無料です。しかし、スピーカーにより有償の場合、無償の場合があります。私たちは、スピーカーの考えを尊重し、有料であれば時間と労力に合う価格設定をサポートすることを検討しています。",
         "freeQ": "講演は無料で行われるのでしょうか？",
@@ -51,7 +51,7 @@
         "title": "スピーカーを探す"
     },
     "footer": {
-        "dateString": "2020 SpeakHerプロジェクト",
+        "title": "SpeakHer 日本 2020",
         "netlify": "Powered by Netlify"
     },
     "hero": {
@@ -80,6 +80,7 @@
         "nameJa": "お名前（漢字\/かな）",
         "photoURL": "写真のURL",
         "prefecture": "都道府県",
+        "selfNomination": "自分を指名しています",
         "submitterEmail": "推薦者のEメール",
         "submitterName": "推薦者",
         "thanks": "ご投稿ありがとうございます！",
@@ -99,8 +100,8 @@
         "enNameRequired": "ローマ字で入力してください",
         "fieldRequired": "{0}が必要です",
         "invalidForm": "フォームに記入してください",
-        "jaNameCharacters": "漢字\/かなでお名前を入力してください",
-        "jaNameRequired": "漢字\/かなで入力してください",
+        "jaNameCharacters": "漢字\/全角かなでお名前を入力してください",
+        "jaNameRequired": "お名前を入力してください",
         "languagesRequired": "話せる言語を選択してください",
         "messageRequired": "スピーカーへの簡単なメッセージが必須です",
         "URLValid": "URLは有効である必要があります",

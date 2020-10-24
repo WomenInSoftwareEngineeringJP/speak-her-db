@@ -33,7 +33,7 @@
         "yourName": "Your Name"
     },
     "faq": {
-        "correctionA": "Please email:\n\nspeakherjp@gmail.com",
+        "correctionA": "Please email: {0}",
         "correctionQ": "I’ve been nominated, but I would like my information corrected or removed.",
         "freeA": "While it is free to use this website to contact speakers, some speakers may charge for their services, while others may choose to speak for free. We support our members’ decisions to set their value and determine how to donate their time and energy.",
         "freeQ": "Do speakers give presentations for free?",
@@ -48,10 +48,11 @@
         "whyQ": "Why does this matter?"
     },
     "findSpeaker": {
-        "title": "Find a speaker"
+        "title": "Find a speaker",
+        "pronouns": "Pronouns: {0}"
     },
     "footer": {
-        "dateString": "2020 SpeakHer Project",
+        "title": "SpeakHer Japan 2020",
         "netlify": "Powered by Netlify"
     },
     "hero": {
@@ -74,6 +75,11 @@
         "error": "Error: {0}",
         "facebook": "Facebook URL",
         "jobTitle": "Job Title",
+        "affiliation": {
+            "title": "Secondary Role",
+            "company": "Organization",
+            "hint": "Academic institutions, volunteer positions, or second jobs"
+        },
         "languages": "Languages",
         "linkedIn": "LinkedIn URL",
         "nameEn": "Name (English \/ Rо̄maji)",
@@ -84,6 +90,7 @@
             "hint": "Please type in pronouns if yours are not listed"
         },
         "prefecture": "Prefecture",
+        "selfNomination": "I am nominating myself",
         "submitterEmail": "Submitter Email",
         "submitterName": "Submitter Name",
         "thanks": "Thank you for your submission!",
@@ -93,7 +100,8 @@
             "hint": "Type anything and press enter to add new topics"
         },
         "twitter": "Twitter URL",
-        "website": "Website"
+        "website": "Website",
+        "priorPresentation": "Link to a prior presentation"
     },
     "validations": {
         "allRequired": "All fields are required",
@@ -103,7 +111,7 @@
         "enNameRequired": "English name is required",
         "fieldRequired": "{0} is required",
         "invalidForm": "Please complete the form correctly",
-        "jaNameCharacters": "Please enter your name in Kanji \/ Kana",
+        "jaNameCharacters": "Please enter your name in full width Kanji \/ Kana",
         "jaNameRequired": "Japanese name is required",
         "languagesRequired": "Please select spoken languages",
         "messageRequired": "A brief message is required",

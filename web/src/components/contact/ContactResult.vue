@@ -6,7 +6,7 @@
     <v-card>
       <v-card-title>{{ $t('contact.thanks') }}</v-card-title>
       <v-card-text>
-        {{ $t('contact.forward', [name]) }}
+        {{ $t('contact.forward', [speakerName]) }}
       </v-card-text>
     </v-card>
   </v-dialog>
@@ -19,7 +19,7 @@ export default {
       type: Boolean,
       required: true,
     },
-    name: {
+    speakerName: {
       type: String,
       required: true,
     },
