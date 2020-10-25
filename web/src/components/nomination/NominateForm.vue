@@ -171,7 +171,7 @@ export default {
     form: {
       name: {
         en: { required },
-        ja: { required, japanese },
+        ja: { japanese },
       },
       email: {
         required,
@@ -258,7 +258,6 @@ export default {
     japaneseErrors() {
       const errors = [];
       if (!this.$v.form.name.ja.$dirty) { return errors; }
-      if (!this.$v.form.name.ja.required) { errors.push(this.$t('validations.jaNameRequired')); }
       if (!this.$v.form.name.ja.japanese) { errors.push(this.$t('validations.jaNameCharacters')); }
       return errors;
     },

@@ -101,7 +101,6 @@
         "fieldRequired": "{0}が必要です",
         "invalidForm": "フォームに記入してください",
         "jaNameCharacters": "漢字\/全角かなでお名前を入力してください",
-        "jaNameRequired": "お名前を入力してください",
         "languagesRequired": "話せる言語を選択してください",
         "messageRequired": "スピーカーへの簡単なメッセージが必要です",
         "URLValid": "URLは有効である必要があります",
