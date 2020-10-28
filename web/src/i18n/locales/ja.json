@@ -87,7 +87,7 @@
         "title": "スピーカーを指名する",
         "topics": {
             "label": "関心のある分野",
-            "hint": "分野を入力後、Enterキーを押し、新しい分野を追加します"
+            "hint": "分野を選択後、Enterキーを押し、新しい分野を追加します"
         },
         "twitter": "TwitterのURL",
         "website": "ウェブサイト"
