@@ -40,6 +40,8 @@
           v-model="form.message"
           :label="$t('contact.message')"
           :error-messages="messageErrors"
+          clearable
+          hint="Details of your event (who, what, when, where)"
           @input="$v.form.message.$touch()"
           @blur="$v.form.message.$touch()"
         />
@@ -97,7 +99,7 @@ export default {
     form: {
       name: '',
       email: '',
-      message: '',
+      message: 'Please introduce yourself to the speaker, providing details of your event (who, what, when, where), and how they might be a good match.',
     },
   }),
   computed: {
