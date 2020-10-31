@@ -8,6 +8,7 @@
     <v-carousel-item
       v-for="(item, i) in press"
       :key="i"
+      eager
     >
       <v-sheet
         :color="colors[i]"
@@ -24,12 +25,17 @@
                 class="mb-5"
               >
                 <v-img
+                  max-height="200"
                   max-width="500"
+                  contain
                   :src="item.image"
                 />
               </v-row>
               <v-row justify="center">
-                {{ item.quote }}
+                <i>{{ item.quote }}</i>
+              </v-row>
+              <v-row justify="center">
+                {{ item.name }}
               </v-row>
             </v-col>
           </v-row>
@@ -52,13 +58,15 @@ export default {
       press: [
         {
           image: 'https://cdn.japantimes.2xx.jp/wp-content/uploads/2017/03/new-JT-logo.jpg', // TODO: Is this okay to fetch from their CDN?
+          name: 'The Japan Times',
           quote: '"...SpeakHer aims to assist event organizers by providing a free bilingual database of public speakers in Japan who are women."',
           link: 'https://www.japantimes.co.jp/community/2020/09/28/issues/speakher-manels-women/',
         },
         {
-          image: 'https://cdn.japantimes.2xx.jp/wp-content/uploads/2017/03/new-JT-logo.jpg',
-          quote: 'Lorum Ipsum',
-          link: 'http://www.example.com',
+          image: 'https://japanbyrivercruise.com/assets/images/image01.png?v88719225713061',
+          name: 'Japan By River Cruise Podcast',
+          quote: 'A List of Women (w/Yan Fan)',
+          link: 'https://share.transistor.fm/s/f53eaea0',
         },
       ],
     };
