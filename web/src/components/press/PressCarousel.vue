@@ -12,37 +12,38 @@
       target="_blank"
       eager
     >
-      <v-sheet
-        :color="colors[i]"
-        height="100%"
+      <v-container
+        fill-height
+        fluid
       >
-        <v-container
-          fill-height
-          fluid
-        >
-          <v-row class="mx-1">
-            <v-col>
-              <v-row
-                justify="center"
-                class="mb-5"
-              >
-                <v-img
-                  max-height="200"
-                  :max-width="$vuetify.breakpoint.mdAndUp ? '500' : '300'"
-                  contain
-                  :src="item.image"
-                />
-              </v-row>
-              <v-row justify="center">
-                <i>{{ item.quote }}</i>
-              </v-row>
-              <v-row justify="center">
-                {{ item.name }}
-              </v-row>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-sheet>
+        <v-row class="mx-1">
+          <v-col>
+            <v-row
+              justify="center"
+              class="mb-5"
+            >
+              <v-img
+                max-height="200"
+                :max-width="$vuetify.breakpoint.mdAndUp ? '500' : '300'"
+                contain
+                :src="item.image"
+              />
+            </v-row>
+            <v-row
+              justify="center"
+              class="carousel-text"
+            >
+              <i>{{ item.quote }}</i>
+            </v-row>
+            <v-row
+              justify="center"
+              class="carousel-text"
+            >
+              {{ item.name }}
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-carousel-item>
   </v-carousel>
 </template>
@@ -51,12 +52,6 @@
 export default {
   data() {
     return {
-      colors: [
-        '#7e2c85',
-        '#c33764',
-        '#7e2c85',
-        '#842b5f',
-      ],
       press: [
         {
           image: 'https://cdn.japantimes.2xx.jp/wp-content/uploads/2017/03/new-JT-logo.jpg', // TODO: Is this okay to fetch from their CDN?

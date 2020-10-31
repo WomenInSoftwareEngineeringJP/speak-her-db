@@ -1,8 +1,9 @@
 <template>
-  <v-sheet
-    color="#41278C"
-    height="100%"
-    class="pt-1"
+  <v-parallax
+    height="500"
+    dark
+    src="../../assets/background.svg"
+    class="mb-10"
   >
     <v-row
       justify="center"
@@ -13,8 +14,8 @@
         {{ $t('press.title') }}
       </h2>
     </v-row>
-    <press-carousel class="mb-10" />
-  </v-sheet>
+    <press-carousel />
+  </v-parallax>
 </template>
 
 <script>
