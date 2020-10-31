@@ -17,10 +17,10 @@
         height="100%"
       >
         <v-container
-          fluid
           fill-height
+          fluid
         >
-          <v-row>
+          <v-row class="mx-3">
             <v-col>
               <v-row
                 justify="center"
@@ -28,7 +28,7 @@
               >
                 <v-img
                   max-height="200"
-                  max-width="500"
+                  :max-width="$vuetify.breakpoint.mdAndUp ? '500' : '300'"
                   contain
                   :src="item.image"
                 />
