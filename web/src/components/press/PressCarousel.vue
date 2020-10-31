@@ -20,7 +20,7 @@
           fill-height
           fluid
         >
-          <v-row class="mx-3">
+          <v-row class="mx-1">
             <v-col>
               <v-row
                 justify="center"

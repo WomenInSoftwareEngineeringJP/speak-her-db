@@ -28,7 +28,6 @@
     </v-parallax>
     <br>
     <Summary id="summary" />
-    <v-divider />
     <press-section />
     <find-speaker id="find-speaker" />
   </div>
