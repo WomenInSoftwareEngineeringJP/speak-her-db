@@ -68,12 +68,16 @@
             "label": "経歴"
         },
         "city": "都市",
-        "company": "会社",
         "consent": "スピーカーの情報をSpeakHerデータベースに登録する許可をスピーカーから得ています。",
         "email": "Eメール",
         "error": "エラー： {0}",
         "facebook": "FacebookのURL",
-        "jobTitle": "職名",
+        "job": {
+            "title": "職名",
+            "company": "会社"
+        },
+        "secondaryAffiliation": {
+        },
         "languages": "言語",
         "linkedIn": "LinkedInのURL",
         "nameEn": "お名前(英語\/ローマ字)",

@@ -69,15 +69,18 @@
             "label": "Speaker Bio"
         },
         "city": "City",
-        "company": "Company",
         "consent": "I have the speaker's permission to submit her information to the SpeakHer database.",
         "email": "Email",
         "error": "Error: {0}",
         "facebook": "Facebook URL",
-        "jobTitle": "Job Title",
-        "affiliation": {
+        "job": {
+            "title": "Job Title",
+            "company": "Company",
+            "hint": "Primary Occupation"
+        },
+        "secondaryAffiliation": {
             "title": "Secondary Role",
-            "company": "Organization",
+            "organization": "Organization",
             "hint": "Academic institutions, volunteer positions, or second jobs"
         },
         "languages": "Languages",
