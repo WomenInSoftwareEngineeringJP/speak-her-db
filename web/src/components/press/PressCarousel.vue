@@ -8,6 +8,8 @@
     <v-carousel-item
       v-for="(item, i) in press"
       :key="i"
+      :href="item.link"
+      target="_blank"
       eager
     >
       <v-sheet
@@ -65,7 +67,8 @@ export default {
         {
           image: 'https://japanbyrivercruise.com/assets/images/image01.png?v88719225713061',
           name: 'Japan By River Cruise Podcast',
-          quote: 'A List of Women (w/Yan Fan)',
+          quote: `"...If more women see women being respresented, 
+            see women speaking, then they'll go, oh, that's a place I can be active too!"`,
           link: 'https://share.transistor.fm/s/f53eaea0',
         },
       ],
