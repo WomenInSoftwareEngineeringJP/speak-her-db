@@ -6,8 +6,8 @@
         sm="6"
       >
         <v-autocomplete
-          label="Topic"
-          placeholder="Start typing to Search"
+          :label="$t('findSpeaker.topics')"
+          :placeholder="$t('findSpeaker.searchPlaceholder')"
           prepend-icon="search"
           clearable
           :items="topicItems"
@@ -19,8 +19,8 @@
         sm="6"
       >
         <v-autocomplete
-          label="City, Prefecture, or Region"
-          placeholder="Start typing to Search"
+          :label="$t('findSpeaker.places')"
+          :placeholder="$t('findSpeaker.searchPlaceholder')"
           prepend-icon="search"
           clearable
           :items="locationItems"
@@ -74,17 +74,15 @@ export default {
       this.$db('Location')
         .select({
           view: 'All',
-          fields: ['prefecture', 'region'],
+          fields: ['prefecture'],
           sort: [
             { field: 'prefecture', direction: 'asc' },
-            { field: 'region', direction: 'asc' },
           ],
         })
         .eachPage(
           (records) => {
             const prefectureNames = this.getItemsWithField(records, 'prefecture');
-            const regionNames = this.getItemsWithField(records, 'region');
-            this.locationItems.push(...prefectureNames, ...regionNames);
+            this.locationItems.push(...prefectureNames);
           },
         );
     },

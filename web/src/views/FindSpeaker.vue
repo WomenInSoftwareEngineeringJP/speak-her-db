@@ -3,8 +3,8 @@
     <contact-dialog
       :speaker="selectedSpeaker"
       :show="showDialog"
-      @close="showDialog=false"
-      @submit="showDialog= false; showSuccess = true"
+      @close="showDialog = false"
+      @submit="showDialog = false; showSuccess = true"
     />
     <contact-result
       :show="showSuccess"
@@ -92,31 +92,28 @@ export default {
     PaginationRow,
     NoResults,
   },
-  data() {
-    return {
-      speakers: [],
-      prefectures: [],
-      topicList: [],
-      languageList: [],
-      error: null,
-      selectedSpeaker: undefined,
-      showDialog: false,
-      showSuccess: false,
-      page: 0,
-      pageSize: 50,
-      isLastPage: false,
-      isLoading: true,
-    };
-  },
+  data: () => ({
+    speakers: [],
+    prefectures: [],
+    topicList: [],
+    languageList: [],
+    error: null,
+    selectedSpeaker: undefined,
+    showDialog: false,
+    showSuccess: false,
+    page: 0,
+    pageSize: 50,
+    isLastPage: false,
+    isLoading: true,
+  }),
   computed: {
     selectedName() {
-      if (this.selectedSpeaker) {
-        if (this.$i18n.locale === 'ja') {
-          return this.selectedSpeaker.get('name_ja') || this.selectedSpeaker.get('name_en') || '';
-        }
-        return this.selectedSpeaker.get('name_en') || '';
+      if (!this.selectedSpeaker) return '';
+
+      if (this.$i18n.locale === 'ja') {
+        return this.selectedSpeaker.get('name_ja') || this.selectedSpeaker.get('name_en') || '';
       }
-      return '';
+      return this.selectedSpeaker.get('name_en') || '';
     },
     getSpeakersForPage() {
       const offset = (this.page - 1) * this.pageSize;
@@ -210,6 +207,7 @@ export default {
             this.page += 1;
             this.airTableNextPage = next;
             this.isLoading = false;
+            this.isLastPage = this.pageSize > records.length;
           },
           (err) => {
             if (err) {

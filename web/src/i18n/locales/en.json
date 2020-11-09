@@ -50,6 +50,9 @@
     "findSpeaker": {
         "title": "Find a speaker",
         "pronouns": "Pronouns: {0}",
+        "topics": "Topic",
+        "places": "Prefecture",
+        "searchPlaceholder": "Start typing to Search",
         "noResults": "No speakers found"
     },
     "footer": {
