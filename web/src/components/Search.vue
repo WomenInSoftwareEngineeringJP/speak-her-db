@@ -33,14 +33,12 @@
 
 <script>
 export default {
-  data() {
-    return {
-      topic: '',
-      location: '',
-      topicItems: [],
-      locationItems: [],
-    };
-  },
+  data: () => ({
+    topic: '',
+    location: '',
+    topicItems: [],
+    locationItems: [],
+  }),
   created() {
     this.getTopicItems();
     this.getLocationItems();
