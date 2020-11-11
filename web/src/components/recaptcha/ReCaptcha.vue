@@ -1,6 +1,6 @@
 <template>
   <v-input
-    :messages="errors"
+    :error-messages="errors"
   >
     <div
       ref="recaptcha"

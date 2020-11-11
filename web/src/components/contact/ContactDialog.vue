@@ -142,9 +142,6 @@ export default {
     },
   },
   methods: {
-    mounted() {
-      console.log(this.siteKey);
-    },
     resetForm() {
       this.$set(this.form, 'name', '');
       this.$set(this.form, 'email', '');
