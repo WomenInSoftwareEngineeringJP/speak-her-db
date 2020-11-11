@@ -44,7 +44,7 @@
           @input="$v.form.message.$touch()"
           @blur="$v.form.message.$touch()"
         />
-        <div data-netlify-recaptcha="true" />
+        <re-captcha />
         <v-alert
           v-if="invalid"
           color="error"
@@ -65,10 +65,12 @@ import TwoButtonModal from '@/components/cards/TwoButtonModal.vue';
 import axios from 'axios';
 import { validationMixin } from 'vuelidate';
 import { required, email } from 'vuelidate/lib/validators';
+import ReCaptcha from '@/components/recaptcha/ReCaptcha.vue';
 
 export default {
   components: {
     TwoButtonModal,
+    ReCaptcha,
   },
   mixins: [validationMixin],
   props: {
@@ -140,6 +142,9 @@ export default {
     },
   },
   methods: {
+    mounted() {
+      console.log(this.siteKey);
+    },
     resetForm() {
       this.$set(this.form, 'name', '');
       this.$set(this.form, 'email', '');
