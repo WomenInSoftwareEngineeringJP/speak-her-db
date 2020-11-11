@@ -3,7 +3,7 @@
     app
     color="primary"
     dark
-    src="../assets/background.png"
+    src="../assets/background.svg"
     flat
     absolute
   >

@@ -7,7 +7,7 @@
       v-model="form.name"
       :english-errors="englishErrors"
       :japanese-errors="japaneseErrors"
-      @touch-english="$v.form.name.en.$touch()"
+      @touch-english="handleTouchNameEn()"
       @touch-japanese="$v.form.name.ja.$touch()"
     />
     <v-row dense>
@@ -21,8 +21,8 @@
           :label="$t('nominateSpeaker.email')"
           outlined
           :error-messages="emailErrors($v.form.email)"
-          @input="delayTouch($v.form.email)"
-          @blur="delayTouch($v.form.email)"
+          @input="handleEmailInput()"
+          @blur="handleEmailInput()"
         />
       </v-col>
       <pronoun-input
@@ -82,10 +82,19 @@
       :linkedin-errors="urlErrors($v.form.urls.linkedin)"
       :twitter-errors="urlErrors($v.form.urls.twitter)"
       :website-errors="urlErrors($v.form.urls.website)"
+      :prior-presentation-errors="urlErrors($v.form.urls.priorPresentation)"
       @touch-fb="delayTouch($v.form.urls.facebook)"
       @touch-linkedin="delayTouch($v.form.urls.linkedin)"
       @touch-twitter="delayTouch($v.form.urls.twitter)"
       @touch-website="delayTouch($v.form.urls.website)"
+      @touch-prior-presentation="delayTouch($v.form.urls.priorPresentation)"
+    />
+    <v-checkbox
+      v-model="isSelfNomination"
+      class="mt-0"
+      :label="$t('nominateSpeaker.selfNomination')"
+      :hide-details="true"
+      @click.capture="handleSelfNomination()"
     />
     <submitter-input
       v-model="form.submitter"
@@ -162,7 +171,7 @@ export default {
     form: {
       name: {
         en: { required },
-        ja: { required, japanese },
+        ja: { japanese },
       },
       email: {
         required,
@@ -190,6 +199,7 @@ export default {
         twitter: { url },
         linkedin: { url },
         website: { url },
+        priorPresentation: { url },
       },
     },
   },
@@ -199,6 +209,7 @@ export default {
         type: '',
         message: '',
       },
+      isSelfNomination: false,
       form: {
         name: {
           en: '',
@@ -225,6 +236,7 @@ export default {
           twitter: '',
           facebook: '',
           website: '',
+          priorPresentation: '',
         },
         submitter: {
           name: '',
@@ -246,7 +258,6 @@ export default {
     japaneseErrors() {
       const errors = [];
       if (!this.$v.form.name.ja.$dirty) { return errors; }
-      if (!this.$v.form.name.ja.required) { errors.push(this.$t('validations.jaNameRequired')); }
       if (!this.$v.form.name.ja.japanese) { errors.push(this.$t('validations.jaNameCharacters')); }
       return errors;
     },
@@ -336,6 +347,35 @@ export default {
       this.$set(this.form, 'topics', []);
       this.$set(this.form, 'consent', false);
       this.$v.$reset();
+
+      this.isSelfNomination = false;
+    },
+    handleTouchNameEn() {
+      this.$v.form.name.en.$touch();
+
+      if (this.isSelfNomination) {
+        this.$set(this.form, 'submitter', { name: this.form.name.en, email: this.form.email });
+        this.$v.form.submitter.name.$touch();
+      }
+    },
+    handleEmailInput() {
+      this.delayTouch(this.$v.form.email);
+
+      if (this.isSelfNomination) {
+        this.$set(this.form, 'submitter', { name: this.form.name.en, email: this.form.email });
+        this.$v.form.submitter.email.$touch();
+      }
+    },
+    handleSelfNomination() {
+      this.isSelfNomination = !this.isSelfNomination;
+      if (!this.isSelfNomination) {
+        this.$set(this.form, 'submitter', { name: '', email: '' });
+        return;
+      }
+
+      this.$set(this.form, 'submitter', { name: this.form.name.en, email: this.form.email });
+      this.$v.form.submitter.name.$touch();
+      this.$v.form.submitter.email.$touch();
     },
     handleSubmit() {
       // Check validity
@@ -394,6 +434,7 @@ export default {
         facebook_url: this.form.urls.facebook,
         twitter_url: this.form.urls.twitter,
         website_url: this.form.urls.website,
+        prior_presentation_url: this.form.urls.priorPresentation,
         submitter_name: this.form.submitter.name,
         submitter_email: this.form.submitter.email,
         consent: this.form.consent,

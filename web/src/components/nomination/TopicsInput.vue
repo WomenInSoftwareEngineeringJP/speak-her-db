@@ -41,8 +41,14 @@ export default {
     setTopics(records) {
       this.topics = records.map((topic) => ({
         id: topic.id,
-        text: topic.fields.name,
+        text: this.localizedTopic(topic.fields),
       }));
+    },
+    localizedTopic(topic) {
+      if (this.$i18n.locale === 'ja' && topic.name_ja && topic.name_ja !== '') {
+        return topic.name_ja;
+      }
+      return topic.name;
     },
     setError(err) {
       this.error = err;

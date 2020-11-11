@@ -4,6 +4,8 @@
     :href="link"
     target="_blank"
     icon
+    :dark="dark"
+    :x-large="xLarge"
   >
     <slot />
   </v-btn>
@@ -15,6 +17,14 @@ export default {
     link: {
       type: String,
       default: '',
+    },
+    dark: {
+      type: Boolean,
+      default: false,
+    },
+    xLarge: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {

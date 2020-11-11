@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import api from '@/services/api';
 import formatLanguage from '@/util/format';
 
 export default {
@@ -38,7 +39,7 @@ export default {
     };
   },
   mounted() {
-    this.$getLanguages(this.setLanguages, this.setError);
+    api.getLanguages(this.setLanguages, this.setError);
   },
   methods: {
     setLanguages(records) {
