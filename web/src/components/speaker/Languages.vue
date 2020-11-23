@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import formatLanguage from '@/util/format';
 
 export default {
   props: {
@@ -43,7 +42,7 @@ export default {
   },
   methods: {
     format(language) {
-      return formatLanguage(language);
+      return language.fields.name;
     },
   },
 };
