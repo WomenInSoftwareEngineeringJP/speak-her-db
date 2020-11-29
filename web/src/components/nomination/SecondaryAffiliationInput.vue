@@ -7,8 +7,8 @@
     >
       <v-text-field
         ref="secondary_title"
-        :label="$t('nominateSpeaker.affiliation.title')"
-        :hint="$t('nominateSpeaker.affiliation.hint')"
+        :label="$t('nominateSpeaker.secondaryAffiliation.title')"
+        :hint="$t('nominateSpeaker.secondaryAffiliation.hint')"
         persistent-hint
         outlined
         :value="value.secondary_title"
@@ -23,7 +23,7 @@
       <v-text-field
         ref="secondary_affiliation"
         :value="value.secondary_affiliation"
-        :label="$t('nominateSpeaker.affiliation.company')"
+        :label="$t('nominateSpeaker.secondaryAffiliation.organization')"
         outlined
         @input="updateAffiliation('secondary_affiliation', $event)"
       />

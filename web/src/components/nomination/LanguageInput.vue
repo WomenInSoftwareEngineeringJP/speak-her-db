@@ -19,7 +19,6 @@
 
 <script>
 import api from '@/services/api';
-import formatLanguage from '@/util/format';
 
 export default {
   props: {
@@ -45,7 +44,7 @@ export default {
     setLanguages(records) {
       this.languages = records.map((language) => ({
         id: language.id,
-        text: formatLanguage(language),
+        text: language.fields.name,
       }));
     },
     setError(err) {
