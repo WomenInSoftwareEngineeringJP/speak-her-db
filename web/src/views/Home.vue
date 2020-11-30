@@ -28,7 +28,7 @@
     </v-parallax>
     <br>
     <Summary id="summary" />
-    <v-divider class="my-10" />
+    <press-section />
     <find-speaker id="find-speaker" />
   </div>
 </template>
@@ -38,12 +38,14 @@ import Illustration from '@/components/hero/Illustration.vue';
 import CallToAction from '@/components/hero/CallToAction.vue';
 import Summary from '@/components/about/Summary.vue';
 import FindSpeaker from '@/views/FindSpeaker.vue';
+import PressSection from '@/components/press/PressSection.vue';
 
 export default {
   name: 'Home',
   components: {
     Illustration,
     CallToAction,
+    PressSection,
     Summary,
     FindSpeaker,
   },

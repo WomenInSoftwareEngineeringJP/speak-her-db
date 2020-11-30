@@ -17,6 +17,11 @@ h2{
   font-weight: 390;
 }
 
+.dark-section-title {
+  color: white;
+  font-weight: 500;
+}
+
 .location {
   font-size: 1rem;
   font-weight: 390;
@@ -47,4 +52,8 @@ h2{
 
 .v-expansion-panel-content__wrap {
   padding: 12px 12px 0px !important;
+}
+
+.carousel-text {
+  color: white; 
 }
