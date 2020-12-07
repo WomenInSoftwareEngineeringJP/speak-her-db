@@ -40,8 +40,9 @@
           v-model="form.message"
           :label="$t('contact.message')"
           :error-messages="messageErrors"
-          clearable
-          hint="Details of your event (who, what, when, where)"
+          :hint="$t('contact.message-hint')"
+          persistent-hint
+          auto-grow
           @input="$v.form.message.$touch()"
           @blur="$v.form.message.$touch()"
         />
@@ -95,11 +96,11 @@ export default {
       },
     },
   },
-  data: () => ({
+  data: (vm) => ({
     form: {
       name: '',
       email: '',
-      message: 'Please introduce yourself to the speaker, providing details of your event (who, what, when, where), and how they might be a good match.',
+      message: vm.$t('contact.message-default'),
     },
   }),
   computed: {

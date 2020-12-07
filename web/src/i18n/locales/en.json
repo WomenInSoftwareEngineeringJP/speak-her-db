@@ -27,6 +27,8 @@
         "email": "Email",
         "forward": "We'll forward your message to {0}.",
         "message": "Message",
+        "message-hint": "Details of your event (who, what, when, where)",
+        "message-default": "Please introduce yourself to the speaker, providing details of your event (who, what, when, where), and how they might be a good match.",
         "name": "Name",
         "thanks": "Thanks!",
         "title": "Contact {0}?",
