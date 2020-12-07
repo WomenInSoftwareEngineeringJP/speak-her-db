@@ -108,6 +108,9 @@
         "website": "Website",
         "priorPresentation": "Link to a prior presentation"
     },
+    "press": {
+        "title": "Press Coverage"
+    },
     "validations": {
         "allRequired": "All fields are required",
         "bioLength": "Please write at least {0} characters",
