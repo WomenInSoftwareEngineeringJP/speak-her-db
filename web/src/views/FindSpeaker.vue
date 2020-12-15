@@ -3,8 +3,8 @@
     <contact-dialog
       :speaker="selectedSpeaker"
       :show="showDialog"
-      @close="showDialog=false"
-      @submit="showDialog= false; showSuccess = true"
+      @close="showDialog = false"
+      @submit="showDialog = false; showSuccess = true"
     />
     <contact-result
       :show="showSuccess"
@@ -16,30 +16,32 @@
       no-gutters
     >
       <v-col lg="10">
-        <v-row>
-          <h2 class="mx-2 mb-2">
+        <v-row
+          justify="space-between"
+          align="center"
+        >
+          <h2 class="py-2">
             {{ $t('findSpeaker.title') }}
           </h2>
+          <pagination-row
+            v-if="speakers.length"
+            :first-entry="(page - 1) * pageSize + 1"
+            :last-entry="lastEntry"
+            :is-last-page="isLastPage"
+            @onNextPage="getNextPage()"
+            @onPrevPage="getPreviousPage()"
+          />
         </v-row>
-        <pagination-row
-          v-if="speakers.length"
-          :first-entry="(page - 1) * pageSize + 1"
-          :last-entry="lastEntry"
-          :is-last-page="isLastPage"
-          @onNextPage="getNextPage()"
-          @onPrevPage="getPreviousPage()"
-        />
-        <search v-if="false" />
+        <search />
         <v-row
           v-if="isLoading"
           justify="space-around"
+          class="my-10"
         >
-          <v-col lg="1">
-            <v-progress-circular
-              indeterminate
-              color="primary"
-            />
-          </v-col>
+          <v-progress-circular
+            indeterminate
+            color="primary"
+          />
         </v-row>
         <div
           v-if="!isLoading"
@@ -65,6 +67,7 @@
           @onNextPage="getNextPage()"
           @onPrevPage="getPreviousPage()"
         />
+        <no-results v-if="hasNoSpeakers" />
       </v-col>
     </v-row>
   </v-container>
@@ -73,11 +76,12 @@
 <script>
 // @ is an alias to /src
 import api from '@/services/api';
-import SpeakerCard from '@/components/speaker/SpeakerCard.vue';
 import Search from '@/components/Search.vue';
+import SpeakerCard from '@/components/speaker/SpeakerCard.vue';
 import ContactDialog from '@/components/contact/ContactDialog.vue';
 import ContactResult from '@/components/contact/ContactResult.vue';
 import PaginationRow from '@/components/PaginationRow.vue';
+import NoResults from '@/components/no-results/NoResults.vue';
 
 export default {
   components: {
@@ -86,6 +90,7 @@ export default {
     Search,
     SpeakerCard,
     PaginationRow,
+    NoResults,
   },
   data: () => ({
     speakers: [],
@@ -103,13 +108,12 @@ export default {
   }),
   computed: {
     selectedName() {
-      if (this.selectedSpeaker) {
-        if (this.$i18n.locale === 'ja') {
-          return this.selectedSpeaker.get('name_ja') || this.selectedSpeaker.get('name_en') || '';
-        }
-        return this.selectedSpeaker.get('name_en') || '';
+      if (!this.selectedSpeaker) return '';
+
+      if (this.$i18n.locale === 'ja') {
+        return this.selectedSpeaker.get('name_ja') || this.selectedSpeaker.get('name_en') || '';
       }
-      return '';
+      return this.selectedSpeaker.get('name_en') || '';
     },
     getSpeakersForPage() {
       const offset = (this.page - 1) * this.pageSize;
@@ -119,22 +123,32 @@ export default {
       const lastPageEntry = this.page * this.pageSize;
       return lastPageEntry > this.speakers.length ? this.speakers.length : lastPageEntry;
     },
+    hasNoSpeakers() {
+      return !this.speakers.length && !this.isLoading;
+    },
   },
   mounted() {
     api.getLocations(this.setPrefectures, this.setError);
     api.getTopics(this.setTopics, this.setError);
     api.getLanguages(this.setLanguageList, this.setError);
     this.getSpeakers();
-
-    bus.$on('contact-speaker', (speaker) => {
-      this.selectedSpeaker = speaker;
-      this.showDialog = true;
-    });
+    this.setupBusEvents();
   },
   beforeDestroy() {
     bus.$off('contact-speaker');
+    bus.$off('search-by-params');
   },
   methods: {
+    setupBusEvents() {
+      bus.$on('contact-speaker', (speaker) => {
+        this.selectedSpeaker = speaker;
+        this.showDialog = true;
+      });
+      bus.$on('search-by-params', (params) => {
+        this.resetPreSearchParams();
+        this.getSpeakers(params);
+      });
+    },
     setPrefectures(records) {
       this.prefectures = records;
     },
@@ -177,12 +191,15 @@ export default {
 
       this.getNextPageInternal();
     },
-    getSpeakers() {
+    getSpeakers(params = { topic: '', location: '' }) {
+      const filter = `AND(FIND("${params.topic}", topics), FIND("${params.location}", location_id))`;
+
       this.$db('People')
         .select({
           view: 'Published',
           sort: [{ field: 'name_en', direction: 'asc' }],
           pageSize: this.pageSize,
+          filterByFormula: filter,
         })
         .eachPage(
           (records, next) => {
@@ -190,21 +207,28 @@ export default {
             this.page += 1;
             this.airTableNextPage = next;
             this.isLoading = false;
+            this.isLastPage = this.pageSize > records.length;
           },
           (err) => {
             if (err) {
               this.error = err;
             }
-
             // if the error is null no new page exists
             this.isLastPage = true;
             this.isLoading = false;
-
             // set airTableNextPage to undefined to mark that we can not fetch any more pages
             // and have to switch to internal pagination logic
             this.airTableNextPage = undefined;
           },
         );
+    },
+    resetPreSearchParams() {
+      this.speakers = [];
+      this.page = 0;
+      this.isLastPage = false;
+      this.isLoading = true;
+      this.airTableNextPage = undefined;
+      this.selectedSpeaker = undefined;
     },
   },
 };
