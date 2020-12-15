@@ -7,7 +7,9 @@
     >
       <v-text-field
         ref="title"
-        :label="$t('nominateSpeaker.jobTitle')"
+        :label="$t('nominateSpeaker.job.title')"
+        :hint="$t('nominateSpeaker.job.hint')"
+        persistent-hint
         outlined
         :value="value.title"
         @input="updateJob('title', $event)"
@@ -21,7 +23,7 @@
       <v-text-field
         ref="company"
         :value="value.company"
-        :label="$t('nominateSpeaker.company')"
+        :label="$t('nominateSpeaker.job.company')"
         outlined
         @input="updateJob('company', $event)"
       />

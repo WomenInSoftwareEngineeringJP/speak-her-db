@@ -73,15 +73,18 @@
             "label": "Speaker Bio"
         },
         "city": "City",
-        "company": "Company",
         "consent": "I have the speaker's permission to submit her information to the SpeakHer database.",
         "email": "Email",
         "error": "Error: {0}",
         "facebook": "Facebook URL",
-        "jobTitle": "Job Title",
-        "affiliation": {
+        "job": {
+            "title": "Job Title",
+            "company": "Company",
+            "hint": "Primary Occupation"
+        },
+        "secondaryAffiliation": {
             "title": "Secondary Role",
-            "company": "Organization",
+            "organization": "Organization",
             "hint": "Academic institutions, volunteer positions, or second jobs"
         },
         "languages": "Languages",
@@ -106,6 +109,9 @@
         "twitter": "Twitter URL",
         "website": "Website",
         "priorPresentation": "Link to a prior presentation"
+    },
+    "press": {
+        "title": "Press Coverage"
     },
     "validations": {
         "allRequired": "All fields are required",
