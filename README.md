@@ -54,12 +54,13 @@ Further information on the database schema and query documentation [here](https:
 
 ```
 cd web
+yarn install
 yarn serve
 ```
 
 Access it on `localhost:8080` on your browser.
 
-### Useful commands
+#### Useful commands
 
 Install dependencies
 ```
