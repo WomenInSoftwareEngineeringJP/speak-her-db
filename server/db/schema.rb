@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_12_12_172723) do
 
   create_table "languages", force: :cascade do |t|
-    t.string "name_en"
+    t.string "name"
     t.string "name_ja"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_12_12_172723) do
   end
 
   create_table "locations", force: :cascade do |t|
-    t.integer "ord"
+    t.integer "code"
     t.string "prefecture"
     t.string "region"
     t.datetime "created_at", precision: 6, null: false
@@ -37,16 +37,26 @@ ActiveRecord::Schema.define(version: 2020_12_12_172723) do
   create_table "speakers", force: :cascade do |t|
     t.string "name_en"
     t.string "name_ja"
-    t.string "pronoun"
+    t.string "pronouns"
+    t.string "email"
     t.string "city"
+    t.integer "location_id"
     t.string "job_title"
     t.string "company"
+    t.string "secondary_title"
     t.string "secondary_affiliation"
     t.string "speaker_bio"
     t.string "twitter_url"
     t.string "website_url"
     t.string "facebook_url"
-    t.integer "location_id"
+    t.string "photo_url"
+    t.string "linkedin_url"
+    t.string "prior_presentation_url"
+    t.string "submitter_name"
+    t.string "submitter_email"
+    t.string "admin_notes"
+    t.boolean "consent", default: true
+    t.boolean "published", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["location_id"], name: "index_speakers_on_location_id"
@@ -60,7 +70,7 @@ ActiveRecord::Schema.define(version: 2020_12_12_172723) do
   end
 
   create_table "topics", force: :cascade do |t|
-    t.string "name_en"
+    t.string "name"
     t.string "name_ja"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
