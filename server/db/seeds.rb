@@ -12,8 +12,8 @@ def self.create_languages
   # Known issue: eval is a security risk. Couldn't make JSON.parse work here...
   array = eval(file_text)
   array.each do |obj|
-    language = Language.find_or_initialize(name: obj[:name])
-    language.update_attributes!(obj)
+    language = Language.where(name: obj[:name]).first_or_initialize
+    language.update!(obj)
   end
 end
 
@@ -23,8 +23,8 @@ def self.create_topics
   # Known issue: eval is a security risk. Couldn't make JSON.parse work here...
   array = eval(file_text)
   array.each do |obj|
-    topic = Topic.find_or_initialize(name: obj[:name])
-    topic.update_attributes!(obj)
+    topic = Topic.where(name: obj[:name]).first_or_initialize
+    topic.update!(obj)
   end
 end
 
@@ -34,8 +34,8 @@ def self.create_locations
   # Known issue: eval is a security risk. Couldn't make JSON.parse work here...
   array = eval(file_text)
   array.each do |obj|
-    location = Location.find_or_initialize(prefecture: obj[:prefecture])
-    location.update_attributes!(obj)
+    location = Location.where(prefecture: obj[:prefecture]).first_or_initialize
+    location.update!(obj)
   end
 end
 
