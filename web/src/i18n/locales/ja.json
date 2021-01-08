@@ -96,6 +96,9 @@
         "twitter": "TwitterのURL",
         "website": "ウェブサイト"
     },
+    "press": {
+        "title": "掲載メディア"
+    },
     "validations": {
         "allRequired": "全て必須項目です",
         "bioLength": "少なくとも{0}文字入力してください",
