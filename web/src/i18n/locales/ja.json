@@ -49,7 +49,7 @@
     },
     "findSpeaker": {
         "title": "スピーカーを探す",
-        "pronouns": "よみがな: {0}",
+        "pronouns": "呼称: {0}",
         "topics": "講演トピック",
         "places": "都道府県",
         "searchPlaceholder": "選択する",
