@@ -64,37 +64,46 @@
     },
     "nominateSpeaker": {
         "bio": {
-            "hint": "被推薦者の簡単な説明",
-            "label": "経歴"
+            "hint": "こ簡潔にご記入ください。",
+            "label": "ご経歴"
         },
-        "city": "都市",
-        "consent": "スピーカーの情報をSpeakHerデータベースに登録する許可をスピーカーから得ています。",
+        "city": "市区町村",
+        "consent": "本推薦者は、スピーカー本人からSpeakHerに推薦・登録する許可を得ています。",
         "email": "Eメール",
         "error": "エラー： {0}",
         "facebook": "FacebookのURL",
         "job": {
-            "title": "職名",
-            "company": "会社"
+            "title": "ご職業",
+            "company": "会社名",
+            "hint": "具体的なご職業（本業）をお書きください。"
         },
         "secondaryAffiliation": {
+          "title": "経歴（その他）",
+          "organization": "所属先（その他）",
+          "hint": "学術研究、ボランティア、副業など、その他の経歴をお書きください。"
         },
         "languages": "言語",
         "linkedIn": "LinkedInのURL",
-        "nameEn": "お名前(英語\/ローマ字)",
-        "nameJa": "お名前（漢字\/かな）",
+        "nameEn": "お名前(英語)",
+        "nameJa": "お名前（漢字）",
         "photoURL": "写真のURL",
+        "pronouns": {
+            "label": "第三人称のご希望",
+            "hint": "掲載メディア等でご紹介する際の第三人称のご希望をお聞かせください。"
+        },
         "prefecture": "都道府県",
-        "selfNomination": "自分を指名しています",
+        "selfNomination": "自己推薦",
         "submitterEmail": "推薦者のEメール",
         "submitterName": "推薦者",
-        "thanks": "ご投稿ありがとうございます！",
-        "title": "スピーカーを指名する",
+        "thanks": "ご推薦ありがとうございます！",
+        "title": "スピーカーを推薦・登録する",
         "topics": {
-            "label": "関心のある分野",
-            "hint": "関心がある分野にチェックを入れてください。"
+            "label": "ご関心のある分野",
+            "hint": "チェックまたは、該当分野が無い場合はご自由にご記入頂けます。"
         },
         "twitter": "TwitterのURL",
-        "website": "ウェブサイト"
+        "website": "ウェブサイト",
+        "priorPresentation": "過去のプレゼンテーションURL"
     },
     "press": {
         "title": "掲載メディア"
