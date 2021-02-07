@@ -48,7 +48,12 @@
         "whyQ": "なぜ重要なのでしょうか？"
     },
     "findSpeaker": {
-        "title": "スピーカーを探す"
+        "title": "スピーカーを探す",
+        "pronouns": "呼称: {0}",
+        "topics": "講演トピック",
+        "places": "都道府県",
+        "searchPlaceholder": "選択する",
+        "noResults": "スピーカーが見つかりませんでした"
     },
     "footer": {
         "title": "SpeakHer 日本 2020",
