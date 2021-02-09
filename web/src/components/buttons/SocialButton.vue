@@ -1,21 +1,14 @@
 <template>
-  <v-tooltip top>
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-        v-if="show"
-        :href="link"
-        target="_blank"
-        icon
-        :dark="dark"
-        :x-large="xLarge"
-        v-bind="attrs"
-        v-on="on"
-      >
-        <slot />
-      </v-btn>
-      </template>
-      <span>Tooltip</span>
-    </v-tooltip>
+  <v-btn
+    v-if="show"
+    :href="link"
+    target="_blank"
+    icon
+    :dark="dark"
+    :x-large="xLarge"
+  >
+    <slot />
+  </v-btn>
 </template>
 
 <script>
