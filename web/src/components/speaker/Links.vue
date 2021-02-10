@@ -1,6 +1,6 @@
 <template>
   <div class="mt-3">
-    <v-tooltip top>
+    <v-tooltip top :disabled="$vuetify.breakpoint.width < 600">
       <template v-slot:activator="{ on }">
         <social-button :link="twitter">
           <i class="fab fa-twitter" v-on="on" />
@@ -9,7 +9,7 @@
       <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
       <span>Twitter</span>
     </v-tooltip>
-    <v-tooltip top>
+    <v-tooltip top :disabled="$vuetify.breakpoint.width < 600">
       <template v-slot:activator="{ on }">
         <social-button :link="linkedIn">
           <i class="fab fa-linkedin-in" v-on="on" />
@@ -17,7 +17,7 @@
       </template>
       <span>LinkedIn</span>
     </v-tooltip>
-    <v-tooltip top>
+    <v-tooltip top :disabled="$vuetify.breakpoint.width < 600">
       <template v-slot:activator="{ on }">
         <social-button :link="facebook">
           <i class="fab fa-facebook-f" v-on="on" />
@@ -25,7 +25,7 @@
       </template>
       <span>Facebook</span>
     </v-tooltip>
-    <v-tooltip top>
+    <v-tooltip top :disabled="$vuetify.breakpoint.width < 600">
       <template v-slot:activator="{ on }">
         <social-button :link="website">
           <v-icon v-on="on">web</v-icon>
@@ -33,7 +33,7 @@
       </template>
       <span>Website</span>
     </v-tooltip>
-    <v-tooltip top>
+    <v-tooltip top :disabled="$vuetify.breakpoint.width < 600">
       <template v-slot:activator="{ on }">
         <social-button :link="priorPresentation">
           <v-icon v-on="on">ondemand_video</v-icon>
@@ -48,6 +48,9 @@
 import SocialButton from '@/components/buttons/SocialButton.vue';
 
 export default {
+  mounted() {
+    console.log(this.$vuetify.breakpoint.width);
+  },
   components: {
     SocialButton,
   },
