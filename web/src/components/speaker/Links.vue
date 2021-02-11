@@ -48,9 +48,6 @@
 import SocialButton from '@/components/buttons/SocialButton.vue';
 
 export default {
-  mounted() {
-    console.log(this.$vuetify.breakpoint.width);
-  },
   components: {
     SocialButton,
   },
