@@ -29,11 +29,12 @@ Requirements:
 
 This project uses Airtable as a data source. Follow these steps to configure a database on your local environment:
 
-1. Make a copy of `.env.sample` and rename it to `.env.development`
-2. Register as a contributor of the Airtable development database [cliking here](https://airtable.com/invite/l?inviteId=invLCTAgGOsrWkXGM&inviteToken=3280cfd046a759fbcf5cb70371fbfab6dd306c9ce9851c2bd50da6de57b04121)
-3. Get your Airtable API Key on your [Airtable account](https://airtable.com/account)
-4. Get the development database ID on the [Dev DB Docs](https://airtable.com/appHpbskGp4dMpqEO/api/docs#javascript/introduction)
-5. Edit `.env.development` to add your `AIRTABLE_API_KEY` and the development `AIRTABLE_DB_ID`
+1. Go into the web directory: `cd web`
+2. Make a copy of `.env.sample` and rename it to `.env.development`
+3. Register as a contributor of the Airtable development database [clicking here](https://airtable.com/invite/l?inviteId=invLCTAgGOsrWkXGM&inviteToken=3280cfd046a759fbcf5cb70371fbfab6dd306c9ce9851c2bd50da6de57b04121)
+4. Get your Airtable API Key on your [Airtable account](https://airtable.com/account)
+5. Get the development database ID on the [Dev DB Docs](https://airtable.com/appHpbskGp4dMpqEO/api/docs#javascript/introduction)
+6. Edit `.env.development` to add your `AIRTABLE_API_KEY` and the development `AIRTABLE_DB_ID`
 
 `.env.development`
 ```
@@ -53,12 +54,13 @@ Further information on the database schema and query documentation [here](https:
 
 ```
 cd web
+yarn install
 yarn serve
 ```
 
 Access it on `localhost:8080` on your browser.
 
-### Useful commands
+#### Useful commands
 
 Install dependencies
 ```
