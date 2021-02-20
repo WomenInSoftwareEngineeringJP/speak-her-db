@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  ord: 
+  code:
   prefecture: MyString
   region: MyString
 
 two:
-  ord: 
+  code:
   prefecture: MyString
   region: MyString
