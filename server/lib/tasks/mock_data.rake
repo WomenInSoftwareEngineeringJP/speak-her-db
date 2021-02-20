@@ -12,7 +12,7 @@ namespace :mock do
       speaker.location = Location.find_by(prefecture: obj[:location_id])
 
       obj[:languages].split(',').each do |language|
-        speaker.languages << Language.find_by(name: language)
+        speaker.languages << SpokenLanguage.find_by(name: language)
       end
 
       obj[:topics].split(',').each do |topic|

@@ -12,7 +12,7 @@ def self.create_languages
   # Known issue: eval is a security risk. Couldn't make JSON.parse work here...
   array = eval(file_text)
   array.each do |obj|
-    language = Language.where(name: obj[:name]).first_or_initialize
+    language = SpokenLanguage.where(name: obj[:name]).first_or_initialize
     language.update!(obj)
   end
 end
