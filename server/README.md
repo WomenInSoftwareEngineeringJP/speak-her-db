@@ -4,8 +4,9 @@ This project is the backend for https://speakher.jp. This project contains is a 
 
 Specs:
 - Web server: Puma (default for Rails apps)
-- Database: SQLite (default for Rails apps)
+- Database: [PostgreSQL](https://www.postgresql.org/)
 - Architecture: MVC, where Views are the API response templates (JSON)
+- Host/deploy: [Heroku](https://www.heroku.com)
 
 If you're new to Ruby on Rails, here's some useful reading to get started (you can ignore most parts related to `views` and ERB files, since this is an API only app):
 - [Standard folder structure of a Rails app](https://guides.rubyonrails.org/getting_started.html#creating-the-blog-application)
@@ -16,8 +17,9 @@ If you're new to Ruby on Rails, here's some useful reading to get started (you c
 ## Local setup
 
 System dependencies:
-- [ruby 2.6.3](https://www.ruby-lang.org/en/downloads/releases/) ([rbenv](https://github.com/rbenv/rbenv) is recommended to install and manage ruby versions)
+- [ruby 2.7.2](https://www.ruby-lang.org/en/downloads/releases/) ([rbenv](https://github.com/rbenv/rbenv) is recommended to install and manage ruby versions)
 - [Bundler](https://bundler.io/) (`$ gem install bundler`)
+- [PostgreSQL Database](https://www.postgresql.org/download/) (install and make sure it's on your PATH)
 - Some gems on Gemfile may require extra dependencies. If you run into any errors when running `bundle install` below, follow the instructions on the error messages to install the missing dependencies
 
 Setup the app on your local environment:
@@ -116,6 +118,32 @@ $ rails test [filepath] ==> run a specific test file
 $ rails test [filepath:line_number] ==> run a specific test case defined at line_number of the file
 ```
 
-## How to deploy
+## How to deploy or access production
 
-WIP
+This API server is deployed on [Heroku](https://www.heroku.com). To trigger a manual deploy or run any commands on the production server, you will need to install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and follow some of the commands below. Only members of the SpeakHer team on Heroku have access to production and triggering deploys.
+
+Once you have Heroku CLI installed, authenticate your Heroku account with:
+```
+$ heroku login
+```
+
+Connect your local repo with the Heroku remote:
+```
+$ heroku git:remote -a speak-her-jp
+```
+
+From the repo root folder (outside `/server`), run the following command to deploy the master branch to Heroku:
+```
+$ git subtree push --prefix server heroku master
+```
+
+WIP: CD is not configured yet. We'll condigure automatic deploys from github master branch soon.
+
+Useful CLI commands:
+- [heroku logs](https://devcenter.heroku.com/articles/heroku-cli-commands#heroku-logs) (print and tail server logs)
+- [heroku config](https://devcenter.heroku.com/articles/heroku-cli-commands#heroku-config) (view and edit environment variables for the app)
+- [heroku exec](https://devcenter.heroku.com/articles/heroku-cli-commands#heroku-ps-exec) (create an SSH session)
+
+Further reading:
+- [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+- [Getting Started with Rails 6 on Heroku](https://devcenter.heroku.com/articles/getting-started-with-rails6)
