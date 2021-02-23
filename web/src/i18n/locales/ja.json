@@ -85,7 +85,7 @@
         "languages": "言語",
         "linkedIn": "LinkedInのURL",
         "nameEn": "お名前(英語)",
-        "nameJa": "お名前（漢字）",
+        "nameJa": "お名前（漢字\/かな）",
         "photoURL": "写真のURL",
         "pronouns": {
             "label": "第三人称のご希望",
