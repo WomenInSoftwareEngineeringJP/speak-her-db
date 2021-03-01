@@ -10,21 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_12_172723) do
-
-  create_table "languages", force: :cascade do |t|
-    t.string "name"
-    t.string "name_ja"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "languages_speakers", id: false, force: :cascade do |t|
-    t.integer "speaker_id", null: false
-    t.integer "language_id", null: false
-    t.index ["language_id"], name: "index_languages_speakers_on_language_id"
-    t.index ["speaker_id"], name: "index_languages_speakers_on_speaker_id"
-  end
+ActiveRecord::Schema.define(version: 2021_02_20_073757) do
 
   create_table "locations", force: :cascade do |t|
     t.integer "code"
@@ -62,11 +48,25 @@ ActiveRecord::Schema.define(version: 2020_12_12_172723) do
     t.index ["location_id"], name: "index_speakers_on_location_id"
   end
 
+  create_table "speakers_spoken_languages", id: false, force: :cascade do |t|
+    t.integer "speaker_id", null: false
+    t.integer "spoken_language_id", null: false
+    t.index ["speaker_id"], name: "index_speakers_spoken_languages_on_speaker_id"
+    t.index ["spoken_language_id"], name: "index_speakers_spoken_languages_on_spoken_language_id"
+  end
+
   create_table "speakers_topics", id: false, force: :cascade do |t|
     t.integer "speaker_id", null: false
     t.integer "topic_id", null: false
     t.index ["speaker_id"], name: "index_speakers_topics_on_speaker_id"
     t.index ["topic_id"], name: "index_speakers_topics_on_topic_id"
+  end
+
+  create_table "spoken_languages", force: :cascade do |t|
+    t.string "name"
+    t.string "name_ja"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "topics", force: :cascade do |t|

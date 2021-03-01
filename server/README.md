@@ -92,16 +92,18 @@ irb(main):004:0> Topic.last
 ```
 You can check how to use the [basic ActiveRecord CRUD methods on RailsGuides](https://guides.rubyonrails.org/active_record_basics.html#crud-reading-and-writing-data).
 
-## Cheking & updating API endpoints (WIP)
+## Cheking & updating API endpoints
 
 Check the API routes typing this command on your terminal
 ```
 $ rails routes
 ```
 
-[RailsGuides about Routes](https://guides.rubyonrails.org/routing.html)
+Alternatively, when your server is running, you can see all available routes at `localhost:3000/rails/info/routes`. Response formats are under the `/views` folder. More info:
+- [RailsGuides about Routes](https://guides.rubyonrails.org/routing.html)
+- [Building JSON responses with JBuilder](https://github.com/rails/jbuilder)
 
-## Writing & running tests (WIP)
+## Writing & running tests
 
 Rails apps come built-in with Minitest. If you're new to Rails or testing, read the [RailsGuides for Testing Rails Apps](https://guides.rubyonrails.org/testing.html).
 
