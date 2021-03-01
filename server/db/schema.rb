@@ -11,6 +11,8 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2021_02_20_073757) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "locations", force: :cascade do |t|
     t.integer "code"
@@ -26,7 +28,7 @@ ActiveRecord::Schema.define(version: 2021_02_20_073757) do
     t.string "pronouns"
     t.string "email"
     t.string "city"
-    t.integer "location_id"
+    t.bigint "location_id"
     t.string "job_title"
     t.string "company"
     t.string "secondary_title"
@@ -49,15 +51,15 @@ ActiveRecord::Schema.define(version: 2021_02_20_073757) do
   end
 
   create_table "speakers_spoken_languages", id: false, force: :cascade do |t|
-    t.integer "speaker_id", null: false
-    t.integer "spoken_language_id", null: false
+    t.bigint "speaker_id", null: false
+    t.bigint "spoken_language_id", null: false
     t.index ["speaker_id"], name: "index_speakers_spoken_languages_on_speaker_id"
     t.index ["spoken_language_id"], name: "index_speakers_spoken_languages_on_spoken_language_id"
   end
 
   create_table "speakers_topics", id: false, force: :cascade do |t|
-    t.integer "speaker_id", null: false
-    t.integer "topic_id", null: false
+    t.bigint "speaker_id", null: false
+    t.bigint "topic_id", null: false
     t.index ["speaker_id"], name: "index_speakers_topics_on_speaker_id"
     t.index ["topic_id"], name: "index_speakers_topics_on_topic_id"
   end
