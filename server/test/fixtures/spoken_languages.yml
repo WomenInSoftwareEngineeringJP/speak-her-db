@@ -1,9 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  name_ja: MyString
+english:
+  name: 'English'
+  name_ja: '英語'
 
-two:
-  name: MyString
-  name_ja: MyString
+japanese:
+  name: 'Japanese'
+  name_ja: '日本語'
+
+french:
+  name: 'French'
+  name_ja: 'フランス語'

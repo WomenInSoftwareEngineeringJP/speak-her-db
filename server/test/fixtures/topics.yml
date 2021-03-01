@@ -1,9 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  name_ja: MyString
+leadership:
+  name: 'Leadership'
+  name_ja: 'リーダーシップ'
 
-two:
-  name: MyString
-  name_ja: MyString
+tech:
+  name: 'Tech'
+  name_ja: 'テック'
+
+social_impact:
+  name: 'Social impact'
+  name_ja: 'ソーシャルインパクト'
+
+arts:
+  name: 'Arts'
+  name_ja: '芸術'

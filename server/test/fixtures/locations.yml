@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  code:
-  prefecture: MyString
-  region: MyString
+tokyo:
+  code: 1
+  prefecture: 'Tokyo'
+  region: 'Tokyo'
 
-two:
-  code:
-  prefecture: MyString
-  region: MyString
+kanagawa:
+  code: 2
+  prefecture: 'Kanagawa'
+  region: 'Kanagawa'
