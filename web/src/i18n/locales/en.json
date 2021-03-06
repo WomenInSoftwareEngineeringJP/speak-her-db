@@ -5,11 +5,11 @@
         "title": "404: Page Not Found"
     },
     "about": {
-        "purpose": "The purpose of gathering this information is so that event organizers can easily search for female speakers and that fellow speakers can connect with and support each other. PLEASE NOTE: Except for your email, the information you provide below will be public to those visiting our upcoming website. Please do not share any information you do not want to be available to the general public.",
+        "purpose": "The purpose of gathering this information is so that event organizers can easily search for women speakers and that fellow speakers can connect with and support each other. PLEASE NOTE: Except for your email, the information you provide below will be public to those visiting our upcoming website. Please do not share any information you do not want to be available to the general public.",
         "summary": {
             "body": "SpeakHer is a database of women public speakers in Japan. A common excuse we hear from conference and event organizers is how they can't find any women. Let's banish that excuse.\n\nPlease join our list and make sure that women get fair representation for public speaking engagements.",
             "learnMore": "Learn more",
-            "title": "Want to find female speakers for your next event?"
+            "title": "Want to find women speakers for your next event?"
         },
         "title": "About"
     },
@@ -20,7 +20,7 @@
     },
     "codeOfConduct": {
         "title": "Code of Conduct",
-        "body": "Please do not use this site outside of the purpose of promoting and requesting female speakers. No solicitations or harassment. We take the safety of our community seriously."
+        "body": "Please do not use this site outside of the purpose of promoting and requesting speakers. No solicitations or harassment. We take the safety of our community seriously."
     },
     "contact": {
         "body": "We'll send a message to contact {0} on your behalf.",
@@ -60,7 +60,7 @@
         "netlify": "Powered by Netlify"
     },
     "hero": {
-        "subtitle": "Your online resource for finding female speakers in Japan",
+        "subtitle": "Your online resource for finding women speakers in Japan",
         "title": "SpeakHer"
     },
     "nav": {
