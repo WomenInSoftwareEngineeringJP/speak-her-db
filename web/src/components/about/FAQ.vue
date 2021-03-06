@@ -54,6 +54,10 @@ export default {
           question: () => this.$t('faq.whoQ'),
           answer: () => this.$t('faq.whoA'),
         },
+        {
+          question: () => this.$t('faq.transInclusiveQ'),
+          answer: () => this.$t('faq.transInclusiveA'),
+        },
       ],
     };
   },
