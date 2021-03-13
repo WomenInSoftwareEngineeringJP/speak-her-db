@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+tokyo:
+  code: 1
+  prefecture: 'Tokyo'
+  region: 'Tokyo'
+
+kanagawa:
+  code: 2
+  prefecture: 'Kanagawa'
+  region: 'Kanagawa'

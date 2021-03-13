@@ -1,0 +1,45 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+published_speaker:
+    name_en: 'Kana Mitomo'
+    name_ja: '御供 香南'
+    published: true
+    pronouns: 'she/her'
+    city: 'Minato-ku'
+    location_id: tokyo
+    job_title: 'CEO'
+    company: 'Bla Inc.'
+    email: 'xyz122@email.com'
+    topics: [leadership, tech, social_impact]
+    spoken_languages: [english, japanese]
+    speaker_bio: '崎ル大事変述クラ白国ぜぐぶ年果8進さびや期困すど写自ンよて総世ツ観日れづつ努世ぽぜがせ近並へぱ務利江仙リせんび。引稲除メコヤ午止辞トヨツホ入29野ルチシ止会ヒヘ済判オホワム処正ケ唱68朝給れや保回月む高疑7店建ッむれそ。場シツ河武ぽも問必ア般投む供壊わク予目ム猿馬フネヒク新狙ヨリト分格どはゃ間水マ本4山ぴふの告嗅ツ大手さぽんら載能ドくる雅程媛緒ルにも。'
+    photo_url: 'https://picsum.photos/200'
+    linkedin_url: 'http://dfrirvbl.tcxlpvlt.org'
+    twitter_url: 'http://dfrirvbl.tcxlpvlt.org'
+    website_url: 'http://dfrirvbl.tcxlpvlt.org'
+    facebook_url: 'http://dfrirvbl.tcxlpvlt.org'
+    submitter_name: 'Kana Mitomo'
+    submitter_email: 'xyz122@email.com'
+    consent: true
+
+unpublished_speaker:
+    name_en: 'Kana Mitomo'
+    name_ja: '御供 香南'
+    published: false
+    pronouns: 'she/her'
+    city: 'Minato-ku'
+    location_id: kanagawa
+    job_title: 'CEO'
+    company: 'Bla Inc.'
+    email: 'xyz122@email.com'
+    topics: [tech, arts]
+    spoken_languages: [english, japanese, french]
+    speaker_bio: '崎ル大事変述クラ白国ぜぐぶ年果8進さびや期困すど写自ンよて総世ツ観日れづつ努世ぽぜがせ近並へぱ務利江仙リせんび。引稲除メコヤ午止辞トヨツホ入29野ルチシ止会ヒヘ済判オホワム処正ケ唱68朝給れや保回月む高疑7店建ッむれそ。場シツ河武ぽも問必ア般投む供壊わク予目ム猿馬フネヒク新狙ヨリト分格どはゃ間水マ本4山ぴふの告嗅ツ大手さぽんら載能ドくる雅程媛緒ルにも。'
+    photo_url: 'https://picsum.photos/200'
+    linkedin_url: 'http://dfrirvbl.tcxlpvlt.org'
+    twitter_url: 'http://dfrirvbl.tcxlpvlt.org'
+    website_url: 'http://dfrirvbl.tcxlpvlt.org'
+    facebook_url: 'http://dfrirvbl.tcxlpvlt.org'
+    submitter_name: 'Kana Mitomo'
+    submitter_email: 'xyz122@email.com'
+    consent: true
