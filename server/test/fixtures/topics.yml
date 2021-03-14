@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+leadership:
+  name: 'Leadership'
+  name_ja: 'リーダーシップ'
+
+tech:
+  name: 'Tech'
+  name_ja: 'テック'
+
+social_impact:
+  name: 'Social impact'
+  name_ja: 'ソーシャルインパクト'
+
+arts:
+  name: 'Arts'
+  name_ja: '芸術'
