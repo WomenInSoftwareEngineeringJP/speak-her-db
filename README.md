@@ -9,7 +9,7 @@ https://speakher.jp/
 
 SpeakHer is a database of women public speakers in Japan. A common excuse we hear from conference and event organizers is how they can't find any women. Let's banish that excuse. Please join our list and make sure that women get fair representation for public speaking engagements.
 
-The purpose of gathering this information is so that event organizers can easily search for female speakers and that fellow speakers can connect with and support each other
+The purpose of gathering this information is so that event organizers can easily search for women speakers and that fellow speakers can connect with and support each other
 
 ## How to Contribute
 
