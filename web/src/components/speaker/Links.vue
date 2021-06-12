@@ -3,43 +3,57 @@
     <v-tooltip bottom>
       <template v-slot:activator="{ on }">
         <social-button :link="twitter">
-          <i class="fab fa-twitter" v-on="on" />
+          <i
+            class="fab fa-twitter"
+            v-on="on"
+          />
         </social-button>
       </template>
-      <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
-      <span>Twitter</span>
+      <span>{{ $t('findSpeaker.links.twitter') }}</span>
     </v-tooltip>
     <v-tooltip bottom>
       <template v-slot:activator="{ on }">
         <social-button :link="linkedIn">
-          <i class="fab fa-linkedin-in" v-on="on" />
+          <i
+            class="fab fa-linkedin-in"
+            v-on="on"
+          />
         </social-button>
       </template>
-      <span>LinkedIn</span>
+      <span>{{ $t('findSpeaker.links.linkedIn') }}</span>
     </v-tooltip>
     <v-tooltip bottom>
       <template v-slot:activator="{ on }">
         <social-button :link="facebook">
-          <i class="fab fa-facebook-f" v-on="on" />
+          <i
+            class="fab fa-facebook-f"
+            v-on="on"
+          />
         </social-button>
       </template>
-      <span>Facebook</span>
+      <span>{{ $t('findSpeaker.links.facebook') }}</span>
     </v-tooltip>
     <v-tooltip bottom>
       <template v-slot:activator="{ on }">
         <social-button :link="website">
-          <v-icon v-on="on">web</v-icon>
+          <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
+          <v-icon v-on="on">
+            web
+          </v-icon>
         </social-button>
       </template>
-      <span>Website</span>
+      <span>{{ $t('findSpeaker.links.website') }}</span>
     </v-tooltip>
     <v-tooltip bottom>
       <template v-slot:activator="{ on }">
         <social-button :link="priorPresentation">
-          <v-icon v-on="on">ondemand_video</v-icon>
+          <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
+          <v-icon v-on="on">
+            ondemand_video
+          </v-icon>
         </social-button>
       </template>
-      <span>Presentation</span>
+      <span>{{ $t('findSpeaker.links.samplePresentation') }}</span>
     </v-tooltip>
   </div>
 </template>

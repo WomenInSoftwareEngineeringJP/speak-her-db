@@ -53,7 +53,14 @@
         "topics": "Topic",
         "places": "Prefecture",
         "searchPlaceholder": "Start typing to Search",
-        "noResults": "No speakers found"
+        "noResults": "No speakers found",
+        "links": {
+            "twitter": "Twitter",
+            "linkedIn": "LinkedIn",
+            "facebook": "Facebook",
+            "website": "Website",
+            "samplePresentation": "Sample Presentation"
+        }
     },
     "footer": {
         "title": "SpeakHer Japan 2020",
