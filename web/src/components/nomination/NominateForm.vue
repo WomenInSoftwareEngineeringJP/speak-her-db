@@ -27,6 +27,7 @@
       </v-col>
       <pronoun-input
         v-model="form.pronouns"
+        :error-messages="pronounsErrors"
       />
     </v-row>
     <job-input
@@ -158,6 +159,7 @@ const VALIDATION_DELAY = 1000;
 const BIO_LENGTH = 30;
 const NAME_LENGTH = 150;
 const JOB_FIELDS_LENGTH = 200;
+const PRONOUNS_LENGTH = 50;
 
 export default {
   components: {
@@ -204,6 +206,9 @@ export default {
       email: {
         required,
         email,
+      },
+      pronouns: {
+        maxLength: maxLength(PRONOUNS_LENGTH),
       },
       languages: { required },
       speaker_bio: {
@@ -309,6 +314,11 @@ export default {
     secondaryAffiliationErrors() {
       const errors = [];
       if (!this.$v.form.affiliation.secondary_affiliation.maxLength) { errors.push(this.$t('validations.tooManyCharacters', [JOB_FIELDS_LENGTH])); }
+      return errors;
+    },
+    pronounsErrors() {
+      const errors = [];
+      if (!this.$v.form.pronouns.maxLength) { errors.push(this.$t('validations.tooManyCharacters', [PRONOUNS_LENGTH])); }
       return errors;
     },
     languagesErrors() {
