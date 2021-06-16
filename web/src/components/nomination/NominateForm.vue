@@ -31,9 +31,13 @@
     </v-row>
     <job-input
       v-model="form.job"
+      :job-title-errors="jobTitleErrors"
+      :company-errors="companyErrors"
     />
     <secondary-affiliation-input
       v-model="form.affiliation"
+      :secondary-title-errors="secondaryTitleErrors"
+      :secondary-affiliation-errors="secondaryAffiliationErrors"
     />
     <location-input
       v-model="form.location"
@@ -153,6 +157,7 @@ const touchMap = new WeakMap();
 const VALIDATION_DELAY = 1000;
 const BIO_LENGTH = 30;
 const NAME_LENGTH = 150;
+const JOB_FIELDS_LENGTH = 200;
 
 export default {
   components: {
@@ -180,6 +185,21 @@ export default {
           maxLength: maxLength(NAME_LENGTH),
         },
       },
+      job: {
+        title: {
+          maxLength: maxLength(JOB_FIELDS_LENGTH),
+        },
+        company: {
+          maxLength: maxLength(JOB_FIELDS_LENGTH),
+        },
+      },
+      affiliation: {
+        secondary_title: {
+          maxLength: maxLength(JOB_FIELDS_LENGTH),
+        },
+        secondary_affiliation: {
+          maxLength: maxLength(JOB_FIELDS_LENGTH),
+        },
       },
       email: {
         required,
@@ -271,6 +291,24 @@ export default {
       if (!this.$v.form.name.ja.maxLength) { errors.push(this.$t('validations.tooManyCharacters', [NAME_LENGTH])); }
       return errors;
     },
+    jobTitleErrors() {
+      const errors = [];
+      if (!this.$v.form.job.title.maxLength) { errors.push(this.$t('validations.tooManyCharacters', [JOB_FIELDS_LENGTH])); }
+      return errors;
+    },
+    companyErrors() {
+      const errors = [];
+      if (!this.$v.form.job.company.maxLength) { errors.push(this.$t('validations.tooManyCharacters', [JOB_FIELDS_LENGTH])); }
+      return errors;
+    },
+    secondaryTitleErrors() {
+      const errors = [];
+      if (!this.$v.form.affiliation.secondary_title.maxLength) { errors.push(this.$t('validations.tooManyCharacters', [JOB_FIELDS_LENGTH])); }
+      return errors;
+    },
+    secondaryAffiliationErrors() {
+      const errors = [];
+      if (!this.$v.form.affiliation.secondary_affiliation.maxLength) { errors.push(this.$t('validations.tooManyCharacters', [JOB_FIELDS_LENGTH])); }
       return errors;
     },
     languagesErrors() {
