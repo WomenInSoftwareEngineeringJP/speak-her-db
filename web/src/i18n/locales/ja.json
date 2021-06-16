@@ -125,6 +125,7 @@
         "languagesRequired": "話せる言語を選択してください",
         "messageRequired": "スピーカーへの簡単なメッセージが必須です",
         "URLValid": "URLは有効である必要があります",
-        "valid": "有効なメールアドレスを入力してください"
+        "valid": "有効なメールアドレスを入力してください",
+        "tooManyCharacters": "{0}字以内で入力してください"
     }
 }

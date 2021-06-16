@@ -144,7 +144,7 @@ import VariableAlert from '@/components/alerts/VariableAlert.vue';
 
 import { validationMixin } from 'vuelidate';
 import {
-  required, email, minLength, url,
+  required, email, minLength, maxLength, url,
 } from 'vuelidate/lib/validators';
 import japanese from '@/validators/japanese';
 
@@ -152,6 +152,7 @@ const isTrue = (value) => value;
 const touchMap = new WeakMap();
 const VALIDATION_DELAY = 1000;
 const BIO_LENGTH = 30;
+const NAME_LENGTH = 150;
 
 export default {
   components: {
@@ -170,8 +171,15 @@ export default {
   validations: {
     form: {
       name: {
-        en: { required },
-        ja: { japanese },
+        en: {
+          required,
+          maxLength: maxLength(NAME_LENGTH),
+        },
+        ja: {
+          japanese,
+          maxLength: maxLength(NAME_LENGTH),
+        },
+      },
       },
       email: {
         required,
@@ -253,12 +261,16 @@ export default {
       const errors = [];
       if (!this.$v.form.name.en.$dirty) { return errors; }
       if (!this.$v.form.name.en.required) { errors.push(this.$t('validations.enNameRequired')); }
+      if (!this.$v.form.name.en.maxLength) { errors.push(this.$t('validations.tooManyCharacters', [NAME_LENGTH])); }
       return errors;
     },
     japaneseErrors() {
       const errors = [];
       if (!this.$v.form.name.ja.$dirty) { return errors; }
       if (!this.$v.form.name.ja.japanese) { errors.push(this.$t('validations.jaNameCharacters')); }
+      if (!this.$v.form.name.ja.maxLength) { errors.push(this.$t('validations.tooManyCharacters', [NAME_LENGTH])); }
+      return errors;
+    },
       return errors;
     },
     languagesErrors() {
