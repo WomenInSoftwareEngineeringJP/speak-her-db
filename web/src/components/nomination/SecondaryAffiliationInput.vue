@@ -12,6 +12,7 @@
         persistent-hint
         outlined
         :value="value.secondary_title"
+        :error-messages="secondaryTitleErrors"
         @input="updateAffiliation('secondary_title', $event)"
       />
     </v-col>
@@ -25,6 +26,7 @@
         :value="value.secondary_affiliation"
         :label="$t('nominateSpeaker.secondaryAffiliation.organization')"
         outlined
+        :error-messages="secondaryAffiliationErrors"
         @input="updateAffiliation('secondary_affiliation', $event)"
       />
     </v-col>
@@ -37,6 +39,14 @@ export default {
     value: {
       type: Object,
       required: true,
+    },
+    secondaryTitleErrors: {
+      type: Array,
+      default: () => [],
+    },
+    secondaryAffiliationErrors: {
+      type: Array,
+      default: () => [],
     },
   },
   data() {

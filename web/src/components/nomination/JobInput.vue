@@ -12,6 +12,7 @@
         persistent-hint
         outlined
         :value="value.title"
+        :error-messages="jobTitleErrors"
         @input="updateJob('title', $event)"
       />
     </v-col>
@@ -25,6 +26,7 @@
         :value="value.company"
         :label="$t('nominateSpeaker.job.company')"
         outlined
+        :error-messages="companyErrors"
         @input="updateJob('company', $event)"
       />
     </v-col>
@@ -37,6 +39,14 @@ export default {
     value: {
       type: Object,
       required: true,
+    },
+    jobTitleErrors: {
+      type: Array,
+      default: () => [],
+    },
+    companyErrors: {
+      type: Array,
+      default: () => [],
     },
   },
   data() {

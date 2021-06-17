@@ -12,6 +12,7 @@
       persistent-hint
       outlined
       :value="value"
+      :error-messages="errorMessages"
       @input="$emit('input', $event)"
     />
   </v-col>
@@ -23,6 +24,10 @@ export default {
     value: {
       type: String,
       required: true,
+    },
+    errorMessages: {
+      type: Array,
+      default: () => [],
     },
   },
   data() {

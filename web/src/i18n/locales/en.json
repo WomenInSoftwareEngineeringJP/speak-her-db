@@ -133,6 +133,7 @@
         "languagesRequired": "Please select spoken languages",
         "messageRequired": "A brief message is required",
         "URLValid": "URL must be valid",
-        "valid": "Must provide a valid email"
+        "valid": "Must provide a valid email",
+        "tooManyCharacters": "Please keep the input within {0} characters"
     }
 }
