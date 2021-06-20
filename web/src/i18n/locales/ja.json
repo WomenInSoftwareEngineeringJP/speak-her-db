@@ -126,6 +126,7 @@
         "messageRequired": "スピーカーへの簡単なメッセージが必須です",
         "URLValid": "URLは有効である必要があります",
         "valid": "有効なメールアドレスを入力してください",
-        "tooManyCharacters": "{0}字以内で入力してください"
+        "tooManyCharacters": "{0}字以内で入力してください",
+        "wrongSocialMediaUrl": "こちらのURLは正しくありません"
     }
 }
