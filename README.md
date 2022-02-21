@@ -5,6 +5,7 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/WWCodeTokyo/speak-her-db)
 ![Twitter Follow](https://img.shields.io/twitter/follow/speakherjapan?style=social)
 
+
 # SpeakHer
 
 https://speakher.jp/
@@ -12,6 +13,11 @@ https://speakher.jp/
 SpeakHer is a database of women public speakers in Japan. A common excuse we hear from conference and event organizers is how they can't find any women. Let's banish that excuse. Please join our list and make sure that women get fair representation for public speaking engagements.
 
 The purpose of gathering this information is so that event organizers can easily search for women speakers and that fellow speakers can connect with and support each other
+
+### This project is maintained by Women Who Code Tokyo
+![GitHub Org's stars](https://img.shields.io/github/stars/WWCodeTokyo?style=social)
+![Twitter Follow](https://img.shields.io/twitter/follow/wwcode_tokyo?style=social)
+![Open Collective backers and sponsors](https://img.shields.io/opencollective/all/wwcodetokyo)
 
 ## How to Contribute
 
