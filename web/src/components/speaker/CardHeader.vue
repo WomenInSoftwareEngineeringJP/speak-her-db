@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row>
-      <h2 class="d-flex align-center mr-4">
+      <h2 class="d-flex align-center mr-4 mb-10">
         {{ title }}
       </h2>
       <languages
