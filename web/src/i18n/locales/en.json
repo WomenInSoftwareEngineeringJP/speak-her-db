@@ -16,21 +16,17 @@
     "actions": {
         "cancel": "Cancel",
         "resetForm": "Reset Form",
-        "submit": "Submit"
+        "submit": "Submit",
+        "ok": "OK"
     },
     "codeOfConduct": {
         "title": "Code of Conduct",
         "body": "Please do not use this site outside of the purpose of promoting and requesting speakers. No solicitations or harassment. We take the safety of our community seriously."
     },
     "contact": {
-        "body": "We'll send a message to contact {0} on your behalf.",
-        "email": "Email",
-        "forward": "We'll forward your message to {0}.",
-        "message": "Message",
-        "name": "Name",
-        "thanks": "Thanks!",
-        "title": "Contact {0}?",
-        "yourName": "Your Name"
+        "title": "Email Relay Ended",
+        "yourName": "Your Name",
+        "relayEnded": "Due to limited resources, we no longer relay messages to speakers. Please reach out to speakers directly via the contact information on their card."
     },
     "faq": {
         "correctionA": "Please email: {0}",
