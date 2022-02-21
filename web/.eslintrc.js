@@ -22,6 +22,7 @@ module.exports = {
     '@intlify/vue-i18n/no-unused-keys': ['error', {
       extensions: ['.js', '.vue'],
     }],
+    'no-multiple-empty-lines': 'off',
   },
   settings: {
     'vue-i18n': {

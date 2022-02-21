@@ -57,7 +57,6 @@
   </v-dialog>
 </template>
 
-
 <script>
 import TwoButtonModal from '@/components/cards/TwoButtonModal.vue';
 import axios from 'axios';
