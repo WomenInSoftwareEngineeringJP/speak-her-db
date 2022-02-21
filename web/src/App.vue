@@ -10,9 +10,9 @@
       :items="navigation"
       @close-drawer="showSidebar = false"
     />
-    <v-content>
+    <v-main>
       <router-view />
-    </v-content>
+    </v-main>
     <app-footer />
   </v-app>
 </template>
