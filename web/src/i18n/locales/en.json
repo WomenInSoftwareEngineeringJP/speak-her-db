@@ -25,7 +25,6 @@
     },
     "contact": {
         "title": "Email Relay Ended",
-        "yourName": "Your Name",
         "relayEnded": "Due to limited resources, we no longer relay messages to speakers. Please reach out to speakers directly via the contact information on their card."
     },
     "faq": {
