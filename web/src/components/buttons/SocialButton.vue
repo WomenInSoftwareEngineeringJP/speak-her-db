@@ -6,6 +6,7 @@
     icon
     :dark="dark"
     :x-large="xLarge"
+    color="primary"
   >
     <slot />
   </v-btn>
@@ -24,7 +25,7 @@ export default {
     },
     xLarge: {
       type: Boolean,
-      default: false,
+      default: true,
     },
   },
   computed: {
