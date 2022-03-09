@@ -42,8 +42,7 @@
         />
         <v-spacer />
         <v-btn
-          color="primary"
-          fab
+          icon
           @click="$emit('contact-speaker')"
         >
           <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->

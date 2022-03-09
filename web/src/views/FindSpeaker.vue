@@ -4,12 +4,6 @@
       :speaker="selectedSpeaker"
       :show="showDialog"
       @close="showDialog = false"
-      @submit="showDialog = false; showSuccess = true"
-    />
-    <contact-result
-      :show="showSuccess"
-      :speaker-name="selectedName"
-      @close="showSuccess = false"
     />
     <v-row
       justify="center"
@@ -79,14 +73,12 @@ import api from '@/services/api';
 import Search from '@/components/Search.vue';
 import SpeakerCard from '@/components/speaker/SpeakerCard.vue';
 import ContactDialog from '@/components/contact/ContactDialog.vue';
-import ContactResult from '@/components/contact/ContactResult.vue';
 import PaginationRow from '@/components/PaginationRow.vue';
 import NoResults from '@/components/no-results/NoResults.vue';
 
 export default {
   components: {
     ContactDialog,
-    ContactResult,
     Search,
     SpeakerCard,
     PaginationRow,
