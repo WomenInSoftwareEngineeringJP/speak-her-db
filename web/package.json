@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "yarn build:front && yarn build:lambda",
+    "build:front": "vue-cli-service build",
+    "build:lambda": "netlify-lambda build lambda --config ./webpack.functions.js",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
@@ -17,6 +19,8 @@
     "encoding": "^0.1.13",
     "material-design-icons-iconfont": "^6.4.1",
     "netlify-lambda": "2.0.15",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0",
     "vue": "^2.6.14",
     "vue-i18n": "^8.27.0",
     "vue-router": "^3.5.3",
@@ -43,6 +47,7 @@
     "vue-cli-plugin-netlify-lambda": "~0.1.1",
     "vue-cli-plugin-vuetify": "^2.0.5",
     "vue-template-compiler": "^2.6.14",
-    "vuetify-loader": "^1.7.3"
+    "vuetify-loader": "^1.7.3",
+    "webpack-node-externals": "^3.0.0"
   }
 }
