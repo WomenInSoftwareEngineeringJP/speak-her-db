@@ -21,7 +21,7 @@ The purpose of gathering this information is so that event organizers can easily
 
 ## How to Contribute
 
-Please check out our [contributor guidelines](https://github.com/WWCodeTokyo/speak-her-db/blob/master/CONTRIBUTING.md).
+Please check out our [contributor guidelines](https://github.com/WWCodeTokyo/speak-her-db/blob/master/CONTRIBUTING.md) and read the [Wiki](https://github.com/WWCodeTokyo/speak-her-db/wiki) to understand how the code works.
 
 ## Code of Conduct
 
