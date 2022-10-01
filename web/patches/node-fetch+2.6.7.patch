@@ -1,0 +1,13 @@
+diff --git a/node_modules/node-fetch/lib/index.mjs b/node_modules/node-fetch/lib/index.mjs
+index 49ee05e..8de3c23 100644
+--- a/node_modules/node-fetch/lib/index.mjs
++++ b/node_modules/node-fetch/lib/index.mjs
+@@ -1176,7 +1176,7 @@ function isRequest(input) {
+ 
+ function isAbortSignal(signal) {
+ 	const proto = signal && typeof signal === 'object' && Object.getPrototypeOf(signal);
+-	return !!(proto && proto.constructor.name === 'AbortSignal');
++	return !!(proto && (proto.constructor.name === 'AbortSignal' || proto.constructor.name === 'abort_controller_AbortSignal'));
+ }
+ 
+ /**
