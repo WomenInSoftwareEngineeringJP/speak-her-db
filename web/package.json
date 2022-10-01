@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "yarn build:front && yarn build:lambda",
     "build:front": "vue-cli-service build",
-    "build:lambda": "netlify-lambda build src/lambda --config ./webpack.functions.js",
+    "build:lambda": "yarn run postinstall && yarn netlify-lambda build src/lambda --config ./webpack.functions.js",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
