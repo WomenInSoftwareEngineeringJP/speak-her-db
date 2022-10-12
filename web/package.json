@@ -23,7 +23,7 @@
     "vue-i18n": "^8.27.0",
     "vue-router": "^3.5.3",
     "vuelidate": "^0.7.7",
-    "vuetify": "^2.6.3"
+    "vuetify": "^2.6.10"
   },
   "devDependencies": {
     "@intlify/eslint-plugin-vue-i18n": "^0.5.0",
