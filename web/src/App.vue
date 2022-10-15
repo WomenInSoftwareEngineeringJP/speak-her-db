@@ -5,7 +5,6 @@
       @click-menu="clickMenu"
     />
     <sidebar
-      v-if="$vuetify.breakpoint.smAndDown"
       :show="showSidebar"
       :items="navigation"
       @close-drawer="showSidebar = false"

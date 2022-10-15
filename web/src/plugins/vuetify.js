@@ -1,10 +1,12 @@
-import Vue from 'vue';
-import Vuetify from 'vuetify/lib';
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
 
-Vue.use(Vuetify);
+// Styles
+import 'vuetify/styles'
 
-export default new Vuetify({
+// Vuetify
+import { createVuetify } from 'vuetify'
+
+export default createVuetify({
   theme: {
     themes: {
       light: {
@@ -14,4 +16,7 @@ export default new Vuetify({
       },
     },
   },
-});
+}
+);
+
+

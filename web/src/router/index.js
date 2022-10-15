@@ -1,12 +1,11 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import About from '../views/About.vue';
 import FindSpeaker from '../views/FindSpeaker.vue';
 import NominateSpeaker from '../views/NominateSpeaker.vue';
 import NotFound404 from '../views/NotFound404.vue';
 
-Vue.use(VueRouter);
 
 // order matters!
 const routes = [
@@ -37,16 +36,17 @@ const routes = [
     component: NotFound404,
   },
   {
-    path: '*',
+    path: '/:patchMatch(.*)*',
+    name: 'not-found-catch-all',
     beforeEnter() {
       window.location = '/404';
     },
   },
 ];
 
-const router = new VueRouter({
+const router = createRouter({
   routes,
-  mode: 'history', // makes the # go away
+  history: createWebHistory(),
 });
 
 export default router;

@@ -1,5 +1,6 @@
-import Vue from 'vue';
-import Vuelidate from 'vuelidate';
+//import Vuelidate from 'vuelidate';
+import Vue from '@vue/compat'
+import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import vuetify from './plugins/vuetify';
@@ -9,17 +10,14 @@ import i18n from './i18n/i18n';
 
 import '@/styles/main.scss';
 
-Vue.use(Airtable); // install our customized Airtable plugin
 Vue.config.productionTip = false;
 
-Vue.use(Vuelidate);
-
 // Creation of the bus for emitting events from children to non-parent components
-window.bus = new Vue();
+//window.bus = new Vue();
 
-new Vue({
-  router,
-  vuetify,
-  i18n,
-  render: (h) => h(App),
-}).$mount('#app');
+const app = createApp(App)
+app.use(router)
+app.use(vuetify)
+app.use(Airtable)
+app.use(i18n)
+app.mount('#app')

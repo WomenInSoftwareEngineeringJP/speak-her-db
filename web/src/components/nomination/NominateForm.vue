@@ -147,10 +147,10 @@ import LanguageInput from '@/components/nomination/LanguageInput.vue';
 import PronounInput from '@/components/nomination/PronounInput.vue';
 import VariableAlert from '@/components/alerts/VariableAlert.vue';
 
-import { validationMixin } from 'vuelidate';
+import { useVuelidate } from '@vuelidate/core'
 import {
   required, email, minLength, maxLength, url,
-} from 'vuelidate/lib/validators';
+} from '@vuelidate/validators';
 import japanese from '@/validators/japanese';
 import { linkedinUrl, facebookUrl, twitterUrl } from '@/validators/social-media-urls';
 
@@ -163,6 +163,9 @@ const JOB_FIELDS_LENGTH = 200;
 const PRONOUNS_LENGTH = 50;
 
 export default {
+  setup () {
+    return { v$: useVuelidate() }
+  },
   components: {
     NameInput,
     JobInput,
@@ -175,7 +178,6 @@ export default {
     VariableAlert,
     PronounInput,
   },
-  mixins: [validationMixin],
   validations: {
     form: {
       name: {

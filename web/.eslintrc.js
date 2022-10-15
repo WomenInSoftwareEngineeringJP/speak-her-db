@@ -5,14 +5,16 @@ module.exports = {
   },
   extends: [
     'plugin:vue/recommended',
-    '@vue/airbnb',
+    // see https://github.com/vuejs/vue-cli/issues/1650
+    //  Unable to resolve path to module '@/components/hero/Illustration.vue'   import/no-unresolved
+    //'@vue/airbnb',
     'plugin:@intlify/vue-i18n/recommended',
   ],
   globals: {
     bus: false,
   },
   parserOptions: {
-    parser: 'babel-eslint',
+    parser: '@babel/eslint-parser',
   },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -23,6 +25,7 @@ module.exports = {
       extensions: ['.js', '.vue'],
     }],
     'no-multiple-empty-lines': 'off',
+    'vue/multi-word-component-names': 'off',
   },
   settings: {
     'vue-i18n': {

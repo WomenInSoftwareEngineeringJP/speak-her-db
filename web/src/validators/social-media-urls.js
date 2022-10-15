@@ -1,4 +1,4 @@
-import { helpers } from 'vuelidate/lib/validators';
+import { helpers } from '@vuelidate/validators';
 
 const linkedinUrl = (value) => {
   const regex = /^http(s*):\/\/(www.)?linkedin.com\/((in\/[^/]+\/?)|(pub\/[^/]+\/((\w|\d)+\/?){3}))$/;
