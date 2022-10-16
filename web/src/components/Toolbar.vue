@@ -11,10 +11,12 @@
     <v-btn
       href="/"
       :text="$t('hero.title')"
+      size="x-large"
+      variant="text"
     >
-      <v-toolbar-title>
+      <v-app-bar-title>
         {{ $t('hero.title') }}
-      </v-toolbar-title>
+      </v-app-bar-title>
     </v-btn>
 
     <v-spacer />
@@ -29,6 +31,7 @@
         <v-btn
           :text="item.title"
           :href="item.path"
+          variant="text"
         >
           {{ item.title }}
         </v-btn>
@@ -46,7 +49,6 @@
 <script>
 
 import LocaleSwitcher from './LocaleSwitcher.vue';
-import background from '@/assets/background.svg';
 
 export default {
   components: {
