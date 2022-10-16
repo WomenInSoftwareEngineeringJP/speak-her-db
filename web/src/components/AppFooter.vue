@@ -43,7 +43,7 @@
           xs="12"
         >
           <v-row justify="center">
-            <v-spacer/>
+            <v-spacer />
             <social-button
               dark
               x-large

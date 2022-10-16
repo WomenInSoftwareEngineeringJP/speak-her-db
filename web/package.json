@@ -13,10 +13,9 @@
   },
   "dependencies": {
     "@mdi/font": "5.9.55",
-    "@vue/compat": "^3.2.41",
     "@vuelidate/core": "^2.0.0",
     "@vuelidate/validators": "^2.0.0",
-    "airtable": "0.11.2",
+    "airtable": "0.11.5",
     "axios": "^0.26.0",
     "core-js": "^3.8.3",
     "material-design-icons-iconfont": "^6.4.1",

@@ -1,6 +1,4 @@
-//import Vuelidate from 'vuelidate';
-import Vue from '@vue/compat';
-import { createApp } from 'vue';
+import { createApp, configureCompat } from 'vue';
 import App from './App.vue';
 import router from './router';
 import vuetify from './plugins/vuetify';
@@ -11,7 +9,10 @@ import i18n from './i18n/i18n';
 import '@/styles/main.scss';
 
 // Creation of the bus for emitting events from children to non-parent components
-window.bus = new Vue();
+//window.bus = new Vue();
+configureCompat({
+   COMPONENT_ASYNC: false
+})
 
 
 const app = createApp(App)

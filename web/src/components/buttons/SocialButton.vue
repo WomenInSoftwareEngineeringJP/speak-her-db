@@ -7,8 +7,7 @@
     :dark="dark"
     :x-large="xLarge"
     color="primary"
-  >
-  </v-btn>
+  />
 </template>
 
 <script>

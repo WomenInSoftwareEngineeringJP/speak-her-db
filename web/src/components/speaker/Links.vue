@@ -1,7 +1,7 @@
 <template>
   <div class="mt-3">
     <v-tooltip bottom>
-      <template v-slot:activator="{ on }">
+      <template #activator="{ on }">
         <social-button :link="twitter">
           <i
             class="fab fa-twitter"
@@ -12,7 +12,7 @@
       <span>{{ $t('findSpeaker.links.twitter') }}</span>
     </v-tooltip>
     <v-tooltip bottom>
-      <template v-slot:activator="{ on }">
+      <template #activator="{ on }">
         <social-button :link="linkedIn">
           <i
             class="fab fa-linkedin-in"
@@ -23,7 +23,7 @@
       <span>{{ $t('findSpeaker.links.linkedIn') }}</span>
     </v-tooltip>
     <v-tooltip bottom>
-      <template v-slot:activator="{ on }">
+      <template #activator="{ on }">
         <social-button :link="facebook">
           <i
             class="fab fa-facebook-f"
@@ -34,7 +34,7 @@
       <span>{{ $t('findSpeaker.links.facebook') }}</span>
     </v-tooltip>
     <v-tooltip bottom>
-      <template v-slot:activator="{ on }">
+      <template #activator="{ on }">
         <social-button :link="website">
           <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
           <v-icon v-on="on">
@@ -45,7 +45,7 @@
       <span>{{ $t('findSpeaker.links.website') }}</span>
     </v-tooltip>
     <v-tooltip bottom>
-      <template v-slot:activator="{ on }">
+      <template #activator="{ on }">
         <social-button :link="priorPresentation">
           <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
           <v-icon v-on="on">

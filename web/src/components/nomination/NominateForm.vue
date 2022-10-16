@@ -163,9 +163,6 @@ const JOB_FIELDS_LENGTH = 200;
 const PRONOUNS_LENGTH = 50;
 
 export default {
-  setup () {
-    return { v$: useVuelidate() }
-  },
   components: {
     NameInput,
     JobInput,
@@ -177,6 +174,9 @@ export default {
     LanguageInput,
     VariableAlert,
     PronounInput,
+  },
+  setup () {
+    return { v$: useVuelidate() }
   },
   validations: {
     form: {

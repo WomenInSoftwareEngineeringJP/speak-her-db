@@ -1,17 +1,18 @@
 import Airtable from 'airtable';
-/* eslint-disable no-param-reassign */
-/* eslint-disable func-names */
-Airtable.install = function (Vue) {
-  this.configure({
+
+export default {
+  install: (app) => {
+
+  Airtable.configure({
     endpointUrl: 'https://api.airtable.com',
     apiKey: process.env.VUE_APP_AIRTABLE_API_KEY,
   });
 
-  Vue.prototype.$db = this.base(process.env.VUE_APP_AIRTABLE_DB_ID);
+  app.config.globalProperties.$db = Airtable.base(process.env.VUE_APP_AIRTABLE_DB_ID);
 
-  Vue.prototype.$locations = [];
+  app.config.globalProperties.$locations = [];
 
-  Vue.prototype.$getLocations = function (successCallback, errorCallback) {
+  app.config.globalProperties.$getLocations = function (successCallback, errorCallback) {
     if (this.$locations.length) {
       // return cached response
       successCallback(this.$locations);
@@ -33,9 +34,9 @@ Airtable.install = function (Vue) {
     }
   };
 
-  Vue.prototype.$topics = [];
+  app.config.globalProperties.$topics = [];
 
-  Vue.prototype.$getTopics = function (successCallback, errorCallback) {
+  app.config.globalProperties.$getTopics = function (successCallback, errorCallback) {
     if (this.$topics.length) {
       // return cached response
       successCallback(this.$topics);
@@ -52,9 +53,9 @@ Airtable.install = function (Vue) {
     }
   };
 
-  Vue.prototype.$languages = [];
+  app.config.globalProperties.$languages = [];
 
-  Vue.prototype.$getLanguages = function (successCallback, errorCallback) {
+  app.config.globalProperties.$getLanguages = function (successCallback, errorCallback) {
     if (this.$languages.length) {
       // return cached response
       successCallback(this.$languages);
@@ -70,6 +71,6 @@ Airtable.install = function (Vue) {
       });
     }
   };
-};
+  }
+}
 
-export default Airtable;

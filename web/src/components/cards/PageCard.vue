@@ -9,8 +9,7 @@
           <v-row
             class="px-8 py-2"
           >
-            <v-col>
-            </v-col>
+            <v-col />
           </v-row>
         </v-card>
       </v-col>
