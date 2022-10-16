@@ -10,7 +10,6 @@
             class="px-8 py-2"
           >
             <v-col>
-              <slot />
             </v-col>
           </v-row>
         </v-card>

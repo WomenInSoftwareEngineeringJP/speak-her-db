@@ -8,7 +8,6 @@
     :x-large="xLarge"
     color="primary"
   >
-    <slot />
   </v-btn>
 </template>
 

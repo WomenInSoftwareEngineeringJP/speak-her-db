@@ -30,11 +30,13 @@ export default {
   },
   computed: {
     dynamicPadding() {
+      /*
       if (this.$vuetify.breakpoint.mdAndUp) {
         return {
 
         };
       }
+      */
       return {
         'py-0': true,
       };

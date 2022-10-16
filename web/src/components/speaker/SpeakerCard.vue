@@ -112,16 +112,16 @@ export default {
       }
     },
     dynamicCardPadding() {
-      if (this.$vuetify.breakpoint.mdAndUp) {
+      //if (this.$vuetify.breakpoint.mdAndUp) {
         return {
           'px-6': true,
           'py-4': true,
         };
-      }
-      return {
+      //}
+      /*return {
         'px-4': true,
         'py-4': true,
-      };
+      };*/
     },
   },
   methods: {

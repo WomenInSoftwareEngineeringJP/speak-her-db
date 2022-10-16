@@ -19,7 +19,6 @@
     <v-spacer />
 
     <v-toolbar-items
-      v-if="$vuetify.breakpoint.mdAndUp"
       class="d-flex align-center"
     >
       <div
@@ -39,15 +38,6 @@
         vertical
       />
       <locale-switcher />
-    </v-toolbar-items>
-    <v-toolbar-items v-else>
-      <v-btn
-        text
-        @click="$emit('click-menu')"
-      >
-        <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
-        <v-icon>menu</v-icon>
-      </v-btn>
     </v-toolbar-items>
   </v-app-bar>
 </template>

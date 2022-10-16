@@ -43,7 +43,6 @@
         </v-btn>
       </v-row>
       <v-row
-        v-if="$vuetify.breakpoint.mdAndUp"
         class="spacer"
       />
     </div>
