@@ -8,8 +8,8 @@
       >
         <v-chip
           color="silver"
-          outlined
-          small
+          variant="outlined"
+          :size="small"
         >
           {{ format(language) }}
         </v-chip>

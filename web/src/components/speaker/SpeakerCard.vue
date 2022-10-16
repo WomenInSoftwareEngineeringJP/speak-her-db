@@ -6,13 +6,12 @@
     >
       <v-col>
         <v-expansion-panels
-          accordion
-          flat
-          hover
+          variant="accordion"
+          theme="flat"
           class="pa-0 ma-0"
         >
           <v-expansion-panel class="py-0 my-0">
-            <v-expansion-panel-header class="py-0 my-0">
+            <v-expansion-panel-title class="py-0 my-0">
               <v-col
                 no-gutters
                 class="pa-0 ma-0"
@@ -27,8 +26,8 @@
                   :prefectures="prefectures"
                 />
               </v-col>
-            </v-expansion-panel-header>
-            <v-expansion-panel-content class="pa-0 ma-0">
+            </v-expansion-panel-title>
+            <v-expansion-panel-text class="pa-0 ma-0">
               <div
                 v-if="pronouns !== ''"
                 class="mb-2 pronouns"
@@ -38,7 +37,7 @@
               <p class="pa-0 ma-0">
                 {{ speaker.get('speaker_bio') }}
               </p>
-            </v-expansion-panel-content>
+            </v-expansion-panel-text>
           </v-expansion-panel>
         </v-expansion-panels>
         <card-footer
@@ -116,6 +115,7 @@ export default {
         return {
           'px-6': true,
           'py-4': true,
+          'speaker-card': true,
         };
       //}
       /*return {

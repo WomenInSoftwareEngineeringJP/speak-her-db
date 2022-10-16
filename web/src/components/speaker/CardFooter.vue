@@ -31,6 +31,8 @@
         justify="end"
         no-gutters
       >
+        <!--
+          mobile probably
         <links
           :facebook="speaker.get('facebook_url')"
           :twitter="speaker.get('twitter_url')"
@@ -38,14 +40,18 @@
           :website="speaker.get('website_url')"
           :prior-presentation="speaker.get('prior_presentation_url')"
         />
+
         <v-spacer />
+        -->
         <v-btn
           icon
+          variant="text"
+          size="x-large"
           @click="$emit('contact-speaker')"
         >
           <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
           <v-icon>
-            email
+            mdi-email
           </v-icon>
         </v-btn>
       </v-row>

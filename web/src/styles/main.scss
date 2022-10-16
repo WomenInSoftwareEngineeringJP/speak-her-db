@@ -57,3 +57,21 @@ h2{
 .carousel-text {
   color: white; 
 }
+
+// vuetify fixes
+.speaker-card .v-row {
+  margin: auto;
+}
+
+.speaker-card .v-chip {
+  color: black;
+}
+
+.tooltip-social {
+  background-color: rgba(66, 66, 66, 0.7);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 22px;
+  padding: 5px 16px;
+}

@@ -9,6 +9,7 @@
     >
       <v-chip
         :color="generateColor(tag.name)"
+        variant="elevated"
         label
         class="mb-2"
       >

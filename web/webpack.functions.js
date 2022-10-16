@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
+// eslint-disable-next-line
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {

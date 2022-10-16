@@ -2,14 +2,15 @@
   <v-app-bar
     app
     color="primary"
-    dark
-    src="../assets/background.svg"
-    flat
     absolute
+    flat
   >
+    <template #image>
+      <v-img src="@/assets/background.svg" />
+    </template>
     <v-btn
       href="/"
-      text
+      :text="$t('hero.title')"
     >
       <v-toolbar-title>
         {{ $t('hero.title') }}
@@ -26,7 +27,7 @@
         :key="item.title"
       >
         <v-btn
-          text
+          :text="item.title"
           :href="item.path"
         >
           {{ item.title }}
@@ -45,6 +46,7 @@
 <script>
 
 import LocaleSwitcher from './LocaleSwitcher.vue';
+import background from '@/assets/background.svg';
 
 export default {
   components: {

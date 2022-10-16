@@ -10,6 +10,7 @@
       <v-spacer />
     </v-row>
     <!--mobile view-->
+    <!--
     <v-row
       class="my-3"
     >
@@ -17,6 +18,7 @@
         :languages="languages"
       />
     </v-row>
+    -->
   </div>
 </template>
 

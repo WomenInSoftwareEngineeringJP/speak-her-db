@@ -1,3 +1,4 @@
+import Vue from '@vue/compat';
 import { createApp, configureCompat } from 'vue';
 import App from './App.vue';
 import router from './router';
@@ -9,9 +10,12 @@ import i18n from './i18n/i18n';
 import '@/styles/main.scss';
 
 // Creation of the bus for emitting events from children to non-parent components
-//window.bus = new Vue();
+window.bus = new Vue();
+
+// disable async component compat - vuetify breaks if enabled
 configureCompat({
-   COMPONENT_ASYNC: false
+   COMPONENT_ASYNC: false,
+   //ATTR_FALSE_VALUE: false,
 })
 
 
