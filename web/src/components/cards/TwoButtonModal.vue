@@ -1,29 +1,24 @@
 <template>
-  <v-card>
-    <v-col>
-      <v-card-title>{{ title }}</v-card-title>
-      <v-card-text px-8>
+  <div>
+      <h3>{{ title }}</h3>
+      <div class="px-8">
         <slot />
-      </v-card-text>
-      <v-card-actions>
-        <v-spacer />
-        <v-btn
-          text
+      </div>
+      <div>
+        <button
           @click="$emit('cancel')"
         >
           {{ $t('actions.cancel') }}
-        </v-btn>
-        <v-btn
-          text
+      </button>
+        <button
           color="primary darken-2"
           type="submit"
           @click="$emit('click')"
         >
           {{ $t('actions.submit') }}
-        </v-btn>
-      </v-card-actions>
-    </v-col>
-  </v-card>
+    </button>
+      </div>
+  </div>
 </template>
 
 <script>

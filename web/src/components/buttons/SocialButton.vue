@@ -1,5 +1,5 @@
 <template>
-  <v-btn
+  <button
     v-if="show"
     :href="link"
     target="_blank"
@@ -9,7 +9,7 @@
     color="primary"
   >
     <slot />
-  </v-btn>
+</button>
 </template>
 
 <script>

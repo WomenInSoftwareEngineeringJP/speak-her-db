@@ -1,20 +1,7 @@
 <template>
-  <v-container>
-    <v-row
-      justify="center"
-      no-gutters
-    >
-      <v-col lg="10">
-        <v-card>
-          <v-row
-            class="px-8 py-2"
-          >
-            <v-col>
-              <slot />
-            </v-col>
-          </v-row>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+  <div justify="center">
+    <div class="px-8 py-2" justify="left">
+        <slot />
+    </div>
+  </div>
 </template>

@@ -1,24 +1,18 @@
 <template>
-  <v-app-bar
-    app
-    color="primary"
-    dark
-    src="../assets/background.svg"
-    flat
-    absolute
+  <div
+    class="grid grid-cols-6 gap-4"
   >
-    <v-btn
+    <div>
+    <a
       href="/"
-      text
     >
-      <v-toolbar-title>
+      <h1 class="text-3xl font-bold text-purple-800">
         {{ $t('hero.title') }}
-      </v-toolbar-title>
-    </v-btn>
+      </h1>
+    </a>
+  </div>
 
-    <v-spacer />
-
-    <v-toolbar-items
+    <div
       v-if="true"
       class="d-flex align-center"
     >
@@ -33,14 +27,9 @@
           {{ item.title }}
         </v-btn>
       </div>
-      <v-divider
-        class="mx-4"
-        inset
-        vertical
-      />
       <locale-switcher />
-    </v-toolbar-items>
-    <v-toolbar-items v-else>
+    </div>
+    <div v-else>
       <v-btn
         text
         @click="$emit('click-menu')"
@@ -48,8 +37,8 @@
         <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
         <v-icon>menu</v-icon>
       </v-btn>
-    </v-toolbar-items>
-  </v-app-bar>
+    </div>
+  </div>
 </template>
 
 <script>

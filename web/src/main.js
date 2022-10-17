@@ -6,6 +6,8 @@ import Airtable from './plugins/airtable';
 import '@mdi/font/css/materialdesignicons.css';
 import i18n from './i18n/i18n';
 
+import '../dist/output.css';
+
 Vue.use(Airtable); // install our customized Airtable plugin
 Vue.config.productionTip = false;
 
