@@ -24,7 +24,7 @@
             >
               <v-img
                 max-height="200"
-                :max-width="$vuetify.breakpoint.mdAndUp ? '500' : '300'"
+                :max-width="true ? '500' : '300'"
                 contain
                 :src="item.image"
               />

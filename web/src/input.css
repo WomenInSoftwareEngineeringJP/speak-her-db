@@ -1,3 +1,63 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+h1{
+  color: #333333;
+}
+
+h2{
+  color: #333333;
+}
+
+.homepage-title {
+  color: white;
+  font-size: 5rem;
+  font-weight: 200;
+}
+
+.homepage-subtitle {
+  color: white;
+  font-weight: 390;
+}
+
+.dark-section-title {
+  color: white;
+  font-weight: 500;
+}
+
+.location {
+  font-size: 1rem;
+  font-weight: 390;
+  color: #404040;
+}
+
+.speaker-title {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 390;
+  color: #404040;
+}
+
+.pronouns {
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 390;
+  color: #404040;
+}
+
+.spacer {
+  height: 20px;
+}
+
+.footer-link:link, .footer-link:visited {
+  color: white;
+}
+
+.v-expansion-panel-content__wrap {
+  padding: 12px 12px 0px !important;
+}
+
+.carousel-text {
+  color: white; 
+}

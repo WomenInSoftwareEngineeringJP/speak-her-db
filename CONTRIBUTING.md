@@ -22,7 +22,7 @@ Please set up your editor to use [eslint](https://eslint.org/). We don't use Pre
 
 ## Style & UI 🎨
 
-1. We use Material Design via the [Vuetify](https://vuetifyjs.com/en/) framework for this site.
+1. We use Material Design via the [Vuetify](https://vuetifyjs.com/en/) framework for this site. (We may migrate to tailwind css soon)
 
 2. Icons should be selected from the [Material Icon Set (Filled)](https://material.io/resources/icons/?style=baseline), with a few exceptions where social media icons may be taken from FontAwesome.
 

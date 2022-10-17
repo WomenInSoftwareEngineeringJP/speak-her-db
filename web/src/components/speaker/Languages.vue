@@ -30,7 +30,7 @@ export default {
   },
   computed: {
     dynamicPadding() {
-      if (this.$vuetify.breakpoint.mdAndUp) {
+      if (true) {
         return {
 
         };

@@ -112,7 +112,7 @@ export default {
       }
     },
     dynamicCardPadding() {
-      if (this.$vuetify.breakpoint.mdAndUp) {
+      if (true) {
         return {
           'px-6': true,
           'py-4': true,

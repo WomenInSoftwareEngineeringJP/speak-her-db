@@ -14,7 +14,7 @@
         class="mt-3"
       />
       <links
-        v-if="$vuetify.breakpoint.mdAndUp"
+        v-if="true"
         :facebook="speaker.get('facebook_url')"
         :twitter="speaker.get('twitter_url')"
         :linked-in="speaker.get('linkedin_url')"
@@ -33,7 +33,7 @@
         no-gutters
       >
         <links
-          v-if="$vuetify.breakpoint.smAndDown"
+          v-if="false"
           :facebook="speaker.get('facebook_url')"
           :twitter="speaker.get('twitter_url')"
           :linked-in="speaker.get('linkedin_url')"

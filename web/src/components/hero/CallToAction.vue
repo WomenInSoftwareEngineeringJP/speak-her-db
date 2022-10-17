@@ -24,7 +24,7 @@
           outlined
           dark
           class="ma-2"
-          @click="$vuetify.goTo('#find-speaker', options)"
+          @click="alert('this used to do something')"
         >
           {{ $t('nav.findSpeaker') }}
         </v-btn>
@@ -43,7 +43,7 @@
         </v-btn>
       </v-row>
       <v-row
-        v-if="$vuetify.breakpoint.mdAndUp"
+        v-if="true"
         class="spacer"
       />
     </div>

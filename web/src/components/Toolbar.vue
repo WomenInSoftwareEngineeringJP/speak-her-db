@@ -19,7 +19,7 @@
     <v-spacer />
 
     <v-toolbar-items
-      v-if="$vuetify.breakpoint.mdAndUp"
+      v-if="true"
       class="d-flex align-center"
     >
       <div
