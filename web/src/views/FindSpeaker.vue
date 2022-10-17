@@ -126,17 +126,18 @@ export default {
     this.getSpeakers();
     this.setupBusEvents();
   },
-  beforeDestroy() {
-    bus.$off('contact-speaker');
-    bus.$off('search-by-params');
+  beforeUnmount() {
+    // TODO:
+    //bus.$off('contact-speaker');
+    //bus.$off('search-by-params');
   },
   methods: {
     setupBusEvents() {
-      bus.$on('contact-speaker', (speaker) => {
+      this.emitter.on('contact-speaker', (speaker) => {
         this.selectedSpeaker = speaker;
         this.showDialog = true;
       });
-      bus.$on('search-by-params', (params) => {
+      this.emitter.on('search-by-params', (params) => {
         this.resetPreSearchParams();
         this.getSpeakers(params);
       });

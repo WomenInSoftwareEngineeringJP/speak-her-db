@@ -21,7 +21,8 @@
         justify="center"
       >
         <v-btn
-          outlined
+          variant="outlined"
+          color="white"
           dark
           class="ma-2"
           @click="$vuetify.goTo('#find-speaker', options)"
@@ -34,7 +35,8 @@
         justify="center"
       >
         <v-btn
-          outlined
+          variant="outlined"
+          color="white"
           dark
           class="ma-4"
           href="nominate-speaker"
@@ -43,7 +45,6 @@
         </v-btn>
       </v-row>
       <v-row
-        v-if="$vuetify.breakpoint.mdAndUp"
         class="spacer"
       />
     </div>

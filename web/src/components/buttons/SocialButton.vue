@@ -1,11 +1,11 @@
 <template>
   <v-btn
     v-if="show"
+    variant="text"
     :href="link"
-    target="_blank"
     icon
-    :dark="dark"
-    :x-large="xLarge"
+    target="_blank"
+    size="x-large"
     color="primary"
   >
     <slot />

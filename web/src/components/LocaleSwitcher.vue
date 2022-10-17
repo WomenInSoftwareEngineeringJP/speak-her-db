@@ -1,11 +1,10 @@
 <template>
   <v-btn
-    text
     @click="changeLocale"
   >
     <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
     <v-icon left>
-      language
+      mdi-web
     </v-icon>
     {{ switchLabel }}
   </v-btn>

@@ -2,9 +2,7 @@
   <v-card>
     <v-col>
       <v-card-title>{{ title }}</v-card-title>
-      <v-card-text px-8>
-        <slot />
-      </v-card-text>
+      <v-card-text px-8 />
       <v-card-actions>
         <v-spacer />
         <v-btn

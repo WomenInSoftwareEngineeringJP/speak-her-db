@@ -4,6 +4,7 @@
       src="@/assets/hero.svg"
       max-height="650"
       contain
+      lazy="false"
     />
   </div>
 </template>

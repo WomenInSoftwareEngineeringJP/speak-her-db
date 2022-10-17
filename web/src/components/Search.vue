@@ -8,10 +8,10 @@
         <v-autocomplete
           :label="$t('findSpeaker.topics')"
           :placeholder="$t('findSpeaker.searchPlaceholder')"
-          prepend-icon="search"
+          prepend-icon="mdi-search"
           clearable
           :items="topicItems"
-          @change="selectItem('topic', $event)"
+          @select="selectItem('topic', value)"
         />
       </v-col>
       <v-col
@@ -21,7 +21,7 @@
         <v-autocomplete
           :label="$t('findSpeaker.places')"
           :placeholder="$t('findSpeaker.searchPlaceholder')"
-          prepend-icon="search"
+          prepend-icon="mdi-search"
           clearable
           :items="locationItems"
           @change="selectItem('location', $event)"
@@ -45,11 +45,14 @@ export default {
   },
   methods: {
     selectItem(fieldName, value) {
+      debugger;
       this[fieldName] = value || '';
       this.emitValues();
+      console.log(value);
     },
     emitValues() {
-      bus.$emit('search-by-params', {
+      console.log(this.topic);
+      this.emitter.emit('search-by-params', {
         topic: this.topic,
         location: this.location,
       });

@@ -1,9 +1,10 @@
 <template>
   <v-carousel
     cycle
+    color="white"
     height="400"
-    hide-delimiter-background
-    show-arrows-on-hover
+    hide-delimiters
+    show-arrows="hover"
   >
     <v-carousel-item
       v-for="(item, i) in press"
@@ -24,7 +25,7 @@
             >
               <v-img
                 max-height="200"
-                :max-width="$vuetify.breakpoint.mdAndUp ? '500' : '300'"
+                :max-width="500"
                 contain
                 :src="item.image"
               />
@@ -62,7 +63,7 @@ export default {
         {
           image: 'https://japanbyrivercruise.com/assets/images/image01.png?v88719225713061',
           name: 'Japan By River Cruise Podcast',
-          quote: `"...If more women see women being respresented, 
+          quote: `"...If more women see women being respresented,
             see women speaking, then they'll go, oh, that's a place I can be active too!"`,
           link: 'https://share.transistor.fm/s/f53eaea0',
         },

@@ -5,20 +5,20 @@
         {{ title }}
       </h2>
       <languages
-        v-if="$vuetify.breakpoint.mdAndUp"
         :languages="languages"
       />
       <v-spacer />
     </v-row>
     <!--mobile view-->
+    <!--
     <v-row
-      v-if="$vuetify.breakpoint.smAndDown"
       class="my-3"
     >
       <languages
         :languages="languages"
       />
     </v-row>
+    -->
   </div>
 </template>
 

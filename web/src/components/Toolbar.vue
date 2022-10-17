@@ -2,24 +2,26 @@
   <v-app-bar
     app
     color="primary"
-    dark
-    src="../assets/background.svg"
-    flat
     absolute
+    flat
   >
+    <template #image>
+      <v-img src="@/assets/background.svg" />
+    </template>
     <v-btn
       href="/"
-      text
+      :text="$t('hero.title')"
+      size="x-large"
+      variant="text"
     >
-      <v-toolbar-title>
+      <v-app-bar-title>
         {{ $t('hero.title') }}
-      </v-toolbar-title>
+      </v-app-bar-title>
     </v-btn>
 
     <v-spacer />
 
     <v-toolbar-items
-      v-if="$vuetify.breakpoint.mdAndUp"
       class="d-flex align-center"
     >
       <div
@@ -27,8 +29,9 @@
         :key="item.title"
       >
         <v-btn
-          text
+          :text="item.title"
           :href="item.path"
+          variant="text"
         >
           {{ item.title }}
         </v-btn>
@@ -39,15 +42,6 @@
         vertical
       />
       <locale-switcher />
-    </v-toolbar-items>
-    <v-toolbar-items v-else>
-      <v-btn
-        text
-        @click="$emit('click-menu')"
-      >
-        <!--eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
-        <v-icon>menu</v-icon>
-      </v-btn>
     </v-toolbar-items>
   </v-app-bar>
 </template>

@@ -1,9 +1,8 @@
 <template>
   <v-navigation-drawer
-    v-model="drawer"
-    app
-    right
-    dark
+    :model-value="drawer"
+    location="right"
+    temporary
     color="primary"
   >
     <v-list>
@@ -13,16 +12,10 @@
       >
         <v-list-item
           :href="item.path"
+          :title="item.title"
+          :prepend-icon="item.icon"
           link
-        >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+        />
       </div>
       <v-list-item>
         <locale-switcher />
