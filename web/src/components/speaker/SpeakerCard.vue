@@ -126,7 +126,7 @@ export default {
   },
   methods: {
     contactSpeaker() {
-      bus.$emit('contact-speaker', this.speaker);
+      this.emitter.emit('contact-speaker', this.speaker);
     },
   },
 };

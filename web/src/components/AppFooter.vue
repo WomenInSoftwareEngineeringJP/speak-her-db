@@ -16,7 +16,7 @@
           md="4"
           xs="12"
         >
-          <v-row :justify="center">
+          <v-row justify="center">
             <h3>
               {{ $t('footer.title') }}
             </h3>

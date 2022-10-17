@@ -1,9 +1,10 @@
 <template>
   <v-carousel
     cycle
+    color="white"
     height="400"
-    hide-delimiter-background
-    show-arrows-on-hover
+    hide-delimiters
+    show-arrows="hover"
   >
     <v-carousel-item
       v-for="(item, i) in press"
@@ -22,14 +23,12 @@
               justify="center"
               class="mb-5"
             >
-            <!--
               <v-img
                 max-height="200"
                 :max-width="500"
                 contain
                 :src="item.image"
               />
-              -->
             </v-row>
             <v-row
               justify="center"

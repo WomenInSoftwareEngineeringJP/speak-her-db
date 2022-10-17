@@ -9,7 +9,7 @@
         <v-chip
           color="silver"
           variant="outlined"
-          :size="small"
+          size="small"
         >
           {{ format(language) }}
         </v-chip>

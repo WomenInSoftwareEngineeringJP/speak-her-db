@@ -1,9 +1,8 @@
 <template>
   <v-navigation-drawer
-    v-model="drawer"
-    app
-    right
-    dark
+    :model-value="drawer"
+    location="right"
+    temporary
     color="primary"
   >
     <v-list>
