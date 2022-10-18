@@ -101,6 +101,12 @@ Run unit tests
 yarn run test:unit
 ```
 
+### Run E2E tests with [Cypress](https://docs.cypress.io/)
+After running the server on port 8080, in a separate tab, fire up cypress with:
+```
+yarn e2e
+```
+
 ### Testing production on local environment
 
 If you have access to the production database, you can setup your production config on `.env.production` and run the app in production mode using the command `yarn serve --mode production`

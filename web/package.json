@@ -9,7 +9,8 @@
     "build:lambda": "yarn run patch-package && yarn netlify-lambda build src/lambda --config ./webpack.functions.js",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
+    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
+    "e2e": "cypress open --e2e --browser chrome"
   },
   "dependencies": {
     "@mdi/font": "^6.5.95",

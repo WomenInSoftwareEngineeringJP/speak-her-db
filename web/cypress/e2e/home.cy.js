@@ -1,5 +1,5 @@
-describe('empty spec', () => {
+describe('Visits the page', () => {
   it('passes', () => {
-    cy.visit('https://example.cypress.io')
+    cy.visit('http://localhost:8080')
   })
 })
