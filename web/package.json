@@ -10,7 +10,7 @@
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
-    "e2e": "cypress open --e2e --browser chrome"
+    "e2e": "cypress open --e2e --browser chrome --port 9090"
   },
   "dependencies": {
     "@mdi/font": "^6.5.95",
