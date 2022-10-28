@@ -22,4 +22,4 @@ jobs:
         with:
           working-directory: ./web
           build: yarn build
-          start: yarn start
+          start: yarn run serve
