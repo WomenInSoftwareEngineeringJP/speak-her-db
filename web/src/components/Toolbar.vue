@@ -38,7 +38,7 @@
         inset
         vertical
       />
-      <locale-switcher />
+      <locale-switcher id="desktop-toolbar-language-switcher"/>
     </v-toolbar-items>
     <v-toolbar-items v-else>
       <v-btn
