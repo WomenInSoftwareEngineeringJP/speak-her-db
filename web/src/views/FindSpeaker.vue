@@ -38,6 +38,7 @@
           />
         </v-row>
         <div
+          id="speaker-list"
           v-if="!isLoading"
         >
           <div

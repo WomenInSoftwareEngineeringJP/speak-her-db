@@ -38,6 +38,7 @@
           dark
           class="ma-4"
           href="nominate-speaker"
+          id="home-nominate"
         >
           {{ $t('nav.nominateSpeaker') }}
         </v-btn>
