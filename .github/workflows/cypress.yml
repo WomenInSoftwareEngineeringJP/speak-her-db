@@ -25,6 +25,9 @@ jobs:
           AIRTABLE_DB_ID: ${{ secrets.CI_AIRTABLE_DB_ID }}
           AIRTABLE_API_KEY: ${{ secrets.CI_AIRTABLE_API_KEY }}
         with:
+          wait-on: 'http://localhost:8080/'
+          # wait for 3 minutes for the server to respond
+          wait-on-timeout: 180
           working-directory: ./web
           build: yarn build
           start: yarn run serve:ci
