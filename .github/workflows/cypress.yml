@@ -19,6 +19,11 @@ jobs:
       # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v4.2.0
+        env: 
+          VUE_APP_AIRTABLE_DB_ID: ${{ secrets.CI_AIRTABLE_DB_ID }}
+          VUE_APP_AIRTABLE_API_KEY: ${{ secrets.CI_AIRTABLE_API_KEY }}
+          AIRTABLE_DB_ID: ${{ secrets.CI_AIRTABLE_DB_ID }}
+          AIRTABLE_API_KEY: ${{ secrets.CI_AIRTABLE_API_KEY }}
         with:
           working-directory: ./web
           build: yarn build
