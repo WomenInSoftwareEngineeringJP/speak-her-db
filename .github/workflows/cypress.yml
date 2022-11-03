@@ -1,0 +1,33 @@
+name: 'Tests: Cypress e2e'
+
+on:
+  push:
+    branches: [ "main", "cypress-gh-action" ] # TODO remove after checking it works
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ "main" ]
+  schedule:
+    - cron: '45 15 * * 4'
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Install yarn dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v4.2.0
+        env: 
+          VUE_APP_AIRTABLE_DB_ID: ${{ secrets.CI_AIRTABLE_DB_ID }}
+          VUE_APP_AIRTABLE_API_KEY: ${{ secrets.CI_AIRTABLE_API_KEY }}
+          AIRTABLE_DB_ID: ${{ secrets.CI_AIRTABLE_DB_ID }}
+          AIRTABLE_API_KEY: ${{ secrets.CI_AIRTABLE_API_KEY }}
+        with:
+          wait-on: 'http://localhost:8080/'
+          # wait for 3 minutes for the server to respond
+          wait-on-timeout: 180
+          working-directory: ./web
+          build: yarn build
+          start: yarn run serve:ci

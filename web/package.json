@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "yarn build:front && yarn build:lambda",
+    "serve:ci": "vue-cli-service serve --mode=production",
+    "build": "yarn build:lambda && yarn build:front",
     "build:front": "vue-cli-service build",
     "build:lambda": "yarn run patch-package && yarn netlify-lambda build src/lambda --config ./webpack.functions.js",
     "test:unit": "vue-cli-service test:unit",
