@@ -27,4 +27,4 @@ jobs:
         with:
           working-directory: ./web
           build: yarn build
-          start: yarn run serve
+          start: yarn run serve:ci
