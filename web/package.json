@@ -20,7 +20,7 @@
     "encoding": "^0.1.13",
     "material-design-icons-iconfont": "^6.4.1",
     "netlify-lambda": "2.0.15",
-    "vue": "^2.6.14",
+    "vue": "^3.0.0",
     "vue-i18n": "^8.27.0",
     "vue-router": "^3.5.3",
     "vuelidate": "^0.7.7",
